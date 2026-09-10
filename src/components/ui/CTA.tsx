@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowUpRight, Phone, MessageSquare } from "lucide-react";
+import { ArrowUpRight, Phone, Mail } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { companyData } from "@/data/company";
@@ -27,8 +27,6 @@ export default function CTA({
   showContacts = true,
   className = "",
 }: CTAProps) {
-  const whatsappUrl = `https://wa.me/${companyData.contact.whatsappNumber.replace(/[^0-9]/g, "")}?text=Hello%20GG%20Construction%20Co.,%20I%20would%20like%20to%20discuss%20a%20project.`;
-
   return (
     <section className={`py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035] relative overflow-hidden ${className}`}>
       {/* Background Architectural Grid Pattern */}
@@ -81,6 +79,7 @@ export default function CTA({
                 <a
                   href={`tel:${companyData.contact.phone}`}
                   className="flex items-center gap-2 hover:text-[#F3F1EC] transition-colors"
+                  aria-label={`Call ${companyData.contact.phoneFormatted}`}
                 >
                   <Phone className="w-4 h-4 text-[#B89A63]" />
                   <span>Call: {companyData.contact.phoneFormatted}</span>
@@ -89,20 +88,13 @@ export default function CTA({
                 <span className="text-[#2A3035] hidden sm:inline">&bull;</span>
 
                 <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`mailto:${companyData.contact.email}`}
                   className="flex items-center gap-2 hover:text-[#F3F1EC] transition-colors"
+                  aria-label={`Email ${companyData.contact.email}`}
                 >
-                  <MessageSquare className="w-4 h-4 text-[#B89A63]" />
-                  <span>WhatsApp Desk</span>
+                  <Mail className="w-4 h-4 text-[#B89A63]" />
+                  <span>Email: {companyData.contact.email}</span>
                 </a>
-
-                <span className="text-[#2A3035] hidden sm:inline">&bull;</span>
-
-                <span className="text-[#667582] text-[11px] font-mono">
-                  {companyData.contact.officeHours}
-                </span>
               </div>
             )}
           </div>

@@ -121,9 +121,8 @@ export default function PrivacyPolicyPage() {
               For any questions regarding this policy or to request deletion of non-statutory commercial inquiries, please contact our Legal & Compliance Officer:
             </p>
             <div className="p-4 bg-[#15191D] border border-[#2A3035] mt-2 font-mono text-xs">
-              <span className="block text-[#F3F1EC] font-semibold">Legal & Compliance Cell</span>
-              <span className="block text-[#A7ADB3] mt-0.5">{companyData.name}</span>
-              <span className="block text-[#A7ADB3]">{companyData.contact.address.full}</span>
+              <span className="block text-[#F3F1EC] font-semibold">GG Construction Co.</span>
+              <span className="block text-[#A7ADB3] mt-0.5">Phone: {companyData.contact.phoneFormatted}</span>
               <span className="block text-[#B89A63] mt-1">Email: {companyData.contact.email}</span>
             </div>
           </section>

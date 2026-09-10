@@ -41,9 +41,9 @@ export interface CompanyConfig {
     phoneFormatted: string;
     email: string;
     enquiryEmail: string;
-    whatsappNumber: string;
-    whatsappFormatted: string;
-    address: {
+    whatsappNumber?: string;
+    whatsappFormatted?: string;
+    address?: {
       line1: string;
       line2: string;
       city: string;
@@ -52,7 +52,7 @@ export interface CompanyConfig {
       country: string;
       full: string;
     };
-    officeHours: string;
+    officeHours?: string;
   };
   metrics: CompanyMetrics;
   certifications: string[];
@@ -85,28 +85,16 @@ export const companyData: CompanyConfig = {
   name: "GG Construction Co.",
   legalName: "GG Construction & Infrastructure Projects (P) Ltd. [VERIFY LEGAL ENTITY]",
   establishedPlaceholder: "[VERIFY YEAR FOUNDED - e.g. Est. 2008]",
-  tagline: "One trusted partner from materials and engineering through construction and development.",
+  tagline: "Construction. Engineering. Materials.",
   positioning: "Integrated construction engineering, quality property development, and high-specification building material supply across India.",
   heroHeadline: "Building Strong Foundations. Creating Better Futures.",
   heroSupportingText: "GG Construction Co. brings together construction expertise, real-estate engineering and dependable building-material supply under one trusted name.",
   
   contact: {
-    phone: "+919876543210", // Placeholder format
-    phoneFormatted: "+91 [VERIFY PHONE NUMBER]",
-    email: "contact@ggconstruction.com [VERIFY EMAIL]",
-    enquiryEmail: "enquiry@ggconstruction.com [VERIFY EMAIL]",
-    whatsappNumber: "+919876543210",
-    whatsappFormatted: "+91 [VERIFY WHATSAPP]",
-    address: {
-      line1: "Plot No. [VERIFY PLOT / TOWER NUMBER], Construction Hub",
-      line2: "Industrial Area Phase II, Highway Corridor",
-      city: "[VERIFY PRIMARY CITY - e.g. New Delhi / Gurugram / Bengaluru]",
-      state: "[VERIFY STATE]",
-      pincode: "[VERIFY PINCODE]",
-      country: "India",
-      full: "[VERIFY CORPORATE ADDRESS - e.g. Corporate Tower, Sector 44, Commercial Corridor, India]",
-    },
-    officeHours: "Mon - Sat: 08:30 AM - 06:30 PM (IST)",
+    phone: "+919811034825",
+    phoneFormatted: "+91 98110 34825",
+    email: "gunjan29gupta@gmail.com",
+    enquiryEmail: "gunjan29gupta@gmail.com",
   },
 
   metrics: {

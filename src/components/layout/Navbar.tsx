@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowUpRight, Phone, MessageSquare } from "lucide-react";
+import { Menu, X, ArrowUpRight, Phone, Mail } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { companyData } from "@/data/company";
 
@@ -210,24 +210,20 @@ export default function Navbar() {
             <div className="grid grid-cols-2 gap-3">
               <a
                 href={`tel:${companyData.contact.phone}`}
-                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#F3F1EC] border border-[#2A3035] bg-[#15191D]"
+                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#F3F1EC] border border-[#2A3035] bg-[#15191D] hover:border-[#B89A63]/60 transition-colors"
+                aria-label={`Call GG Construction Co. at ${companyData.contact.phoneFormatted}`}
               >
                 <Phone className="w-3.5 h-3.5 text-[#B89A63]" />
                 <span>Call Us</span>
               </a>
               <a
-                href={`https://wa.me/${companyData.contact.whatsappNumber.replace(/[^0-9]/g, "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#F3F1EC] border border-[#2A3035] bg-[#15191D]"
+                href={`mailto:${companyData.contact.email}`}
+                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#F3F1EC] border border-[#2A3035] bg-[#15191D] hover:border-[#B89A63]/60 transition-colors"
+                aria-label={`Email GG Construction Co. at ${companyData.contact.email}`}
               >
-                <MessageSquare className="w-3.5 h-3.5 text-[#B89A63]" />
-                <span>WhatsApp</span>
+                <Mail className="w-3.5 h-3.5 text-[#B89A63]" />
+                <span>Email Us</span>
               </a>
-            </div>
-
-            <div className="text-[11px] text-[#A7ADB3] text-center pt-2">
-              {companyData.contact.officeHours}
             </div>
           </div>
         </div>

@@ -96,14 +96,6 @@ export default function RootLayout({
     logo: `${BASE_URL}/logo.png`,
     telephone: companyData.contact.phoneFormatted,
     email: companyData.contact.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: companyData.contact.address.line1,
-      addressLocality: companyData.contact.address.city,
-      addressRegion: companyData.contact.address.state,
-      postalCode: companyData.contact.address.pincode,
-      addressCountry: "IN",
-    },
     areaServed: {
       "@type": "Country",
       name: "India",
