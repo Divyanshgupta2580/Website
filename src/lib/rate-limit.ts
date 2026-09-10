@@ -22,13 +22,16 @@ interface RateLimitRecord {
 
 const rateLimitStore = new Map<string, RateLimitRecord>();
 
-// Periodic garbage collection every 5 minutes
+// Periodic garbage collection every 5 minutes and store capacity bounding
 const CLEANUP_INTERVAL_MS = 5 * 60 * 1000;
+const MAX_STORE_ENTRIES = 10000; // Hard ceiling to prevent memory exhaustion
 let lastCleanup = Date.now();
 
-function cleanupExpiredRecords(windowMs: number) {
+function cleanupExpiredRecords(windowMs: number, force = false) {
   const now = Date.now();
-  if (now - lastCleanup < CLEANUP_INTERVAL_MS) return;
+  if (!force && now - lastCleanup < CLEANUP_INTERVAL_MS && rateLimitStore.size < MAX_STORE_ENTRIES) {
+    return;
+  }
   lastCleanup = now;
 
   const expiry = now - windowMs;
@@ -40,6 +43,18 @@ function cleanupExpiredRecords(windowMs: number) {
       record.timestamps = validTimestamps;
     }
   });
+
+  // If still above hard ceiling after pruning expired entries, evict oldest
+  if (rateLimitStore.size >= MAX_STORE_ENTRIES) {
+    const excess = rateLimitStore.size - MAX_STORE_ENTRIES + 100; // Evict a batch
+    let count = 0;
+    const keys = Array.from(rateLimitStore.keys());
+    for (const key of keys) {
+      rateLimitStore.delete(key);
+      count++;
+      if (count >= excess) break;
+    }
+  }
 }
 
 export interface RateLimitOptions {
@@ -108,7 +123,11 @@ const IPV6_REGEX = /^[a-fA-F0-9:]+$/;
 
 function isValidIp(ip: string): boolean {
   if (!ip || ip.length > 45) return false;
-  return IPV4_REGEX.test(ip) || IPV6_REGEX.test(ip);
+  if (IPV4_REGEX.test(ip)) {
+    const octets = ip.split(".").map((num) => parseInt(num, 10));
+    return octets.every((octet) => !isNaN(octet) && octet >= 0 && octet <= 255);
+  }
+  return IPV6_REGEX.test(ip);
 }
 
 /**

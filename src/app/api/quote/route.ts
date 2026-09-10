@@ -6,25 +6,26 @@ import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 const MAX_PAYLOAD_BYTES = 32 * 1024;
 
 const quoteSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters").max(100),
-  phone: z.string().min(8, "Valid phone number required").max(20),
-  email: z.string().email("Valid email address required"),
-  company: z.string().max(120).optional().default(""),
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
+  phone: z.string().trim().min(8, "Valid phone number required").max(20),
+  email: z.string().trim().email("Valid email address required"),
+  company: z.string().trim().max(120).optional().default(""),
   enquiryType: z.enum(["construction", "real-estate", "materials"]),
-  projectType: z.string().min(2, "Please select project type").max(80),
-  location: z.string().min(2, "Project location / city required").max(100),
-  approximateArea: z.string().min(1, "Approximate area or tonnage required").max(50),
-  budgetRange: z.string().min(1, "Estimated budget range required").max(50),
-  timeline: z.string().min(1, "Target timeline required").max(50),
-  requirements: z.array(z.string().max(100)).max(20).optional().default([]),
-  message: z.string().max(3000).optional().default(""),
+  projectType: z.string().trim().min(2, "Please select project type").max(80),
+  location: z.string().trim().min(2, "Project location / city required").max(100),
+  approximateArea: z.string().trim().min(1, "Approximate area or tonnage required").max(50),
+  budgetRange: z.string().trim().min(1, "Estimated budget range required").max(50),
+  timeline: z.string().trim().min(1, "Target timeline required").max(50),
+  requirements: z.array(z.string().trim().max(100)).max(20).optional().default([]),
+  message: z.string().trim().max(3000).optional().default(""),
   bot_field: z.string().max(0, "Bot detected").optional().default(""),
 });
 
 export async function POST(request: Request) {
   // 1. Content-Type Check
-  const contentType = request.headers.get("content-type") || "";
-  if (!contentType.toLowerCase().includes("application/json")) {
+  const rawContentType = request.headers.get("content-type") || "";
+  const [mediaType] = rawContentType.split(";").map((s) => s.trim().toLowerCase());
+  if (mediaType !== "application/json") {
     return NextResponse.json(
       { success: false, error: "Unsupported Media Type: Request must be application/json." },
       { status: 415 }
@@ -65,8 +66,9 @@ export async function POST(request: Request) {
 
   try {
     const rawBody = await request.text();
+    const byteLength = Buffer.byteLength(rawBody, "utf8");
 
-    if (rawBody.length > MAX_PAYLOAD_BYTES) {
+    if (byteLength > MAX_PAYLOAD_BYTES) {
       return NextResponse.json(
         { success: false, error: "Payload Too Large: Submission exceeds 32 KB limit." },
         { status: 413 }
