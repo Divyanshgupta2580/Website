@@ -1,0 +1,133 @@
+export interface GalleryItem {
+  id: string;
+  title: string;
+  category: "Architecture" | "Construction & Engineering" | "Building Materials" | "Interiors & Finishes";
+  location: string;
+  description: string;
+  image: string;
+  relatedSlug?: string;
+  aspect: "landscape" | "portrait" | "square";
+}
+
+export const galleryData: GalleryItem[] = [
+  {
+    id: "gal-1",
+    title: "Apex Commercial Tower - Exterior Glazing",
+    category: "Architecture",
+    location: "Commercial District",
+    description: "Double-glazed unitized curtain wall envelope with custom solar-shading ceramic frit.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/projects/apex-commercial-tower",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-2",
+    title: "Heavy Rebar Cage & Foundation Pour",
+    category: "Construction & Engineering",
+    location: "Sector 62 Site",
+    description: "High-density Fe 500D rebar mat foundation prior to continuous raft concrete pour.",
+    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/services/turnkey-construction",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-3",
+    title: "Zenith Industrial PEB Haunch Structure",
+    category: "Construction & Engineering",
+    location: "NH-48 Industrial Corridor",
+    description: "Pre-engineered structural steel portal frames supporting 35-ton gantry crane runway beams.",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/projects/zenith-logistics-park",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-4",
+    title: "Serene Meadow Estates - Cantilevered Terraces",
+    category: "Architecture",
+    location: "Foothills Boulevard",
+    description: "Post-tensioned cantilevered balcony over private landscaped lap pool.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/projects/serene-villas-phase1",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-5",
+    title: "Primary TMT Steel Quality Stockyard",
+    category: "Building Materials",
+    location: "Central Materials Depot",
+    description: "Certified Fe 500D primary steel rebar bundles tagged with heat traceability codes.",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/materials/tmt-steel",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-6",
+    title: "Precision AAC Block Staging & Adhesive Masonry",
+    category: "Building Materials",
+    location: "Commercial Site B-4",
+    description: "Millimeter-calibrated AAC block masonry laid with 3mm polymer thin-bed adhesive.",
+    image: "https://images.unsplash.com/photo-1584463699026-df06a5e1c0c6?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/materials/bricks-blocks",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-7",
+    title: "Triple-Height Commercial Granite Atrium",
+    category: "Interiors & Finishes",
+    location: "Apex Tower Lobby",
+    description: "Acoustic fluted granite wall finishes with integrated linear bronze LED lighting channels.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/projects/apex-commercial-tower",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-8",
+    title: "Automated Laser Screed Industrial Floor Pour",
+    category: "Construction & Engineering",
+    location: "Zenith Hub Site",
+    description: "Laser-guided concrete placement achieving TR34 FM-2 superflat tolerance.",
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/services/industrial-construction",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-9",
+    title: "Fair-Faced Architectural Concrete Finishing",
+    category: "Interiors & Finishes",
+    location: "The Grand Residence",
+    description: "Exposed board-formed architectural concrete walls with custom tie-rod geometry.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/projects/the-grand-residence",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-10",
+    title: "Bulk Cement Silo Discharge & Quality Lab",
+    category: "Building Materials",
+    location: "Batching Plant Hub",
+    description: "On-site pneumatic cement discharge paired with automated compression test cubing.",
+    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/materials/cement",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-11",
+    title: "Heritage Courtyard Restored Atrium",
+    category: "Architecture",
+    location: "Old City District",
+    description: "Colonial brick arches reinforced with discreet carbon-fiber structural laminates.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/projects/heritage-courtyard-restoration",
+    aspect: "landscape",
+  },
+  {
+    id: "gal-12",
+    title: "Subterranean Mass Earthwork & Retention",
+    category: "Construction & Engineering",
+    location: "Commercial CBD",
+    description: "Deep soldier pile and anchored shotcrete retention wall supporting urban highway.",
+    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80",
+    relatedSlug: "/services/site-development",
+    aspect: "landscape",
+  },
+];
