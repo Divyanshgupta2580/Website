@@ -6,7 +6,7 @@
 
 const http = require("http");
 
-const BASE_URL = "http://localhost:3001";
+const BASE_URL = process.env.TEST_URL || "http://localhost:3001";
 
 // Helper for making HTTP requests
 function request(path, options = {}) {
