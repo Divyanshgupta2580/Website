@@ -13,6 +13,7 @@ export interface MaterialProduct {
 export interface MaterialCategoryItem {
   slug: string;
   title: string;
+  shortTitle?: string;
   subtitle: string;
   iconName: string;
   heroImage: string;
@@ -33,6 +34,7 @@ export const materialsData: MaterialCategoryItem[] = [
   {
     slug: "cement",
     title: "Cement & Binders",
+    shortTitle: "Cement",
     subtitle: "Certified Ordinary Portland Cement (OPC) & Portland Pozzolana Cement (PPC)",
     iconName: "Layers",
     heroImage: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1600&q=80",
@@ -103,6 +105,7 @@ export const materialsData: MaterialCategoryItem[] = [
   {
     slug: "tmt-steel",
     title: "TMT Rebars & Structural Steel",
+    shortTitle: "TMT Steel",
     subtitle: "High-Ductility Primary Steel Rebars (Fe 500D / Fe 550D / CRS)",
     iconName: "ShieldCheck",
     heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80",
@@ -172,6 +175,7 @@ export const materialsData: MaterialCategoryItem[] = [
   {
     slug: "bricks-blocks",
     title: "Bricks & AAC Blocks",
+    shortTitle: "Bricks & Blocks",
     subtitle: "Precision Autoclaved Aerated Concrete (AAC) & High-Strength Red Clay Bricks",
     iconName: "Boxes",
     heroImage: "https://images.unsplash.com/photo-1584463699026-df06a5e1c0c6?auto=format&fit=crop&w=1600&q=80",
@@ -236,6 +240,7 @@ export const materialsData: MaterialCategoryItem[] = [
   {
     slug: "sand",
     title: "Sand & Fine Aggregates",
+    shortTitle: "Sand",
     subtitle: "Eco-Friendly Manufactured Sand (M-Sand) & Plastering Sand (P-Sand)",
     iconName: "Gem",
     heroImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
@@ -288,6 +293,7 @@ export const materialsData: MaterialCategoryItem[] = [
   {
     slug: "aggregates",
     title: "Coarse Aggregates & GSB",
+    shortTitle: "Aggregates",
     subtitle: "Machine-Crushed Blue Metal Aggregates (10mm, 20mm, 40mm & Wet Mix)",
     iconName: "Layers",
     heroImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1600&q=80",
@@ -347,8 +353,71 @@ export const materialsData: MaterialCategoryItem[] = [
     relatedCategorySlugs: ["sand", "cement", "tmt-steel"],
   },
   {
+    slug: "sand-aggregates",
+    title: "Sand & Aggregates",
+    shortTitle: "Sand & Aggregates",
+    subtitle: "VSI Manufactured Sand (M-Sand, P-Sand) & Graded Blue Metal Coarse Aggregates",
+    iconName: "Gem",
+    heroImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
+    overview: "We supply certified VSI Manufactured Sand (M-Sand), hydro-washed Plastering Sand (P-Sand), and machine-crushed hard-granite coarse aggregates (10mm, 20mm, 40mm) tested to IS 383:2016 for superior concrete workability, density, and structural durability.",
+    advantages: [
+      "VSI shaped cubical particles guaranteeing superior concrete workability and bonding",
+      "Silt content strictly verified below 3% through continuous laboratory washing checks",
+      "Low flakiness and elongation index (< 15%) preventing structural honeycombing",
+      "Guaranteed volume verification via digital multi-axle weighbridges",
+    ],
+    authorizedBrandsPlaceholder: [
+      "[VERIFY CERTIFIED QUARRY PARTNERS - VSI Crushing & Hydro-Wash Units]",
+      "[ADD GOVERNMENT CRUSHING LICENSE & ENVIRONMENTAL CLEARANCE]",
+    ],
+    qualityAssuranceNotes: "Fully compliant with IS 383:2016 for fine and coarse aggregates. Sieve analysis conducted on every consignment verifying Zone II for M-Sand and low flakiness for 20mm aggregates.",
+    bulkLogisticsDetails: "Delivered by 10-wheeler and 12-wheeler heavy tipper dump trucks (16 to 30 MT per load). Weighbridge printouts provided at dispatch and site entry.",
+    products: [
+      {
+        name: "Concrete M-Sand (Zone II)",
+        gradeVariants: ["0 to 4.75mm Graded VSI Sand"],
+        specifications: [
+          { label: "Grading Zone", value: "[VERIFY SPECIFICATION - IS 383 Zone II]" },
+          { label: "Silt Content", value: "[VERIFY SPECIFICATION - Silt < 3% by Weight]" },
+        ],
+        applications: ["RCC slabs, columns, and foundations", "Ready-Mix Concrete (RMC) batching"],
+        packaging: "Loose Bulk Tipper Delivery",
+        minimumOrder: "16 Metric Tons (1 Tipper Load)",
+      },
+      {
+        name: "20mm Graded Coarse Aggregate",
+        gradeVariants: ["Single Sized 20mm", "Graded 20mm to 10mm Mix"],
+        specifications: [
+          { label: "Impact Value", value: "[VERIFY SPECIFICATION - Max 18%]" },
+          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 383:2016]" },
+        ],
+        applications: ["RCC structural beams, slabs, columns", "Heavy civil foundations"],
+        packaging: "Loose Tipper Delivery",
+        minimumOrder: "16 Metric Tons",
+      },
+      {
+        name: "Plastering P-Sand (Zone IV)",
+        gradeVariants: ["0 to 2.36mm Hydro-Washed Fine Sand"],
+        specifications: [
+          { label: "Grading Zone", value: "[VERIFY SPECIFICATION - IS 383 Zone IV]" },
+        ],
+        applications: ["Internal and external wall plastering", "Fine masonry bedding"],
+        packaging: "Loose Bulk Tipper / 50 kg Moisture-Resistant Bags",
+        minimumOrder: "16 Metric Tons",
+      },
+    ],
+    faqs: [
+      {
+        question: "Does M-Sand deliver equal or higher strength compared to river sand?",
+        answer: "Independent laboratory testing confirms that concrete mixed with washed VSI M-Sand typically exhibits 10% to 15% higher compressive strength due to its cubical angularity and zero silt interference.",
+      },
+    ],
+    relatedCategorySlugs: ["cement", "bricks-blocks", "construction-chemicals"],
+  },
+  {
     slug: "plumbing",
     title: "Plumbing & Sanitary Systems",
+    shortTitle: "Plumbing",
     subtitle: "Engineered CPVC, UPVC, SWR Piping & Commercial Valves",
     iconName: "Wrench",
     heroImage: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=80",
@@ -400,6 +469,7 @@ export const materialsData: MaterialCategoryItem[] = [
   {
     slug: "electrical",
     title: "Electrical Infrastructure & Cables",
+    shortTitle: "Electrical",
     subtitle: "FR / FRLS Copper Wires, Armoured Power Cables & Modular Conduits",
     iconName: "Zap",
     heroImage: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=1600&q=80",
@@ -452,6 +522,7 @@ export const materialsData: MaterialCategoryItem[] = [
   {
     slug: "construction-chemicals",
     title: "Construction Chemicals & Waterproofing",
+    shortTitle: "Construction Chemicals",
     subtitle: "Polymer Admixtures, Crystalline Waterproofing, Epoxies & Tile Grouts",
     iconName: "FlaskConical",
     heroImage: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=80",
@@ -514,6 +585,7 @@ export const materialsData: MaterialCategoryItem[] = [
   {
     slug: "other-building-supplies",
     title: "Other Building & Site Supplies",
+    shortTitle: "Other Materials",
     subtitle: "Hardware, Safety PPE, Scaffolding Accessories & Fasteners",
     iconName: "Hammer",
     heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80",

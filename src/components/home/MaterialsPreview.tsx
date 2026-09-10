@@ -28,11 +28,23 @@ export default function MaterialsPreview() {
           }
         />
 
-        {/* 8 Core Categories Grid */}
+        {/* 8 Core Categories Grid (Exact Prompt Specification) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {materialsData.slice(0, 8).map((material) => (
-            <MaterialCard key={material.slug} material={material} />
-          ))}
+          {[
+            "cement",
+            "tmt-steel",
+            "bricks-blocks",
+            "sand-aggregates",
+            "plumbing",
+            "electrical",
+            "construction-chemicals",
+            "other-building-supplies",
+          ]
+            .map((slug) => materialsData.find((m) => m.slug === slug))
+            .filter((m): m is (typeof materialsData)[0] => Boolean(m))
+            .map((material) => (
+              <MaterialCard key={material.slug} material={material} />
+            ))}
         </div>
 
         {/* Bottom Banner with Direct Material Quote Action */}

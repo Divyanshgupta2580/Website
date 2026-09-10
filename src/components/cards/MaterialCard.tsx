@@ -42,7 +42,7 @@ export default function MaterialCard({
           <div className="absolute bottom-3 left-4 right-4 z-10">
             <h3 className="text-xl font-light text-[#F3F1EC] group-hover:text-[#B89A63] transition-colors">
               <Link href={`/materials/${material.slug}`} className="focus:outline-none">
-                {material.title}
+                {material.shortTitle || material.title}
               </Link>
             </h3>
             <span className="text-[11px] text-[#A7ADB3] line-clamp-1 mt-0.5 block">
