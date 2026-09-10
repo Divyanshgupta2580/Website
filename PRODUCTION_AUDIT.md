@@ -181,7 +181,7 @@ The application has been verified across responsive viewports:
 | Variable | Required | Default / Fallback | Purpose |
 | :--- | :--- | :--- | :--- |
 | `NEXT_PUBLIC_APP_URL` | Recommended | `https://ggconstruction.com` | Primary canonical URL for OpenGraph, sitemap, and robots. |
-| `NODE_ENV` | Yes | `production` | Enables Next.js compiler optimizations and minimizes bundles. |
+| `NODE_ENV` | Auto-managed | `production` | Automatically set by Vercel/Next.js runtime. Do not configure manually. |
 | `CRM_WEBHOOK_URL` | Optional | `None` (Safely skipped) | Webhook URL for forwarding contact and quote leads. |
 | `CRM_API_BEARER_TOKEN` | Optional | `None` | Bearer token for CRM webhook authorization header. |
 | `EMAIL_NOTIFICATION_ENDPOINT`| Optional | `None` (Safely skipped) | Internal microservice endpoint for email notifications. |

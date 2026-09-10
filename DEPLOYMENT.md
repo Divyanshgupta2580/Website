@@ -6,17 +6,28 @@ A streamlined, production-ready guide for deploying and maintaining the **GG Con
 
 ## 1. Environment Variables
 
-Create a `.env.local` (for local development) or configure these in your production hosting platform (e.g. Vercel, AWS Amplify, Docker):
+Configure environment variables in your deployment platform (e.g., Vercel Project Settings > Environment Variables). When running locally, copy [.env.example](file:///.env.example) to `.env.local`.
 
-| Variable | Required | Default / Example | Purpose |
+### Public Client Variable
+| Variable | Scope | Required | Default / Fallback | Purpose |
+|---|---|---|---|---|
+| `NEXT_PUBLIC_APP_URL` | Public (Browser & Server) | Optional | `https://ggconstruction.com` | Canonical base URL used for metadata, OpenGraph, sitemap, and robots.txt. |
+
+### Optional Server-Side Integrations
+These are server-only secrets. Do **NOT** prefix them with `NEXT_PUBLIC_`. When omitted, form submissions are safely logged server-side with masked IPs and reference IDs generated with zero errors.
+
+| Variable | Scope | Required | Purpose |
 |---|---|---|---|
-| `NEXT_PUBLIC_APP_URL` | Optional | `https://ggconstruction.com` | Base URL used for OpenGraph images, canonical tags, and sitemaps. |
-| `NODE_ENV` | Yes | `production` | Enables production optimizations and disables debug warnings. |
-| `PORT` | Optional | `3000` | Port for the standalone Next.js server. |
-| `EMAIL_SERVICE_API_KEY` | Optional | `re_...` or SendGrid Key | (Future) API key for live email notification dispatch from `/api/contact` & `/api/quote`. |
-| `CRM_WEBHOOK_URL` | Optional | `https://crm.ggconstruction.com/hooks/lead` | (Future) Webhook endpoint for direct CRM lead ingestion. |
+| `CRM_WEBHOOK_URL` | Server-only | Optional | Secure webhook endpoint receiving JSON payloads for CRM lead forwarding. |
+| `CRM_API_BEARER_TOKEN` | Server-only | Optional | Bearer authentication token sent in the `Authorization` header to the CRM webhook. |
+| `EMAIL_NOTIFICATION_ENDPOINT` | Server-only | Optional | HTTP relay endpoint for dispatching email notifications upon lead submission. |
+| `EMAIL_SERVICE_KEY` | Server-only | Optional | Secret key sent in `X-Service-Key` header to the email notification relay. |
 
-A template is maintained in [.env.example](file:///.env.example).
+### Runtime Environment & Port Notes
+- **`PORT`**: Do **NOT** define `PORT` as an environment variable. The runtime hosting platform (e.g. Vercel, AWS, Cloud Run) assigns and manages the port dynamically.
+- **`NODE_ENV`**: Do **NOT** configure `NODE_ENV` manually on Vercel. Next.js and Vercel automatically manage the appropriate runtime environment during build and start.
+
+A clean template is maintained in [.env.example](file:///.env.example).
 
 ---
 
@@ -85,11 +96,8 @@ npx next start -p 8080
 
 ### Option B: Docker / Node.js VM / AWS ECS
 A minimal production Docker container can be run using the standard Next.js standalone output:
-```dockerfile
 FROM node:20-alpine AS runner
 WORKDIR /app
-ENV NODE_ENV=production
-ENV PORT=3000
 
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
@@ -97,7 +105,7 @@ RUN npm ci --omit=dev
 COPY .next ./.next
 COPY public ./public
 
-EXPOSE 3000
+# Next.js start automatically respects the runtime PORT provided by the container hosting platform
 CMD ["npm", "run", "start"]
 ```
 

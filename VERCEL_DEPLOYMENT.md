@@ -47,10 +47,13 @@ Remote repository: `https://github.com/Divyanshgupta2580/Website.git`
 ### Step 3: Configure Environment Variables
 In the **Environment Variables** section before deploying (or in Project Settings > Environment Variables):
 
-| Key | Value | Environment | Required? |
+| Key | Value | Environment | Scope |
 | :--- | :--- | :--- | :--- |
-| `NEXT_PUBLIC_APP_URL` | `https://ggconstruction.com` (or your Vercel URL) | Production, Preview | **Recommended** |
-| `NODE_ENV` | `production` | Production | Auto-managed by Vercel |
+| `NEXT_PUBLIC_APP_URL` | `https://ggconstruction.com` (or your production URL) | Production, Preview | Public (Browser & Server) |
+
+> **Runtime Environment Notes:**
+> - `NODE_ENV`: Automatically managed by Next.js and Vercel (`production` for production builds/deployments). Do **not** set manually in Vercel project settings.
+> - `PORT`: Dynamically controlled by Vercel's serverless runtime. Do **not** define `PORT`.
 
 *(Optional lead integration variables can be added later as needed; see Section 5).*
 

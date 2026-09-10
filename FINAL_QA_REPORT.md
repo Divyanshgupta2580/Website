@@ -142,7 +142,7 @@ The following items are centralized in `src/data/*.ts` with bracketed `[VERIFY .
 ## 8. Deployment Prerequisites Checklist
 
 - [ ] Set `NEXT_PUBLIC_APP_URL` in production environment (e.g. `https://ggconstruction.com`).
-- [ ] Set `NODE_ENV=production`.
+- [ ] Confirm runtime is production (`NODE_ENV` is set automatically by Vercel/Next.js).
 - [ ] (Optional) Set `CRM_WEBHOOK_URL` and `CRM_API_BEARER_TOKEN` for lead forwarding.
 - [ ] (Optional) Set `EMAIL_NOTIFICATION_ENDPOINT` and `EMAIL_SERVICE_KEY` for email notification relay.
 - [ ] Ensure edge reverse proxy (Cloudflare, Nginx, or AWS ALB) terminates SSL, forces HTTPS, and strips client-injected `X-Forwarded-For` headers.
