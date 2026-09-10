@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0B0D0F] border-t border-[#2A3035] text-[#A7ADB3] pt-16 pb-12">
+    <footer className="bg-[#0B0D0F] border-t border-[#2A3035] text-[#A7ADB3] pt-16 pb-24 lg:pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Corporate Identification & Value Tag */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-[#2A3035]">
