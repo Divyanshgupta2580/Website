@@ -59,7 +59,7 @@ export default function RealEstatePage() {
             <ShieldCheck className="w-6 h-6 text-[#B89A63] flex-shrink-0" />
             <div className="text-xs">
               <span className="text-[#F3F1EC] font-semibold text-sm block">
-                100% RERA Registered & Escrow Ring-Fenced
+                RERA-Compliant Project Governance & Escrow Ring-Fenced
               </span>
               <span className="text-[#A7ADB3] block mt-0.5">
                 All collections held in statutory bank escrow accounts with transparent quarterly progress audits and zero diversion of development capital.

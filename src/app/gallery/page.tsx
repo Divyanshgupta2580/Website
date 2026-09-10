@@ -60,9 +60,15 @@ export default function GalleryPage() {
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
             Architectural & Engineering Gallery
           </h1>
-          <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            High-resolution visual records of our civil execution, deep foundations, primary steel stockyards, and delivered spaces.
+          <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed mb-4">
+            High-resolution visual records of civil execution, structural works, material stockyards, and delivered spaces.
           </p>
+          <div className="p-3.5 bg-[#15191D] border border-[#2A3035] text-xs text-[#A7ADB3] flex items-center gap-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#B89A63] flex-shrink-0" />
+            <span>
+              <strong className="text-[#F3F1EC]">Archival Notice:</strong> Imagery illustrates representative structural typologies and engineering benchmarks. [VERIFY SITE-SPECIFIC PORTFOLIO PHOTOGRAPHY WITH PROJECT CELL]
+            </span>
+          </div>
         </div>
       </section>
 

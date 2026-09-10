@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://ggconstruction.com";
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -9,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://ggconstruction.com/sitemap.xml",
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }

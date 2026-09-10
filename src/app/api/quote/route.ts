@@ -132,12 +132,22 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString(),
     });
 
+    const referenceId = `GGE-${Date.now().toString().slice(-6)}`;
+
+    // 7. Optional downstream integration dispatch (CRM / Email Relay)
+    // Non-blocking, environment-variable gated, fails safely without leaking internal details
+    await dispatchDownstreamIntegrations({
+      ...sanitizedData,
+      referenceId,
+      source: "quote_estimator",
+    });
+
     return NextResponse.json(
       {
         success: true,
         message:
           "Your project specification has been logged with our estimation desk. A senior quantity surveyor or division director will connect with you to review drawings and provide preliminary cost guidance.",
-        referenceId: `GGE-${Date.now().toString().slice(-6)}`,
+        referenceId,
       },
       {
         status: 200,
@@ -152,5 +162,56 @@ export async function POST(request: Request) {
       { success: false, error: "Unable to process quote request at this time. Please contact us directly." },
       { status: 500 }
     );
+  }
+}
+
+/**
+ * Optional downstream integration dispatcher (e.g., CRM Webhook, SMTP Relay Endpoint).
+ * Designed to fail safely without exposing internal network details or interrupting client response.
+ */
+async function dispatchDownstreamIntegrations(payload: Record<string, unknown>) {
+  const crmWebhookUrl = process.env.CRM_WEBHOOK_URL;
+  const emailNotificationEndpoint = process.env.EMAIL_NOTIFICATION_ENDPOINT;
+
+  const dispatchPromises: Promise<unknown>[] = [];
+
+  if (crmWebhookUrl) {
+    dispatchPromises.push(
+      fetch(crmWebhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(process.env.CRM_API_BEARER_TOKEN
+            ? { Authorization: `Bearer ${process.env.CRM_API_BEARER_TOKEN}` }
+            : {}),
+        },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(3000), // 3-second hard timeout
+      }).catch((err) => {
+        console.error("[CRM INTEGRATION DISPATCH FAILED]", err instanceof Error ? err.message : "Unknown error");
+      })
+    );
+  }
+
+  if (emailNotificationEndpoint) {
+    dispatchPromises.push(
+      fetch(emailNotificationEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(process.env.EMAIL_SERVICE_KEY
+            ? { "X-Service-Key": process.env.EMAIL_SERVICE_KEY }
+            : {}),
+        },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(3000),
+      }).catch((err) => {
+        console.error("[EMAIL RELAY DISPATCH FAILED]", err instanceof Error ? err.message : "Unknown error");
+      })
+    );
+  }
+
+  if (dispatchPromises.length > 0) {
+    await Promise.allSettled(dispatchPromises);
   }
 }

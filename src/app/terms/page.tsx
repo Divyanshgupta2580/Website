@@ -39,6 +39,19 @@ export default function TermsPage() {
           </p>
         </div>
 
+        {/* Legal Advisory Callout */}
+        <div className="mb-10 p-5 bg-[#15191D] border border-[#B89A63]/40 flex items-start gap-3.5">
+          <div className="w-2 h-2 rounded-full bg-[#B89A63] mt-1.5 flex-shrink-0" />
+          <div className="text-xs text-[#A7ADB3] space-y-1">
+            <span className="font-semibold text-[#F3F1EC] uppercase tracking-wider block font-mono text-[11px]">
+              [LEGAL COUNSEL REVIEW REQUIRED]
+            </span>
+            <p>
+              These Terms &amp; Conditions establish standard engineering, supply chain, and developmental terms of engagement. Formal contractual commitments require bilateral execution of detailed FIDIC / CPWD standard contracts, escrow agreements, and confirmed Bills of Quantities vetted by corporate legal counsel.
+            </p>
+          </div>
+        </div>
+
         <div className="prose prose-invert max-w-none text-xs sm:text-sm text-[#A7ADB3] leading-relaxed space-y-8 font-light">
           <section>
             <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">

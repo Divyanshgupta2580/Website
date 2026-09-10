@@ -95,7 +95,7 @@ export default function TrustProposition() {
             </div>
             <h3 className="text-base font-medium text-[#F3F1EC] mb-2">Compressed Timelines</h3>
             <p className="text-xs text-[#A7ADB3] leading-relaxed">
-              Eliminating external supply delays cuts structural project schedules by an average of 15% to 25%.
+              Eliminating external supply delays significantly compresses structural schedules, mitigating common procurement lead-time bottlenecks.
             </p>
           </div>
         </div>

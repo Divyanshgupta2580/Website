@@ -13,8 +13,10 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://ggconstruction.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ggconstruction.com"),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: "GG Construction Co. | Construction, Real Estate & Materials Engineering",
     template: "%s | GG Construction Co.",
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://ggconstruction.com",
+    url: BASE_URL,
     siteName: "GG Construction Co.",
     title: "GG Construction Co. | Engineering, Development & Materials",
     description:
@@ -90,8 +92,8 @@ export default function RootLayout({
     name: companyData.name,
     legalName: companyData.legalName,
     description: companyData.positioning,
-    url: "https://ggconstruction.com",
-    logo: "https://ggconstruction.com/logo.png",
+    url: BASE_URL,
+    logo: `${BASE_URL}/logo.png`,
     telephone: companyData.contact.phoneFormatted,
     email: companyData.contact.email,
     address: {

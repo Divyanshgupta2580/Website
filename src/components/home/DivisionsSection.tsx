@@ -58,7 +58,7 @@ export default function DivisionsSection() {
       connectedTo: "Delivers enduring assets directly to occupants & investors",
       capabilities: [
         "Low-Density Luxury Gated Communities",
-        "100% RERA Registered with Escrow Ring-Fencing",
+        "RERA-Compliant Project Governance with Escrow Controls",
         "Bespoke Commercial & High-Street Retail Suites",
         "Joint Development Agreements (JDA) for Landowners",
       ],

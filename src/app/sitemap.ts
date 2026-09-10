@@ -4,7 +4,7 @@ import { projectsData } from "@/data/projects";
 import { materialsData } from "@/data/materials";
 import { blogPostsData } from "@/data/blog";
 
-const BASE_URL = "https://ggconstruction.com";
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://ggconstruction.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

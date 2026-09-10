@@ -1,6 +1,19 @@
 /**
- * Memory-safe sliding-window rate limiter for serverless & edge API routes.
+ * Memory-safe sliding-window rate limiter for single-instance Next.js deployments.
  * Automatically cleans up expired tracking records to prevent memory inflation.
+ *
+ * ARCHITECTURAL CAVEAT & MULTI-INSTANCE DEPLOYMENT NOTE:
+ * This rate limiter utilizes an in-process Map store. It provides effective protection
+ * against abuse on single-instance server or container deployments (e.g. standard Node.js VM).
+ * In multi-instance or serverless environments (e.g., Vercel multiple regions, AWS ECS cluster
+ * with >1 task, Kubernetes with multiple replicas), each instance maintains its own memory pool.
+ * For globally distributed rate limiting across horizontal clusters, replace this in-memory store
+ * with an external atomic cache like Redis / Upstash (e.g., @upstash/ratelimit).
+ *
+ * REVERSE PROXY TRUST NOTICE:
+ * To prevent IP spoofing, ensure your edge ingress (Nginx, Cloudflare, AWS ALB) is configured to
+ * overwrite or strip incoming client-forged `X-Forwarded-For` and `X-Real-IP` headers before
+ * proxying traffic to the Next.js origin server.
  */
 
 interface RateLimitRecord {
@@ -89,25 +102,43 @@ export function checkRateLimit(
   };
 }
 
+// Regex to validate IPv4 and basic IPv6 formats to prevent key poisoning
+const IPV4_REGEX = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
+const IPV6_REGEX = /^[a-fA-F0-9:]+$/;
+
+function isValidIp(ip: string): boolean {
+  if (!ip || ip.length > 45) return false;
+  return IPV4_REGEX.test(ip) || IPV6_REGEX.test(ip);
+}
+
 /**
- * Extracts client IP safely from incoming request headers.
+ * Extracts client IP safely from incoming request headers with trusted proxy hierarchy.
+ * Priority order:
+ * 1. `cf-connecting-ip` (Cloudflare edge authenticated)
+ * 2. `x-real-ip` (Trusted edge proxy / Nginx)
+ * 3. `x-forwarded-for` (Leftmost client IP, validated)
  */
 export function getClientIp(request: Request): string {
+  // 1. Cloudflare authenticated client IP
+  const cfConnectingIp = request.headers.get("cf-connecting-ip")?.trim();
+  if (cfConnectingIp && isValidIp(cfConnectingIp)) {
+    return cfConnectingIp;
+  }
+
+  // 2. Direct upstream proxy client IP (e.g. Nginx $remote_addr)
+  const realIp = request.headers.get("x-real-ip")?.trim();
+  if (realIp && isValidIp(realIp)) {
+    return realIp;
+  }
+
+  // 3. X-Forwarded-For header chain
   const forwardedFor = request.headers.get("x-forwarded-for");
   if (forwardedFor) {
-    // Leftmost IP is the original client
-    const clientIp = forwardedFor.split(",")[0].trim();
-    if (clientIp) return clientIp;
-  }
-
-  const realIp = request.headers.get("x-real-ip");
-  if (realIp) {
-    return realIp.trim();
-  }
-
-  const cfConnectingIp = request.headers.get("cf-connecting-ip");
-  if (cfConnectingIp) {
-    return cfConnectingIp.trim();
+    // Leftmost entry represents original client if proxy correctly appends
+    const candidate = forwardedFor.split(",")[0].trim();
+    if (isValidIp(candidate)) {
+      return candidate;
+    }
   }
 
   return "127.0.0.1";

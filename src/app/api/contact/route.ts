@@ -122,12 +122,22 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString(),
     });
 
+    const referenceId = `GGC-${Date.now().toString().slice(-6)}`;
+
+    // 7. Optional downstream integration dispatch (CRM / Email Relay)
+    // Non-blocking, environment-variable gated, fails safely without leaking internal details
+    await dispatchDownstreamIntegrations({
+      ...sanitizedData,
+      referenceId,
+      source: "contact_modal",
+    });
+
     return NextResponse.json(
       {
         success: true,
         message:
           "Thank you. Your enquiry has been routed to our division engineers. A technical representative will review your request within 24 business hours.",
-        referenceId: `GGC-${Date.now().toString().slice(-6)}`,
+        referenceId,
       },
       {
         status: 200,
@@ -142,5 +152,56 @@ export async function POST(request: Request) {
       { success: false, error: "An unexpected server error occurred. Please contact us directly." },
       { status: 500 }
     );
+  }
+}
+
+/**
+ * Optional downstream integration dispatcher (e.g., CRM Webhook, SMTP Relay Endpoint).
+ * Designed to fail safely without exposing internal network details or interrupting client response.
+ */
+async function dispatchDownstreamIntegrations(payload: Record<string, unknown>) {
+  const crmWebhookUrl = process.env.CRM_WEBHOOK_URL;
+  const emailNotificationEndpoint = process.env.EMAIL_NOTIFICATION_ENDPOINT;
+
+  const dispatchPromises: Promise<unknown>[] = [];
+
+  if (crmWebhookUrl) {
+    dispatchPromises.push(
+      fetch(crmWebhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(process.env.CRM_API_BEARER_TOKEN
+            ? { Authorization: `Bearer ${process.env.CRM_API_BEARER_TOKEN}` }
+            : {}),
+        },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(3000), // 3-second hard timeout
+      }).catch((err) => {
+        console.error("[CRM INTEGRATION DISPATCH FAILED]", err instanceof Error ? err.message : "Unknown error");
+      })
+    );
+  }
+
+  if (emailNotificationEndpoint) {
+    dispatchPromises.push(
+      fetch(emailNotificationEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...(process.env.EMAIL_SERVICE_KEY
+            ? { "X-Service-Key": process.env.EMAIL_SERVICE_KEY }
+            : {}),
+        },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(3000),
+      }).catch((err) => {
+        console.error("[EMAIL RELAY DISPATCH FAILED]", err instanceof Error ? err.message : "Unknown error");
+      })
+    );
+  }
+
+  if (dispatchPromises.length > 0) {
+    await Promise.allSettled(dispatchPromises);
   }
 }
