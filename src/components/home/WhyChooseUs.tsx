@@ -7,62 +7,62 @@ export default function WhyChooseUs() {
   const pillars = [
     {
       number: "01",
-      icon: Compass,
-      title: "Engineering-Led Approach",
-      subtitle: "Structural Rigor Before Ground-Break",
-      description: "Every site begins with geotechnical bore logs, seismic modeling conforming to IS 1893 & IS 13920, and 3D BIM clash-detection. We solve engineering conflicts on computers rather than in cured concrete.",
+      icon: Truck,
+      title: "Dependable Material Supply",
+      subtitle: "Primary Business Focus",
+      description: "Direct and steady supply of essential construction materials: cement, TMT steel, red bricks, sand, aggregates, and plumbing supplies delivered directly to your building site without unnecessary delays.",
       highlights: [
-        "In-house licensed structural & MEP engineers",
-        "Virtual Design & Construction (BIM 4D/5D)",
-        "Seismic Zone IV & V high-ductility detailing",
+        "Fresh cement bags and tested TMT steel rebars",
+        "Honest weighbridge and volumetric measurement",
+        "Prompt local truck & trolley dispatch",
       ],
     },
     {
       number: "02",
       icon: ShieldCheck,
-      title: "Quality-Focused Execution",
-      subtitle: "On-Site Laboratory Verification",
-      description: "We establish calibrated on-site testing laboratories for every major project. Concrete cubes undergo continuous 7-day and 28-day compression crushing tests; aggregate silt content is strictly audited below 3%.",
+      title: "Quality-Focused Construction",
+      subtitle: "Small to Medium Buildings",
+      description: "Specialized in small-to-medium building construction up to 4–5 floors maximum. We maintain rigorous standards for concrete mixing ratios, reinforcement tie placement, and proper 14–21 day curing cycles.",
       highlights: [
-        "On-site NABL-aligned material testing labs",
-        "Laser screed FM-2 superflat concrete placement",
-        "Triple-layer crystalline waterproofing protocols",
+        "Sound RCC column and beam structural frame casting",
+        "First-class red clay brick & lightweight AAC masonry",
+        "Dedicated day-to-day on-site supervision",
       ],
     },
     {
       number: "03",
-      icon: Truck,
-      title: "Reliable Material Supply",
-      subtitle: "Direct-From-Mill Provenance",
-      description: "Our dedicated Building Materials division procures primary Fe 500D TMT steel and certified cements directly from integrated plants. Our sites never face work stoppages due to regional material shortages.",
+      icon: Scale,
+      title: "Transparent Estimates & Billing",
+      subtitle: "Honest Dealings",
+      description: "Clear, itemized cost estimates without hidden extras. Whether ordering 50 bags of cement or contracting a full 4-storey residential house, you receive honest pricing and stage-wise accountability.",
       highlights: [
-        "Direct tier-one integrated steel & cement allocations",
-        "Manufacturer Test Certificates (MTC) with every load",
-        "Automated weighbridge slip validation at site gates",
+        "Transparent daily material pricing and discounts",
+        "Stage-wise construction milestone payments",
+        "Accurate delivery challans with zero ambiguity",
       ],
     },
     {
       number: "04",
-      icon: Scale,
-      title: "Transparent Project Management",
-      subtitle: "No Hidden Costs. No Speculative Delays.",
-      description: "We practice open-book milestone auditing with weekly digital progress reports. Earned Value Analysis (EVA) and strict RERA escrow ring-fencing guarantee that capital is used solely for approved construction.",
+      icon: Compass,
+      title: "Property Sales Assistance",
+      subtitle: "Real Estate Coordination",
+      description: "Assisting customers with property enquiries, marketing listed properties on behalf of owners and developers, scheduling site visits, and ensuring transparent buyer-seller coordination.",
       highlights: [
-        "Itemized BOQ with transparent material quantity checks",
-        "Bi-weekly drone photographic progress tracking",
-        "Liquidated damages schedule guarantees in EPC contracts",
+        "Assistance with title document verification",
+        "Clear distinction between built and marketed properties",
+        "Personal guidance from site visit to transaction",
       ],
     },
     {
       number: "05",
       icon: HeartHandshake,
-      title: "Long-Term Relationships",
-      subtitle: "Accountability Long After Handover",
-      description: "Our engagement doesn't end when the ribbon is cut. We provide comprehensive post-occupancy defect liability coverage, as-built MEP digital dossiers, and structural health checkups for lasting asset performance.",
+      title: "Accessible Personal Service",
+      subtitle: "Direct Communication",
+      description: "We believe in personal accessibility. Speak directly with our team regarding material delivery times, ongoing construction milestones, or property details whenever you need assistance.",
       highlights: [
-        "Comprehensive defect liability warranty periods",
-        "Digital as-built facilities management handovers",
-        "Repeat partnerships with major commercial REITs",
+        "Direct founder and management availability",
+        "Practical understanding of local construction conditions",
+        "Long-term customer relationships built on trust",
       ],
     },
   ];
@@ -71,9 +71,9 @@ export default function WhyChooseUs() {
     <section className="py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035] relative">
       <Container size="default">
         <SectionHeading
-          eyebrow="The Institutional Difference"
-          title="Why Enterprise Clients Choose GG Construction Co."
-          description="In an industry plagued by fragmented subcontracting and disputed billing, our integrated model delivers predictability, structural permanence, and peace of mind."
+          eyebrow="Practical Advantages"
+          title="Why Choose GG Construction Co."
+          description="A customer-focused business combining dependable building materials supply, practical construction up to 4–5 floors, and transparent property sales assistance."
         />
 
         {/* 5-Pillar Asymmetric Layout */}
@@ -109,11 +109,11 @@ export default function WhyChooseUs() {
                 </div>
 
                 <div className="pt-6 border-t border-[#2A3035]/60">
-                  <ul className="space-y-2 text-xs text-[#F3F1EC]">
-                    {p.highlights.map((hl, i) => (
-                      <li key={i} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#B89A63] flex-shrink-0 mt-0.5" />
-                        <span className="text-[#A7ADB3]">{hl}</span>
+                  <ul className="space-y-2 text-xs text-[#A7ADB3]">
+                    {p.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
+                        <span>{h}</span>
                       </li>
                     ))}
                   </ul>
@@ -122,8 +122,8 @@ export default function WhyChooseUs() {
             );
           })}
 
-          {/* Bottom 3 Pillars (4-span each) */}
-          {pillars.slice(2, 5).map((p) => {
+          {/* Bottom 3 Supporting Pillars (4-span each) */}
+          {pillars.slice(2).map((p) => {
             const Icon = p.icon;
             return (
               <div
@@ -131,7 +131,7 @@ export default function WhyChooseUs() {
                 className="lg:col-span-4 bg-[#15191D] border border-[#2A3035] p-6 sm:p-8 flex flex-col justify-between hover:border-[#B89A63]/60 transition-colors group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-4">
                     <div className="w-10 h-10 bg-[#1D2227] border border-[#2A3035] flex items-center justify-center text-[#B89A63] group-hover:border-[#B89A63] transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
@@ -154,10 +154,10 @@ export default function WhyChooseUs() {
 
                 <div className="pt-4 border-t border-[#2A3035]/60">
                   <ul className="space-y-1.5 text-xs text-[#A7ADB3]">
-                    {p.highlights.map((hl, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="w-1 h-1 bg-[#B89A63] rounded-full mt-1.5 flex-shrink-0" />
-                        <span className="text-[11px] leading-snug">{hl}</span>
+                    {p.highlights.map((h, i) => (
+                      <li key={i} className="flex items-start gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-[#B89A63] flex-shrink-0 mt-1.5" />
+                        <span className="line-clamp-2">{h}</span>
                       </li>
                     ))}
                   </ul>

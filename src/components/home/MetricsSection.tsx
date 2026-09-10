@@ -7,24 +7,24 @@ import { companyData } from "@/data/company";
 export default function MetricsSection() {
   const metrics = [
     {
-      label: "Years in Industry",
-      value: companyData.metrics.yearsInIndustry,
-      helper: "Continuous civil and material operations across Indian growth corridors",
+      label: "Construction Work",
+      value: "Up to 4–5 Floors",
+      helper: "Practical building construction for residential homes, shops, and small offices",
     },
     {
-      label: "Completed Projects",
-      value: companyData.metrics.completedProjects,
-      helper: "Turnkey commercial towers, mega industrial logistics hubs & luxury residences",
+      label: "Primary Business",
+      value: "Materials Supply",
+      helper: "Direct supply of cement, TMT steel, bricks, blocks, sand, and aggregates",
     },
     {
-      label: "Regional Presence",
-      value: companyData.metrics.citiesPresence,
-      helper: "Active project sites, regional dispatch yards & engineering offices",
+      label: "Regional Area",
+      value: companyData.metrics.regionalFocus,
+      helper: "Serving local building projects and contractors across the region",
     },
     {
-      label: "Annual Material Tonnage",
-      value: companyData.metrics.materialTonnageAnnually,
-      helper: "Primary TMT steel, certified OPC/PPC cement & aggregates moved annually",
+      label: "Real Estate",
+      value: "Sales Assistance",
+      helper: "Property marketing, buyer-seller coordination, and enquiry assistance",
     },
   ];
 
@@ -35,14 +35,14 @@ export default function MetricsSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
             <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#B89A63] block mb-1">
-              RECORD & TELEMETRY
+              BUSINESS SCOPE
             </span>
             <h2 className="text-2xl font-light text-[#F3F1EC]">
-              Operational Scale & Capacity Metrics
+              Practical Experience & Core Focus
             </h2>
           </div>
           <span className="text-xs font-mono text-[#667582]">
-            VERIFICATION TOKENS PREVIEW
+            GG CONSTRUCTION CO.
           </span>
         </div>
 
@@ -64,7 +64,7 @@ export default function MetricsSection() {
           <div className="flex items-center gap-2">
             <AlertCircle className="w-3.5 h-3.5 text-[#B89A63] flex-shrink-0" />
             <span className="text-[11px]">
-              Values formatted as bracketed tokens (<span className="text-[#B89A63] font-mono">[VERIFY ...]</span>) are centrally managed placeholders for verified company statistics.
+              Values formatted with brackets (<span className="text-[#B89A63] font-mono">[VERIFY ...]</span>) are centrally managed placeholders for verified company data.
             </span>
           </div>
           <span className="font-mono text-[10px] text-[#A7ADB3]">

@@ -1,12 +1,12 @@
 import React from "react";
 import Hero from "@/components/home/Hero";
 import DivisionsSection from "@/components/home/DivisionsSection";
+import MaterialsPreview from "@/components/home/MaterialsPreview";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
+import PropertyOpportunities from "@/components/home/PropertyOpportunities";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
-import MetricsSection from "@/components/home/MetricsSection";
 import ProcessSection from "@/components/home/ProcessSection";
-import MaterialsPreview from "@/components/home/MaterialsPreview";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import HomeFaqSection from "@/components/home/HomeFaqSection";
 import ConversionCTA from "@/components/home/ConversionCTA";
@@ -14,37 +14,37 @@ import ConversionCTA from "@/components/home/ConversionCTA";
 export default function HomePage() {
   return (
     <>
-      {/* 1. Full-Width Cinematic Hero */}
+      {/* 1. Hero */}
       <Hero />
 
-      {/* 2. Three Business Divisions (Integrated) */}
+      {/* 2. Three Business Areas: Building Materials (1), Construction (2), Real Estate (3) */}
       <DivisionsSection />
 
-      {/* 3. Services Section (Core Capabilities) */}
-      <ServicesPreview />
-
-      {/* 4. Featured Projects (Landmark Editorial Cards) */}
-      <FeaturedProjects />
-
-      {/* 5. Why GG Construction Co. (5 Core Pillars) */}
-      <WhyChooseUs />
-
-      {/* 6. Statistics (Replaceable Placeholders) */}
-      <MetricsSection />
-
-      {/* 7. Our Process (6-Step Lifecycle) */}
-      <ProcessSection />
-
-      {/* 8. Building Materials (8 Categories & Bulk Quote CTA) */}
+      {/* 3. Featured Materials (Primary Business Emphasis) */}
       <MaterialsPreview />
 
-      {/* 9. Testimonials (Marked Source Placeholders) */}
+      {/* 4. Construction Services (Secondary Business: Small to Medium Buildings) */}
+      <ServicesPreview />
+
+      {/* 5. Selected Building Projects (Up to 4-5 Floors) */}
+      <FeaturedProjects />
+
+      {/* 6. Property Opportunities (Sales Assistance & Marketing) */}
+      <PropertyOpportunities />
+
+      {/* 7. Why Choose GG Construction Co. */}
+      <WhyChooseUs />
+
+      {/* 8. How We Work (5-Step Lifecycle) */}
+      <ProcessSection />
+
+      {/* 9. Customer Testimonials */}
       <TestimonialsSection />
 
-      {/* 10. FAQ Preview */}
+      {/* 10. FAQ */}
       <HomeFaqSection />
 
-      {/* 11. Final Conversion CTA: Planning Your Next Project? */}
+      {/* 11. Contact / Enquiry CTA */}
       <ConversionCTA />
     </>
   );

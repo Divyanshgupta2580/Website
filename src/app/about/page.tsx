@@ -18,6 +18,7 @@ import {
   Boxes,
   Layers,
   Scale,
+  Truck,
 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
@@ -29,9 +30,9 @@ import { companyData } from "@/data/company";
 import { testimonialsData } from "@/data/testimonials";
 
 export const metadata: Metadata = {
-  title: "About Us | Engineering Heritage & Leadership",
+  title: "About Us | GG Construction Co. — Building Materials, Construction & Real Estate",
   description:
-    "Learn about GG Construction Co., our vertical integration across construction, property development, and building materials supply.",
+    "Learn about GG Construction Co., our primary focus on building materials supply, practical small-to-medium construction up to 4–5 floors, and property sales assistance.",
 };
 
 export default function AboutPage() {
@@ -45,14 +46,14 @@ export default function AboutPage() {
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-6 h-[1px] bg-[#B89A63]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-              Corporate Profile & Engineering Heritage
+              About GG Construction Co.
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
-            Engineering Precision. Material Provenance. Total Accountability.
+            Practical Experience. Dependable Materials. Honest Service.
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            GG Construction Co. brings together construction expertise, real-estate engineering, and dependable building-material supply under one trusted name. We resolve the systemic fragmentation of Indian construction through vertically integrated corporate accountability.
+            GG Construction Co. is a customer-focused business combining reliable building materials supply as our primary vertical, practical building construction for homes and commercial premises up to 4–5 floors, and transparent property sales assistance.
           </p>
         </div>
       </section>
@@ -62,7 +63,7 @@ export default function AboutPage() {
         <div className="relative aspect-[21/9] w-full overflow-hidden bg-[#15191D] border border-[#2A3035]">
           <Image
             src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1800&q=80"
-            alt="GG Construction Co. civil engineering site operations"
+            alt="GG Construction Co. building construction and materials operations"
             fill
             priority
             sizes="100vw"
@@ -72,10 +73,10 @@ export default function AboutPage() {
           <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="bg-[#0B0D0F]/90 backdrop-blur-md border border-[#2A3035] p-4 max-w-md">
               <span className="text-[10px] uppercase font-mono tracking-widest text-[#B89A63] block">
-                OPERATIONAL MANDATE
+                BUSINESS FOCUS
               </span>
               <p className="text-xs text-[#F3F1EC] mt-1">
-                Zero substitution of uncertified materials. Zero subcontracting of critical structural engineering.
+                Dependable material supply, quality low-rise construction, and transparent customer service.
               </p>
             </div>
             <div className="text-right font-mono text-xs text-[#A7ADB3] bg-[#0B0D0F]/80 p-2 border border-[#2A3035]">
@@ -93,57 +94,57 @@ export default function AboutPage() {
               Company Overview
             </span>
             <h2 className="text-2xl sm:text-4xl font-light text-[#F3F1EC] leading-tight">
-              One Unified Standard Across the Complete Construction Value Chain
+              A Practical Business Built on Construction Experience & Material Knowledge
             </h2>
             <p className="text-sm sm:text-base text-[#A7ADB3] leading-relaxed">
-              In conventional construction, the supply chain is fractured: material distributors disclaim responsibility for structural delays, general contractors blame subcontractor workmanship, and developers pass maintenance defects to end buyers.
+              GG Construction Co. operates with a straightforward, customer-first approach. Our primary business is the supply of essential building materials—cement, TMT steel, red clay bricks, AAC blocks, sand, and aggregates—delivered directly to job sites across the region.
             </p>
             <p className="text-sm sm:text-base text-[#A7ADB3] leading-relaxed">
-              GG Construction Co. operates differently. We own the direct relationships with primary steel mills and cement manufacturers, deploy our own structural engineering workforce, and supervise our developments with in-house testing laboratories.
+              Alongside materials supply, we undertake small to medium-sized building construction work (typically residential homes, 3–4 floor apartments, shops, and small offices up to 4–5 floors maximum), as well as real-estate sales assistance and property marketing for owners and buyers.
             </p>
           </div>
 
           <div className="lg:col-span-6 bg-[#15191D] border border-[#2A3035] p-8 sm:p-10 space-y-6">
             <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] pb-3 border-b border-[#2A3035]">
-              Institutional Telemetry & Governance
+              Business Profile & Coverage
             </h3>
             <div className="grid grid-cols-2 gap-6 text-xs font-mono">
               <div>
                 <span className="text-[#667582] block text-[10px] uppercase tracking-wider mb-1">
-                  Years in Operation
+                  Primary Business
                 </span>
                 <span className="text-[#B89A63] text-sm font-semibold">
-                  {companyData.metrics.yearsInIndustry}
+                  Materials Supply
                 </span>
               </div>
               <div>
                 <span className="text-[#667582] block text-[10px] uppercase tracking-wider mb-1">
-                  Delivered Scale
+                  Construction Scale
                 </span>
                 <span className="text-[#F3F1EC] text-sm font-semibold">
-                  {companyData.metrics.completedProjects}
+                  Up to 4–5 Floors
                 </span>
               </div>
               <div>
                 <span className="text-[#667582] block text-[10px] uppercase tracking-wider mb-1">
-                  Regional Presence
+                  Operating Region
                 </span>
                 <span className="text-[#F3F1EC] text-sm font-semibold">
-                  {companyData.metrics.citiesPresence}
+                  {companyData.metrics.regionalFocus}
                 </span>
               </div>
               <div>
                 <span className="text-[#667582] block text-[10px] uppercase tracking-wider mb-1">
-                  Annual Material Volume
+                  Real Estate Desk
                 </span>
                 <span className="text-[#B89A63] text-sm font-semibold">
-                  {companyData.metrics.materialTonnageAnnually}
+                  Sales Assistance
                 </span>
               </div>
             </div>
             <div className="pt-4 border-t border-[#2A3035]/60 flex items-center gap-2 text-xs text-[#667582]">
               <AlertCircle className="w-4 h-4 text-[#B89A63] flex-shrink-0" />
-              <span>All statistics are centrally validated against operational audit records.</span>
+              <span>Direct customer support via phone (+91 98110 34825) and email.</span>
             </div>
           </div>
         </div>
@@ -155,7 +156,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="Purpose & Principles"
             title="Mission, Vision & Core Values"
-            description="The governing philosophy guiding our structural engineering decisions, material procurement, and stakeholder relationships."
+            description="The values guiding our everyday business conduct, customer relationships, and jobsite practices."
           />
 
           {/* Mission & Vision Twin Grid */}
@@ -170,7 +171,7 @@ export default function AboutPage() {
                 </span>
               </div>
               <h3 className="text-xl font-light text-[#F3F1EC] mb-3">
-                Uncompromising Structural Permanence
+                Reliable Quality & Honest Building Practices
               </h3>
               <p className="text-xs sm:text-sm text-[#A7ADB3] leading-relaxed">
                 {companyData.mission}
@@ -187,7 +188,7 @@ export default function AboutPage() {
                 </span>
               </div>
               <h3 className="text-xl font-light text-[#F3F1EC] mb-3">
-                The Institutional Benchmark in Indian Engineering
+                A Respected Regional Partner in Materials & Construction
               </h3>
               <p className="text-xs sm:text-sm text-[#A7ADB3] leading-relaxed">
                 {companyData.vision}
@@ -222,9 +223,9 @@ export default function AboutPage() {
       {/* 5. Three Business Divisions */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Vertical Integration"
-          title="Three Integrated Business Divisions"
-          description="How raw material supply feeds structural civil engineering, which in turn delivers enduring real estate assets."
+          eyebrow="Business Areas"
+          title="Three Connected Services"
+          description="A balanced business model covering materials supply, small-to-mid construction, and property sales coordination."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -274,17 +275,17 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. Engineering Philosophy */}
+      {/* 6. Practical Construction Philosophy */}
       <section className="py-20 bg-[#15191D]/30 border-y border-[#2A3035] mb-24">
         <Container size="default">
           <SectionHeading
-            eyebrow="Rigor Over Shortcuts"
-            title="Our Engineering Philosophy"
-            description="Concrete and steel do not forgive compromises. We structure every project around four scientific mandates."
+            eyebrow="Quality Standards"
+            title="Our Construction & Supply Principles"
+            description="Every building project and material consignment is handled with care, honest measurement, and structural discipline."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {companyData.engineeringPhilosophy.map((phil, idx) => (
+            {companyData.practicalPrinciples.map((phil, idx) => (
               <div
                 key={idx}
                 className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8 flex flex-col justify-between"
@@ -309,12 +310,12 @@ export default function AboutPage() {
       {/* 7. Leadership / Founder Section with Replaceable Placeholders */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Executive Governance"
-          title="Technical Leadership Directorate"
-          description="Led by veteran structural engineers, procurement strategists, and statutory compliance specialists."
+          eyebrow="Leadership & Direction"
+          title="Management & Founder Desk"
+          description="Experienced leadership guiding building materials supply, on-site construction supervision, and customer relationships."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {companyData.leadership.map((leader, idx) => (
             <div
               key={idx}
@@ -325,7 +326,7 @@ export default function AboutPage() {
                   src={leader.image}
                   alt={leader.name}
                   fill
-                  sizes="(max-width: 768px) 100vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover grayscale contrast-125"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#15191D] via-transparent to-transparent" />
@@ -350,16 +351,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 8. Company Milestones Timeline */}
+      {/* 8. Company Journey Milestones */}
       <section className="py-20 bg-[#15191D]/40 border-y border-[#2A3035] mb-24">
         <Container size="default">
           <SectionHeading
-            eyebrow="Chronicle of Growth"
-            title="Institutional Milestones"
-            description="A track record of disciplined expansion from civil foundation contracting into a multi-vertical infrastructure leader."
+            eyebrow="Journey & Growth"
+            title="Practical Milestones"
+            description="A steady journey built step-by-step through materials supply, low-rise construction, and customer trust."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {companyData.milestones.map((m, idx) => (
               <div
                 key={idx}
@@ -386,9 +387,9 @@ export default function AboutPage() {
       {/* 9. Client Benefits Matrix */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="The Client Advantage"
-          title="Strategic Benefits of Choosing GG Construction Co."
-          description="Measurable operational advantages delivered by our single-partner model."
+          eyebrow="Customer Benefits"
+          title="Why Customers Depend on GG Construction Co."
+          description="Practical, day-to-day advantages when purchasing materials or constructing with us."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -406,11 +407,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 10. Featured Testimonial */}
+      {/* 10. Customer Feedback Placeholder */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Stakeholder Endorsement"
-          title="Enterprise Partner Perspective"
+          eyebrow="Customer Reviews"
+          title="Customer Perspective"
         />
 
         <div className="max-w-3xl mx-auto">
@@ -420,13 +421,13 @@ export default function AboutPage() {
 
       {/* 11. Final Conversion CTA */}
       <CTA
-        eyebrow="Initiate Corporate Engagement"
-        title="Engage Directly With Our Engineering Directorate"
-        description="Review blueprints, schedule an on-site geotechnical review, or establish long-term bulk material agreements for your active sites."
-        primaryCtaText="Contact Directorate"
+        eyebrow="Contact GG Construction Co."
+        title="Speak With Our Team Today"
+        description="Whether you need building materials delivered to your site, construction advice for a 3–4 floor building, or property sales assistance, we are here to help."
+        primaryCtaText="Enquire Now"
         primaryCtaHref="/contact"
-        secondaryCtaText="Request Project Estimate"
-        secondaryCtaHref="/get-a-quote"
+        secondaryCtaText="Explore Materials"
+        secondaryCtaHref="/materials"
         showContacts={true}
       />
     </div>

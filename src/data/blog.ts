@@ -1,8 +1,13 @@
+export type BlogCategory =
+  | "Building Materials"
+  | "Construction Guidance"
+  | "Property Buying Tips";
+
 export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
-  category: "Structural Engineering" | "Real Estate Due Diligence" | "Material Science" | "Project Management";
+  category: BlogCategory;
   readTime: string;
   publishedDate: string;
   authorNamePlaceholder: string;
@@ -18,118 +23,146 @@ export interface BlogPost {
 
 export const blogPostsData: BlogPost[] = [
   {
-    slug: "understanding-is-1786-seismic-ductility-fe500d",
-    title: "Engineering Guide: Understanding IS 1786 and Why Fe 500D TMT Steel is Critical for Seismic Zones",
-    excerpt: "Why the 'D' designation in Fe 500D matters for earthquake safety, structural elongation, and preventing catastrophic brittle collapse in reinforced concrete.",
-    category: "Material Science",
-    readTime: "6 min read",
+    slug: "how-to-choose-tmt-steel-for-house-construction",
+    title: "How to Choose TMT Steel for House Construction: Understanding Fe 500 vs. Fe 500D",
+    excerpt: "A practical guide for homebuilders and contractors on selecting reinforcement steel bars, understanding ductility, and checking weight and rib patterns before site delivery.",
+    category: "Building Materials",
+    readTime: "5 min read",
     publishedDate: "October 14, 2024",
-    authorNamePlaceholder: "[VERIFY AUTHOR - Chief Structural Engineer]",
-    authorRole: "Technical Director, Engineering Division",
+    authorNamePlaceholder: "[GG CONSTRUCTION CO. MATERIALS TEAM]",
+    authorRole: "Building Materials & Supply Division",
     heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80",
-    tags: ["TMT Steel", "Seismic Design", "IS 1786", "Concrete Reinforcement", "Structural Safety"],
+    tags: ["TMT Steel", "Fe 500D", "House Construction", "Building Materials", "Structural Safety"],
     content: [
       {
-        heading: "The Physics of Ductility in Seismic Events",
+        heading: "What Does Fe 500D Mean?",
         paragraphs: [
-          "During an earthquake, reinforced concrete structures are subjected to severe cyclic lateral loads. While concrete has high compressive strength, it possesses negligible tensile capacity. Steel reinforcement bars must not only carry the resultant tension, but they must also deform plastically without snapping.",
-          "This ability to deform without sudden fracture is known as ductility. Without adequate ductility, a building's columns and shear walls can suffer sudden shear failure—leading to rapid structural collapse before occupants can evacuate.",
+          "When shopping for reinforcement steel for your house columns, beams, and slabs, you will encounter designations like Fe 500 and Fe 500D. 'Fe' stands for iron, and '500' indicates that the steel can withstand a minimum yield stress of 500 Newtons per square millimeter.",
+          "The letter 'D' stands for Ductility. High ductility means the steel can stretch and bend significantly before snapping. In earthquake-prone zones like Northern India (Delhi NCR and surrounding regions), ductile steel allows a building to absorb seismic vibrations safely without sudden brittle collapse.",
         ],
-        callout: "Fe 500D guarantees a minimum total elongation at maximum force (Agt) of 16%, compared to only 12% in standard Fe 500.",
+        callout: "Fe 500D requires a minimum elongation of 16% under IS 1786 specifications, compared to 12% for standard Fe 500.",
       },
       {
-        heading: "Decoding the Indian Standard IS 1786:2008",
+        heading: "Key Things to Check at the Time of Delivery",
         paragraphs: [
-          "The Bureau of Indian Standards (BIS) formulated IS 1786 to classify high-strength deformed steel bars. The designation 'Fe' stands for iron, '500' indicates a minimum 0.2% proof stress / yield stress of 500 N/mm², and 'D' denotes high ductility.",
-          "In addition to higher elongation, Fe 500D strictly restricts carbon, sulphur, and phosphorus levels. Lower sulphur and phosphorus content (max 0.040% each) prevents internal inclusions, micro-cracks during bending, and hydrogen embrittlement.",
-        ],
-      },
-      {
-        heading: "Primary vs. Secondary Steel: The Quality Chasm",
-        paragraphs: [
-          "Not all rebars bearing an Fe 500D stamp are created equal. Secondary induction furnace steel often relies on melted scrap with inconsistent chemical purity and uncontrolled trace tramp elements (like copper and tin) that drastically reduce fatigue resistance.",
-          "At GG Construction Co., our Building Materials division sources exclusively from primary integrated steel producers who refine virgin iron ore in basic oxygen furnaces with ladle refining. This guarantees continuous rib height, predictable modulus of elasticity, and certified carbon equivalents below 0.42%.",
+          "1. Brand Stamp & Grade: Ensure every rebar has the manufacturer brand name and 'Fe 500D' embossed continuously along its length.",
+          "2. Distinct Rib Pattern: Look for clean, sharp, uniform ribs. Ribs provide mechanical interlocking with concrete; smooth or flattened ribs weaken bonding.",
+          "3. Fresh Surface: Rebars should have clean dark steel surfaces or light surface patina. Avoid heavily corroded bars with flaking rust scales.",
+          "4. Standard Weight Checking: We recommend weighing sample 1-meter lengths or full bundles at a certified weighbridge to verify that the weight matches standard IS tolerances.",
         ],
       },
       {
-        heading: "Best Practices on the Construction Site",
+        heading: "Proper Site Storage",
         paragraphs: [
-          "Ensure rebar mandrels match IS 2502 bending diameters. Re-bending cold bars or using undersized mandrel pins induces severe micro-fissuring at bend radii, nullifying ductile benefits.",
-          "Always verify batch Mill Test Certificates against the heat numbers embossed directly onto every rebar meter before approving pours.",
+          "Always store steel rebars off the ground using timber battens or concrete supports. Keep them covered with waterproof tarpaulins to protect them from rain and ground moisture, especially if construction will take several months.",
         ],
       },
     ],
   },
   {
-    slug: "navigating-rera-compliance-and-escrow-governance",
-    title: "Real Estate Due Diligence: How RERA Escrow Mechanisms Protect Homebuyers and Institutional Capital",
-    excerpt: "A comprehensive breakdown of Section 4(2)(l)(D) escrow accounts, architect certification procedures, and structural defect liability clauses.",
-    category: "Real Estate Due Diligence",
-    readTime: "8 min read",
+    slug: "which-cement-is-suitable-for-house-construction",
+    title: "Which Cement is Suitable for a House? When to Use OPC 53 vs. PPC",
+    excerpt: "Understanding the right cement grade for roof slabs, foundation footings, brick masonry, and wall plaster to avoid cracks and optimize building costs.",
+    category: "Building Materials",
+    readTime: "5 min read",
     publishedDate: "November 02, 2024",
-    authorNamePlaceholder: "[VERIFY AUTHOR - Legal & Regulatory Counsel]",
-    authorRole: "Head of Statutory Compliance & RERA Cell",
-    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
-    tags: ["RERA", "Escrow Accounts", "Real Estate Law", "Due Diligence", "Buyer Protection"],
+    authorNamePlaceholder: "[GG CONSTRUCTION CO. MATERIALS TEAM]",
+    authorRole: "Building Materials Supply",
+    heroImage: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1600&q=80",
+    tags: ["Cement Selection", "OPC 53", "PPC Cement", "Slab Casting", "Plastering"],
     content: [
       {
-        heading: "The Paradigm Shift: From Speculation to Accountability",
+        heading: "Understanding the Two Main Cement Types",
         paragraphs: [
-          "Prior to the enactment of the Real Estate (Regulation and Development) Act (RERA) in 2016, the Indian property market suffered from pervasive fund diversion. Capital raised from homebuyers in Project A was routinely diverted to acquire land for Project B, leaving the initial site starved of working capital and resulting in years of delay.",
-          "RERA revolutionized this landscape by institutionalizing transparency, statutory disclosures, and ring-fenced financial governance.",
+          "One of the most common questions when building a 2 to 4-storey house is whether to use Ordinary Portland Cement (OPC) or Portland Pozzolana Cement (PPC). Both are excellent products, but each serves distinct stages of construction.",
+          "OPC 53 develops compressive strength rapidly in the first 7 to 14 days, allowing formwork and shuttering to be stripped on schedule. PPC gains strength progressively over 28 to 90 days, producing a dense, cohesive paste with low heat generation.",
         ],
-        callout: "70% of all customer collections must be deposited into a dedicated scheduled bank escrow account utilized solely for land and construction expenses of that specific project.",
+        callout: "Rule of thumb: OPC 53 for structural RCC (columns, beams, slabs); PPC for brickwork, wall plastering, and wet area waterproofing.",
       },
       {
-        heading: "The Three-Tier Withdrawal Certification Process",
+        heading: "Why PPC is Better for Brick Masonry & Plaster",
         paragraphs: [
-          "Funds from the RERA project escrow account cannot be withdrawn at will. Every withdrawal requires simultaneous, independent certifications from three distinct professionals:",
-          "1. The Project Architect certifies the physical percentage of construction completion. 2. The Structural Engineer verifies the technical execution against approved structural drawings. 3. A practicing Chartered Accountant certifies that the withdrawal proportion precisely matches actual expenses incurred on land and construction.",
-          "This tri-party verification ensures developers can only access capital as physical progress is verified on the ground.",
+          "When plastering walls or laying bricks, rapid hardening is actually a disadvantage because fast hydration can cause shrinkage hairline cracks. PPC contains fine pozzolanic material (flyash) that makes the mortar more workable, improves smooth spreadability, and drastically reduces capillary water absorption.",
         ],
       },
       {
-        heading: "Section 14(3): The 5-Year Structural Defect Liability",
+        heading: "Freshness and Storage",
         paragraphs: [
-          "One of the most consequential provisions for engineering firms is Section 14(3). RERA mandates that any structural defect or workmanship defect brought to the developer's notice within five years of possession must be rectified by the promoter within 30 days without charge.",
-          "For developers who rely on cheap materials and sub-contractors, this clause represents an existential liability. For GG Construction Co., our vertical integration—where we manage our own concrete mixes, TMT steel, and civil execution—ensures structural permanence from day one, safeguarding our balance sheet and customer trust.",
+          "Never purchase cement that has been sitting in a humid warehouse for more than 2 to 3 months. Fresh cement feels silky and cool to the touch without hard lumps. Always check the manufacturing week and year printed on the bag side seam.",
         ],
       },
     ],
   },
   {
-    slug: "post-tensioned-slabs-commercial-construction-economics",
-    title: "Civil Engineering: Why Post-Tensioned (PT) Slabs are Replacing Conventional RCC in Modern Commercial Towers",
-    excerpt: "Examining the structural mechanics, material tonnage savings, and rentable floorplate optimization delivered by unbonded post-tensioning.",
-    category: "Structural Engineering",
-    readTime: "7 min read",
-    publishedDate: "December 18, 2024",
-    authorNamePlaceholder: "[VERIFY AUTHOR - Senior Structural Consultant]",
-    authorRole: "Principal Engineer, Commercial Vertical",
-    heroImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1600&q=80",
-    tags: ["Post-Tensioning", "Commercial Construction", "BIM", "Structural Optimization", "Concrete Tech"],
+    slug: "brick-vs-aac-block-construction-guide",
+    title: "Red Brick vs. AAC Block: Which is Better for Your 3–4 Floor Building?",
+    excerpt: "Comparing traditional red clay bricks and lightweight autoclaved aerated concrete (AAC) blocks on material cost, thermal comfort, masonry speed, and foundation dead weight.",
+    category: "Construction Guidance",
+    readTime: "6 min read",
+    publishedDate: "November 20, 2024",
+    authorNamePlaceholder: "[GG CONSTRUCTION CO. SITE TEAM]",
+    authorRole: "Building Construction Division",
+    heroImage: "https://images.unsplash.com/photo-1584463699026-df06a5e1c0c6?auto=format&fit=crop&w=1600&q=80",
+    tags: ["Red Bricks", "AAC Blocks", "Wall Masonry", "House Construction", "Cost Comparison"],
     content: [
       {
-        heading: "The Commercial Imperative: Larger Spans, Fewer Columns",
+        heading: "The Changing Landscape of Wall Masonry",
         paragraphs: [
-          "In contemporary commercial office design, rentable value is directly proportional to layout flexibility. Corporate tenants and IT conglomerates demand open, uninterrupted floorplates that allow flexible workstation arrangements and clear sightlines.",
-          "Conventional reinforced cement concrete (RCC) beam-and-slab systems struggle with spans exceeding 8 meters without requiring deep, obtrusive drop beams that eat into vertical ceiling heights and impede mechanical duct routing.",
+          "For decades, kiln-fired red clay bricks have been the default wall building material across India. However, lightweight Autoclaved Aerated Concrete (AAC) blocks are now widely adopted for low-rise and medium-rise residential and commercial buildings up to 4–5 floors.",
+          "Understanding the structural and cost differences helps you make an informed decision for your plot.",
         ],
-        callout: "Post-tensioning enables clear spans of 10 to 14 meters with flat soffit slabs, eliminating interior beams entirely.",
+        callout: "AAC blocks are roughly 50% lighter than clay bricks, reducing structural dead load on foundation footings and RCC columns.",
       },
       {
-        heading: "Structural Mechanics: Active vs. Passive Reinforcement",
+        heading: "Comparison Across Key Factors",
         paragraphs: [
-          "Traditional RCC reinforcement is passive: the steel does not resist load until the concrete has already cracked slightly and deflected under stress.",
-          "In post-tensioning, high-strength 7-wire steel strands (tendons) with ultimate tensile strengths of 1860 MPa are draped in parabolic profiles inside grease-filled plastic ducts. After the concrete cures to approximately 70% design strength, hydraulic jacks tension the strands, imparting a permanent compressive pre-stress that balances structural dead loads.",
+          "1. Weight & Foundation Load: A standard red brick weighs approximately 3 to 3.5 kg. A single 8-inch AAC block replaces several bricks while weighing nearly half as much per square foot of wall area, making it ideal when adding an upper floor to an existing building.",
+          "2. Mortar Savings: Red bricks require 12mm to 15mm thick cement-sand mortar joints. Precision AAC blocks use 2mm to 3mm thin-bed polymer adhesive, reducing cement and sand hauling costs substantially.",
+          "3. Thermal Insulation: AAC blocks have tiny closed air pockets that provide superior thermal insulation, keeping rooms noticeably cooler during hot summers.",
+          "4. Structural Use: For load-bearing walls without concrete columns, first-class red bricks are essential. For framed column-beam structures, AAC blocks provide faster, cleaner walling.",
         ],
       },
       {
-        heading: "The Triple Dividend: Weight, Carbon, and Speed",
+        heading: "The Bottom Line",
         paragraphs: [
-          "1. Structural Weight Reduction: PT slabs are typically 20% to 30% thinner than equivalent RCC slabs. This dead load reduction cascades through the columns and foundations, reducing required rebar tonnage throughout the building.",
-          "2. Lower Embodied Carbon: Thinner slabs require significantly less cement and aggregate volume, directly contributing to green building certifications (IGBC / LEED).",
-          "3. Accelerated Cycle Times: Because tendons are stressed early, formwork stripping times can be reduced to 4 to 6 days per floor, speeding up total structural delivery.",
+          "If you are constructing a standard RCC framed structure of 3 to 4 floors, AAC blocks provide speed, lower plaster costs, and excellent insulation. If you are doing boundary walls or prefer traditional high-density masonry, first-class red clay bricks remain a dependable option.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "things-to-check-before-buying-property-checklist",
+    title: "Things to Check Before Buying a Property: Essential Due Diligence Checklist",
+    excerpt: "Practical steps to verify title ownership, registry documents, encumbrance certificates, and physical plot boundaries before finalizing a deal.",
+    category: "Property Buying Tips",
+    readTime: "7 min read",
+    publishedDate: "December 15, 2024",
+    authorNamePlaceholder: "[GG CONSTRUCTION CO. PROPERTY DESK]",
+    authorRole: "Real Estate Sales & Coordination",
+    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+    tags: ["Property Checklist", "Real Estate Advice", "Title Due Diligence", "Registry", "Buyer Guide"],
+    content: [
+      {
+        heading: "Why Verification Matters Before Any Advance Payment",
+        paragraphs: [
+          "Purchasing a residential plot, independent builder floor, or commercial shop is a major life decision. Many first-time buyers rush into paying token money without basic document verification.",
+          "At GG Construction Co., our property sales and coordination desk assists buyers in verifying clear documentation and connecting directly with genuine owners and developers.",
+        ],
+        callout: "Never pay an advance without verifying the original title deed chain and an updated Encumbrance Certificate (EC).",
+      },
+      {
+        heading: "Essential Document Checklist",
+        paragraphs: [
+          "1. Title Deed & Chain of Ownership: Check the registered sale deed and track prior ownership for at least 15 to 30 years to verify unbroken title transfer.",
+          "2. Encumbrance Certificate (EC): Form 15 or an updated EC from the sub-registrar office confirms that the property has no existing bank mortgages, court attachments, or legal disputes.",
+          "3. Sanctioned Building Plan: If buying a ready floor or flat, ensure the construction matches the sanctioned municipal plan without illegal floor extensions.",
+          "4. Tax Receipts & Utilities: Check the latest property tax receipt, electricity bill, and water bill in the seller's name with zero arrears.",
+        ],
+      },
+      {
+        heading: "Physical Site Inspection",
+        paragraphs: [
+          "Always inspect the physical site in person. Verify that the plot boundary stones, road access width, and adjacent neighbors match what is written in the sale deed schedule.",
         ],
       },
     ],

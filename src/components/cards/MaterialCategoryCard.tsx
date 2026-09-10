@@ -79,11 +79,11 @@ export default function MaterialCategoryCard({
           href={`/materials/${category.slug}`}
           className="text-xs uppercase tracking-widest font-semibold text-[#F3F1EC] group-hover:text-[#B89A63] inline-flex items-center gap-2 transition-colors focus-visible:ring-1 focus-visible:ring-[#B89A63]"
         >
-          <span>Specifications & RFQ</span>
+          <span>View Category Details</span>
           <ArrowUpRight className="w-3.5 h-3.5 text-[#B89A63] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
         <span className="text-[10px] text-[#667582] font-mono">
-          NABL TESTED
+          QUALITY CHECKED
         </span>
       </div>
     </article>

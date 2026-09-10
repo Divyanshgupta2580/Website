@@ -5,24 +5,24 @@ import SectionHeading from "@/components/ui/SectionHeading";
 export default function TrustProposition() {
   const comparativePoints = [
     {
-      parameter: "Material Sourcing & Supply Chain",
-      traditional: "Outsourced to third-party brokers; vulnerable to cement shortages, rebar price volatility, and unverified scrap metal.",
-      ggModel: "Direct-from-mill procurement through our in-house Building Materials division; mill test certificates (MTC) with every load.",
+      parameter: "Building Materials Supply",
+      traditional: "Unreliable local middlemen, unannounced price surges, and questionable material batches.",
+      ggModel: "Dependable material supply organized through our dedicated Building Materials division with clear product specifications.",
     },
     {
       parameter: "Project Accountability",
-      traditional: "Fragmented blame-shifting between independent architects, general contractors, MEP consultants, and suppliers.",
-      ggModel: "Single-point turnkey accountability. One responsible partner across design, materials, execution, and handover.",
+      traditional: "Constant blame-shifting between independent suppliers, masons, and subcontractors.",
+      ggModel: "Direct coordination and reliable oversight connecting material supply with low-rise construction execution.",
     },
     {
-      parameter: "Testing & Quality Assurance",
-      traditional: "Sporadic third-party cube tests often completed weeks after concrete is poured and cured.",
-      ggModel: "On-site NABL-aligned testing labs; continuous slump testing, aggregate gradation checks, and batch verification.",
+      parameter: "Quality Standards & Supervision",
+      traditional: "Inconsistent site oversight, improper mortar mixes, and rushed concrete curing.",
+      ggModel: "Standard batch verification, proper slump checks, and disciplined curing schedules for structural durability.",
     },
     {
-      parameter: "Schedule & Milestone Governance",
-      traditional: "Paper-based schedules routinely delayed by cash flow disputes and material supply bottlenecks.",
-      ggModel: "BIM 4D schedule simulations, automated crane placement, and milestone-linked contractual guarantees.",
+      parameter: "Pricing & Transparency",
+      traditional: "Hidden costs, unexpected material escalation, and unclear contractor estimates.",
+      ggModel: "Transparent itemized estimates for both materials and building construction with committed milestone tracking.",
     },
   ];
 
@@ -30,9 +30,9 @@ export default function TrustProposition() {
     <section className="py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="The Integrated Advantage"
-          title="Why The Integrated Model Changes Everything"
-          description="Traditional construction relies on disjointed contractors, brokers, and consultants—each protecting their own profit margins. GG Construction Co. unifies the entire value chain."
+          eyebrow="The Practical Advantage"
+          title="Why Practical Integration Matters"
+          description="Combining dependable building materials supply with experienced low-rise building construction and real-estate sales assistance."
           align="center"
         />
 

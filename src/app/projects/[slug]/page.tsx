@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
   if (!project) return { title: "Project Not Found" };
 
   return {
-    title: `${project.title} | Case Study`,
-    description: `${project.subtitle}. Delivered by GG Construction Co. under certified engineering standards.`,
+    title: `${project.title} | GG Construction Co.`,
+    description: `${project.subtitle}. Practical low-rise construction and materials support by GG Construction Co.`,
   };
 }
 
@@ -72,6 +72,11 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="flex flex-wrap items-center gap-3 mb-4">
           <Badge variant="bronze">{project.sectorLabel}</Badge>
+          {project.isRepresentativePlaceholder && (
+            <span className="px-2 py-0.5 text-[10px] uppercase font-mono tracking-wider bg-[#B89A63]/10 text-[#B89A63] border border-[#B89A63]/30">
+              Representative Example
+            </span>
+          )}
           <span className="px-2 py-0.5 text-[10px] uppercase font-mono tracking-wider bg-[#15191D] text-[#A7ADB3] border border-[#2A3035]">
             STATUS: {project.status}
           </span>
@@ -119,6 +124,15 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
             <div className="pt-2 sm:pt-0 sm:px-4">
               <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1">
+                Scale
+              </span>
+              <span className="text-[#F3F1EC] font-mono font-medium block">
+                {project.floors || "Low-Rise"}
+              </span>
+            </div>
+
+            <div className="pt-2 sm:pt-0 sm:px-4">
+              <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1">
                 Built-up Area
               </span>
               <span className="text-[#F3F1EC] font-mono font-medium block">
@@ -137,16 +151,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
             <div className="pt-2 sm:pt-0 sm:px-4">
               <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1">
-                Completion Year
-              </span>
-              <span className="text-[#F3F1EC] font-mono font-medium block">
-                {project.year}
-              </span>
-            </div>
-
-            <div className="pt-2 sm:pt-0 sm:px-4">
-              <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1">
-                Client Entity
+                Client Type
               </span>
               <span className="text-[#B89A63] font-mono text-[11px] block">
                 {project.clientTypePlaceholder}
@@ -155,7 +160,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
             <div className="pt-2 sm:pt-0 sm:pl-4">
               <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1">
-                Contract Value
+                Project Classification
               </span>
               <span className="text-[#B89A63] font-mono text-[11px] block">
                 {project.projectValuePlaceholder}
@@ -182,11 +187,11 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               </p>
             </div>
 
-            {/* Challenge & Solution */}
+            {/* Requirements & Approach */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-[#15191D] border border-red-900/30">
-                <span className="text-[10px] uppercase tracking-wider font-mono text-red-400 block mb-2 font-semibold">
-                  The Engineering Challenge
+              <div className="p-6 bg-[#15191D] border border-[#2A3035]">
+                <span className="text-[10px] uppercase tracking-wider font-mono text-[#B89A63] block mb-2 font-semibold">
+                  Project Requirements
                 </span>
                 <p className="text-xs text-[#A7ADB3] leading-relaxed">
                   {project.challenge}
@@ -195,7 +200,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
               <div className="p-6 bg-[#15191D] border border-[#B89A63]/30">
                 <span className="text-[10px] uppercase tracking-wider font-mono text-[#B89A63] block mb-2 font-semibold">
-                  The Engineering Solution
+                  Construction Approach
                 </span>
                 <p className="text-xs text-[#A7ADB3] leading-relaxed">
                   {project.solution}
@@ -203,10 +208,10 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               </div>
             </div>
 
-            {/* Contractual Scope of Work */}
+            {/* Scope of Construction Work */}
             <div>
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-4 pb-2 border-b border-[#2A3035]">
-                Contractual Scope of Work
+                Scope of Construction Work
               </h3>
               <ul className="space-y-2.5 text-xs text-[#A7ADB3]">
                 {project.scope.map((item, i) => (
@@ -221,28 +226,28 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             {/* 6. Itemized Specifications & Structural Metrics */}
             <div>
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-4 pb-2 border-b border-[#2A3035]">
-                Engineering Specifications & Standards
+                Construction Specifications & Standards
               </h3>
               <div className="border border-[#2A3035] divide-y divide-[#2A3035] text-xs">
                 <div className="grid grid-cols-2 p-3 bg-[#15191D]">
                   <span className="text-[#A7ADB3]">Structural System</span>
-                  <span className="text-[#F3F1EC] font-mono">Post-Tensioned Flat Slabs & Shear Cores</span>
+                  <span className="text-[#F3F1EC] font-mono">Reinforced Cement Concrete (RCC) Frame</span>
                 </div>
                 <div className="grid grid-cols-2 p-3 bg-[#0B0D0F]">
-                  <span className="text-[#A7ADB3]">Seismic Design Code</span>
-                  <span className="text-[#F3F1EC] font-mono">IS 1893:2016 & IS 13920 (Zone IV)</span>
+                  <span className="text-[#A7ADB3]">Masonry System</span>
+                  <span className="text-[#F3F1EC] font-mono">Standard Clay Bricks / AAC Blocks with Mortar Curing</span>
                 </div>
                 <div className="grid grid-cols-2 p-3 bg-[#15191D]">
-                  <span className="text-[#A7ADB3]">Reinforcement Steel Grade</span>
-                  <span className="text-[#F3F1EC] font-mono">Fe 500D Primary TMT Rebars (16%+ Elongation)</span>
+                  <span className="text-[#A7ADB3]">Reinforcement Steel</span>
+                  <span className="text-[#F3F1EC] font-mono">Fe 500D Grade High-Yield Strength TMT Rebars</span>
                 </div>
                 <div className="grid grid-cols-2 p-3 bg-[#0B0D0F]">
-                  <span className="text-[#A7ADB3]">Concrete Mix Design</span>
-                  <span className="text-[#F3F1EC] font-mono">M40 / M50 Self-Compacting Concrete (SCC)</span>
+                  <span className="text-[#A7ADB3]">Cement Selection</span>
+                  <span className="text-[#F3F1EC] font-mono">Standard PPC / OPC 43 for Structural Work</span>
                 </div>
                 <div className="grid grid-cols-2 p-3 bg-[#15191D]">
-                  <span className="text-[#A7ADB3]">Testing Laboratory</span>
-                  <span className="text-[#F3F1EC] font-mono">On-Site NABL-Aligned Material Testing Lab</span>
+                  <span className="text-[#A7ADB3]">Quality Protocol</span>
+                  <span className="text-[#F3F1EC] font-mono">Regular Slump Checks, Cube Tests & Level Verification</span>
                 </div>
               </div>
             </div>
@@ -250,18 +255,18 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             {/* 7. Key Project Outcomes */}
             <div>
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-4 pb-2 border-b border-[#2A3035]">
-                Project Delivery Outcomes
+                Project Delivery Highlights
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                 <div className="p-4 bg-[#15191D] border border-[#2A3035]">
                   <Award className="w-4 h-4 text-[#B89A63] mb-2" />
-                  <span className="text-[#F3F1EC] font-semibold block mb-1">Schedule Adherence</span>
-                  <p className="text-[#A7ADB3]">Delivered within the committed {project.timeline} duration with zero milestone disputes.</p>
+                  <span className="text-[#F3F1EC] font-semibold block mb-1">Schedule Coordination</span>
+                  <p className="text-[#A7ADB3]">Planned execution across structural, masonry, and finishing milestones.</p>
                 </div>
                 <div className="p-4 bg-[#15191D] border border-[#2A3035]">
                   <ShieldCheck className="w-4 h-4 text-[#B89A63] mb-2" />
-                  <span className="text-[#F3F1EC] font-semibold block mb-1">Safety Record</span>
-                  <p className="text-[#A7ADB3]">Zero Lost Time Injuries (LTI) logged across the entire construction lifecycle.</p>
+                  <span className="text-[#F3F1EC] font-semibold block mb-1">Site Supervison</span>
+                  <p className="text-[#A7ADB3]">Continuous on-site coordination ensuring material quality and safety.</p>
                 </div>
               </div>
             </div>
@@ -269,10 +274,10 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
           {/* Sidebar */}
           <div className="lg:col-span-5 space-y-8">
-            {/* Structural Innovations */}
+            {/* Practical Construction Highlights */}
             <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#B89A63] mb-6 pb-2 border-b border-[#2A3035]">
-                Structural & Engineering Innovations
+                Construction & Planning Highlights
               </h3>
               <div className="space-y-6">
                 {project.engineeringHighlights.map((hl, i) => (
@@ -288,35 +293,35 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               </div>
             </div>
 
-            {/* Materials & Systems Deployed */}
+            {/* Materials & Supplies */}
             <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-4 pb-2 border-b border-[#2A3035]">
-                Materials & Systems Deployed
+                Materials & Supplies Utilized
               </h3>
               <ul className="space-y-2.5 text-xs text-[#A7ADB3]">
                 <li className="flex items-center gap-2">
                   <Boxes className="w-3.5 h-3.5 text-[#B89A63]" />
-                  <span>Primary Mill Fe 500D Seismic Rebars</span>
+                  <span>Fe 500D Grade Reinforcement TMT Rebars</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Layers className="w-3.5 h-3.5 text-[#B89A63]" />
-                  <span>OPC 53 High-Early Strength Cement</span>
+                  <span>Standard PPC / OPC Construction Cement</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#B89A63]" />
-                  <span>Crystalline Integral Raft Waterproofing</span>
+                  <span>Integral Waterproofing Additives</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B89A63]" />
-                  <span>Laser Screed FM-2 Concrete Placement</span>
+                  <span>Quality River Sand & Graded Coarse Aggregates</span>
                 </li>
               </ul>
             </div>
 
-            {/* Architectural Key Features */}
+            {/* Architectural & Functional Features */}
             <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-4 pb-2 border-b border-[#2A3035]">
-                Architectural Key Features
+                Functional Features
               </h3>
               <ul className="space-y-2 text-xs text-[#A7ADB3]">
                 {project.keyFeatures.map((feat, i) => (
@@ -331,24 +336,24 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             {/* Testimonial Placeholder */}
             <div className="p-6 bg-[#0B0D0F] border border-[#2A3035]">
               <Quote className="w-6 h-6 text-[#B89A63] mb-3" />
-              <p className="text-xs text-[#F3F1EC] italic mb-3 leading-relaxed">
-                &ldquo;GG Construction Co. delivered structural excellence without a single schedule variance. The direct supply of primary steel eliminated our supply chain anxieties.&rdquo;
+              <p className="text-xs text-[#A7ADB3] italic mb-3 leading-relaxed">
+                &ldquo;[ADD VERIFIED CUSTOMER TESTIMONIAL]&rdquo;
               </p>
               <div className="text-[11px] font-mono text-[#B89A63]">
-                {project.clientTypePlaceholder} &bull; Project Lead
+                {project.clientTypePlaceholder} &bull; Client
               </div>
               <span className="text-[10px] text-[#667582] block mt-1">
-                [VERIFIED ENTERPRISE STAKEHOLDER FEEDBACK]
+                [VERIFIED CLIENT FEEDBACK PLACEHOLDER]
               </span>
             </div>
 
             {/* Action Box */}
             <div className="p-6 bg-[#15191D] border border-[#B89A63]/40 text-center">
               <h4 className="text-sm font-medium text-[#F3F1EC] mb-2">
-                Need Similar Civil Capabilities?
+                Need Similar Building Work?
               </h4>
               <p className="text-xs text-[#A7ADB3] mb-4">
-                Consult with our engineering team regarding site feasibility and preliminary BOQ estimates.
+                Consult with our team regarding project feasibility, floor planning, and preliminary material estimates.
               </p>
               <Button
                 href={`/get-a-quote?project=${project.slug}`}
@@ -367,9 +372,9 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       {project.galleryImages.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
           <SectionHeading
-            eyebrow="On-Site Documentation"
-            title="Project Visual Records"
-            description="High-resolution visual inspection of structural framing, MEP integration, and final facade finishes."
+            eyebrow="Visual Records"
+            title="Representative Project Photos"
+            description="Representative visual records of low-rise building construction, structural framing, masonry, and finishes."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -380,7 +385,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               >
                 <Image
                   src={imgUrl}
-                  alt={`${project.title} gallery photo ${idx + 1}`}
+                  alt={`${project.title} photo ${idx + 1}`}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -400,8 +405,8 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       {relatedProjects.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
           <SectionHeading
-            eyebrow="Parallel Engineering"
-            title="Related Project Case Studies"
+            eyebrow="Other Examples"
+            title="Related Project Examples"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -414,12 +419,12 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
       {/* 10. Final Conversion CTA */}
       <CTA
-        eyebrow="Commission Turnkey Delivery"
-        title={`Commission Engineering for a Similar Build`}
-        description="Connect with our project engineering directorate to discuss geotechnical reviews, architectural coordination, and preliminary cost estimates."
+        eyebrow="Start Your Project"
+        title="Plan Your Building Construction With Us"
+        description="Connect with our team to discuss your residential or commercial low-rise construction requirements, material supply, and site schedule."
         primaryCtaText="Request Project Estimate"
         primaryCtaHref={`/get-a-quote?project=${project.slug}`}
-        secondaryCtaText="Contact Engineering Desk"
+        secondaryCtaText="Contact Our Office"
         secondaryCtaHref="/contact"
         showContacts={true}
       />

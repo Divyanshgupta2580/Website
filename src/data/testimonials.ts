@@ -1,69 +1,70 @@
+export type TestimonialDivision =
+  | "Building Materials Supply"
+  | "Building Construction"
+  | "Real Estate Sales & Assistance"
+  | "Construction & Engineering"
+  | "Real Estate & Property Development";
+
 export interface TestimonialItem {
   id: string;
   clientNamePlaceholder: string;
   designation: string;
   organizationPlaceholder: string;
-  division: "Construction & Engineering" | "Real Estate & Property Development" | "Building Materials Supply";
+  division: TestimonialDivision;
   projectContext: string;
   quote: string;
-  rating: number; // 5 out of 5
+  rating: number;
   year: string;
+  isPlaceholder: boolean;
 }
 
 export const testimonialsData: TestimonialItem[] = [
   {
-    id: "test-1",
-    clientNamePlaceholder: "[VERIFY CLIENT NAME - Managing Director, Logistics Asset Group]",
-    designation: "Head of Infrastructure Development",
-    organizationPlaceholder: "[VERIFY ENTERPRISE CLIENT - National Logistics REIT]",
-    division: "Construction & Engineering",
-    projectContext: "Zenith Mega Logistics Hub (620,000 Sq. Ft.)",
-    quote: "Delivering an FM-2 laser screed floor across 620,000 square feet within 14 months seemed aggressive. GG Construction Co. not only met the deadline but their integrated materials arm ensured we never faced a single day of steel or cement shortages despite regional supply crunches.",
-    rating: 5,
-    year: "2024",
-  },
-  {
-    id: "test-2",
-    clientNamePlaceholder: "[VERIFY CLIENT NAME - Chief Operating Officer]",
-    designation: "Executive Director - Commercial Portfolio",
-    organizationPlaceholder: "[VERIFY CORPORATE CLIENT - Technology Park Developers]",
-    division: "Construction & Engineering",
-    projectContext: "Apex Commercial Centre (485,000 Sq. Ft.)",
-    quote: "Their engineering rigor during deep basement excavation directly next to an active arterial metro corridor was flawless. Continuous structural monitoring and zero settlement in neighboring infrastructure gave our board immense peace of mind.",
-    rating: 5,
-    year: "2024",
-  },
-  {
-    id: "test-3",
-    clientNamePlaceholder: "[VERIFY CLIENT NAME - Homeowner & Private Investor]",
-    designation: "Resident Owner",
-    organizationPlaceholder: "[VERIFY CLIENT - Private Residential Estate Owner]",
-    division: "Real Estate & Property Development",
-    projectContext: "GG Aurum Residences (3 & 4 BHK Enclave)",
-    quote: "The quality of civil construction in residential real estate is often masked by cosmetic paint. With GG Construction Co., the structural substance is real—from sound insulation to zero dampness during monsoons. You can feel the engineering superiority.",
-    rating: 5,
-    year: "2024",
-  },
-  {
-    id: "test-4",
-    clientNamePlaceholder: "[VERIFY CLIENT NAME - Procurement Vice President]",
-    designation: "VP - Central Procurement & Supply Chain",
-    organizationPlaceholder: "[VERIFY REGIONAL BUILDER - Grade-A Highrise Contractor]",
+    id: "testimonial-placeholder-1",
+    clientNamePlaceholder: "[ADD VERIFIED CUSTOMER TESTIMONIAL - CLIENT NAME]",
+    designation: "[VERIFY DESIGNATION - e.g. Homeowner / Contractor]",
+    organizationPlaceholder: "[ADD VERIFIED CLIENT / RESIDENTIAL PROJECT]",
     division: "Building Materials Supply",
-    projectContext: "Ongoing Multi-Site TMT & Cement Supply (~4,000 MT Monthly)",
-    quote: "Most building material suppliers fail on consistent batch quality and test documentation. GG Construction Co. delivers original mill test certificates with every trailer. Their automated weighbridge receipts eliminate billing disputes completely.",
+    projectContext: "Building Materials Supply (Cement & TMT Steel Supply)",
+    quote: "[ADD VERIFIED CUSTOMER TESTIMONIAL - Verified customer feedback regarding dependable on-time delivery of cement and TMT steel directly to the construction site with transparent billing.]",
     rating: 5,
-    year: "2023",
+    year: "2024",
+    isPlaceholder: true,
   },
   {
-    id: "test-5",
-    clientNamePlaceholder: "[VERIFY CLIENT NAME - Chief Project Officer]",
-    designation: "Director - Plant Engineering",
-    organizationPlaceholder: "[VERIFY INDUSTRIAL CLIENT - Automotive Systems Manufacturer]",
-    division: "Construction & Engineering",
-    projectContext: "Matrix Precision Component Plant (340,000 Sq. Ft.)",
-    quote: "Heavy stamping press machine foundations require micro-millimeter anchor bolt alignments and vibration damping. GG's engineering coordination between European equipment designers and local civil teams was exemplary.",
+    id: "testimonial-placeholder-2",
+    clientNamePlaceholder: "[ADD VERIFIED CUSTOMER TESTIMONIAL - CLIENT NAME]",
+    designation: "[VERIFY DESIGNATION - e.g. Building Owner]",
+    organizationPlaceholder: "[ADD VERIFIED BUILDING CONSTRUCTION WORK]",
+    division: "Building Construction",
+    projectContext: "4-Floor Residential Building Construction",
+    quote: "[ADD VERIFIED CUSTOMER TESTIMONIAL - Verified customer feedback on civil construction work for residential/commercial building up to 4-5 floors, covering brick masonry, RCC casting, and honest site supervision.]",
+    rating: 5,
+    year: "2024",
+    isPlaceholder: true,
+  },
+  {
+    id: "testimonial-placeholder-3",
+    clientNamePlaceholder: "[ADD VERIFIED CUSTOMER TESTIMONIAL - CLIENT NAME]",
+    designation: "[VERIFY DESIGNATION - e.g. Property Buyer / Owner]",
+    organizationPlaceholder: "[ADD VERIFIED PROPERTY TRANSACTION]",
+    division: "Real Estate Sales & Assistance",
+    projectContext: "Property Sales & Buyer-Seller Coordination",
+    quote: "[ADD VERIFIED CUSTOMER TESTIMONIAL - Verified customer feedback regarding transparent property marketing, site visits, and helpful buyer-seller coordination.]",
+    rating: 5,
+    year: "2024",
+    isPlaceholder: true,
+  },
+  {
+    id: "testimonial-placeholder-4",
+    clientNamePlaceholder: "[ADD VERIFIED CUSTOMER TESTIMONIAL - CLIENT NAME]",
+    designation: "[VERIFY DESIGNATION - e.g. Civil Contractor]",
+    organizationPlaceholder: "[ADD VERIFIED LOCAL CONTRACTOR]",
+    division: "Building Materials Supply",
+    projectContext: "Sand, Aggregates & Brick Supply",
+    quote: "[ADD VERIFIED CUSTOMER TESTIMONIAL - Verified customer feedback on dependable delivery of sand, coarse aggregates, and red bricks directly to project sites.]",
     rating: 5,
     year: "2023",
+    isPlaceholder: true,
   },
 ];

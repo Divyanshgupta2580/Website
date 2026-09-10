@@ -9,10 +9,10 @@ import {
   HardHat,
   Compass,
   Layers,
-  Cpu,
   Boxes,
   Truck,
   Building2,
+  Home,
 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
@@ -29,55 +29,55 @@ import { testimonialsData } from "@/data/testimonials";
 import { faqsData } from "@/data/faqs";
 
 export const metadata: Metadata = {
-  title: "Construction & Engineering Services | Turnkey Civil EPC",
+  title: "Building Construction Services | GG Construction Co.",
   description:
-    "Explore the 9 specialized civil construction services of GG Construction Co., including turnkey EPC contracting, commercial towers, industrial PEB, and seismic engineering.",
+    "Explore practical building construction services from GG Construction Co. specializing in residential homes, 3–4 floor apartments, shops, small offices, and renovations up to 4–5 floors.",
 };
 
 export default function ServicesPage() {
-  const turnkeyService =
-    servicesData.find((s) => s.slug === "turnkey-construction") || servicesData[0];
+  const residentialService =
+    servicesData.find((s) => s.slug === "residential-construction") || servicesData[0];
   const constructionTestimonials = testimonialsData
-    .filter((t) => t.division === "Construction & Engineering")
+    .filter((t) => t.division === "Building Construction")
     .slice(0, 2);
   const constructionFaqs = faqsData.filter((f) => f.category === "Construction");
 
   const processSteps = [
     {
       number: "01",
-      title: "Geotechnical & Site Audit",
+      title: "Plot & Requirement Review",
       description:
-        "Topographical surveys, soil bore log analysis, and preliminary structural load calculations.",
+        "Initial discussion of your plot dimensions, architectural layout plans, and required room/floor configurations.",
     },
     {
       number: "02",
-      title: "BIM 4D & Master Scheduling",
+      title: "Itemized Cost Estimate",
       description:
-        "Full 3D architectural/structural modeling with CPM scheduling and municipal approvals roadmap.",
+        "Preparing a clear, itemized construction estimate with stage-wise milestone schedules and material specifications.",
     },
     {
       number: "03",
-      title: "Substructure Execution",
+      title: "Foundation & Plinth Casting",
       description:
-        "Piling, anchored diaphragm retention walls, and continuous high-density raft slab casting.",
+        "Trench excavation, foundation footing cage placement, and plinth beam casting with damp-proof course (DPC) installation.",
     },
     {
       number: "04",
-      title: "Superstructure & PEB Erection",
+      title: "RCC Frame & Slab Casting",
       description:
-        "Aluminum system formwork, post-tensioned slabs, and pre-engineered structural steel framing.",
+        "Column and beam casting, formwork shuttering, and roof slab pouring with disciplined concrete vibration and curing.",
     },
     {
       number: "05",
-      title: "Laboratory Auditing & MEP",
+      title: "Brick Masonry & Conduit Work",
       description:
-        "On-site concrete cube crushing tests, weld ultrasonic testing, and precision MEP rough-ins.",
+        "First-class red clay brick or AAC block masonry walls, concealed electrical piping, and plumbing line installations.",
     },
     {
       number: "06",
-      title: "Snag Clearance & Handover",
+      title: "Plaster, Waterproofing & Handover",
       description:
-        "Fire safety NOC clearance, Occupancy Certificate delivery, and digital as-built BIM handover.",
+        "Smooth cement wall plastering, terrace waterproofing, flooring base, and final walkthrough with the property owner.",
     },
   ];
 
@@ -89,26 +89,26 @@ export default function ServicesPage() {
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-6 h-[1px] bg-[#B89A63]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-              Division 01 // Civil Engineering & Contracting
+              Building Construction Services
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
-            Comprehensive Construction & Structural Engineering
+            Practical Building Construction (Up to 4–5 Floors)
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            From deep multi-level basement excavations in dense urban corridors to superflat logistics hubs and turnkey commercial complexes, we execute structural civil works backed by our dedicated in-house materials supply.
+            GG Construction Co. undertakes building construction for residential homes, independent apartments, commercial shops, and small offices. Backed by our primary materials supply business, we ensure dependable cement, steel, and masonry execution with attentive on-site supervision.
           </p>
         </div>
       </section>
 
-      {/* 2. Flagship Feature: Turnkey Single-Point EPC */}
+      {/* 2. Flagship Feature: Residential & Commercial Building */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="bg-[#15191D] border border-[#2A3035] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] bg-[#1D2227]">
               <Image
-                src={turnkeyService.heroImage}
-                alt={turnkeyService.title}
+                src={residentialService.heroImage}
+                alt={residentialService.title}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 60vw"
@@ -116,27 +116,27 @@ export default function ServicesPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#15191D] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#15191D]" />
               <div className="absolute top-4 left-4 z-10">
-                <Badge variant="bronze">FLAGSHIP CAPABILITY</Badge>
+                <Badge variant="bronze">CORE BUILDING WORK</Badge>
               </div>
               <div className="absolute bottom-4 left-4 z-10 font-mono text-xs text-[#F3F1EC] bg-[#0B0D0F]/85 px-3 py-1 border border-[#2A3035]">
-                IS 456 &bull; NBC 2016 COMPLIANT
+                UP TO 4–5 FLOORS &bull; HONEST SUPERVISION
               </div>
             </div>
 
             <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#B89A63] block mb-2">
-                  TURNKEY CONTRACT CERTAINTY
+                  RESIDENTIAL & COMMERCIAL BUILDINGS
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-light text-[#F3F1EC] mb-4">
-                  {turnkeyService.title}
+                  {residentialService.title}
                 </h2>
                 <p className="text-xs sm:text-sm text-[#A7ADB3] leading-relaxed mb-6">
-                  {turnkeyService.overview}
+                  {residentialService.overview}
                 </p>
 
                 <div className="space-y-2.5 pt-4 border-t border-[#2A3035]/60 mb-6">
-                  {turnkeyService.capabilities.slice(0, 4).map((cap, idx) => (
+                  {residentialService.capabilities.slice(0, 4).map((cap, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 text-xs text-[#F3F1EC]">
                       <CheckCircle2 className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
                       <span>{cap}</span>
@@ -147,7 +147,7 @@ export default function ServicesPage() {
 
               <div className="pt-6 border-t border-[#2A3035] flex items-center justify-between gap-4">
                 <Button
-                  href={`/services/${turnkeyService.slug}`}
+                  href={`/services/${residentialService.slug}`}
                   variant="primary"
                   size="sm"
                 >
@@ -156,11 +156,11 @@ export default function ServicesPage() {
                 </Button>
 
                 <Button
-                  href={`/get-a-quote?service=${turnkeyService.slug}`}
+                  href="/contact"
                   variant="outline"
                   size="sm"
                 >
-                  Request Estimate
+                  Discuss Your Build
                 </Button>
               </div>
             </div>
@@ -168,31 +168,31 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 3. Engineering Coordination Feature (BIM 4D & MEP) */}
+      {/* 3. Practical Construction Principles */}
       <section className="py-20 bg-[#15191D]/40 border-y border-[#2A3035] mb-24">
         <Container size="default">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6">
               <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#B89A63] block">
-                Engineering Coordination
+                Construction Standards
               </span>
               <h2 className="text-2xl sm:text-4xl font-light text-[#F3F1EC] leading-tight">
-                Virtual Design & Construction (VDC) with 3D BIM Clash Detection
+                Quality RCC Framing, Sound Masonry & Attentive Site Supervision
               </h2>
               <p className="text-sm text-[#A7ADB3] leading-relaxed">
-                Before a single cubic meter of concrete is placed on site, our structural and MEP engineers model every column, beam rebar envelope, duct, and plumbing sleeve in comprehensive 3D BIM coordination software.
+                A building&apos;s durability comes from proper concrete compaction, sufficient water curing, clean rebar placement, and good damp-proofing. We focus on getting these fundamentals right on every project.
               </p>
               <div className="space-y-3 pt-2">
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035] flex items-start gap-3 text-xs">
-                  <Cpu className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
+                  <ShieldCheck className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
                   <p className="text-[#A7ADB3]">
-                    <strong className="text-[#F3F1EC]">Zero Rebar & Pipe Clashing:</strong> Identifies and resolves interference between heavy reinforcement cages and drainage pipelines virtually.
+                    <strong className="text-[#F3F1EC]">Dedicated Curing Timelines:</strong> Ensuring mandatory 14 to 21-day continuous water curing for slabs and columns to achieve complete design strength.
                   </p>
                 </div>
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035] flex items-start gap-3 text-xs">
                   <Compass className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
                   <p className="text-[#A7ADB3]">
-                    <strong className="text-[#F3F1EC]">Seismic Ductility Detailing:</strong> 100% strict adherence to IS 13920 seismic confinement tie spacing and development lengths.
+                    <strong className="text-[#F3F1EC]">Damp-Proofing Protection:</strong> Plinth-level DPC barriers and terrace membrane waterproofing to prevent moisture seepage into living areas.
                   </p>
                 </div>
               </div>
@@ -200,27 +200,27 @@ export default function ServicesPage() {
 
             <div className="lg:col-span-6 bg-[#15191D] border border-[#2A3035] p-8 sm:p-10 space-y-6">
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] pb-3 border-b border-[#2A3035]">
-                On-Site Testing Laboratories Protocol
+                Core Site Checkpoints
               </h3>
               <p className="text-xs text-[#A7ADB3] leading-relaxed">
-                We establish dedicated, calibrated testing laboratories directly on each primary construction site:
+                Practical checks conducted by our on-site supervisors during each construction stage:
               </p>
               <div className="grid grid-cols-2 gap-4 text-xs font-mono">
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035]">
-                  <span className="text-[#B89A63] block font-semibold mb-1">CONCRETE CUBES</span>
-                  <span className="text-[#A7ADB3] text-[11px]">7-day & 28-day hydraulic compression crushing</span>
+                  <span className="text-[#B89A63] block font-semibold mb-1">CONCRETE MIXING</span>
+                  <span className="text-[#A7ADB3] text-[11px]">Strict water-cement ratio and mechanical vibration</span>
                 </div>
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035]">
-                  <span className="text-[#B89A63] block font-semibold mb-1">SLUMP VERIFICATION</span>
-                  <span className="text-[#A7ADB3] text-[11px]">Workability checked on every transit mixer</span>
+                  <span className="text-[#B89A63] block font-semibold mb-1">STEEL COVER BLOCKS</span>
+                  <span className="text-[#A7ADB3] text-[11px]">Ensuring proper concrete cover around rebar</span>
                 </div>
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035]">
-                  <span className="text-[#B89A63] block font-semibold mb-1">STEEL REBAR GAUGING</span>
-                  <span className="text-[#A7ADB3] text-[11px]">Nominal mass per meter per IS 1786</span>
+                  <span className="text-[#B89A63] block font-semibold mb-1">BRICKWORK PLUMB</span>
+                  <span className="text-[#A7ADB3] text-[11px]">True vertical alignment and uniform mortar joints</span>
                 </div>
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035]">
-                  <span className="text-[#B89A63] block font-semibold mb-1">ULTRASONIC WELDS</span>
-                  <span className="text-[#A7ADB3] text-[11px]">Non-destructive weld joint integrity checks</span>
+                  <span className="text-[#B89A63] block font-semibold mb-1">TERRACE WATERPROOF</span>
+                  <span className="text-[#A7ADB3] text-[11px]">Ponding water test for 72 hours before tiling</span>
                 </div>
               </div>
             </div>
@@ -228,12 +228,12 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      {/* 4. Complete Services Grid (All 9 Services) */}
+      {/* 4. Complete Services Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Specialized Capabilities"
-          title="All 9 Construction & Engineering Services"
-          description="Explore our complete scope from high-rise commercial structures and industrial PEBs to seismic retrofitting and site infrastructure."
+          eyebrow="Building Services"
+          title="Our Construction Services"
+          description="Specialized services for residential homes, independent floors, commercial shops, small offices, renovations, and site coordination."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -243,101 +243,64 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 5. Metrics & Operational Scale */}
-      <section className="py-16 bg-[#15191D]/40 border-y border-[#2A3035] mb-24">
-        <Container size="default">
-          <SectionHeading
-            eyebrow="Proven Execution"
-            title="Civil Capacity & Performance Telemetry"
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <StatBlock
-              index={0}
-              label="Years in Civil Engineering"
-              value={companyData.metrics.yearsInIndustry}
-              helper="Over a decade of landmark structural delivery across India"
-            />
-            <StatBlock
-              index={1}
-              label="Projects Completed"
-              value={companyData.metrics.completedProjects}
-              helper="Commercial towers, logistics parks, and bespoke enclaves"
-            />
-            <StatBlock
-              index={2}
-              label="Active Workforce"
-              value={companyData.metrics.activeWorkforce}
-              helper="Licensed structural engineers, project managers, and technicians"
-            />
-            <StatBlock
-              index={3}
-              label="Safety Record"
-              value="Zero LTI"
-              helper={companyData.safetyRecordPlaceholder}
-            />
-          </div>
-        </Container>
-      </section>
-
-      {/* 6. Strategic Benefits */}
+      {/* 5. Strategic Benefits */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Institutional Advantage"
-          title="Strategic Benefits of Single-Contract Civil Delivery"
-          description="Why commercial developers and institutional operators choose our unified engineering model."
+          eyebrow="Practical Advantages"
+          title="Why Build With GG Construction Co."
+          description="Clear benefits that save time, avoid material delays, and ensure sound building quality."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="p-6 bg-[#15191D] border border-[#2A3035]">
-            <ShieldCheck className="w-5 h-5 text-[#B89A63] mb-3" />
+            <Boxes className="w-5 h-5 text-[#B89A63] mb-3" />
             <h4 className="text-base font-medium text-[#F3F1EC] mb-2">
-              Single-Point Contract Risk
+              In-House Materials Supply
             </h4>
             <p className="text-xs text-[#A7ADB3] leading-relaxed">
-              One contract, one point of executive contact, zero subcontractor blame shifting.
+              Our primary materials business supplies cement, steel, bricks, and sand directly, avoiding site delays.
             </p>
           </div>
 
           <div className="p-6 bg-[#15191D] border border-[#2A3035]">
-            <Boxes className="w-5 h-5 text-[#B89A63] mb-3" />
+            <Home className="w-5 h-5 text-[#B89A63] mb-3" />
             <h4 className="text-base font-medium text-[#F3F1EC] mb-2">
-              In-House Raw Material Buffer
+              Low-Rise Building Focus
             </h4>
             <p className="text-xs text-[#A7ADB3] leading-relaxed">
-              Sites never pause for regional cement or steel shortages thanks to direct mill allocations.
+              Specialized in realistic construction up to 4–5 floors: residential homes, builder floors, and shops.
+            </p>
+          </div>
+
+          <div className="p-6 bg-[#15191D] border border-[#2A3035]">
+            <ShieldCheck className="w-5 h-5 text-[#B89A63] mb-3" />
+            <h4 className="text-base font-medium text-[#F3F1EC] mb-2">
+              Stage-Wise Payments
+            </h4>
+            <p className="text-xs text-[#A7ADB3] leading-relaxed">
+              Transparent payment milestones linked to completed civil stages (foundation, slabs, brickwork, plaster).
             </p>
           </div>
 
           <div className="p-6 bg-[#15191D] border border-[#2A3035]">
             <Compass className="w-5 h-5 text-[#B89A63] mb-3" />
             <h4 className="text-base font-medium text-[#F3F1EC] mb-2">
-              Seismic Zone IV & V Compliance
+              Direct Accessibility
             </h4>
             <p className="text-xs text-[#A7ADB3] leading-relaxed">
-              High-ductility reinforcement detailing designed to safeguard life and structural assets.
-            </p>
-          </div>
-
-          <div className="p-6 bg-[#15191D] border border-[#2A3035]">
-            <Layers className="w-5 h-5 text-[#B89A63] mb-3" />
-            <h4 className="text-base font-medium text-[#F3F1EC] mb-2">
-              Digital As-Built Dossiers
-            </h4>
-            <p className="text-xs text-[#A7ADB3] leading-relaxed">
-              Complete CAD and 3D BIM models handed over for lifetime facilities management.
+              Speak directly with our team and supervisors whenever you have a query about your building.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 7. The 6-Stage Engineering Process */}
+      {/* 6. The 6-Stage Process */}
       <section className="py-20 bg-[#15191D]/30 border-y border-[#2A3035] mb-24">
         <Container size="default">
           <SectionHeading
-            eyebrow="Methodology"
-            title="The 6-Phase Construction Process"
-            description="Our systematic engineering pathway guaranteeing schedule adherence and zero-defect handovers."
+            eyebrow="Workflow"
+            title="Building Construction Steps"
+            description="Our systematic approach ensuring quality workmanship and clear communication from ground-break to handover."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -363,12 +326,12 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      {/* 8. Construction Testimonials */}
+      {/* 7. Construction Testimonials */}
       {constructionTestimonials.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
           <SectionHeading
-            eyebrow="Client Endorsements"
-            title="What Civil Project Stakeholders Say"
+            eyebrow="Customer Reviews"
+            title="Client Feedback"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -379,11 +342,11 @@ export default function ServicesPage() {
         </section>
       )}
 
-      {/* 9. Construction FAQs */}
+      {/* 8. Construction FAQs */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Technical Clarity"
-          title="Construction & Engineering FAQs"
+          eyebrow="Frequently Asked Questions"
+          title="Building Construction FAQs"
           align="center"
         />
 
@@ -403,15 +366,15 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 10. Final Conversion CTA */}
+      {/* 9. Final Conversion CTA */}
       <CTA
-        eyebrow="Commission Civil Engineering"
-        title="Discuss Your Civil Project With Our Chief Engineer"
-        description="Share your plot coordinates, structural drawings, or tender specifications for immediate engineering review and preliminary BOQ guidance."
-        primaryCtaText="Request Project Estimate"
-        primaryCtaHref="/get-a-quote?division=construction"
-        secondaryCtaText="Contact Engineering Desk"
-        secondaryCtaHref="/contact?division=construction"
+        eyebrow="Construction Enquiries"
+        title="Planning a Building Project?"
+        description="Discuss your plot dimensions, building requirements, or renovation plans with GG Construction Co. Call +91 98110 34825 or send an enquiry."
+        primaryCtaText="Enquire Now"
+        primaryCtaHref="/contact"
+        secondaryCtaText="Call +91 98110 34825"
+        secondaryCtaHref="tel:+919811034825"
         showContacts={true}
       />
     </div>

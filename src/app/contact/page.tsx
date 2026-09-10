@@ -7,26 +7,26 @@ import Button from "@/components/ui/Button";
 import { companyData } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Three Dedicated Enquiry Channels",
+  title: "Contact Us | GG Construction Co.",
   description:
-    "Get in touch with GG Construction Co. Dedicated enquiry paths for civil construction, real estate developments, and bulk building material supply.",
+    "Get in touch with GG Construction Co. Dedicated enquiry paths for building materials supply, building construction, and real estate sales assistance.",
 };
 
 const enquiryOptions = [
   {
-    title: "Construction & Engineering",
-    description: "For residential, commercial, industrial and turnkey construction enquiries.",
+    title: "Building Materials Supply",
+    description: "For cement, TMT steel, bricks, blocks, sand, aggregates, plumbing, electrical, and construction supplies.",
+    query: "materials",
+  },
+  {
+    title: "Building Construction",
+    description: "For residential buildings, small offices, shops, low-rise buildings (up to 4–5 floors), and renovation work.",
     query: "construction",
   },
   {
-    title: "Real Estate",
-    description: "For property development and real-estate enquiries.",
+    title: "Real Estate Sales & Assistance",
+    description: "For property sales assistance, marketing opportunities, and buyer-seller coordination.",
     query: "real-estate",
-  },
-  {
-    title: "Building Materials",
-    description: "For cement, steel, bricks, aggregates, plumbing, electrical and other building-material enquiries.",
-    query: "materials",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function ContactPage() {
             Let’s Build Something Great Together.
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            Have a construction requirement, real-estate enquiry, or building-material requirement? Get in touch with the GG Construction Co. team.
+            Have a building material requirement, construction project, or real-estate enquiry? Get in touch with the GG Construction Co. team.
           </p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function ContactPage() {
                   Send an Enquiry
                 </h2>
                 <p className="text-xs text-[#A7ADB3] mt-1">
-                  Submissions are reviewed by our engineering desk within 24 business hours.
+                  Submissions are reviewed by our team within 24 business hours.
                 </p>
               </div>
 
@@ -100,7 +100,7 @@ export default function ContactPage() {
                       Phone
                     </span>
                     <span className="text-[10px] text-[#667582] block">
-                      Direct Voice Helpline
+                      Direct Helpline
                     </span>
                   </div>
                 </div>
@@ -127,7 +127,7 @@ export default function ContactPage() {
                       Email
                     </span>
                     <span className="text-[10px] text-[#667582] block">
-                      Tenders &amp; Specifications
+                      Direct Inquiries &amp; Orders
                     </span>
                   </div>
                 </div>
@@ -144,10 +144,10 @@ export default function ContactPage() {
                 <ShieldCheck className="w-5 h-5 text-[#B89A63] flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-sm font-medium text-[#F3F1EC]">
-                    Need a Formal Bill of Quantities (BOQ)?
+                    Need Material or Construction Estimates?
                   </h3>
                   <p className="text-xs text-[#A7ADB3] leading-relaxed mt-1">
-                    Use our structured estimation desk to configure project scope, budget range, and timeline parameters.
+                    Use our structured estimation desk to configure material orders, project scale, and delivery parameters.
                   </p>
                 </div>
               </div>

@@ -6,45 +6,38 @@ export default function ProcessSection() {
   const steps = [
     {
       number: "01",
-      title: "Consultation",
-      subtitle: "Site Brief & Feasibility",
-      description: "Initial client engagement, site topographical assessment, zoning review, structural load requirements, and preliminary budget benchmarking.",
-      deliverables: ["Site Feasibility Matrix", "Topographical Review", "Initial Parameter Brief"],
+      title: "Enquiry & Assessment",
+      subtitle: "Material Needs & Site Review",
+      description: "We understand your exact requirements—whether you need bulk cement and steel delivered to your site, or complete construction planning for a 3–4 floor residential or commercial building.",
+      deliverables: ["Requirement Checklist", "Plot / Site Discussion", "Preliminary Cost Guidance"],
     },
     {
       number: "02",
-      title: "Planning",
-      subtitle: "BIM & Master Scheduling",
-      description: "Architectural blueprint coordination, Critical Path Method (CPM) scheduling, municipal statutory clearance roadmap, and material supply planning.",
-      deliverables: ["Master CPM Schedule", "Statutory Sanction Dossier", "Material Procurement Plan"],
+      title: "Transparent Estimation",
+      subtitle: "Clear Pricing & Milestones",
+      description: "We provide an itemized material quote or stage-wise building estimate based on actual market rates, without hidden extras or confusing contractual language.",
+      deliverables: ["Itemized Material Rates", "Stage-Wise Construction Plan", "Clear Commercial Terms"],
     },
     {
       number: "03",
-      title: "Engineering",
-      subtitle: "Structural & IS Code Detailing",
-      description: "Seismic load calculation (IS 1893), geotechnical foundation design, BIM 3D clash-detection between civil and MEP lines, and itemized BOQ generation.",
-      deliverables: ["Approved Structural Blueprints", "BIM 3D Coordination Model", "Detailed Itemized BOQ"],
+      title: "Material Staging & Delivery",
+      subtitle: "Direct Site Supply",
+      description: "For material orders, we schedule direct truck/trolley deliveries. For construction projects, we stage quality cement, steel, bricks, and sand systematically to keep work flowing.",
+      deliverables: ["Direct Plot Delivery", "Weighbridge / Volumetric Check", "Safe Unloading Coordination"],
     },
     {
       number: "04",
-      title: "Construction",
-      subtitle: "Civil Execution & Material Integration",
-      description: "Substructure piling, continuous diaphragm walls, post-tensioned slab casting, and PEB structural erection backed by direct primary steel supply.",
-      deliverables: ["Daily Site Inspection Logs", "Batch Slump Test Tickets", "Bi-Weekly Drone Progress"],
+      title: "Construction & Supervision",
+      subtitle: "Disciplined Civil Execution",
+      description: "Execution of foundation footings, RCC column-beam framing, slab pours, and brick masonry under experienced daily supervision, maintaining proper concrete curing periods.",
+      deliverables: ["RCC Structural Framing", "Quality Brick & AAC Masonry", "Attentive Site Oversight"],
     },
     {
       number: "05",
-      title: "Quality & Inspection",
-      subtitle: "On-Site Laboratory Testing",
-      description: "Continuous 7-day and 28-day concrete cube crushing tests, weld ultrasonic testing, hydrostatic plumbing tests, and third-party structural verification.",
-      deliverables: ["NABL Certified Lab Logs", "28-Day Strength Certificates", "Pre-Commissioning Audit"],
-    },
-    {
-      number: "06",
-      title: "Handover",
-      subtitle: "Occupancy & Digital As-Builts",
-      description: "Full MEP commissioning, fire safety NOC clearance, final client snag clearance, Occupancy Certificate (OC) delivery, and long-term warranty handover.",
-      deliverables: ["Occupancy Certificate (OC)", "Digital As-Built CAD/BIM", "Warranty Manual & Keys"],
+      title: "Finishing & Handover",
+      subtitle: "Inspection & Handover",
+      description: "Checking plumbing lines, electrical conduits, plaster finishes, and roof waterproofing before a clean, organized handover to the property owner.",
+      deliverables: ["Comprehensive Quality Walkthrough", "Plumbing & Electrical Check", "Customer Handover"],
     },
   ];
 
@@ -52,12 +45,12 @@ export default function ProcessSection() {
     <section className="py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035]">
       <Container size="default">
         <SectionHeading
-          eyebrow="The Engineering Lifecycle"
-          title="Our 6-Phase Construction Process"
-          description="A disciplined, milestone-governed methodology ensuring transparency, code compliance, and guaranteed project delivery timelines."
+          eyebrow="Structured Execution"
+          title="How We Work"
+          description="A practical, 5-step methodology ensuring transparent pricing, dependable material delivery, and honest construction supervision."
         />
 
-        {/* 6-Step Process Grid */}
+        {/* 5-Step Process Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {steps.map((step) => (
             <div
@@ -73,7 +66,7 @@ export default function ProcessSection() {
                     {step.number}
                   </span>
                   <span className="text-[10px] uppercase font-mono tracking-wider text-[#667582] bg-[#0B0D0F] px-2 py-0.5 border border-[#2A3035]">
-                    PHASE {step.number}
+                    STEP {step.number}
                   </span>
                 </div>
 
@@ -91,7 +84,7 @@ export default function ProcessSection() {
 
               <div className="pt-4 border-t border-[#2A3035]/60">
                 <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-2 font-semibold">
-                  Milestone Deliverables
+                  Key Steps
                 </span>
                 <ul className="space-y-1 text-[11px] text-[#A7ADB3]">
                   {step.deliverables.map((deliv, i) => (

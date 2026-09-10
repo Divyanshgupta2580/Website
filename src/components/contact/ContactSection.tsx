@@ -16,25 +16,25 @@ export default function ContactSection({
 }: ContactSectionProps) {
   const enquiryPaths = [
     {
-      title: "Construction & Engineering",
+      title: "Building Materials Supply",
       description:
-        "For residential, commercial, industrial and turnkey construction enquiries.",
+        "For cement, TMT steel, red bricks, AAC blocks, sand, aggregates, plumbing, and electrical material enquiries.",
+      href: "/contact?division=materials",
+      label: "Materials Enquiry",
+    },
+    {
+      title: "Building Construction",
+      description:
+        "For residential homes, 3–4 floor apartments, shops, offices, and renovation enquiries.",
       href: "/contact?division=construction",
       label: "Construction Enquiry",
     },
     {
-      title: "Real Estate",
+      title: "Real Estate Sales & Assistance",
       description:
-        "For property development and real-estate enquiries.",
+        "For property marketing, buying opportunities, and buyer-seller coordination enquiries.",
       href: "/contact?division=real-estate",
       label: "Real Estate Enquiry",
-    },
-    {
-      title: "Building Materials",
-      description:
-        "For cement, steel, bricks, aggregates, plumbing, electrical and other building-material enquiries.",
-      href: "/contact?division=materials",
-      label: "Materials Enquiry",
     },
   ];
 

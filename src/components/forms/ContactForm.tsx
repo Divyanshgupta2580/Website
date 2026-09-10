@@ -9,7 +9,7 @@ type EnquiryType = "construction" | "real-estate" | "materials" | "general";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
-  const initialDivision = (searchParams.get("division") as EnquiryType) || "construction";
+  const initialDivision = (searchParams.get("division") as EnquiryType) || "materials";
   const initialSubject = searchParams.get("subject") || "";
 
   const [enquiryType, setEnquiryType] = useState<EnquiryType>(initialDivision);
@@ -90,7 +90,7 @@ export default function ContactForm() {
         });
       } else {
         setSubmitStatus("error");
-        setFeedbackMessage(result.error || "Submission failed. Please verify your details.");
+        setFeedbackMessage(result.error || "Submission failed. Please verify details.");
       }
     } catch (err) {
       setSubmitStatus("error");
@@ -110,6 +110,22 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
           <button
             type="button"
+            onClick={() => setEnquiryType("materials")}
+            className={`flex items-center gap-2.5 p-3 text-left border transition-all ${
+              enquiryType === "materials"
+                ? "bg-[#0B0D0F] border-[#B89A63] text-[#F3F1EC]"
+                : "bg-[#1D2227] border-[#2A3035] text-[#A7ADB3] hover:text-[#F3F1EC] hover:border-[#667582]"
+            }`}
+          >
+            <Boxes className={`w-4 h-4 flex-shrink-0 ${enquiryType === "materials" ? "text-[#B89A63]" : "text-[#667582]"}`} />
+            <div>
+              <span className="text-xs font-semibold block">1. Building Materials</span>
+              <span className="text-[10px] text-[#A7ADB3] block">Cement, Steel, Supplies</span>
+            </div>
+          </button>
+
+          <button
+            type="button"
             onClick={() => setEnquiryType("construction")}
             className={`flex items-center gap-2.5 p-3 text-left border transition-all ${
               enquiryType === "construction"
@@ -119,8 +135,8 @@ export default function ContactForm() {
           >
             <HardHat className={`w-4 h-4 flex-shrink-0 ${enquiryType === "construction" ? "text-[#B89A63]" : "text-[#667582]"}`} />
             <div>
-              <span className="text-xs font-semibold block">Construction</span>
-              <span className="text-[10px] text-[#A7ADB3] block">EPC & Turnkey</span>
+              <span className="text-xs font-semibold block">2. Construction</span>
+              <span className="text-[10px] text-[#A7ADB3] block">Low-Rise Building Work</span>
             </div>
           </button>
 
@@ -135,24 +151,8 @@ export default function ContactForm() {
           >
             <Building2 className={`w-4 h-4 flex-shrink-0 ${enquiryType === "real-estate" ? "text-[#B89A63]" : "text-[#667582]"}`} />
             <div>
-              <span className="text-xs font-semibold block">Real Estate</span>
-              <span className="text-[10px] text-[#A7ADB3] block">Buy & Invest</span>
-            </div>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setEnquiryType("materials")}
-            className={`flex items-center gap-2.5 p-3 text-left border transition-all ${
-              enquiryType === "materials"
-                ? "bg-[#0B0D0F] border-[#B89A63] text-[#F3F1EC]"
-                : "bg-[#1D2227] border-[#2A3035] text-[#A7ADB3] hover:text-[#F3F1EC] hover:border-[#667582]"
-            }`}
-          >
-            <Boxes className={`w-4 h-4 flex-shrink-0 ${enquiryType === "materials" ? "text-[#B89A63]" : "text-[#667582]"}`} />
-            <div>
-              <span className="text-xs font-semibold block">Materials Supply</span>
-              <span className="text-[10px] text-[#A7ADB3] block">Bulk Sourcing</span>
+              <span className="text-xs font-semibold block">3. Real Estate</span>
+              <span className="text-[10px] text-[#A7ADB3] block">Sales & Assistance</span>
             </div>
           </button>
         </div>

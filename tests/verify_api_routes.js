@@ -85,10 +85,10 @@ async function runTests() {
     body: JSON.stringify({
       name: "Rajesh Sharma",
       phone: "+91 9876543210",
-      email: "rajesh@apexinfra.com",
+      email: "rajesh@example.com",
       enquiryType: "construction",
-      subject: "Commercial EPC Tender Enquiry",
-      message: "We are developing a 150,000 sq ft office campus in Gurugram and request a turnkey proposal.",
+      subject: "Building Construction Enquiry",
+      message: "Looking for 4-floor commercial building construction timeline and details in Gurugram.",
     }),
   });
   const res4 = await POST(validReq);
@@ -155,18 +155,18 @@ async function runTests() {
     method: "POST",
     headers: { "content-type": "application/json", "x-forwarded-for": "10.0.0.11" },
     body: JSON.stringify({
-      name: "Vikramaditya Singh",
+      name: "Vikram Singh",
       phone: "+91 9876543210",
-      email: "vikram@apexinfra.com",
-      company: "Apex Infrastructure",
+      email: "vikram@example.com",
+      company: "Local Retail Venture",
       enquiryType: "construction",
-      projectType: "Commercial Office Building",
-      location: "Gurugram, Cyber City",
-      approximateArea: "120,000 Sq. Ft.",
-      budgetRange: "₹ 20 Crores - ₹ 50 Crores",
+      projectType: "Commercial Building / Showroom (Low-Rise)",
+      location: "Noida Sector 63",
+      approximateArea: "12,000 Sq. Ft.",
+      budgetRange: "₹ 1 Crore - ₹ 2.5 Crores",
       timeline: "6 - 12 Months",
-      requirements: ["BIM 4D Modeling", "LEED Certification"],
-      message: "Grade-A IT park specification required with post-tensioned slabs.",
+      requirements: ["Architectural Drawings / Floor Plan Ready"],
+      message: "Requirement for 4-floor commercial building construction and material estimates.",
     }),
   });
   const qRes3 = await postQuote(validQuoteReq);

@@ -11,19 +11,19 @@ import Badge from "@/components/ui/Badge";
 import { blogPostsData, BlogPost } from "@/data/blog";
 
 const categories = [
-  "All Insights",
-  "Structural Engineering",
-  "Material Science",
-  "Real Estate Due Diligence",
+  "All Articles",
+  "Building Materials",
+  "Construction Guidance",
+  "Property Buying Tips",
 ];
 
 export default function BlogPage() {
-  const [activeCategory, setActiveCategory] = useState("All Insights");
+  const [activeCategory, setActiveCategory] = useState("All Articles");
 
   const featuredPost = blogPostsData[0];
 
   const filteredPosts =
-    activeCategory === "All Insights"
+    activeCategory === "All Articles"
       ? blogPostsData
       : blogPostsData.filter((post) => post.category === activeCategory);
 
@@ -35,14 +35,14 @@ export default function BlogPage() {
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-6 h-[1px] bg-[#B89A63]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-              Technical Analysis & Industry Perspectives
+              Practical Building Guides & Advice
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
-            Knowledge Centre
+            Building & Material Guides
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            Forensic engineering investigations, Indian Standards (IS) code breakdowns, and statutory real estate due diligence written by our structural engineers and legal counsels.
+            Practical articles on choosing quality construction materials, understanding structural building basics, and checklists for property buyers.
           </p>
         </div>
       </section>

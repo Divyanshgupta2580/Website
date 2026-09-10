@@ -1,18 +1,18 @@
 # GG Construction Co.
 
-A premium, production-oriented corporate website for **GG Construction Co.**, combining three integrated operational verticals: **Civil Construction & Structural Engineering**, **Real Estate & Property Development**, and **Building Materials Supply**.
+A clean, modern corporate website for **GG Construction Co.**, presenting three integrated business operations: **Building Materials Supply (Primary)**, **Building Construction (Low-Rise)**, and **Real Estate Sales & Property Assistance**.
 
 ---
 
 ## Overview
 
-GG Construction Co. is a multi-disciplinary infrastructure and contracting enterprise. The platform presents a cohesive digital presence for its three core divisions:
+GG Construction Co. is a practical, customer-focused construction and building materials business. The platform presents a cohesive digital presence for its three core operational areas:
 
-1. **Civil Construction & Structural Engineering**: Turnkey contracting, industrial warehousing, commercial structures, pre-engineered buildings (PEB), and MEP engineering.
-2. **Real Estate & Property Development**: Grade-A commercial office suites, residential developments, planned enclaves, and regulatory compliance alignment (RERA governance).
-3. **Building Materials Supply**: B2B bulk distribution of certified primary materials including TMT reinforcement steel, OPC/PPC cement, aggregates, and autoclaved aerated concrete (AAC) blocks.
+1. **Building Materials Supply (Primary Business)**: Sales and dependable supply of essential building materials including cement (OPC/PPC), TMT reinforcement steel (Fe 500D), red clay bricks, AAC lightweight blocks, river sand, graded coarse aggregates, plumbing supplies, electrical materials, and construction chemicals.
+2. **Building Construction (Secondary Business)**: Realistic low-rise construction services for residential houses, small apartment buildings, low-rise commercial properties, shops, showrooms, and small offices (typically up to 4–5 floors maximum), alongside renovation and remodeling work.
+3. **Real Estate Sales & Property Assistance (Secondary Business)**: Property marketing, sales coordination, buyer-seller assistance, and property enquiry support connecting buyers with owners and developers.
 
-> **Operational Note:** All business metrics, certifications, past project statistics, and leadership biographies in this repository adhere to strict factual integrity standards. Unverified commercial claims are intentionally tokenized as bracketed placeholders (`[VERIFY ...]`) in the centralized data layer (`src/data/`) pending formal client verification.
+> **Operational Note:** All business metrics, past project examples, customer testimonials, and leadership biographies in this repository adhere to strict factual integrity standards. Unverified commercial claims are explicitly tokenized as bracketed placeholders (`[ADD REAL PROJECT]`, `[ADD VERIFIED CUSTOMER TESTIMONIAL]`, `[VERIFY COMPANY EXPERIENCE]`) in the centralized data layer (`src/data/`) pending formal owner verification.
 
 ---
 
@@ -21,19 +21,19 @@ GG Construction Co. is a multi-disciplinary infrastructure and contracting enter
 The platform provides a comprehensive suite of verified components and workflows:
 
 - **Responsive Dark Architectural UI**: Monolithic, editorial dark visual identity built with high-contrast typography and subtle grid borders.
-- **Construction Services**: Comprehensive breakdown of engineering disciplines, turnkey workflows, and execution methodologies.
-- **Dynamic Service Pages**: Dedicated dynamic pages (`/services/[slug]`) detailing scope, standards, and deliverables.
-- **Project Portfolio**: Filterable project gallery with technical categorization across industrial, commercial, and infrastructure domains.
-- **Dynamic Project Pages**: In-depth project case studies (`/projects/[slug]`) highlighting structural specifications, location, and structural typologies.
-- **Real-Estate Section**: Dedicated division showcase (`/real-estate`) displaying commercial suites, residential enclaves, and RERA compliance frameworks.
-- **Building-Material Catalog**: B2B materials directory (`/materials`) detailing structural grades, dimensional standards, and supply capacities.
-- **Dynamic Material Category Pages**: Deep-dive category pages (`/materials/[category]`) for TMT steel, cement, aggregates, and masonry units.
-- **Gallery**: High-resolution image showcases (`/gallery`) categorized by structural typologies and site progress.
-- **Testimonials**: Corporate endorsements and partner feedback (`/testimonials`) with verified verification indicators.
-- **Blog / Knowledge Centre**: Technical knowledge base (`/blog`) and articles (`/blog/[slug]`) covering BIS codes, seismic ductility, and construction management.
-- **FAQ System**: Categorized technical and commercial FAQ accordion system (`/faqs`).
-- **Contact Form**: Secure enquiry submission form (`/contact`) supporting division-specific routing.
-- **Quote Request Form**: Comprehensive estimation and tender scoping tool (`/get-a-quote`).
+- **Building Materials Catalog**: Primary commercial section (`/materials`) detailing material specifications, grades, standard packaging, and pricing enquiry paths.
+- **Dynamic Material Category Pages**: Dedicated category pages (`/materials/[category]`) for cement, TMT steel, bricks & blocks, aggregates, plumbing, electrical, and construction chemicals.
+- **Construction Services**: Realistic low-rise construction capabilities (`/services`) focusing on residential, small commercial, and renovation work.
+- **Dynamic Service Pages**: Detailed service pages (`/services/[slug]`) outlining execution steps, quality checks, and customer enquiry paths.
+- **Project Portfolio**: Representative showcase of low-rise projects (`/projects`) categorized by residential, commercial, and mixed-use builds up to 4–5 floors.
+- **Dynamic Project Pages**: Case studies (`/projects/[slug]`) detailing location, floors, built-up area, and construction scope.
+- **Real Estate Section**: Property sales and marketing assistance (`/real-estate`) displaying property opportunities with clear listing nature disclaimers.
+- **Gallery**: Visual documentation (`/gallery`) of low-rise construction, structural framing, brick masonry, and materials stockyard.
+- **Testimonials**: Customer feedback section (`/testimonials`) with explicit verification notices.
+- **Blog / Knowledge Centre**: Practical building guides (`/blog`) and articles (`/blog/[slug]`) covering cement selection, TMT steel grades, and property buying due diligence.
+- **FAQ System**: Categorized FAQ accordion system (`/faqs`) answering practical customer and contractor questions.
+- **Contact Form**: Secure enquiry submission form (`/contact`) prioritizing Building Materials #1, Construction #2, and Real Estate #3.
+- **Quote Request Form**: Structured material and construction quotation tool (`/get-a-quote`).
 - **Responsive Navigation**: Desktop navigation bar, floating quick-contact bar, and mobile drawer menu.
 - **Accessibility Support (a11y)**: Semantic HTML5 landmark tags, ARIA attributes, skip-to-content navigation links, and full keyboard traversability.
 - **SEO Metadata**: Static and dynamic OpenGraph tags, Twitter cards, and structured JSON-LD schemas with XSS escaping.
@@ -90,7 +90,7 @@ The application is built with modern, battle-tested web standards verified direc
 │   │   ├── cards/           # Content presentation cards (Projects, Services, Materials, Blog)
 │   │   ├── contact/         # Contact section and editorial layout
 │   │   ├── forms/           # Client-side form components with client-side feedback
-│   │   ├── home/            # Homepage sections (Hero, Divisions, Metrics, Process)
+│   │   ├── home/            # Homepage sections (Hero, Divisions, Materials, Projects, Process)
 │   │   ├── layout/          # Global layout chrome (Navbar, Footer, FloatingBar, SkipLink)
 │   │   └── ui/              # Atom-level primitives (Button, Container, Accordion, Badge)
 │   ├── data/                # Strongly typed mock and placeholder business data
@@ -114,28 +114,28 @@ All routes are implemented under `src/app`:
 ### Primary Static Pages
 | Route Path | File Location | Purpose |
 | :--- | :--- | :--- |
-| `/` | `src/app/page.tsx` | Corporate homepage featuring hero, divisions, metrics, process, and FAQs |
-| `/about` | `src/app/about/page.tsx` | Corporate background, engineering values, and leadership profiles |
-| `/services` | `src/app/services/page.tsx` | Full directory of contracting and structural engineering services |
-| `/projects` | `src/app/projects/page.tsx` | Portfolio of executed civil, commercial, and industrial landmarks |
-| `/real-estate` | `src/app/real-estate/page.tsx` | Commercial office suites, residential developments, and RERA overview |
-| `/materials` | `src/app/materials/page.tsx` | B2B building material supply catalog and structural specifications |
-| `/gallery` | `src/app/gallery/page.tsx` | High-resolution photography of site execution and structural systems |
-| `/testimonials` | `src/app/testimonials/page.tsx` | Client and institutional feedback with verification notices |
-| `/blog` | `src/app/blog/page.tsx` | Technical engineering articles, code reviews, and industry insights |
-| `/faqs` | `src/app/faqs/page.tsx` | Comprehensive answers to commercial and technical questions |
-| `/contact` | `src/app/contact/page.tsx` | Dedicated corporate contact page and enquiry form |
-| `/get-a-quote` | `src/app/get-a-quote/page.tsx` | Interactive project estimation and RFP specification form |
+| `/` | `src/app/page.tsx` | Corporate homepage featuring hero, 3 business divisions, materials, and projects |
+| `/about` | `src/app/about/page.tsx` | Practical business background, building experience, and founder placeholder |
+| `/materials` | `src/app/materials/page.tsx` | Primary business catalog: building material supply and categories |
+| `/services` | `src/app/services/page.tsx` | Directory of residential, commercial low-rise, and renovation services |
+| `/projects` | `src/app/projects/page.tsx` | Representative portfolio of small-to-medium low-rise building projects |
+| `/real-estate` | `src/app/real-estate/page.tsx` | Property sales assistance, property opportunities, and marketing support |
+| `/gallery` | `src/app/gallery/page.tsx` | Representative photography of low-rise builds, masonry, and materials stock |
+| `/testimonials` | `src/app/testimonials/page.tsx` | Customer feedback with explicit verification indicators |
+| `/blog` | `src/app/blog/page.tsx` | Practical guides for cement selection, steel grades, and property buying |
+| `/faqs` | `src/app/faqs/page.tsx` | Comprehensive answers to material supply, construction, and property questions |
+| `/contact` | `src/app/contact/page.tsx` | Dedicated contact page with direct phone, email, and enquiry channels |
+| `/get-a-quote` | `src/app/get-a-quote/page.tsx` | Interactive material quotation and construction estimation form |
 | `/privacy-policy` | `src/app/privacy-policy/page.tsx` | Data privacy, storage policies, and user rights |
-| `/terms` | `src/app/terms/page.tsx` | Legal disclaimers and terms governing preliminary cost estimates |
+| `/terms` | `src/app/terms/page.tsx` | Legal disclaimers and terms governing quotations and estimates |
 
 ### Dynamic Route Templates
 | Route Pattern | File Location | Sample Routes |
 | :--- | :--- | :--- |
-| `/services/[slug]` | `src/app/services/[slug]/page.tsx` | `/services/turnkey-construction`<br>`/services/commercial-construction`<br>`/services/industrial-construction` |
-| `/projects/[slug]` | `src/app/projects/[slug]/page.tsx` | `/projects/apex-commercial-tower`<br>`/projects/zenith-logistics-park`<br>`/projects/serene-villas-phase1` |
 | `/materials/[category]` | `src/app/materials/[category]/page.tsx` | `/materials/cement`<br>`/materials/tmt-steel`<br>`/materials/bricks-blocks` |
-| `/blog/[slug]` | `src/app/blog/[slug]/page.tsx` | `/blog/understanding-is-1786-seismic-ductility-fe500d`<br>`/blog/navigating-rera-compliance-and-escrow-governance` |
+| `/services/[slug]` | `src/app/services/[slug]/page.tsx` | `/services/residential-construction`<br>`/services/commercial-construction`<br>`/services/renovation-remodeling` |
+| `/projects/[slug]` | `src/app/projects/[slug]/page.tsx` | `/projects/residential-building-4-floors`<br>`/projects/family-residence-3-floors`<br>`/projects/commercial-building-4-floors` |
+| `/blog/[slug]` | `src/app/blog/[slug]/page.tsx` | `/blog/which-cement-is-suitable-for-house-construction`<br>`/blog/how-to-choose-tmt-steel-fe-500d` |
 
 ### API Route Handlers
 | Route Path | Method | File Location | Purpose |
@@ -394,12 +394,12 @@ EMAIL_SERVICE_KEY=
 
 The content in `src/data/*.ts` includes bracketed verification tokens that must be reviewed and confirmed with GG Construction Co. leadership prior to commercial launch:
 
-- **Company Background**: Founding dates, registration numbers, and permanent office locations (`[VERIFY ...]`).
-- **Leadership**: Biographies and direct professional credentials for executive management.
-- **Projects**: Formal client names, delivered square footage figures, and exact site photography.
-- **Certifications**: Lab test report numbers, ISO certifications, and green building ratings.
-- **Real Estate**: Exact RERA registration IDs, site plans, and commercial inventory pricing.
-- **Materials**: Supplier authorized dealership agreements and BIS testing certificates.
+- **Company Background**: Founding dates, registration numbers, and permanent office locations (`[VERIFY COMPANY ...]`).
+- **Leadership & Founder**: Biography, role, and practical background (`[FOUNDER NAME PLACEHOLDER]`).
+- **Projects**: Real low-rise project details, locations, photographs, and scopes (`[ADD REAL PROJECT]`).
+- **Testimonials**: Genuine client reviews and ratings (`[ADD VERIFIED CUSTOMER TESTIMONIAL]`).
+- **Properties**: Verified property opportunities, sale listings, and owner authorizations (`[ADD VERIFIED PROPERTY]`).
+- **Materials**: Available brand sources, local delivery coverage, and minimum order parameters (`[VERIFY MATERIAL BRAND]`).
 
 ---
 
@@ -407,18 +407,17 @@ The content in `src/data/*.ts` includes bracketed verification tokens that must 
 
 - **In-Memory Rate Limiting**: Single-instance storage does not synchronize across distributed multi-region serverless instances.
 - **Lead Dispatching**: Outbound webhook and email delivery require external endpoint provisioning; default behavior logs dossiers server-side without external delivery.
-- **Placeholder Business Copy**: Certain historical and project metrics require factual sign-off from company directors before public promotion.
+- **Placeholder Business Copy**: Certain historical, project, and property details require factual sign-off from company directors before public promotion.
 - **Upstream Dependency Advisories**: Next.js 14 and ESLint toolchain advisories identified in `npm audit` require validation against Next.js major release breaking changes.
 
 ---
 
 ## Contact
 
-For business enquiries, tenders, and technical consulting:
+For building materials supply, construction enquiries, and property assistance:
 
 - **Phone**: +91 98110 34825
 - **Email**: gunjan29gupta@gmail.com
-- **Website**: [https://ggconstruction.com](https://ggconstruction.com)
 
 ---
 

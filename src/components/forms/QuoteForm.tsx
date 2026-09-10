@@ -1,54 +1,65 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { Send, CheckCircle, AlertTriangle, Loader2, Calculator } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const projectTypesByDivision = {
+  materials: [
+    "Cement (OPC / PPC)",
+    "TMT Steel / Reinforcement Rebars",
+    "Bricks & AAC Blocks",
+    "Sand & Coarse Aggregates",
+    "Plumbing Materials & Fittings",
+    "Electrical Conduit & Wiring Supplies",
+    "Construction Chemicals & Waterproofing",
+    "Complete Material Project Order",
+  ],
   construction: [
-    "Turnkey Civil & Structural",
-    "Commercial Office Tower / Tech Park",
-    "Industrial Pre-Engineered Building (PEB)",
-    "Warehouse & Logistics Park",
-    "Luxury Private Residence / Villa",
-    "Renovation & Retrofitting",
-    "Site Infrastructure & Roadways",
+    "Residential Building Construction (Up to 4–5 Floors)",
+    "Small Apartment / Floor-wise Construction",
+    "Commercial Building / Showroom (Low-Rise)",
+    "Small Office / Shop Construction",
+    "Renovation & Remodeling Work",
+    "Building Maintenance & Expansion",
+    "Construction Planning & Site Supervision",
   ],
   "real-estate": [
-    "Residential Apartment Purchase",
-    "Commercial Office Suite",
-    "High-Street Retail Space",
-    "Plotted Land Enclave",
-    "Joint Development / Land Venture",
-  ],
-  materials: [
-    "Primary TMT Steel Rebars (Fe 500D / 550D)",
-    "Bulk Cement (OPC 53 / PPC Tankers)",
-    "Manufactured Sand (M-Sand / P-Sand)",
-    "Coarse Aggregates (10mm / 20mm / 40mm)",
-    "AAC Lightweight Blocks",
-    "Construction Chemicals & Waterproofing",
-    "Complete Multi-Material Project Lot",
+    "Property Buying Assistance",
+    "Property Sales & Marketing Enquiry",
+    "Plot / Land Opportunity",
+    "Commercial Space / Shop Enquiry",
+    "Buyer-Seller Coordination",
   ],
 };
 
 const requirementChecklistOptions = [
-  "Architectural Drawings Ready",
-  "Structural Design in Progress",
-  "Soil Testing Report Available",
-  "Statutory Clearances In Place",
-  "Immediate Procurement Required",
-  "Needs Site Visit & Survey",
+  "Architectural Drawings / Floor Plan Ready",
+  "Structural Coordination Required",
+  "Immediate Material Procurement",
+  "Site Visit & Feasibility Review",
+  "Phased Material Delivery Schedule",
+  "Labor & Material Combined Quote",
 ];
 
 export default function QuoteForm() {
-  const [division, setDivision] = useState<"construction" | "real-estate" | "materials">("construction");
+  const searchParams = useSearchParams();
+  const paramDiv = searchParams.get("division");
+  const initialDivision: "materials" | "construction" | "real-estate" =
+    paramDiv === "construction"
+      ? "construction"
+      : paramDiv === "real-estate"
+      ? "real-estate"
+      : "materials";
+
+  const [division, setDivision] = useState<"materials" | "construction" | "real-estate">(initialDivision);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
     company: "",
-    projectType: projectTypesByDivision.construction[0],
+    projectType: projectTypesByDivision[initialDivision][0],
     location: "",
     approximateArea: "",
     budgetRange: "",
@@ -58,13 +69,29 @@ export default function QuoteForm() {
     bot_field: "",
   });
 
+  useEffect(() => {
+    const productParam = searchParams.get("product");
+    const categoryParam = searchParams.get("category");
+    if (productParam) {
+      setFormData((prev) => ({
+        ...prev,
+        message: prev.message || `Inquiry for product: ${productParam}`,
+      }));
+    } else if (categoryParam) {
+      setFormData((prev) => ({
+        ...prev,
+        message: prev.message || `Inquiry for category: ${categoryParam}`,
+      }));
+    }
+  }, [searchParams]);
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [referenceId, setReferenceId] = useState("");
 
-  const handleDivisionChange = (newDiv: "construction" | "real-estate" | "materials") => {
+  const handleDivisionChange = (newDiv: "materials" | "construction" | "real-estate") => {
     setDivision(newDiv);
     setFormData((prev) => ({
       ...prev,
@@ -97,9 +124,9 @@ export default function QuoteForm() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       errs.email = "Enter a valid email address";
     }
-    if (!formData.location.trim()) errs.location = "Project location / city is required";
+    if (!formData.location.trim()) errs.location = "Location / city is required";
     if (!formData.approximateArea.trim()) {
-      errs.approximateArea = "Approximate area (sq. ft.) or material tonnage is required";
+      errs.approximateArea = "Approximate area (sq. ft.) or material quantities is required";
     }
     if (!formData.budgetRange.trim()) errs.budgetRange = "Please specify budget expectation";
     if (!formData.timeline.trim()) errs.timeline = "Please specify target timeline";
@@ -151,7 +178,7 @@ export default function QuoteForm() {
       }
     } catch (err) {
       setSubmitStatus("error");
-      setFeedbackMessage("Network failure. Please try again or contact our engineering desk.");
+      setFeedbackMessage("Network failure. Please try again or call our direct helpline.");
     } finally {
       setIsSubmitting(false);
     }
@@ -170,6 +197,23 @@ export default function QuoteForm() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <button
             type="button"
+            onClick={() => handleDivisionChange("materials")}
+            className={`p-3.5 text-left border transition-all ${
+              division === "materials"
+                ? "bg-[#0B0D0F] border-[#B89A63] text-[#F3F1EC]"
+                : "bg-[#1D2227] border-[#2A3035] text-[#A7ADB3] hover:text-[#F3F1EC]"
+            }`}
+          >
+            <span className="text-xs font-semibold block uppercase tracking-wider">
+              1. Materials Supply
+            </span>
+            <span className="text-[11px] text-[#A7ADB3] block mt-0.5">
+              Cement, TMT Steel, Supplies
+            </span>
+          </button>
+
+          <button
+            type="button"
             onClick={() => handleDivisionChange("construction")}
             className={`p-3.5 text-left border transition-all ${
               division === "construction"
@@ -178,10 +222,10 @@ export default function QuoteForm() {
             }`}
           >
             <span className="text-xs font-semibold block uppercase tracking-wider">
-              1. Construction
+              2. Construction
             </span>
             <span className="text-[11px] text-[#A7ADB3] block mt-0.5">
-              Civil EPC, Turnkey & PEB
+              Low-Rise Buildings (Up to 4–5 Floors)
             </span>
           </button>
 
@@ -195,27 +239,10 @@ export default function QuoteForm() {
             }`}
           >
             <span className="text-xs font-semibold block uppercase tracking-wider">
-              2. Real Estate
+              3. Real Estate
             </span>
             <span className="text-[11px] text-[#A7ADB3] block mt-0.5">
-              Luxury Enclaves & Commercial
-            </span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => handleDivisionChange("materials")}
-            className={`p-3.5 text-left border transition-all ${
-              division === "materials"
-                ? "bg-[#0B0D0F] border-[#B89A63] text-[#F3F1EC]"
-                : "bg-[#1D2227] border-[#2A3035] text-[#A7ADB3] hover:text-[#F3F1EC]"
-            }`}
-          >
-            <span className="text-xs font-semibold block uppercase tracking-wider">
-              3. Materials Supply
-            </span>
-            <span className="text-[11px] text-[#A7ADB3] block mt-0.5">
-              Direct Bulk Sourcing
+              Property Sales &amp; Assistance
             </span>
           </button>
         </div>

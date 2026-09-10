@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return { title: "Article Not Found" };
 
   return {
-    title: `${post.title} | Knowledge Centre`,
+    title: `${post.title} | Knowledge & Guides | GG Construction Co.`,
     description: post.excerpt,
   };
 }
@@ -85,7 +85,7 @@ export default function BlogPostDetailPage({ params }: BlogPostPageProps) {
           </div>
 
           <span className="text-[10px] font-mono text-[#667582] uppercase tracking-wider bg-[#15191D] px-2.5 py-1 border border-[#2A3035]">
-            GG TECHNICAL BRIEFING
+            GG CONSTRUCTION GUIDE
           </span>
         </div>
 
@@ -147,7 +147,7 @@ export default function BlogPostDetailPage({ params }: BlogPostPageProps) {
       {otherPosts.length > 0 && (
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 border-t border-[#2A3035]">
           <h3 className="text-lg font-light text-[#F3F1EC] mb-6">
-            Related Technical Analysis
+            Related Guides & Articles
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {otherPosts.map((p) => (

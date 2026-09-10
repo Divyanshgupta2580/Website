@@ -20,12 +20,11 @@ export interface LeadershipMember {
 }
 
 export interface CompanyMetrics {
-  yearsInIndustry: string;
-  completedProjects: string;
-  citiesPresence: string;
-  activeWorkforce: string;
-  materialTonnageAnnually: string;
-  clientRetentionRate: string;
+  materialFocus: string;
+  constructionFocus: string;
+  realEstateFocus: string;
+  customerCommitment: string;
+  regionalFocus: string;
 }
 
 export interface CompanyConfig {
@@ -71,7 +70,7 @@ export interface CompanyConfig {
     title: string;
     description: string;
   }[];
-  engineeringPhilosophy: {
+  practicalPrinciples: {
     title: string;
     description: string;
   }[];
@@ -83,12 +82,12 @@ export interface CompanyConfig {
 
 export const companyData: CompanyConfig = {
   name: "GG Construction Co.",
-  legalName: "GG Construction & Infrastructure Projects (P) Ltd. [VERIFY LEGAL ENTITY]",
-  establishedPlaceholder: "[VERIFY YEAR FOUNDED - e.g. Est. 2008]",
-  tagline: "Construction. Engineering. Materials.",
-  positioning: "Integrated construction engineering, quality property development, and high-specification building material supply across India.",
-  heroHeadline: "Building Strong Foundations. Creating Better Futures.",
-  heroSupportingText: "GG Construction Co. brings together construction expertise, real-estate engineering and dependable building-material supply under one trusted name.",
+  legalName: "GG Construction Co. [VERIFY LEGAL ENTITY NAME]",
+  establishedPlaceholder: "[VERIFY YEAR FOUNDED WITH OWNER]",
+  tagline: "Building Materials. Construction. Real Estate.",
+  positioning: "Dependable building materials supply, practical building construction up to 4–5 floors, and trusted real estate sales assistance.",
+  heroHeadline: "Building Materials. Construction. Real Estate.",
+  heroSupportingText: "Reliable building materials, practical construction services and property sales assistance under one trusted name.",
   
   contact: {
     phone: "+919811034825",
@@ -98,203 +97,184 @@ export const companyData: CompanyConfig = {
   },
 
   metrics: {
-    yearsInIndustry: "[VERIFY YEARS IN INDUSTRY - e.g. 15+]",
-    completedProjects: "[ADD VERIFIED PROJECT COUNT - e.g. 180+]",
-    citiesPresence: "[ADD VERIFIED CITIES - e.g. 12+]",
-    activeWorkforce: "[ADD VERIFIED WORKFORCE - e.g. 450+]",
-    materialTonnageAnnually: "[ADD VERIFIED ANNUAL SUPPLY TONNAGE - e.g. 75,000+ MT]",
-    clientRetentionRate: "[ADD VERIFIED RETENTION / SATISFACTION RATE]",
+    materialFocus: "Essential Building Supplies & Bulk Delivery",
+    constructionFocus: "Small & Mid-Rise Buildings (Up to 4–5 Floors)",
+    realEstateFocus: "Property Sales & Enquiry Assistance",
+    customerCommitment: "Personal Service & Transparent Dealings",
+    regionalFocus: "Delhi NCR & Regional",
   },
 
   certifications: [
-    "[ADD VERIFIED ISO 9001:2015 QUALITY CERTIFICATION]",
-    "[ADD VERIFIED ISO 45001 OCCUPATIONAL HEALTH & SAFETY]",
-    "[ADD VERIFIED INDIAN GREEN BUILDING COUNCIL (IGBC) AFFILIATION]",
-    "[ADD VERIFIED STATE RERA REGISTRATION CODES]",
-    "[ADD VERIFIED NATIONAL ACCREDITATION BOARD FOR TESTING (NABL) PARTNER]",
+    "[VERIFY TRADE LICENSES & REGISTRATIONS WITH OWNER]",
+    "[ADD VERIFIED MATERIAL SUPPLY PARTNERSHIPS]",
+    "[ADD LOCAL BUILDING CONTRACTOR REGISTRATION]",
   ],
 
-  qualityPolicy: "Rigorous grade testing on every material consignment, seismic-compliant structural engineering, and precision timeline controls on every turnkey site.",
-  safetyRecordPlaceholder: "[ADD VERIFIED SAFE MAN-HOURS STATISTIC - e.g. Over 2.4 Million Safe Work Hours Logged]",
+  qualityPolicy: "Supplying genuine, verified building materials, maintaining hands-on site supervision on every construction project, and providing honest advice on property sales.",
+  safetyRecordPlaceholder: "[VERIFY WORKPLACE SAFETY PRACTICES WITH OWNER]",
 
   divisions: [
     {
+      id: "materials",
+      name: "Building Materials Supply",
+      shortName: "Building Materials",
+      tagline: "Primary Business // Quality Construction Supplies & Delivery",
+      description: "Our primary business focuses on the sale and supply of essential construction materials required for building projects, from foundation cement and steel to plumbing and electrical supplies.",
+      href: "/materials",
+      iconName: "Boxes",
+      accentColor: "#B89A63",
+      statsPlaceholder: "[VERIFY MATERIAL PRODUCT RANGE & LOCAL DELIVERY AREA]",
+      capabilities: [
+        "Cement (OPC, PPC & Construction Binders)",
+        "TMT Reinforcement Steel (Fe 500D / Standard Sizes)",
+        "Red Clay Bricks & AAC Concrete Blocks",
+        "Coarse Sand, Pit Sand & Graded Stone Aggregates",
+        "Plumbing Pipes, Fittings & Sanitary Basics",
+        "Electrical Conduits, Wires & Cable Accessories",
+      ],
+    },
+    {
       id: "construction",
-      name: "Construction & Engineering",
+      name: "Building Construction",
       shortName: "Construction",
-      tagline: "Turnkey Civil, Commercial & Industrial Engineering",
-      description: "Complete design-build, civil structural contracting, pre-engineered building (PEB), and industrial development executed under certified engineering protocols.",
+      tagline: "Secondary Business // Residential & Commercial Construction",
+      description: "Undertaking small to medium-sized building projects—typically up to 4–5 floors—including residential homes, small apartment buildings, shops, offices, and renovation work.",
       href: "/services",
       iconName: "HardHat",
       accentColor: "#B89A63",
-      statsPlaceholder: "[ADD VERIFIED SQFT BUILT - e.g. 3.2M+ Sq. Ft. Built]",
+      statsPlaceholder: "[VERIFY TYPICAL PROJECT SIZES - e.g. 3–5 Floor Buildings]",
       capabilities: [
-        "High-Rise Commercial Complexes",
-        "Turnkey Industrial Warehousing & Factories",
-        "Custom Luxury Residential Estates",
-        "Civil Infrastructure & Roadways",
-        "Deep Foundation & Pile Engineering",
+        "Residential Building Construction (Independent Floors & Homes)",
+        "Small Commercial Buildings & Offices (Up to 4–5 Floors)",
+        "Retail Shops, Commercial Showrooms & Business Premises",
+        "Complete Renovation, Remodeling & Floor Additions",
+        "Building Maintenance & Structural Repairs",
+        "Construction Planning, Material Estimation & Site Supervision",
       ],
     },
     {
       id: "real-estate",
-      name: "Real Estate & Property Development",
+      name: "Real Estate Sales & Property Assistance",
       shortName: "Real Estate",
-      tagline: "Sustainable Residential & Commercial Developments",
-      description: "Thoughtfully conceived developments integrating modern architectural aesthetics, RERA compliance, premium structural integrity, and prime urban locations.",
+      tagline: "Secondary Business // Property Sales, Marketing & Coordination",
+      description: "Assisting property owners, developers, and buyers with property sales, marketing, buyer-seller coordination, and enquiry support across residential and commercial spaces.",
       href: "/real-estate",
       iconName: "Building2",
       accentColor: "#667582",
-      statsPlaceholder: "[ADD VERIFIED DEVELOPMENT PORTFOLIO - e.g. 12 Active Sites]",
+      statsPlaceholder: "[VERIFY LISTED PROPERTIES & SALES SCOPE]",
       capabilities: [
-        "Gated Residential Communities",
-        "Bespoke Commercial Office Suites",
-        "Plotted Infrastructure Developments",
-        "Joint Venture Redevelopments",
-        "RERA-Compliant Project Delivery",
-      ],
-    },
-    {
-      id: "materials",
-      name: "Building Materials Supply",
-      shortName: "Materials Supply",
-      tagline: "Direct-From-Plant Bulk Supply & Quality Testing",
-      description: "Direct procurement networks for primary TMT steel, certified grade cements, manufactured sand, aggregates, and construction chemicals for builders and contractors.",
-      href: "/materials",
-      iconName: "Boxes",
-      accentColor: "#B89A63",
-      statsPlaceholder: "[ADD VERIFIED BULK FLEET & CAPACITY]",
-      capabilities: [
-        "Primary TMT Steel Rebars (Fe 500D / 550D)",
-        "Certified OPC 53, PPC & Slag Cement",
-        "Precision Graded M-Sand & Coarse Aggregates",
-        "Autoclaved Aerated Concrete (AAC) Blocks",
-        "Structural Waterproofing & Polymer Admixtures",
+        "Residential Property Sales Assistance (Flats, Floors & Plots)",
+        "Commercial Property & Retail Shop Sales Marketing",
+        "Marketing on Behalf of Property Owners & Developers",
+        "Buyer-Seller Enquiry Coordination & Property Viewings",
+        "Practical Guidance on Local Property Documentation",
+        "Commission-Based Brokerage & Property Agency Services",
       ],
     },
   ],
 
   leadership: [
     {
-      name: "[ADD FOUNDER / MANAGING DIRECTOR NAME]",
-      role: "Managing Director & Chairman",
-      credentialsPlaceholder: "[VERIFY CREDENTIALS - e.g. B.Tech Civil (IIT), 25+ Years Experience]",
-      bio: "Guides overall strategic direction and oversees the vertical integration across materials supply and civil infrastructure delivery.",
+      name: "[ADD OWNER / FOUNDER NAME]",
+      role: "Founder & Managing Director",
+      credentialsPlaceholder: "[VERIFY FOUNDER BACKGROUND & PRACTICAL EXPERIENCE]",
+      bio: "Leads GG Construction Co. with hands-on expertise in building material sourcing, local construction project supervision, and customer relationships.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
     },
     {
-      name: "[ADD CHIEF ENGINEERING OFFICER NAME]",
-      role: "Chief Engineer & Technical Director",
-      credentialsPlaceholder: "[VERIFY CREDENTIALS - e.g. M.Tech Structural Engineering, FIE]",
-      bio: "Directs structural compliance, seismic-resistant engineering designs, quality audit labs, and automated site execution teams.",
+      name: "[ADD KEY OPERATIONS LEAD NAME]",
+      role: "Manager - Materials & Site Coordination",
+      credentialsPlaceholder: "[VERIFY ROLE & YEARS OF LOCAL TRADE EXPERIENCE]",
+      bio: "Oversees daily building material dispatch, site logistics, and trade coordination with local subcontractors and building owners.",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "[ADD HEAD OF REAL ESTATE DEVELOPMENT NAME]",
-      role: "Head of Real Estate & Acquisitions",
-      credentialsPlaceholder: "[VERIFY CREDENTIALS - e.g. MBA Urban Planning]",
-      bio: "Oversees land acquisition, master planning, RERA statutory approvals, and customer handover lifecycles.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
-    },
-    {
-      name: "[ADD SUPPLY CHAIN & MATERIALS DIRECTOR NAME]",
-      role: "Director - Building Materials & Logistics",
-      credentialsPlaceholder: "[VERIFY CREDENTIALS - e.g. Materials Management Specialist]",
-      bio: "Manages direct manufacturer procurement partnerships, bulk fleet operations, and quality laboratory certification.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
     },
   ],
 
-  mission: "To engineer resilient civil infrastructure, commercial landmarks, and sustainable residential communities through direct material provenance, mathematical rigor, and uncompromised corporate accountability.",
+  mission: "To supply dependable building materials at fair prices, construct sturdy low-rise buildings with care, and provide transparent property sales assistance with personal attention and practical advice.",
 
-  vision: "To set the institutional benchmark for integrated engineering and construction in India, eliminating the systemic vulnerabilities of subcontracting through direct technical mastery from raw feedstock to finished development.",
+  vision: "To be the most dependable local partner for homeowners, builders, and property buyers seeking reliable materials, honest building work, and straightforward property guidance.",
 
   values: [
     {
-      title: "Engineering Integrity",
-      description: "We design strictly per IS 456, IS 1893, and IS 13920. We solve structural problems on engineering calculations and 3D BIM models before casting a single cubic meter of concrete.",
+      title: "Practical Building Knowledge",
+      description: "We understand real construction on the ground. We recommend materials and construction methods that suit local building practices and realistic budgets.",
     },
     {
-      title: "Material Provenance",
-      description: "Direct primary mill allocations for Fe 500D TMT steel and certified grade cement. We never compromise with unverified secondary re-rolled rebar or uncertified aggregates.",
+      title: "Material Quality & Fair Pricing",
+      description: "We believe in supplying dependable materials with transparent pricing, accurate measurements, and prompt delivery to construction sites.",
     },
     {
-      title: "Radical Transparency",
-      description: "Open-book itemized BOQs, digital weighbridge printouts, RERA escrow ring-fencing, and milestone-linked progress audits without speculative escalations.",
+      title: "Hands-On Site Supervision",
+      description: "We believe good construction requires on-site attention. We personally supervise work to ensure proper masonry, reinforcement, and finishing.",
     },
     {
-      title: "Zero-Compromise Safety",
-      description: "ISO 45001-aligned Environmental, Health, and Safety protocols across every jobsite. Mandatory PPE, continuous edge-fall protection, and daily safety briefings.",
+      title: "Honest Client Relationships",
+      description: "Whether supplying cement, building a floor, or coordinating a property sale, we operate with straightforward communication and zero false claims.",
     },
     {
-      title: "Structural Permanence",
-      description: "We build assets intended to endure across generations, backed by comprehensive post-handover defect liability coverage and digital as-built MEP records.",
+      title: "Dependable Customer Support",
+      description: "We stand by our work and our materials. Our customers know they can call us directly for advice, order updates, or follow-up support.",
     },
   ],
 
   milestones: [
     {
-      year: "[VERIFY YEAR - e.g. 2008]",
-      title: "Foundational Incorporation",
-      description: "Inception as a dedicated structural civil engineering firm specializing in complex commercial footings and industrial foundations.",
+      year: "[VERIFY START YEAR]",
+      title: "Building Materials Supply Operations",
+      description: "Commenced supply of essential construction materials including cement, TMT steel, and aggregates to local builders and homeowners.",
     },
     {
-      year: "[VERIFY YEAR - e.g. 2012]",
-      title: "Building Materials Division Launched",
-      description: "Secured direct primary steel plant and cement manufacturer distribution tie-ups, establishing our central materials warehouse and bulk fleet.",
+      year: "[VERIFY EXPANSION YEAR]",
+      title: "Expanding into Building Construction",
+      description: "Began undertaking small and medium building construction contracts, building residential houses and low-rise commercial structures up to 4–5 floors.",
     },
     {
-      year: "[VERIFY YEAR - e.g. 2016]",
-      title: "Real Estate Development Arm",
-      description: "Expanded into direct RERA-compliant property development, launching low-density residential gated enclaves with in-house engineering warranties.",
+      year: "[VERIFY RECENT YEAR]",
+      title: "Real Estate Sales & Coordination",
+      description: "Introduced property sales assistance, helping property owners market their spaces and connecting prospective buyers with verified properties.",
     },
     {
-      year: "[VERIFY YEAR - e.g. 2020]",
-      title: "Digital Engineering & BIM 4D",
-      description: "Standardized 3D BIM clash detection, laser screed FM-2 superflat concrete placement, and on-site NABL-aligned testing laboratories.",
-    },
-    {
-      year: "[CURRENT OPERATIONAL SCALE]",
-      title: "Multi-Corridor Scale",
-      description: "Executing large-scale commercial towers, PEB logistics hubs, and annual bulk material contracts across major Indian economic corridors.",
+      year: "Today",
+      title: "Integrated Local Services",
+      description: "Serving customers with dependable material supply, quality low-rise building construction, and personal property sales coordination.",
     },
   ],
 
-  engineeringPhilosophy: [
+  practicalPrinciples: [
     {
-      title: "Virtual Design Before Pouring",
-      description: "Every beam, conduit, and rebar overlap is modeled in 3D BIM before ground-break. Clash detection prevents site rework and concrete hacking.",
+      title: "Quality Materials at the Core",
+      description: "Every strong building starts with proper cement, tested TMT steel, and sound masonry. We supply the materials we trust on our own jobs.",
     },
     {
-      title: "Empirical Laboratory Verification",
-      description: "Calibrated on-site compression testing machines verify 7-day and 28-day concrete cube strength. Aggregate silt content is strictly audited below 3%.",
+      title: "Realistic Project Sizing",
+      description: "We specialize in what we do best: residential homes, small offices, shops, and buildings up to 4–5 floors, giving each project personal attention.",
     },
     {
-      title: "High-Ductility Seismic Detailing",
-      description: "All reinforcement detailing strictly obeys IS 13920 for Seismic Zones IV & V, ensuring high energy dissipation under lateral earthquake forces.",
+      title: "Clear Costing & Honest Estimates",
+      description: "We provide itemized material requirements and straightforward construction estimates so clients understand exactly where their budget goes.",
     },
     {
-      title: "Single-Point Corporate Accountability",
-      description: "Because we supply the materials, engineer the structures, and supervise the sites, our clients never face the finger-pointing typical of fragmented subcontracting.",
+      title: "Clear Distinction in Real Estate",
+      description: "When showing properties, we clearly state whether a property was constructed by us or is being marketed on behalf of another owner.",
     },
   ],
 
   benefits: [
     {
-      title: "Zero Subcontractor Markups",
-      description: "Single-entity execution eliminates nested subcontractor margins and commercial disputes.",
+      title: "Direct Material Access",
+      description: "Getting materials directly from our supply arm keeps construction costs transparent and prevents unnecessary site delays.",
     },
     {
-      title: "Guaranteed Material Quality",
-      description: "Direct-from-mill primary steel and cement backed by physical manufacturer test certificates.",
+      title: "Personal Supervision",
+      description: "Small to medium projects get direct supervision, ensuring masonry, casting, and finishing adhere to proper building standards.",
     },
     {
-      title: "Milestone Schedule Certainty",
-      description: "BIM 4D scheduling and dedicated material buffer stocks prevent typical site delays.",
+      title: "Transparent Billing",
+      description: "Straightforward estimates for materials and building work with no hidden line items or surprise charges.",
     },
     {
-      title: "Lifelong Asset Durability",
-      description: "Engineered concrete mixes and crystalline waterproofing ensure structural longevity beyond minimum code requirements.",
+      title: "Accessible Local Team",
+      description: "Speak directly with our experienced team by phone or email whenever you need material quotes or construction guidance.",
     },
   ],
 };

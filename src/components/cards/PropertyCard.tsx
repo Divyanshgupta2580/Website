@@ -26,7 +26,7 @@ export default function PropertyCard({ property, className = "" }: PropertyCardP
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#15191D] via-[#15191D]/30 to-transparent" />
 
-        <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+        <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 gap-2">
           <Badge variant="bronze">{property.propertyType}</Badge>
           <span
             className={`px-2 py-0.5 text-[10px] uppercase font-mono tracking-wider border ${
@@ -56,6 +56,12 @@ export default function PropertyCard({ property, className = "" }: PropertyCardP
 
       <div className="p-6 flex-1 flex flex-col justify-between">
         <div>
+          <div className="mb-2">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-[#B89A63] bg-[#0B0D0F] px-2 py-0.5 border border-[#2A3035] inline-block">
+              {property.listingNature}
+            </span>
+          </div>
+
           <h3 className="text-xl font-light text-[#F3F1EC] group-hover:text-[#B89A63] transition-colors mb-1">
             {property.title}
           </h3>
@@ -92,16 +98,16 @@ export default function PropertyCard({ property, className = "" }: PropertyCardP
             size="sm"
             className="flex-1"
           >
-            Inquire Details
+            Enquire Details
           </Button>
           <Button
             href={`/contact?division=real-estate&subject=${encodeURIComponent(
-              `Brochure Request: ${property.title}`
+              `Site Visit Request: ${property.title}`
             )}`}
             variant="outline"
             size="sm"
           >
-            Brochure
+            Site Visit
           </Button>
         </div>
       </div>

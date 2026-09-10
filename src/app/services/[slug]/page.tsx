@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   if (!service) return { title: "Service Not Found" };
 
   return {
-    title: `${service.title} | Construction & Engineering`,
+    title: `${service.title} | Construction Services | GG Construction Co.`,
     description: service.shortDescription,
   };
 }
@@ -46,7 +46,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
   // Relevant testimonial
   const contextualTestimonial =
-    testimonialsData.find((t) => t.division === "Construction & Engineering") ||
+    testimonialsData.find((t) => t.division === "Building Construction") ||
     testimonialsData[0];
 
   return (
@@ -79,7 +79,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="flex items-center gap-3 mb-4">
               <Badge variant="bronze">{service.badge}</Badge>
               <span className="text-[11px] font-mono text-[#667582] uppercase tracking-wider">
-                CIVIL DIVISION // 01
+                CONSTRUCTION // 02
               </span>
             </div>
 
@@ -108,7 +108,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 variant="outline"
                 size="md"
               >
-                Inquire Technical Scope
+                Discuss Construction Scope
               </Button>
             </div>
           </div>
@@ -124,31 +124,31 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 STANDARDS COMPLIANCE
               </span>
               <span className="text-[#F3F1EC] font-medium text-sm block">
-                IS 456 &bull; IS 1893 &bull; NBC 2016
+                IS 456 &bull; NBC Guidelines
               </span>
             </div>
             <div className="pt-2 sm:pt-0 sm:px-4">
               <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
-                STRUCTURAL INTEGRITY
+                STRUCTURAL SCALE
               </span>
               <span className="text-[#B89A63] font-mono text-sm block">
-                Fe 500D Primary Steel
+                Low-Rise (Up to 4–5 Floors)
               </span>
             </div>
             <div className="pt-2 sm:pt-0 sm:px-4">
               <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
-                QUALITY TESTING
+                QUALITY SUPERVISION
               </span>
               <span className="text-[#F3F1EC] text-sm block">
-                Calibrated On-Site Lab
+                Batch & Slump Verification
               </span>
             </div>
             <div className="pt-2 sm:pt-0 sm:pl-4">
               <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
-                CONTRACTUAL GUARANTEE
+                CLIENT ASSURANCE
               </span>
               <span className="text-[#B89A63] text-sm block">
-                Single-Point EPC
+                Direct Site Coordination
               </span>
             </div>
           </div>
@@ -160,10 +160,10 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-6 space-y-6">
             <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#B89A63] block">
-              Engineering Scope
+              Service Scope
             </span>
             <h2 className="text-2xl sm:text-3xl font-light text-[#F3F1EC]">
-              Technical Overview & Execution Standards
+              Overview & Execution Standards
             </h2>
             <p className="text-sm sm:text-base text-[#A7ADB3] leading-relaxed">
               {service.overview}
@@ -172,14 +172,14 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="p-4 bg-[#15191D] border border-[#2A3035] flex items-start gap-3 text-xs">
               <ShieldCheck className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
               <p className="text-[#A7ADB3] leading-snug">
-                All structural engineering, reinforcement detailing, and material execution adheres strictly to Indian Standards (IS 456, IS 1893, IS 13920) and NBC 2016 safety guidelines.
+                All structural work, reinforcement placement, and material usage adheres to IS 456 concrete standards and NBC building safety guidelines.
               </p>
             </div>
           </div>
 
           <div className="lg:col-span-6 bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
             <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-6 pb-2 border-b border-[#2A3035]">
-              Core Technical Capabilities
+              Core Capabilities
             </h3>
             <ul className="space-y-4">
               {service.capabilities.map((cap, i) => (
@@ -197,9 +197,9 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       <section className="py-16 bg-[#15191D]/30 border-y border-[#2A3035] mb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            eyebrow="Commercial & Technical Value"
-            title="Strategic Benefits of Our Integrated Approach"
-            description="How our unified engineering and materials infrastructure creates measurable client advantage."
+            eyebrow="Service Benefits"
+            title="Why Clients Choose GG Construction Co."
+            description="Practical building construction backed by dependable material knowledge, transparent communication, and dedicated site coordination."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -228,9 +228,9 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       {/* 6. Process Steps */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Execution Milestones"
-          title="Service Delivery Lifecycle"
-          description="A disciplined 4-stage engineering pathway with concrete deliverables at every milestone."
+          eyebrow="Project Workflow"
+          title="How We Execute Your Build"
+          description="A structured 4-step process from planning and material estimates to site execution and handover."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -273,9 +273,9 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       {relatedProjects.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
           <SectionHeading
-            eyebrow="Proven Results"
+            eyebrow="Project Examples"
             title="Projects Utilizing This Service"
-            description="Explore delivered projects where this engineering methodology was deployed."
+            description="Explore low-rise building examples illustrating this construction service."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -300,7 +300,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       {service.faqs.length > 0 && (
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
           <SectionHeading
-            eyebrow="Technical Clarifications"
+            eyebrow="Clarifications"
             title={`${service.title} FAQs`}
             align="center"
           />
@@ -324,12 +324,12 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* 10. Service CTA */}
       <CTA
-        eyebrow="Commission Capability"
-        title={`Commission ${service.title} for Your Site`}
-        description="Our engineering team will assess your site drawings and provide itemized BOQ estimates."
+        eyebrow="Start Your Build"
+        title={`Plan Your ${service.title} With Us`}
+        description="Connect with our team to review your building plans and obtain a realistic construction estimate."
         primaryCtaText="Request Project Estimate"
         primaryCtaHref={`/get-a-quote?service=${service.slug}`}
-        secondaryCtaText="Speak to Chief Engineer"
+        secondaryCtaText="Contact Construction Team"
         secondaryCtaHref={`/contact?division=construction&subject=${encodeURIComponent(
           `Consultation: ${service.title}`
         )}`}

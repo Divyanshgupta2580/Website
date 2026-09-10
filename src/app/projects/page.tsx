@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Filter, ArrowUpRight, MapPin, Maximize2, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Filter, ArrowUpRight, MapPin, ShieldCheck, CheckCircle2 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
 import ProjectCard from "@/components/cards/ProjectCard";
@@ -17,18 +17,18 @@ import { companyData } from "@/data/company";
 import { faqsData } from "@/data/faqs";
 
 const filterTabs: { id: string; label: string; sector?: ProjectSector }[] = [
-  { id: "all", label: "All Sectors" },
-  { id: "commercial", label: "Commercial", sector: "commercial" },
-  { id: "industrial", label: "Industrial & Logistics", sector: "industrial" },
+  { id: "all", label: "All Projects" },
   { id: "residential", label: "Residential", sector: "residential" },
-  { id: "renovation", label: "Renovation & Retrofit", sector: "renovation" },
+  { id: "commercial", label: "Commercial", sector: "commercial" },
+  { id: "mixed-use", label: "Mixed Use", sector: "mixed-use" },
+  { id: "renovation", label: "Renovation", sector: "renovation" },
 ];
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const flagshipProject =
-    projectsData.find((p) => p.slug === "apex-commercial-tower") || projectsData[0];
+    projectsData.find((p) => p.slug === "residential-building-4-floors") || projectsData[0];
 
   const filteredProjects =
     activeFilter === "all"
@@ -45,19 +45,19 @@ export default function ProjectsPage() {
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-6 h-[1px] bg-[#B89A63]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-              Civil & Structural Portfolio
+              Building Construction Portfolio
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
-            Engineering Landmark Structures Across India
+            Small & Medium Building Projects (Up to 4–5 Floors)
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            Every project in our portfolio represents rigorous seismic detailing, precision material batching, and turnkey scheduling certainty. Explore our delivered commercial high-rises, industrial logistics hubs, and residential communities.
+            Representative project examples illustrating our construction work for residential homes, independent floors, shops, and small offices up to approximately 4–5 floors maximum.
           </p>
         </div>
       </section>
 
-      {/* 2. Flagship Project Feature: Apex Commercial Centre */}
+      {/* 2. Flagship Project Feature */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="bg-[#15191D] border border-[#2A3035] overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
@@ -72,17 +72,17 @@ export default function ProjectsPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#15191D] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#15191D]" />
               <div className="absolute top-4 left-4 z-10">
-                <Badge variant="bronze">FLAGSHIP COMMERCIAL LANDMARK</Badge>
+                <Badge variant="bronze">{flagshipProject.sectorLabel}</Badge>
               </div>
               <div className="absolute bottom-4 left-4 z-10 font-mono text-xs text-[#F3F1EC] bg-[#0B0D0F]/85 px-3 py-1 border border-[#2A3035]">
-                {flagshipProject.builtUpArea} &bull; {flagshipProject.location}
+                {flagshipProject.floors} &bull; {flagshipProject.location}
               </div>
             </div>
 
             <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between">
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#B89A63] block mb-2">
-                  CASE STUDY SHOWCASE
+                  REPRESENTATIVE PROJECT EXAMPLE
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-light text-[#F3F1EC] mb-2">
                   <Link href={`/projects/${flagshipProject.slug}`}>
@@ -96,7 +96,7 @@ export default function ProjectsPage() {
                 <div className="space-y-4 pt-4 border-t border-[#2A3035]/60 mb-6">
                   <div>
                     <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1 font-semibold">
-                      Key Engineering Innovation
+                      Construction Feature
                     </span>
                     <p className="text-xs text-[#F3F1EC] leading-relaxed">
                       {flagshipProject.engineeringHighlights[0]?.description}
@@ -104,10 +104,10 @@ export default function ProjectsPage() {
                   </div>
                   <div>
                     <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1 font-semibold">
-                      Contractual Details
+                      Scope & Timeline
                     </span>
                     <span className="text-xs font-mono text-[#A7ADB3]">
-                      Timeline: {flagshipProject.timeline} &bull; Client: {flagshipProject.clientTypePlaceholder}
+                      Built in {flagshipProject.timeline} &bull; Concrete Frame & Brick Masonry
                     </span>
                   </div>
                 </div>
@@ -119,12 +119,12 @@ export default function ProjectsPage() {
                   variant="primary"
                   size="sm"
                 >
-                  <span>Read Full Case Study</span>
+                  <span>View Project Details</span>
                   <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
                 </Button>
 
                 <span className="text-xs font-mono text-[#B89A63]">
-                  {flagshipProject.year} &bull; DELIVERED
+                  {flagshipProject.year} &bull; COMPLETED
                 </span>
               </div>
             </div>
@@ -132,38 +132,38 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* 3. Project Capacity & Portfolio Statistics */}
+      {/* 3. Neutral Capability Blocks */}
       <section className="py-16 bg-[#15191D]/40 border-y border-[#2A3035] mb-24">
         <Container size="default">
           <SectionHeading
-            eyebrow="Scale of Execution"
-            title="Portfolio Volume & Performance Record"
+            eyebrow="Construction Scale"
+            title="Practical Building Capabilities"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatBlock
               index={0}
-              label="Delivered Projects"
-              value={companyData.metrics.completedProjects}
-              helper="Total turnkey commercial, industrial & residential structures"
+              label="Building Scale"
+              value="Up to 4–5 Floors"
+              helper="Residential homes, builder floors, shops, and small offices"
             />
             <StatBlock
               index={1}
-              label="Active Geographies"
-              value={companyData.metrics.citiesPresence}
-              helper="Tier-1 and Tier-2 growth corridors across India"
+              label="Regional Coverage"
+              value={companyData.metrics.regionalFocus}
+              helper="Serving local residential and commercial building sites"
             />
             <StatBlock
               index={2}
-              label="On-Time Delivery Rate"
-              value="[VERIFY - 96.8%]"
-              helper="CPM scheduling and milestone escrow guarantees"
+              label="Primary Business"
+              value="Materials Supply"
+              helper="Direct supply of cement, TMT steel, red bricks, sand, and stone"
             />
             <StatBlock
               index={3}
-              label="Safety Compliance"
-              value="ISO 45001"
-              helper={companyData.safetyRecordPlaceholder}
+              label="Property Desk"
+              value="Sales Assistance"
+              helper="Buyer-seller coordination and property marketing services"
             />
           </div>
         </Container>
@@ -200,7 +200,7 @@ export default function ProjectsPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         {filteredProjects.length === 0 ? (
           <div className="p-12 text-center bg-[#15191D] border border-[#2A3035]">
-            <p className="text-sm text-[#A7ADB3]">No projects found for the selected sector filter.</p>
+            <p className="text-sm text-[#A7ADB3]">No projects found for the selected filter.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -218,8 +218,8 @@ export default function ProjectsPage() {
       {/* 6. Project Portfolio FAQs */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Tender & Execution Clarity"
-          title="Project Execution FAQs"
+          eyebrow="Practical Building Questions"
+          title="Building Construction FAQs"
           align="center"
         />
 
@@ -241,13 +241,13 @@ export default function ProjectsPage() {
 
       {/* 7. Conversion CTA */}
       <CTA
-        eyebrow="Commence Site Scoping"
-        title="Have a Specific Project Scope in Mind?"
-        description="Our engineering desk can schedule an on-site geotechnical inspection, evaluate structural drawings, and provide preliminary BOQ estimations."
-        primaryCtaText="Request Project Estimate"
-        primaryCtaHref="/get-a-quote?division=construction"
-        secondaryCtaText="Contact Engineering Desk"
-        secondaryCtaHref="/contact"
+        eyebrow="Construction Planning"
+        title="Planning a Building Project?"
+        description="Speak with our team regarding your plot size, building plan, or material requirements. We provide honest estimates and dependable execution."
+        primaryCtaText="Enquire Now"
+        primaryCtaHref="/contact"
+        secondaryCtaText="Call +91 98110 34825"
+        secondaryCtaHref="tel:+919811034825"
         showContacts={true}
       />
     </div>

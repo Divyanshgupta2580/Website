@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: MaterialCategoryPageProps): P
   if (!cat) return { title: "Category Not Found" };
 
   return {
-    title: `${cat.title} | Bulk Building Materials Supply`,
+    title: `${cat.title} | Building Materials Supply | GG Construction Co.`,
     description: cat.subtitle,
   };
 }
@@ -68,9 +68,9 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
 
           <div className="relative z-10 max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
-              <Badge variant="bronze">Bulk Supply Division</Badge>
+              <Badge variant="bronze">Primary Business</Badge>
               <span className="text-[11px] font-mono text-[#667582] uppercase tracking-wider">
-                SUPPLY LINE // 03
+                DIVISION // 01
               </span>
             </div>
 
@@ -88,18 +88,18 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
                 variant="primary"
                 size="md"
               >
-                <span>Request Wholesale Quotation</span>
+                <span>Request Material Quotation</span>
                 <ArrowUpRight className="w-4 h-4 ml-2" />
               </Button>
 
               <Button
                 href={`/contact?division=materials&subject=${encodeURIComponent(
-                  `Wholesale Enquiry: ${category.title}`
+                  `Material Enquiry: ${category.title}`
                 )}`}
                 variant="outline"
                 size="md"
               >
-                Speak to Supply Desk
+                Inquire on Phone / Email
               </Button>
             </div>
           </div>
@@ -111,10 +111,10 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7 space-y-6">
             <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#B89A63] block">
-              Division Overview
+              Category Overview
             </span>
             <h2 className="text-2xl sm:text-3xl font-light text-[#F3F1EC]">
-              Direct Sourcing & Laboratory Quality Assurance
+              Dependable Material Supply & Jobsite Delivery
             </h2>
             <p className="text-sm sm:text-base text-[#A7ADB3] leading-relaxed">
               {category.overview}
@@ -123,7 +123,7 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
             <div className="p-4 bg-[#15191D] border border-[#2A3035] space-y-2">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#F3F1EC]">
                 <ShieldCheck className="w-4 h-4 text-[#B89A63]" />
-                <span>Laboratory Testing & Batch Compliance Protocol</span>
+                <span>Quality Standards & Batch Traceability</span>
               </div>
               <p className="text-xs text-[#A7ADB3] leading-relaxed">
                 {category.qualityAssuranceNotes}
@@ -133,7 +133,7 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
             <div className="p-4 bg-[#15191D] border border-[#2A3035] space-y-2">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#F3F1EC]">
                 <Truck className="w-4 h-4 text-[#B89A63]" />
-                <span>Bulk Logistics & Site Staging</span>
+                <span>Local Jobsite Delivery & Logistics</span>
               </div>
               <p className="text-xs text-[#A7ADB3] leading-relaxed">
                 {category.bulkLogisticsDetails}
@@ -144,7 +144,7 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-4 pb-2 border-b border-[#2A3035]">
-                Why Contractors Choose GG Supply
+                Why Builders & Homeowners Choose GG Supply
               </h3>
               <ul className="space-y-3">
                 {category.advantages.map((adv, i) => (
@@ -156,10 +156,10 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
               </ul>
             </div>
 
-            {/* Authorized Brand Partnerships */}
+            {/* Available Brand Sources */}
             <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#B89A63] mb-3 pb-2 border-b border-[#2A3035]">
-                Authorized Mill & Brand Networks
+                Available Brands & Product Sources
               </h3>
               <ul className="space-y-2 text-xs font-mono text-[#A7ADB3]">
                 {category.authorizedBrandsPlaceholder.map((brand, i) => (
@@ -169,7 +169,7 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
                 ))}
               </ul>
               <span className="text-[10px] text-[#667582] block mt-3">
-                * Specific brand availability subject to regional allocation and plant production cycles.
+                * Specific brand availability subject to regional stock and manufacturer distribution.
               </span>
             </div>
           </div>
@@ -179,9 +179,9 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
       {/* Available Product Lines & Technical Specifications */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Technical Data"
+          eyebrow="Material Details"
           title="Product Lines & Specifications"
-          description="Detailed grade variants, packaging, and tested technical specifications. All unknown specifications are flagged with verification placeholders."
+          description="Standard grades, packaging details, and verified technical information. Material pricing and availability can be confirmed directly with our team."
         />
 
         <div className="space-y-8">
@@ -209,7 +209,7 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
                     variant="primary"
                     size="sm"
                   >
-                    Request Tariff
+                    Inquire on Price
                   </Button>
                 </div>
               </div>
@@ -254,7 +254,7 @@ export default function MaterialCategoryDetailPage({ params }: MaterialCategoryP
 
                   <div>
                     <h4 className="text-xs uppercase tracking-wider font-semibold text-[#667582] mb-2.5">
-                      Approved Engineering Applications
+                      Common Construction Applications
                     </h4>
                     <ul className="space-y-1.5 text-xs text-[#A7ADB3]">
                       {prod.applications.map((app, aIdx) => (

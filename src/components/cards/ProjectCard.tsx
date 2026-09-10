@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, MapPin, Maximize2 } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { ProjectItem } from "@/data/projects";
 import Badge from "@/components/ui/Badge";
 
@@ -56,7 +56,7 @@ export default function ProjectCard({
             </span>
           </div>
           <span className="text-[11px] font-mono text-[#A7ADB3] drop-shadow-md">
-            {project.builtUpArea}
+            {project.floors}
           </span>
         </div>
       </div>
@@ -64,6 +64,12 @@ export default function ProjectCard({
       {/* Card Content */}
       <div className="p-6 flex-1 flex flex-col justify-between">
         <div>
+          {project.isRepresentativePlaceholder && (
+            <span className="text-[10px] font-mono uppercase text-[#B89A63] bg-[#0B0D0F] px-2 py-0.5 border border-[#2A3035] mb-2 inline-block">
+              Representative Example
+            </span>
+          )}
+
           <h3 className="text-xl font-light text-[#F3F1EC] group-hover:text-[#B89A63] transition-colors mb-2">
             <Link href={`/projects/${project.slug}`} className="focus:outline-none">
               {project.title}
@@ -79,7 +85,7 @@ export default function ProjectCard({
             href={`/projects/${project.slug}`}
             className="text-xs uppercase tracking-widest font-semibold text-[#F3F1EC] group-hover:text-[#B89A63] inline-flex items-center gap-2 transition-colors focus-visible:ring-1 focus-visible:ring-[#B89A63]"
           >
-            <span>Project Case Study</span>
+            <span>View Project Details</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-[#B89A63] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
           <span className="text-[11px] font-mono text-[#667582]">

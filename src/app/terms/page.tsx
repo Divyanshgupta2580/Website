@@ -70,9 +70,9 @@ export default function TermsPage() {
               All cost indications, Bill of Quantities (BOQ) figures, and schedules generated through the &ldquo;Get a Quote&rdquo; tool or initial correspondence represent preliminary indicative calculations. They do NOT constitute binding construction contracts or irrevocable legal tenders until confirmed by:
             </p>
             <ul className="list-disc pl-5 space-y-1 mt-2 text-[#F3F1EC]">
-              <li>Physical geotechnical site soil bore verification.</li>
-              <li>Verification of signed architectural blueprints and structural engineering calculations.</li>
-              <li>Execution of formal written EPC / Turnkey / Supply Agreements signed by authorized corporate signatories.</li>
+              <li>Physical site inspection and measurement verification.</li>
+              <li>Verification of architectural floor plans and structural requirements.</li>
+              <li>Execution of a formal written construction contract or material supply agreement signed by the parties.</li>
             </ul>
           </section>
 

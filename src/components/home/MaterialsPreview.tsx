@@ -8,27 +8,26 @@ import Button from "@/components/ui/Button";
 import { materialsData } from "@/data/materials";
 
 export default function MaterialsPreview() {
-  // Present the core categories requested by the prompt
   return (
     <section className="py-20 md:py-28 bg-[#15191D]/35 border-t border-[#2A3035]">
       <Container size="default">
         <SectionHeading
-          eyebrow="Division 03 // Building Materials Supply"
-          title="Direct-From-Mill Building Materials"
-          description="Direct manufacturer distribution of primary TMT steel, certified cement, hydro-washed sand, coarse aggregates, plumbing, electrical, and structural chemicals with guaranteed weighbridge integrity."
+          eyebrow="Primary Business // Building Materials"
+          title="Quality Construction Materials Supply"
+          description="Our primary business focuses on the sale and supply of essential construction materials: cement, TMT steel, red bricks, AAC blocks, sand, aggregates, plumbing, and electrical materials with dependable site delivery."
           action={
             <Button
-              href="/get-a-quote?division=materials"
+              href="/contact"
               variant="primary"
               size="sm"
             >
-              <span>Request Material Quote</span>
+              <span>Enquire for Materials</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
             </Button>
           }
         />
 
-        {/* 8 Core Categories Grid (Exact Prompt Specification) */}
+        {/* 8 Core Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {[
             "cement",
@@ -53,21 +52,21 @@ export default function MaterialsPreview() {
             <Truck className="w-6 h-6 text-[#B89A63] flex-shrink-0" />
             <div className="text-xs">
               <span className="text-[#F3F1EC] font-medium block">
-                Bulk Dispatch Across Key Industrial & Civil Corridors
+                Direct Delivery to Your Building Site
               </span>
               <span className="text-[#A7ADB3] block mt-0.5">
-                Supplied with original manufacturer Test Certificates (MTC). Minimum Order: Full Truckload (FTL).
+                Bulk contractor orders and plot deliveries available. Call +91 98110 34825 for daily pricing.
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-3 flex-shrink-0">
             <Button
-              href="/get-a-quote?division=materials"
+              href="/contact"
               variant="primary"
               size="sm"
             >
-              <span>Request Material Quote</span>
+              <span>Enquire for Materials</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
             </Button>
 
