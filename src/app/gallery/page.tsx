@@ -11,15 +11,35 @@ import { galleryData, GalleryItem } from "@/data/gallery";
 
 const categories = [
   "All Plates",
-  "Architecture",
-  "Construction & Engineering",
-  "Building Materials",
-  "Interiors & Finishes",
+  "Residential",
+  "Commercial",
+  "Industrial",
+  "Real Estate",
+  "Materials",
 ];
 
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("All Plates");
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+
+  // Accessible keyboard listener for Esc key
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedItem(null);
+      }
+    };
+    if (selectedItem) {
+      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedItem]);
 
   const filteredItems =
     activeCategory === "All Plates"

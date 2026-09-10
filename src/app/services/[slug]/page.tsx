@@ -3,14 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { ArrowUpRight, CheckCircle2, ShieldCheck, ArrowLeft, Layers } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, ArrowLeft, Layers, Cpu, Award } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProjectCard from "@/components/cards/ProjectCard";
+import TestimonialCard from "@/components/cards/TestimonialCard";
 import Accordion, { AccordionItem } from "@/components/ui/Accordion";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
+import CTA from "@/components/ui/CTA";
 import { servicesData, ServiceItem } from "@/data/services";
 import { projectsData } from "@/data/projects";
+import { testimonialsData } from "@/data/testimonials";
 
 interface ServicePageProps {
   params: { slug: string };
@@ -41,9 +44,14 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
     service.relatedProjectSlugs.includes(p.slug)
   );
 
+  // Relevant testimonial
+  const contextualTestimonial =
+    testimonialsData.find((t) => t.division === "Construction & Engineering") ||
+    testimonialsData[0];
+
   return (
     <div className="pt-24 pb-20 bg-[#0B0D0F]">
-      {/* Breadcrumbs */}
+      {/* 1. Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
         <Link
           href="/services"
@@ -54,7 +62,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         </Link>
       </div>
 
-      {/* Hero Section */}
+      {/* 2. Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="relative min-h-[420px] lg:min-h-[500px] w-full overflow-hidden bg-[#15191D] border border-[#2A3035] flex items-end p-6 sm:p-12">
           <Image
@@ -107,7 +115,47 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Overview & Core Capabilities */}
+      {/* 3. Key Service Statistics Ribbon */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs divide-y sm:divide-y-0 sm:divide-x divide-[#2A3035]">
+            <div className="pt-2 sm:pt-0 sm:pr-4">
+              <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
+                STANDARDS COMPLIANCE
+              </span>
+              <span className="text-[#F3F1EC] font-medium text-sm block">
+                IS 456 &bull; IS 1893 &bull; NBC 2016
+              </span>
+            </div>
+            <div className="pt-2 sm:pt-0 sm:px-4">
+              <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
+                STRUCTURAL INTEGRITY
+              </span>
+              <span className="text-[#B89A63] font-mono text-sm block">
+                Fe 500D Primary Steel
+              </span>
+            </div>
+            <div className="pt-2 sm:pt-0 sm:px-4">
+              <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
+                QUALITY TESTING
+              </span>
+              <span className="text-[#F3F1EC] text-sm block">
+                Calibrated On-Site Lab
+              </span>
+            </div>
+            <div className="pt-2 sm:pt-0 sm:pl-4">
+              <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
+                CONTRACTUAL GUARANTEE
+              </span>
+              <span className="text-[#B89A63] text-sm block">
+                Single-Point EPC
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Overview & Core Capabilities */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-6 space-y-6">
@@ -145,7 +193,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Benefits Matrix */}
+      {/* 5. Benefits Matrix */}
       <section className="py-16 bg-[#15191D]/30 border-y border-[#2A3035] mb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -177,7 +225,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Process Steps */}
+      {/* 6. Process Steps */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
           eyebrow="Execution Milestones"
@@ -221,7 +269,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Related Projects */}
+      {/* 7. Related Projects */}
       {relatedProjects.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
           <SectionHeading
@@ -238,7 +286,17 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         </section>
       )}
 
-      {/* Service FAQs */}
+      {/* 8. Contextual Testimonial */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+        <div className="max-w-3xl mx-auto">
+          <span className="text-[10px] uppercase font-mono tracking-widest text-[#B89A63] block mb-3 text-center">
+            REPRESENTATIVE CLIENT VALIDATION
+          </span>
+          <TestimonialCard testimonial={contextualTestimonial} />
+        </div>
+      </section>
+
+      {/* 9. Service FAQs */}
       {service.faqs.length > 0 && (
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
           <SectionHeading
@@ -264,35 +322,19 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         </section>
       )}
 
-      {/* Service CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="p-10 border border-[#2A3035] bg-[#15191D]/50">
-          <h2 className="text-2xl font-light text-[#F3F1EC] mb-3">
-            Commission {service.title} for Your Site
-          </h2>
-          <p className="text-sm text-[#A7ADB3] max-w-xl mx-auto mb-6">
-            Our engineering team will assess your site drawings and provide itemized BOQ estimates.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              href={`/get-a-quote?service=${service.slug}`}
-              variant="primary"
-              size="md"
-            >
-              Request Project Estimate
-            </Button>
-            <Button
-              href={`/contact?division=construction&subject=${encodeURIComponent(
-                `Consultation: ${service.title}`
-              )}`}
-              variant="outline"
-              size="md"
-            >
-              Speak to Chief Engineer
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* 10. Service CTA */}
+      <CTA
+        eyebrow="Commission Capability"
+        title={`Commission ${service.title} for Your Site`}
+        description="Our engineering team will assess your site drawings and provide itemized BOQ estimates."
+        primaryCtaText="Request Project Estimate"
+        primaryCtaHref={`/get-a-quote?service=${service.slug}`}
+        secondaryCtaText="Speak to Chief Engineer"
+        secondaryCtaHref={`/contact?division=construction&subject=${encodeURIComponent(
+          `Consultation: ${service.title}`
+        )}`}
+        showContacts={true}
+      />
     </div>
   );
 }

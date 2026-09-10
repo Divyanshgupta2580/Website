@@ -1,6 +1,6 @@
 export interface FAQItem {
   id: string;
-  category: "General" | "Construction" | "Real Estate" | "Materials" | "Quality & Compliance";
+  category: "General" | "Construction" | "Real Estate" | "Materials" | "Quotes and Process";
   question: string;
   answer: string;
 }
@@ -43,6 +43,12 @@ export const faqsData: FAQItem[] = [
     answer: "Yes, our Turnkey contracts include comprehensive coordination for statutory permits: town planning zoning clearance, fire safety NOC, environmental board consents (CTE/CTO), and local municipal corporation building sanction drawings.",
   },
   {
+    id: "con-4",
+    category: "Construction",
+    question: "What on-site quality and testing protocols are enforced on your sites?",
+    answer: "We operate calibrated on-site laboratories equipped for concrete slump tests, 7-day and 28-day concrete cube compressive strength crushing tests, aggregate sieve analysis, and ultrasonic weld testing. Zero concrete is poured without verified slump tests, and all test logs are digitally archived.",
+  },
+  {
     id: "re-1",
     category: "Real Estate",
     question: "Are your real estate developments registered with RERA?",
@@ -53,6 +59,12 @@ export const faqsData: FAQItem[] = [
     category: "Real Estate",
     question: "What advantages do buyers get when purchasing from a builder with in-house engineering?",
     answer: "Most developers outsource construction to third-party general contractors who may cut corners to preserve margins. Because GG Construction Co. builds its own developments directly with our own civil engineers and lab-tested materials, buyers gain superior structural longevity, advanced acoustic insulation, zero-leakage waterproofing, and lifelong building safety.",
+  },
+  {
+    id: "re-3",
+    category: "Real Estate",
+    question: "Do you partner with private landowners for Joint Development Agreements (JDA)?",
+    answer: "Yes, we actively evaluate clear-title land parcels ranging from 1 to 50 acres for Joint Development Agreements. We bring 100% turnkey civil engineering capital, statutory approval expertise, and direct building materials to maximize landowner development value under transparent escrow frameworks.",
   },
   {
     id: "mat-1",
@@ -73,15 +85,21 @@ export const faqsData: FAQItem[] = [
     answer: "Yes, we exclusively distribute high-ductility Fe 500D and Fe 550D primary steel from tier-one integrated steel plants, specifically designed for seismic resistance with minimum 16% total elongation.",
   },
   {
-    id: "qc-1",
-    category: "Quality & Compliance",
-    question: "What on-site quality testing protocols are followed on your sites?",
-    answer: "We operate on-site testing laboratories equipped for concrete slump tests, 7-day and 28-day concrete cube compressive strength crushing tests, aggregate sieve analysis, and moisture determination. All test logs are digitally archived and accessible to client project directors.",
+    id: "qp-1",
+    category: "Quotes and Process",
+    question: "How does the project estimation and quotation process work?",
+    answer: "Clients can submit their architectural blueprints, site coordinates, or material quantities through our digital Get a Quote portal. Our quantity surveyors review structural specifications, calculate preliminary Bill of Quantities (BOQ), and issue an itemized estimate within 48 to 72 hours.",
   },
   {
-    id: "qc-2",
-    category: "Quality & Compliance",
-    question: "What safety (EHS) standards are enforced across GG Construction Co. job sites?",
-    answer: "We mandate strict zero-incident Environmental, Health, and Safety (EHS) protocols conforming to ISO 45001 standards. Every worker receives mandatory induction safety training, full PPE gear (helmets, steel-toe boots, double-lanyard harnesses), and daily toolbox safety briefings.",
+    id: "qp-2",
+    category: "Quotes and Process",
+    question: "Are freight transit and on-site unloading costs included in material quotes?",
+    answer: "Yes. Quotes can be structured FOR (Freight on Road - delivery and unloading included to site stores) or Ex-Yard, with complete itemization of state GST, transit insurance, and weighbridge verification slips.",
+  },
+  {
+    id: "qp-3",
+    category: "Quotes and Process",
+    question: "What is the typical commercial payment milestone schedule for turnkey construction?",
+    answer: "Turnkey EPC payments are strictly tied to verified physical engineering milestones: mobilization advance, plinth casting, structural slab milestones, MEP rough-in, external envelope/facade completion, and final Occupancy Certificate handover.",
   },
 ];

@@ -1,29 +1,64 @@
 "use client";
 
 import React, { useState } from "react";
-import { Metadata } from "next";
-import { Filter, HelpCircle, ArrowUpRight } from "lucide-react";
+import { Filter, HelpCircle, ArrowUpRight, Building2, HardHat, Home, Package, FileSpreadsheet } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Accordion, { AccordionItem } from "@/components/ui/Accordion";
 import Button from "@/components/ui/Button";
-import { faqsData } from "@/data/faqs";
+import { faqsData, FAQItem } from "@/data/faqs";
 
 const categories = [
-  "All",
+  "All Categories",
   "General",
   "Construction",
   "Real Estate",
   "Materials",
-  "Quality & Compliance",
-];
+  "Quotes and Process",
+] as const;
+
+type CategoryType = typeof categories[number];
+
+const categoryMeta: Record<
+  Exclude<CategoryType, "All Categories">,
+  { title: string; subtitle: string; icon: React.ComponentType<{ className?: string }> }
+> = {
+  General: {
+    title: "General & Corporate Integration",
+    subtitle: "How our three business divisions operate cohesively under one corporate roof.",
+    icon: Building2,
+  },
+  Construction: {
+    title: "Construction & Engineering",
+    subtitle: "Turnkey EPC contracting, civil execution standards, and structural testing protocols.",
+    icon: HardHat,
+  },
+  "Real Estate": {
+    title: "Real Estate & Property Development",
+    subtitle: "RERA statutory compliance, escrow mechanisms, and Joint Development Agreements.",
+    icon: Home,
+  },
+  Materials: {
+    title: "Building Materials Supply",
+    subtitle: "Direct primary plant sourcing, mill test certificates, and bulk minimum quantities.",
+    icon: Package,
+  },
+  "Quotes and Process": {
+    title: "Quotes, Tendering & Commercial Process",
+    subtitle: "How project estimation, BOQ formulation, milestone billing, and freight work.",
+    icon: FileSpreadsheet,
+  },
+};
 
 export default function FaqsPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState<CategoryType>("All Categories");
 
-  const filteredFaqs =
-    activeCategory === "All"
-      ? faqsData
-      : faqsData.filter((f) => f.category === activeCategory);
+  const distinctCategories: Exclude<CategoryType, "All Categories">[] = [
+    "General",
+    "Construction",
+    "Real Estate",
+    "Materials",
+    "Quotes and Process",
+  ];
 
   return (
     <div className="pt-28 pb-20 bg-[#0B0D0F]">
@@ -64,22 +99,56 @@ export default function FaqsPage() {
         </div>
       </section>
 
-      {/* Accordion */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-10">
-          <Accordion>
-            {filteredFaqs.map((faq, idx) => (
-              <AccordionItem
-                key={faq.id}
-                id={faq.id}
-                title={faq.question}
-                defaultOpen={idx === 0}
+      {/* Grouped FAQ Sections */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 space-y-12">
+        {distinctCategories
+          .filter((cat) => activeCategory === "All Categories" || activeCategory === cat)
+          .map((catKey) => {
+            const meta = categoryMeta[catKey];
+            const Icon = meta.icon;
+            const faqsInCat = faqsData.filter((f) => f.category === catKey);
+
+            if (faqsInCat.length === 0) return null;
+
+            return (
+              <div
+                key={catKey}
+                id={catKey.toLowerCase().replace(/\s+/g, "-")}
+                className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-10"
               >
-                <p>{faq.answer}</p>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+                {/* Section Group Header */}
+                <div className="flex items-center gap-3 pb-6 mb-6 border-b border-[#2A3035]">
+                  <div className="w-9 h-9 bg-[#0B0D0F] border border-[#2A3035] flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4 h-4 text-[#B89A63]" />
+                  </div>
+                  <div>
+                    <h2 className="text-lg sm:text-xl font-medium text-[#F3F1EC]">
+                      {meta.title}
+                    </h2>
+                    <p className="text-xs text-[#A7ADB3]">
+                      {meta.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Section Accordion */}
+                <Accordion>
+                  {faqsInCat.map((faq, idx) => (
+                    <AccordionItem
+                      key={faq.id}
+                      id={faq.id}
+                      title={faq.question}
+                      defaultOpen={activeCategory !== "All Categories" && idx === 0}
+                    >
+                      <p className="text-xs sm:text-sm text-[#A7ADB3] leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            );
+          })}
       </section>
 
       {/* Direct Escalation Box */}
@@ -87,10 +156,10 @@ export default function FaqsPage() {
         <div className="p-8 sm:p-10 border border-[#2A3035] bg-[#15191D]/50">
           <HelpCircle className="w-8 h-8 text-[#B89A63] mx-auto mb-3" />
           <h2 className="text-xl font-light text-[#F3F1EC] mb-2">
-            Have a Specific Question Not Answered Here?
+            Have a Specific Project Question Not Listed Here?
           </h2>
           <p className="text-xs text-[#A7ADB3] max-w-md mx-auto mb-6">
-            Our engineering desk can provide statutory code references, material data sheets (MSDS), or commercial contract templates.
+            Our engineering desk can provide statutory code references, material test certificates, or detailed commercial contract templates.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Button href="/contact" variant="primary" size="sm">

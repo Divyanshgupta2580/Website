@@ -17,6 +17,7 @@
 # misc
 .DS_Store
 *.pem
+scratch/
 
 # debug
 npm-debug.log*
@@ -24,7 +25,20 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
+.env.development
+.env.test
+.env.production
+!.env.example
+
+# secrets, keys and certificates
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
 
 # vercel
 .vercel

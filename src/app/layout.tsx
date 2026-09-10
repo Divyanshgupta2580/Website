@@ -124,13 +124,15 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema).replace(/</g, "\\\\u003c"),
+          }}
         />
       </head>
       <body className="bg-[#0B0D0F] text-[#F3F1EC] font-sans antialiased flex flex-col min-h-screen">
         <SkipToContent />
         <Navbar />
-        <main id="main-content" className="flex-1">
+        <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
           {children}
         </main>
         <Footer />

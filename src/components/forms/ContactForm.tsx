@@ -194,9 +194,10 @@ export default function ContactForm() {
           name="bot_field"
           value={formData.bot_field}
           onChange={(e) => setFormData({ ...formData, bot_field: e.target.value })}
-          className="hidden"
+          className="sr-only"
           tabIndex={-1}
           autoComplete="off"
+          aria-hidden="true"
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -207,6 +208,11 @@ export default function ContactForm() {
             <input
               id="contact-name"
               type="text"
+              required
+              aria-required="true"
+              aria-invalid={errors.name ? "true" : "false"}
+              aria-describedby={errors.name ? "contact-name-error" : undefined}
+              maxLength={100}
               value={formData.name}
               onChange={(e) => {
                 setFormData({ ...formData, name: e.target.value });
@@ -217,7 +223,11 @@ export default function ContactForm() {
                 errors.name ? "border-red-500" : "border-[#2A3035]"
               }`}
             />
-            {errors.name && <p className="text-[11px] text-red-400 mt-1">{errors.name}</p>}
+            {errors.name && (
+              <p id="contact-name-error" role="alert" className="text-[11px] text-red-400 mt-1">
+                {errors.name}
+              </p>
+            )}
           </div>
 
           <div>
@@ -227,6 +237,11 @@ export default function ContactForm() {
             <input
               id="contact-phone"
               type="tel"
+              required
+              aria-required="true"
+              aria-invalid={errors.phone ? "true" : "false"}
+              aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+              maxLength={20}
               value={formData.phone}
               onChange={(e) => {
                 setFormData({ ...formData, phone: e.target.value });
@@ -237,7 +252,11 @@ export default function ContactForm() {
                 errors.phone ? "border-red-500" : "border-[#2A3035]"
               }`}
             />
-            {errors.phone && <p className="text-[11px] text-red-400 mt-1">{errors.phone}</p>}
+            {errors.phone && (
+              <p id="contact-phone-error" role="alert" className="text-[11px] text-red-400 mt-1">
+                {errors.phone}
+              </p>
+            )}
           </div>
         </div>
 
@@ -249,6 +268,11 @@ export default function ContactForm() {
             <input
               id="contact-email"
               type="email"
+              required
+              aria-required="true"
+              aria-invalid={errors.email ? "true" : "false"}
+              aria-describedby={errors.email ? "contact-email-error" : undefined}
+              maxLength={120}
               value={formData.email}
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
@@ -259,7 +283,11 @@ export default function ContactForm() {
                 errors.email ? "border-red-500" : "border-[#2A3035]"
               }`}
             />
-            {errors.email && <p className="text-[11px] text-red-400 mt-1">{errors.email}</p>}
+            {errors.email && (
+              <p id="contact-email-error" role="alert" className="text-[11px] text-red-400 mt-1">
+                {errors.email}
+              </p>
+            )}
           </div>
 
           <div>
@@ -269,6 +297,7 @@ export default function ContactForm() {
             <input
               id="contact-company"
               type="text"
+              maxLength={120}
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               placeholder="e.g. Apex Infrastructure Pvt Ltd"
@@ -284,6 +313,11 @@ export default function ContactForm() {
           <input
             id="contact-subject"
             type="text"
+            required
+            aria-required="true"
+            aria-invalid={errors.subject ? "true" : "false"}
+            aria-describedby={errors.subject ? "contact-subject-error" : undefined}
+            maxLength={150}
             value={formData.subject}
             onChange={(e) => {
               setFormData({ ...formData, subject: e.target.value });
@@ -300,7 +334,11 @@ export default function ContactForm() {
               errors.subject ? "border-red-500" : "border-[#2A3035]"
             }`}
           />
-          {errors.subject && <p className="text-[11px] text-red-400 mt-1">{errors.subject}</p>}
+          {errors.subject && (
+            <p id="contact-subject-error" role="alert" className="text-[11px] text-red-400 mt-1">
+              {errors.subject}
+            </p>
+          )}
         </div>
 
         <div>
@@ -310,6 +348,11 @@ export default function ContactForm() {
           <textarea
             id="contact-message"
             rows={4}
+            required
+            aria-required="true"
+            aria-invalid={errors.message ? "true" : "false"}
+            aria-describedby={errors.message ? "contact-message-error" : undefined}
+            maxLength={2000}
             value={formData.message}
             onChange={(e) => {
               setFormData({ ...formData, message: e.target.value });
@@ -320,7 +363,11 @@ export default function ContactForm() {
               errors.message ? "border-red-500" : "border-[#2A3035]"
             }`}
           />
-          {errors.message && <p className="text-[11px] text-red-400 mt-1">{errors.message}</p>}
+          {errors.message && (
+            <p id="contact-message-error" role="alert" className="text-[11px] text-red-400 mt-1">
+              {errors.message}
+            </p>
+          )}
         </div>
 
         <div className="pt-3 flex items-center justify-between">

@@ -60,6 +60,25 @@ export interface CompanyConfig {
   safetyRecordPlaceholder: string;
   divisions: Division[];
   leadership: LeadershipMember[];
+  mission: string;
+  vision: string;
+  values: {
+    title: string;
+    description: string;
+  }[];
+  milestones: {
+    year: string;
+    title: string;
+    description: string;
+  }[];
+  engineeringPhilosophy: {
+    title: string;
+    description: string;
+  }[];
+  benefits: {
+    title: string;
+    description: string;
+  }[];
 }
 
 export const companyData: CompanyConfig = {
@@ -195,6 +214,99 @@ export const companyData: CompanyConfig = {
       credentialsPlaceholder: "[VERIFY CREDENTIALS - e.g. Materials Management Specialist]",
       bio: "Manages direct manufacturer procurement partnerships, bulk fleet operations, and quality laboratory certification.",
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+    },
+  ],
+
+  mission: "To engineer resilient civil infrastructure, commercial landmarks, and sustainable residential communities through direct material provenance, mathematical rigor, and uncompromised corporate accountability.",
+
+  vision: "To set the institutional benchmark for integrated engineering and construction in India, eliminating the systemic vulnerabilities of subcontracting through direct technical mastery from raw feedstock to finished development.",
+
+  values: [
+    {
+      title: "Engineering Integrity",
+      description: "We design strictly per IS 456, IS 1893, and IS 13920. We solve structural problems on engineering calculations and 3D BIM models before casting a single cubic meter of concrete.",
+    },
+    {
+      title: "Material Provenance",
+      description: "Direct primary mill allocations for Fe 500D TMT steel and certified grade cement. We never compromise with unverified secondary re-rolled rebar or uncertified aggregates.",
+    },
+    {
+      title: "Radical Transparency",
+      description: "Open-book itemized BOQs, digital weighbridge printouts, RERA escrow ring-fencing, and milestone-linked progress audits without speculative escalations.",
+    },
+    {
+      title: "Zero-Compromise Safety",
+      description: "ISO 45001-aligned Environmental, Health, and Safety protocols across every jobsite. Mandatory PPE, continuous edge-fall protection, and daily safety briefings.",
+    },
+    {
+      title: "Structural Permanence",
+      description: "We build assets intended to endure across generations, backed by comprehensive post-handover defect liability coverage and digital as-built MEP records.",
+    },
+  ],
+
+  milestones: [
+    {
+      year: "[VERIFY YEAR - e.g. 2008]",
+      title: "Foundational Incorporation",
+      description: "Inception as a dedicated structural civil engineering firm specializing in complex commercial footings and industrial foundations.",
+    },
+    {
+      year: "[VERIFY YEAR - e.g. 2012]",
+      title: "Building Materials Division Launched",
+      description: "Secured direct primary steel plant and cement manufacturer distribution tie-ups, establishing our central materials warehouse and bulk fleet.",
+    },
+    {
+      year: "[VERIFY YEAR - e.g. 2016]",
+      title: "Real Estate Development Arm",
+      description: "Expanded into direct RERA-compliant property development, launching low-density residential gated enclaves with in-house engineering warranties.",
+    },
+    {
+      year: "[VERIFY YEAR - e.g. 2020]",
+      title: "Digital Engineering & BIM 4D",
+      description: "Standardized 3D BIM clash detection, laser screed FM-2 superflat concrete placement, and on-site NABL-aligned testing laboratories.",
+    },
+    {
+      year: "[CURRENT OPERATIONAL SCALE]",
+      title: "Multi-Corridor Scale",
+      description: "Executing large-scale commercial towers, PEB logistics hubs, and annual bulk material contracts across major Indian economic corridors.",
+    },
+  ],
+
+  engineeringPhilosophy: [
+    {
+      title: "Virtual Design Before Pouring",
+      description: "Every beam, conduit, and rebar overlap is modeled in 3D BIM before ground-break. Clash detection prevents site rework and concrete hacking.",
+    },
+    {
+      title: "Empirical Laboratory Verification",
+      description: "Calibrated on-site compression testing machines verify 7-day and 28-day concrete cube strength. Aggregate silt content is strictly audited below 3%.",
+    },
+    {
+      title: "High-Ductility Seismic Detailing",
+      description: "All reinforcement detailing strictly obeys IS 13920 for Seismic Zones IV & V, ensuring high energy dissipation under lateral earthquake forces.",
+    },
+    {
+      title: "Single-Point Corporate Accountability",
+      description: "Because we supply the materials, engineer the structures, and supervise the sites, our clients never face the finger-pointing typical of fragmented subcontracting.",
+    },
+  ],
+
+  benefits: [
+    {
+      title: "Zero Subcontractor Markups",
+      description: "Single-entity execution eliminates nested subcontractor margins and commercial disputes.",
+    },
+    {
+      title: "Guaranteed Material Quality",
+      description: "Direct-from-mill primary steel and cement backed by physical manufacturer test certificates.",
+    },
+    {
+      title: "Milestone Schedule Certainty",
+      description: "BIM 4D scheduling and dedicated material buffer stocks prevent typical site delays.",
+    },
+    {
+      title: "Lifelong Asset Durability",
+      description: "Engineered concrete mixes and crystalline waterproofing ensure structural longevity beyond minimum code requirements.",
     },
   ],
 };

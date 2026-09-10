@@ -6,6 +6,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import MaterialCategoryCard from "@/components/cards/MaterialCategoryCard";
 import Button from "@/components/ui/Button";
 import { materialsData } from "@/data/materials";
+import { faqsData } from "@/data/faqs";
 
 export const metadata: Metadata = {
   title: "Building Materials Supply | Direct Bulk Supply",
@@ -14,6 +15,8 @@ export const metadata: Metadata = {
 };
 
 export default function MaterialsPage() {
+  const materialsFaqs = faqsData.filter((f) => f.category === "Materials");
+
   return (
     <div className="pt-28 pb-20 bg-[#0B0D0F]">
       {/* Header */}
@@ -110,6 +113,43 @@ export default function MaterialsPage() {
                 Inquire on Bulk ARC
               </Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Materials FAQs */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+        <SectionHeading
+          eyebrow="Procurement FAQs"
+          title="Common Bulk Material Sourcing Questions"
+          description="Direct answers on minimum order tonnages, Mill Test Certificates, weighbridge verification, and logistics handling."
+        />
+
+        <div className="max-w-4xl mx-auto bg-[#15191D] border border-[#2A3035] p-6 sm:p-10">
+          <div className="divide-y divide-[#2A3035]">
+            {materialsFaqs.map((faq) => (
+              <div key={faq.id} className="py-5 first:pt-0 last:pb-0">
+                <h3 className="text-base font-medium text-[#F3F1EC] mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-sm text-[#A7ADB3] leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-[#2A3035] flex items-center justify-between flex-wrap gap-4">
+            <span className="text-xs text-[#A7ADB3]">
+              Need technical advice on structural grade compatibility?
+            </span>
+            <Link
+              href="/faqs"
+              className="text-xs uppercase tracking-wider font-mono text-[#B89A63] hover:text-[#D0B47A] inline-flex items-center gap-1"
+            >
+              <span>View All 16 Corporate FAQs</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
       </section>

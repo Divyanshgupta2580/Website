@@ -252,14 +252,16 @@ export default function QuoteForm() {
       )}
 
       <form onSubmit={handleSubmit} noValidate className="space-y-6">
+        {/* Anti-spam Honeypot Field */}
         <input
           type="text"
           name="bot_field"
           value={formData.bot_field}
           onChange={(e) => setFormData({ ...formData, bot_field: e.target.value })}
-          className="hidden"
+          className="sr-only"
           tabIndex={-1}
           autoComplete="off"
+          aria-hidden="true"
         />
 
         {/* Section 2: Contact & Identification */}
@@ -275,6 +277,11 @@ export default function QuoteForm() {
               <input
                 id="q-name"
                 type="text"
+                required
+                aria-required="true"
+                aria-invalid={errors.name ? "true" : "false"}
+                aria-describedby={errors.name ? "q-name-error" : undefined}
+                maxLength={100}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Vikramaditya Singh"
@@ -282,7 +289,11 @@ export default function QuoteForm() {
                   errors.name ? "border-red-500" : "border-[#2A3035]"
                 }`}
               />
-              {errors.name && <p className="text-[10px] text-red-400 mt-1">{errors.name}</p>}
+              {errors.name && (
+                <p id="q-name-error" role="alert" className="text-[10px] text-red-400 mt-1">
+                  {errors.name}
+                </p>
+              )}
             </div>
 
             <div>
@@ -292,6 +303,11 @@ export default function QuoteForm() {
               <input
                 id="q-phone"
                 type="tel"
+                required
+                aria-required="true"
+                aria-invalid={errors.phone ? "true" : "false"}
+                aria-describedby={errors.phone ? "q-phone-error" : undefined}
+                maxLength={20}
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="+91 98765 43210"
@@ -299,7 +315,11 @@ export default function QuoteForm() {
                   errors.phone ? "border-red-500" : "border-[#2A3035]"
                 }`}
               />
-              {errors.phone && <p className="text-[10px] text-red-400 mt-1">{errors.phone}</p>}
+              {errors.phone && (
+                <p id="q-phone-error" role="alert" className="text-[10px] text-red-400 mt-1">
+                  {errors.phone}
+                </p>
+              )}
             </div>
 
             <div>
@@ -309,6 +329,11 @@ export default function QuoteForm() {
               <input
                 id="q-email"
                 type="email"
+                required
+                aria-required="true"
+                aria-invalid={errors.email ? "true" : "false"}
+                aria-describedby={errors.email ? "q-email-error" : undefined}
+                maxLength={120}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="name@enterprise.com"
@@ -316,7 +341,11 @@ export default function QuoteForm() {
                   errors.email ? "border-red-500" : "border-[#2A3035]"
                 }`}
               />
-              {errors.email && <p className="text-[10px] text-red-400 mt-1">{errors.email}</p>}
+              {errors.email && (
+                <p id="q-email-error" role="alert" className="text-[10px] text-red-400 mt-1">
+                  {errors.email}
+                </p>
+              )}
             </div>
 
             <div>
@@ -326,6 +355,7 @@ export default function QuoteForm() {
               <input
                 id="q-company"
                 type="text"
+                maxLength={120}
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                 placeholder="e.g. Apex Corp"
@@ -366,6 +396,11 @@ export default function QuoteForm() {
               <input
                 id="q-location"
                 type="text"
+                required
+                aria-required="true"
+                aria-invalid={errors.location ? "true" : "false"}
+                aria-describedby={errors.location ? "q-location-error" : undefined}
+                maxLength={100}
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                 placeholder="e.g. Gurugram, Sector 48"
@@ -373,7 +408,11 @@ export default function QuoteForm() {
                   errors.location ? "border-red-500" : "border-[#2A3035]"
                 }`}
               />
-              {errors.location && <p className="text-[10px] text-red-400 mt-1">{errors.location}</p>}
+              {errors.location && (
+                <p id="q-location-error" role="alert" className="text-[10px] text-red-400 mt-1">
+                  {errors.location}
+                </p>
+              )}
             </div>
 
             <div>
@@ -383,6 +422,11 @@ export default function QuoteForm() {
               <input
                 id="q-area"
                 type="text"
+                required
+                aria-required="true"
+                aria-invalid={errors.approximateArea ? "true" : "false"}
+                aria-describedby={errors.approximateArea ? "q-area-error" : undefined}
+                maxLength={50}
                 value={formData.approximateArea}
                 onChange={(e) => setFormData({ ...formData, approximateArea: e.target.value })}
                 placeholder="e.g. 85,000 Sq. Ft. or 250 MT"
@@ -390,7 +434,11 @@ export default function QuoteForm() {
                   errors.approximateArea ? "border-red-500" : "border-[#2A3035]"
                 }`}
               />
-              {errors.approximateArea && <p className="text-[10px] text-red-400 mt-1">{errors.approximateArea}</p>}
+              {errors.approximateArea && (
+                <p id="q-area-error" role="alert" className="text-[10px] text-red-400 mt-1">
+                  {errors.approximateArea}
+                </p>
+              )}
             </div>
 
             <div>
@@ -399,6 +447,10 @@ export default function QuoteForm() {
               </label>
               <select
                 id="q-budget"
+                required
+                aria-required="true"
+                aria-invalid={errors.budgetRange ? "true" : "false"}
+                aria-describedby={errors.budgetRange ? "q-budget-error" : undefined}
                 value={formData.budgetRange}
                 onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
                 className={`w-full px-3.5 py-2.5 bg-[#0B0D0F] border text-sm text-[#F3F1EC] focus:outline-none focus:border-[#B89A63] ${
@@ -412,7 +464,11 @@ export default function QuoteForm() {
                 <option value="₹ 20 Crores - ₹ 50 Crores">₹ 20 Crores - ₹ 50 Crores</option>
                 <option value="Above ₹ 50 Crores">Above ₹ 50 Crores / Institutional</option>
               </select>
-              {errors.budgetRange && <p className="text-[10px] text-red-400 mt-1">{errors.budgetRange}</p>}
+              {errors.budgetRange && (
+                <p id="q-budget-error" role="alert" className="text-[10px] text-red-400 mt-1">
+                  {errors.budgetRange}
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -425,6 +481,10 @@ export default function QuoteForm() {
             </label>
             <select
               id="q-timeline"
+              required
+              aria-required="true"
+              aria-invalid={errors.timeline ? "true" : "false"}
+              aria-describedby={errors.timeline ? "q-timeline-error" : undefined}
               value={formData.timeline}
               onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
               className={`w-full px-3.5 py-2.5 bg-[#0B0D0F] border text-sm text-[#F3F1EC] focus:outline-none focus:border-[#B89A63] ${
@@ -438,7 +498,11 @@ export default function QuoteForm() {
               <option value="6 - 12 Months">6 - 12 Months</option>
               <option value="Planning Stage (> 1 Year)">Planning Stage (&gt; 1 Year)</option>
             </select>
-            {errors.timeline && <p className="text-[10px] text-red-400 mt-1">{errors.timeline}</p>}
+            {errors.timeline && (
+              <p id="q-timeline-error" role="alert" className="text-[10px] text-red-400 mt-1">
+                {errors.timeline}
+              </p>
+            )}
           </div>
 
           <div className="lg:col-span-2">
@@ -475,6 +539,7 @@ export default function QuoteForm() {
           <textarea
             id="q-message"
             rows={4}
+            maxLength={3000}
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Include any specific structural tolerances, grade requirements (e.g. M35 Concrete, Fe 500D steel), crane specifications, or drawings availability..."
