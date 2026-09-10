@@ -1,28 +1,28 @@
 import React from "react";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Container from "@/components/ui/Container";
 import Accordion, { AccordionItem } from "@/components/ui/Accordion";
 import Button from "@/components/ui/Button";
 import { faqsData } from "@/data/faqs";
 
 export default function HomeFaqSection() {
-  // Show first 5 general and structural questions on homepage
-  const homeFaqs = faqsData.slice(0, 5);
+  // Show 5 most critical high-intent questions
+  const previewFaqs = faqsData.slice(0, 5);
 
   return (
     <section className="py-20 md:py-28 bg-[#15191D]/30 border-t border-[#2A3035]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container size="narrow">
         <SectionHeading
           eyebrow="Questions & Technical Clarity"
           title="Frequently Asked Questions"
-          description="Straightforward answers regarding our three-division structure, statutory certifications, testing protocols, and contract models."
+          description="Straightforward answers regarding our three-division integration, statutory certifications, testing protocols, and contract models."
           align="center"
         />
 
         <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-10 mb-8">
           <Accordion>
-            {homeFaqs.map((faq, idx) => (
+            {previewFaqs.map((faq, idx) => (
               <AccordionItem
                 key={faq.id}
                 id={faq.id}
@@ -41,7 +41,7 @@ export default function HomeFaqSection() {
             <ArrowUpRight className="w-3.5 h-3.5 ml-2" />
           </Button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

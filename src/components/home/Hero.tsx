@@ -1,53 +1,53 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowUpRight, ShieldCheck, Compass, Layers } from "lucide-react";
 import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 import { companyData } from "@/data/company";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#0B0D0F]">
+    <section className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#0B0D0F]">
       {/* Cinematic Background Architectural Image */}
       <div className="absolute inset-0 z-0 bg-[#0B0D0F]">
         <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85"
-          alt="Monolithic architectural commercial high-rise tower"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2200&q=85"
+          alt="Architectural commercial high-rise tower"
           fill
           priority
           sizes="100vw"
           className="object-cover opacity-25 object-center"
         />
-        {/* Gradient Scrim for Editorial Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0F] via-[#0B0D0F]/80 to-transparent" />
+        {/* Editorial Gradients & Scrim for Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0F] via-[#0B0D0F]/75 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B0D0F] via-[#0B0D0F]/60 to-transparent" />
         <div className="absolute inset-0 bg-architectural-grid opacity-30" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <Container size="default" className="relative z-10 w-full">
         <div className="max-w-4xl">
-          {/* Division Synergy Eyebrow Badge */}
+          {/* Eyebrow Tag */}
           <div className="inline-flex items-center gap-3 p-1.5 pr-4 mb-6 bg-[#15191D]/80 border border-[#2A3035] backdrop-blur-md">
-            <span className="w-2 h-2 rounded-none bg-[#B89A63]" />
+            <span className="w-2 h-2 rounded-none bg-[#B89A63]" aria-hidden="true" />
             <span className="text-[11px] uppercase tracking-[0.25em] font-mono text-[#F3F1EC]">
               Three Integrated Divisions &bull; One Accountable Partner
             </span>
           </div>
 
-          {/* Main Architectural Display Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#F3F1EC] leading-[1.1] mb-6">
+          {/* Exact Required Headline */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#F3F1EC] leading-[1.08] mb-6 font-display">
             Building Strong Foundations.{" "}
             <span className="text-[#B89A63] font-normal block sm:inline">
               Creating Better Futures.
             </span>
           </h1>
 
-          {/* Supporting Text */}
-          <p className="text-base sm:text-lg md:text-xl text-[#A7ADB3] leading-relaxed max-w-2xl mb-10">
-            {companyData.heroSupportingText}
+          {/* Exact Required Support Text */}
+          <p className="text-base sm:text-lg md:text-xl text-[#A7ADB3] leading-relaxed max-w-2xl mb-10 font-light">
+            GG Construction Co. brings together construction expertise, real-estate engineering and dependable building-material supply under one trusted name.
           </p>
 
-          {/* Dual CTAs */}
+          {/* Exact Required Dual CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16">
             <Button
               href="/get-a-quote"
@@ -107,7 +107,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

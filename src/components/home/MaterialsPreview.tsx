@@ -1,43 +1,74 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Truck, ShieldCheck, Scale, CheckCircle2 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import MaterialCategoryCard from "@/components/cards/MaterialCategoryCard";
+import Container from "@/components/ui/Container";
+import MaterialCard from "@/components/cards/MaterialCard";
 import Button from "@/components/ui/Button";
 import { materialsData } from "@/data/materials";
 
 export default function MaterialsPreview() {
-  // Showcase top 3 high-volume categories on homepage
-  const featuredCategories = materialsData.slice(0, 3);
-
+  // Present the core categories requested by the prompt
   return (
-    <section className="py-20 md:py-28 bg-[#15191D]/30 border-t border-[#2A3035]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-28 bg-[#15191D]/35 border-t border-[#2A3035]">
+      <Container size="default">
         <SectionHeading
-          eyebrow="Division 03 // Materials Supply"
+          eyebrow="Division 03 // Building Materials Supply"
           title="Direct-From-Mill Building Materials"
-          description="We distribute primary TMT steel, certified cement, precision VSI sand, and structural chemicals with original mill test certificates and guaranteed weighbridge integrity."
+          description="Direct manufacturer distribution of primary TMT steel, certified cement, hydro-washed sand, coarse aggregates, plumbing, electrical, and structural chemicals with guaranteed weighbridge integrity."
           action={
-            <Button href="/materials" variant="outline" size="sm">
-              <span>All 9 Material Categories</span>
-              <ArrowUpRight className="w-3.5 h-3.5 ml-2" />
+            <Button
+              href="/get-a-quote?division=materials"
+              variant="primary"
+              size="sm"
+            >
+              <span>Request Material Quote</span>
+              <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
             </Button>
           }
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {featuredCategories.map((category) => (
-            <MaterialCategoryCard key={category.slug} category={category} />
+        {/* 8 Core Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {materialsData.slice(0, 8).map((material) => (
+            <MaterialCard key={material.slug} material={material} />
           ))}
         </div>
 
-        <div className="mt-12 text-center lg:hidden">
-          <Button href="/materials" variant="outline" size="md">
-            <span>Explore All 9 Material Categories</span>
-            <ArrowUpRight className="w-4 h-4 ml-2" />
-          </Button>
+        {/* Bottom Banner with Direct Material Quote Action */}
+        <div className="p-6 sm:p-8 bg-[#15191D] border border-[#2A3035] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Truck className="w-6 h-6 text-[#B89A63] flex-shrink-0" />
+            <div className="text-xs">
+              <span className="text-[#F3F1EC] font-medium block">
+                Bulk Dispatch Across Key Industrial & Civil Corridors
+              </span>
+              <span className="text-[#A7ADB3] block mt-0.5">
+                Supplied with original manufacturer Test Certificates (MTC). Minimum Order: Full Truckload (FTL).
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <Button
+              href="/get-a-quote?division=materials"
+              variant="primary"
+              size="sm"
+            >
+              <span>Request Material Quote</span>
+              <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
+            </Button>
+
+            <Button
+              href="/materials"
+              variant="outline"
+              size="sm"
+            >
+              All Materials
+            </Button>
+          </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
