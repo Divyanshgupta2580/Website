@@ -1,8 +1,8 @@
 import { MetadataRoute } from "next";
-
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://ggconstruction.com";
+import { getBaseUrl } from "@/lib/env";
 
 export default function robots(): MetadataRoute.Robots {
+  const BASE_URL = getBaseUrl();
   return {
     rules: [
       {

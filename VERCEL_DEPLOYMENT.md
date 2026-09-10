@@ -49,9 +49,10 @@ In the **Environment Variables** section before deploying (or in Project Setting
 
 | Key | Value | Environment | Scope |
 | :--- | :--- | :--- | :--- |
-| `NEXT_PUBLIC_APP_URL` | `https://ggconstruction.com` (or your production URL) | Production, Preview | Public (Browser & Server) |
+| `NEXT_PUBLIC_APP_URL` | `https://your-domain.com` (your verified custom domain) | Production | Public (Browser & Server) — **Required** |
 
 > **Runtime Environment Notes:**
+> - `NEXT_PUBLIC_APP_URL`: **Required in production.** Next.js will halt the build with an explicit error if this variable is omitted, ensuring production cannot silently deploy with unconfirmed canonical URLs. (Vercel preview branch deployments automatically use their dynamic `VERCEL_URL`).
 > - `NODE_ENV`: Automatically managed by Next.js and Vercel (`production` for production builds/deployments). Do **not** set manually in Vercel project settings.
 > - `PORT`: Dynamically controlled by Vercel's serverless runtime. Do **not** define `PORT`.
 

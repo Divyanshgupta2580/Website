@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import SkipToContent from "@/components/layout/SkipToContent";
 import FloatingContactBar from "@/components/layout/FloatingContactBar";
 import { companyData } from "@/data/company";
+import { getBaseUrl } from "@/lib/env";
 
 export const viewport: Viewport = {
   themeColor: "#0B0D0F",
@@ -13,7 +14,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://ggconstruction.com";
+const BASE_URL = getBaseUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

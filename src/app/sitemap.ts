@@ -3,10 +3,10 @@ import { servicesData } from "@/data/services";
 import { projectsData } from "@/data/projects";
 import { materialsData } from "@/data/materials";
 import { blogPostsData } from "@/data/blog";
-
-const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "https://ggconstruction.com";
+import { getBaseUrl } from "@/lib/env";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const BASE_URL = getBaseUrl();
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${BASE_URL}/`, lastModified: new Date(), changeFrequency: "daily", priority: 1.0 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },

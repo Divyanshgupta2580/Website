@@ -11,7 +11,7 @@ Configure environment variables in your deployment platform (e.g., Vercel Projec
 ### Public Client Variable
 | Variable | Scope | Required | Default / Fallback | Purpose |
 |---|---|---|---|---|
-| `NEXT_PUBLIC_APP_URL` | Public (Browser & Server) | Optional | `https://ggconstruction.com` | Canonical base URL used for metadata, OpenGraph, sitemap, and robots.txt. |
+| `NEXT_PUBLIC_APP_URL` | Public (Browser & Server) | **Required in Production** | `http://localhost:3000` (Dev only) | Canonical base URL used for metadata, OpenGraph, sitemap, and robots.txt. Production deployments strictly require this variable; the build halts with an explicit error rather than silently defaulting to an unconfirmed domain. |
 
 ### Optional Server-Side Integrations
 These are server-only secrets. Do **NOT** prefix them with `NEXT_PUBLIC_`. When omitted, form submissions are safely logged server-side with masked IPs and reference IDs generated with zero errors.

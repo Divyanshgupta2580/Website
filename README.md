@@ -186,13 +186,14 @@ The application references **only 5 environment variables** in production applic
 ### Variable Definitions
 | Variable | Scope | Status | Purpose |
 | :--- | :--- | :--- | :--- |
-| `NEXT_PUBLIC_APP_URL` | **Public** (Browser & Server) | Optional | Canonical application base URL used for OpenGraph images, social cards, sitemap, and robots.txt. Defaults to `https://ggconstruction.com`. |
+| `NEXT_PUBLIC_APP_URL` | **Public** (Browser & Server) | **Required in Production** | Canonical application base URL used for OpenGraph images, social cards, sitemap, and robots.txt. In local development, falls back to `http://localhost:3000`. Production builds require this variable and will halt with an explicit error rather than silently defaulting to an unconfirmed domain. |
 | `CRM_WEBHOOK_URL` | **Server-only** | Optional | Outbound HTTP POST destination URL receiving JSON lead payloads from form submissions. |
 | `CRM_API_BEARER_TOKEN` | **Server-only** | Optional | Bearer token passed in the `Authorization: Bearer <token>` header to authenticate with the CRM webhook. |
 | `EMAIL_NOTIFICATION_ENDPOINT` | **Server-only** | Optional | Internal relay endpoint for dispatching email alerts to project desks upon lead submission. |
 | `EMAIL_SERVICE_KEY` | **Server-only** | Optional | Shared secret key sent in the `X-Service-Key` header to authenticate with the email dispatch service. |
 
 ### Configuration Rules
+- **Canonical Domain Safeguard**: In production environments, `NEXT_PUBLIC_APP_URL` is mandatory. The application will never silently default to an unconfirmed domain (e.g. `ggconstruction.com`). In local development (`NODE_ENV !== "production"`), it safely defaults to `http://localhost:3000`.
 - **Public vs. Secret**: Only `NEXT_PUBLIC_APP_URL` is exposed to the browser. All CRM and email keys are strictly server-side secrets and must **never** be prefixed with `NEXT_PUBLIC_`.
 - **Git Safety**: Never commit `.env` or `.env.local` files to version control. The repository `.gitignore` strictly blocks them.
 - **Port Management**: Do **NOT** define `PORT` as an environment variable for Vercel deployment. The hosting platform manages runtime port allocation dynamically.

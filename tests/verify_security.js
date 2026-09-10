@@ -97,6 +97,64 @@ const validSubmission = contactSchema.safeParse({
 });
 assert(validSubmission.success === true, "Valid submission passes schema parse");
 
+console.log("\n=== 4. Canonical Base URL & Environment Resolution Tests ===");
+const envCode = fs.readFileSync("src/lib/env.ts", "utf8");
+const transpiledEnv = ts.transpileModule(envCode, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS },
+}).outputText;
+const envModuleObj = { exports: {} };
+new Function("module", "exports", transpiledEnv)(envModuleObj, envModuleObj.exports);
+const { getBaseUrl } = envModuleObj.exports;
+
+// Save initial environment
+const originalEnv = { ...process.env };
+
+try {
+  // Test 4.1: Development fallback (frictionless local development)
+  process.env.NODE_ENV = "development";
+  delete process.env.NEXT_PUBLIC_APP_URL;
+  delete process.env.VERCEL_URL;
+  delete process.env.VERCEL_ENV;
+  assert(getBaseUrl() === "http://localhost:3000", "Local development falls back safely to http://localhost:3000");
+
+  // Test 4.2: Explicitly configured verified production domain
+  process.env.NEXT_PUBLIC_APP_URL = "https://verified-domain.com/";
+  assert(getBaseUrl() === "https://verified-domain.com", "Explicit NEXT_PUBLIC_APP_URL is normalized without trailing slash");
+
+  // Test 4.3: Vercel preview deployment resolution
+  delete process.env.NEXT_PUBLIC_APP_URL;
+  process.env.NODE_ENV = "production";
+  process.env.VERCEL_ENV = "preview";
+  process.env.VERCEL_URL = "preview-deploy-branch.vercel.app";
+  assert(getBaseUrl() === "https://preview-deploy-branch.vercel.app", "Vercel preview deployments use dynamic preview URL");
+
+  // Test 4.4: Production fails fast without NEXT_PUBLIC_APP_URL (prevents silent unconfirmed domain fallback)
+  delete process.env.VERCEL_ENV;
+  delete process.env.VERCEL_URL;
+  delete process.env.NEXT_PUBLIC_APP_URL;
+  process.env.NODE_ENV = "production";
+  let threwExpected = false;
+  try {
+    getBaseUrl();
+  } catch (err) {
+    threwExpected = err.message.includes("NEXT_PUBLIC_APP_URL is required in production");
+  }
+  assert(threwExpected === true, "Production throws fatal configuration error when NEXT_PUBLIC_APP_URL is missing");
+
+  // Test 4.5: Ensure unconfirmed domain ggconstruction.com is never returned as silent fallback
+  let producedUnconfirmedFallback = false;
+  try {
+    const result = getBaseUrl();
+    if (result === "https://ggconstruction.com") producedUnconfirmedFallback = true;
+  } catch {
+    // Expected to throw
+  }
+  assert(producedUnconfirmedFallback === false, "Production never silently falls back to unconfirmed domain ggconstruction.com");
+} finally {
+  // Restore original environment
+  process.env = originalEnv;
+}
+
 console.log("\n==================================");
 console.log(`Results: ${testsPassed} passed, ${testsFailed} failed.`);
 if (testsFailed > 0) process.exit(1);
