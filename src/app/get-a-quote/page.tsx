@@ -59,7 +59,7 @@ export default function GetAQuotePage() {
         </div>
       </section>
 
-      {/* Interactive 12-field Quote Estimator Form */}
+      {/* Interactive Quotation & Estimation Form */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Suspense fallback={<div className="p-8 bg-[#15191D] border border-[#2A3035] text-xs text-[#A7ADB3]">Loading estimation desk...</div>}>
           <QuoteForm />

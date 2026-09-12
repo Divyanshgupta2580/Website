@@ -112,48 +112,113 @@ const originalEnv = { ...process.env };
 try {
   // Test 4.1: Development fallback (frictionless local development)
   process.env.NODE_ENV = "development";
-  delete process.env.NEXT_PUBLIC_APP_URL;
   delete process.env.VERCEL_URL;
-  delete process.env.VERCEL_ENV;
+  delete process.env.VERCEL_PROJECT_PRODUCTION_URL;
   assert(getBaseUrl() === "http://localhost:3000", "Local development falls back safely to http://localhost:3000");
 
-  // Test 4.2: Explicitly configured verified production domain
-  process.env.NEXT_PUBLIC_APP_URL = "https://verified-domain.com/";
-  assert(getBaseUrl() === "https://verified-domain.com", "Explicit NEXT_PUBLIC_APP_URL is normalized without trailing slash");
-
-  // Test 4.3: Vercel preview deployment resolution
-  delete process.env.NEXT_PUBLIC_APP_URL;
+  // Test 4.2: Vercel automatic deployment URL resolution (requires zero manual config)
   process.env.NODE_ENV = "production";
-  process.env.VERCEL_ENV = "preview";
-  process.env.VERCEL_URL = "preview-deploy-branch.vercel.app";
-  assert(getBaseUrl() === "https://preview-deploy-branch.vercel.app", "Vercel preview deployments use dynamic preview URL");
+  process.env.VERCEL_URL = "gg-construction-preview.vercel.app";
+  assert(getBaseUrl() === "https://gg-construction-preview.vercel.app", "Vercel deployments automatically use VERCEL_URL without manual config");
 
-  // Test 4.4: Production fails fast without NEXT_PUBLIC_APP_URL (prevents silent unconfirmed domain fallback)
-  delete process.env.VERCEL_ENV;
+  // Test 4.3: Vercel provides a stable production canonical URL when a domain is connected.
+  process.env.VERCEL_PROJECT_PRODUCTION_URL = "www.ggconstruction.com";
+  assert(getBaseUrl() === "https://www.ggconstruction.com", "Vercel production URL takes precedence for canonical SEO");
+
+  // Test 4.4: Fallback when neither is provided safely returns localhost without crashing
   delete process.env.VERCEL_URL;
-  delete process.env.NEXT_PUBLIC_APP_URL;
-  process.env.NODE_ENV = "production";
-  let threwExpected = false;
-  try {
-    getBaseUrl();
-  } catch (err) {
-    threwExpected = err.message.includes("NEXT_PUBLIC_APP_URL is required in production");
-  }
-  assert(threwExpected === true, "Production throws fatal configuration error when NEXT_PUBLIC_APP_URL is missing");
-
-  // Test 4.5: Ensure unconfirmed domain ggconstruction.com is never returned as silent fallback
-  let producedUnconfirmedFallback = false;
-  try {
-    const result = getBaseUrl();
-    if (result === "https://ggconstruction.com") producedUnconfirmedFallback = true;
-  } catch {
-    // Expected to throw
-  }
-  assert(producedUnconfirmedFallback === false, "Production never silently falls back to unconfirmed domain ggconstruction.com");
+  delete process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  assert(getBaseUrl() === "http://localhost:3000", "Safely falls back to localhost:3000 if no Vercel URL is set");
 } finally {
   // Restore original environment
   process.env = originalEnv;
 }
+
+console.log("\n=== 5. Cookie & Storage Privacy Audit ===");
+const srcFiles = [];
+function collectFiles(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const full = `${dir}/${entry.name}`;
+    if (entry.isDirectory()) {
+      if (entry.name !== "node_modules" && entry.name !== ".next") collectFiles(full);
+    } else if (entry.name.endsWith(".ts") || entry.name.endsWith(".tsx") || entry.name.endsWith(".js")) {
+      srcFiles.push(full);
+    }
+  }
+}
+collectFiles("src");
+
+let cookieCount = 0;
+let storageCount = 0;
+for (const file of srcFiles) {
+  const content = fs.readFileSync(file, "utf8");
+  if (content.includes("document.cookie") || content.includes("NextResponse.cookies") || content.includes("Set-Cookie")) {
+    cookieCount++;
+  }
+  if (content.includes("localStorage.") || content.includes("sessionStorage.") || content.includes("indexedDB.")) {
+    storageCount++;
+  }
+}
+assert(cookieCount === 0, `Zero application cookies set in src (found: ${cookieCount})`);
+assert(storageCount === 0, `Zero client storage trackers in src (found: ${storageCount})`);
+
+console.log("\n=== 6. Security Headers & CSP Validation ===");
+const nextConfigContent = fs.readFileSync("next.config.js", "utf8");
+assert(nextConfigContent.includes("Content-Security-Policy"), "Content-Security-Policy header configured");
+assert(!nextConfigContent.includes("'unsafe-eval'"), "CSP explicitly prohibits 'unsafe-eval'");
+assert(nextConfigContent.includes("frame-ancestors 'none'"), "CSP enforces frame-ancestors 'none'");
+assert(nextConfigContent.includes("Strict-Transport-Security"), "HSTS preload header configured");
+assert(nextConfigContent.includes("productionBrowserSourceMaps: false"), "Production browser source maps disabled");
+
+console.log("\n=== 7. Environment Variable Boundary Audit ===");
+let publicEnvLeaks = 0;
+for (const file of srcFiles) {
+  const content = fs.readFileSync(file, "utf8");
+  const matches = content.match(/NEXT_PUBLIC_[A-Z0-9_]+/g) || [];
+  for (const m of matches) {
+    publicEnvLeaks++;
+    console.error(`  [LEAK] Unexpected public env variable in ${file}: ${m}`);
+  }
+}
+assert(publicEnvLeaks === 0, `Zero public environment variables are used (unexpected: ${publicEnvLeaks})`);
+
+// Test 7.2: .env.example Template Audit
+const envExampleContent = fs.readFileSync(".env.example", "utf8");
+const exampleVars = [];
+const lines = envExampleContent.split("\n");
+for (const line of lines) {
+  const trimmed = line.trim();
+  if (trimmed && !trimmed.startsWith("#") && trimmed.includes("=")) {
+    const [key, ...valParts] = trimmed.split("=");
+    const keyTrimmed = key.trim();
+    const valTrimmed = valParts.join("=").trim();
+    exampleVars.push({ key: keyTrimmed, value: valTrimmed });
+  }
+}
+
+const allowedVars = new Set([
+  "RESEND_API_KEY",
+]);
+
+for (const { key, value } of exampleVars) {
+  assert(allowedVars.has(key), `.env.example only contains approved variable: ${key}`);
+  assert(value === "", `.env.example contains zero hardcoded secrets or values for: ${key}`);
+  if (key === "RESEND_API_KEY") {
+    assert(!key.startsWith("NEXT_PUBLIC_"), "RESEND_API_KEY is strictly server-only, not prefixed with NEXT_PUBLIC_");
+  }
+}
+assert(exampleVars.some((v) => v.key === "RESEND_API_KEY"), ".env.example contains required RESEND_API_KEY");
+
+// Test 7.3: Only the Resend endpoint is used for outbound email delivery.
+const emailService = fs.readFileSync("src/lib/email.ts", "utf8");
+assert(emailService.includes("https://api.resend.com/emails"), "Email delivery uses the Resend API");
+
+// Test 7.4: .gitignore encompasses local env files
+const gitignoreContent = fs.readFileSync(".gitignore", "utf8");
+assert(gitignoreContent.includes(".env"), ".gitignore ignores .env");
+assert(gitignoreContent.includes(".env*.local"), ".gitignore ignores .env*.local");
+assert(gitignoreContent.includes(".env.production"), ".gitignore ignores .env.production");
 
 console.log("\n==================================");
 console.log(`Results: ${testsPassed} passed, ${testsFailed} failed.`);

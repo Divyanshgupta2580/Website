@@ -337,13 +337,13 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             <div className="p-6 bg-[#0B0D0F] border border-[#2A3035]">
               <Quote className="w-6 h-6 text-[#B89A63] mb-3" />
               <p className="text-xs text-[#A7ADB3] italic mb-3 leading-relaxed">
-                &ldquo;[ADD VERIFIED CUSTOMER TESTIMONIAL]&rdquo;
+                &ldquo;[ADD VERIFIED CUSTOMER REVIEW]&rdquo;
               </p>
               <div className="text-[11px] font-mono text-[#B89A63]">
                 {project.clientTypePlaceholder} &bull; Client
               </div>
               <span className="text-[10px] text-[#667582] block mt-1">
-                [VERIFIED CLIENT FEEDBACK PLACEHOLDER]
+                [CUSTOMER REVIEW PLACEHOLDER]
               </span>
             </div>
 

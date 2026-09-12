@@ -172,7 +172,7 @@ export default function TestimonialsPage() {
         <div className="p-4 bg-[#15191D] border border-[#2A3035] flex items-start gap-3 text-xs">
           <AlertCircle className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
           <p className="text-[#A7ADB3] leading-relaxed">
-            <strong className="text-[#F3F1EC]">Transparency Notice:</strong> All customer testimonials are maintained as clearly labeled placeholders (<span className="text-[#B89A63]">[ADD VERIFIED CUSTOMER TESTIMONIAL]</span>) until verified client reviews are confirmed by the owner.
+            <strong className="text-[#F3F1EC]">Transparency Notice:</strong> All customer testimonials are maintained as clearly labeled placeholders (<span className="text-[#B89A63]">[ADD VERIFIED CUSTOMER REVIEW]</span>) until verified client reviews are confirmed by the owner.
           </p>
         </div>
       </section>

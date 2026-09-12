@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Truck, ShieldCheck, Scale, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, Truck } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
 import MaterialCard from "@/components/cards/MaterialCard";
 import Button from "@/components/ui/Button";
-import { materialsData } from "@/data/materials";
+import { overviewMaterials } from "@/data/materials";
 
 export default function MaterialsPreview() {
   return (
@@ -14,36 +14,24 @@ export default function MaterialsPreview() {
         <SectionHeading
           eyebrow="Primary Business // Building Materials"
           title="Quality Construction Materials Supply"
-          description="Our primary business focuses on the sale and supply of essential construction materials: cement, TMT steel, red bricks, AAC blocks, sand, aggregates, plumbing, and electrical materials with dependable site delivery."
+          description="Our primary business focuses on the sale and supply of essential building materials: cement, red clay bricks, AAC blocks, sand, stone aggregates, shuttering plywood, hardware, and site essentials with dependable jobsite delivery."
           action={
             <Button
-              href="/contact"
+              href="/materials"
               variant="primary"
               size="sm"
             >
-              <span>Enquire for Materials</span>
+              <span>Explore Materials</span>
               <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
             </Button>
           }
         />
 
-        {/* 8 Core Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {[
-            "cement",
-            "tmt-steel",
-            "bricks-blocks",
-            "sand-aggregates",
-            "plumbing",
-            "electrical",
-            "construction-chemicals",
-            "other-building-supplies",
-          ]
-            .map((slug) => materialsData.find((m) => m.slug === slug))
-            .filter((m): m is (typeof materialsData)[0] => Boolean(m))
-            .map((material) => (
-              <MaterialCard key={material.slug} material={material} />
-            ))}
+        {/* 7 Core Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+          {overviewMaterials.map((material) => (
+            <MaterialCard key={material.slug} material={material} />
+          ))}
         </div>
 
         {/* Bottom Banner with Direct Material Quote Action */}
@@ -62,7 +50,7 @@ export default function MaterialsPreview() {
 
           <div className="flex items-center gap-3 flex-shrink-0">
             <Button
-              href="/contact"
+              href="/contact?division=materials"
               variant="primary"
               size="sm"
             >

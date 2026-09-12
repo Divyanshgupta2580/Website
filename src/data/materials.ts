@@ -18,6 +18,9 @@ export interface MaterialCategoryItem {
   iconName: string;
   heroImage: string;
   overview: string;
+  shortDescription?: string;
+  applicationsSummary?: string;
+  exampleProducts?: string[];
   advantages: string[];
   products: MaterialProduct[];
   authorizedBrandsPlaceholder: string[];
@@ -28,6 +31,7 @@ export interface MaterialCategoryItem {
     answer: string;
   }[];
   relatedCategorySlugs: string[];
+  isOverview?: boolean;
 }
 
 export const materialsData: MaterialCategoryItem[] = [
@@ -37,7 +41,11 @@ export const materialsData: MaterialCategoryItem[] = [
     shortTitle: "Cement",
     subtitle: "Standard Ordinary Portland Cement (OPC 43/53) & Portland Pozzolana Cement (PPC)",
     iconName: "Layers",
-    heroImage: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1200&q=80",
+    shortDescription: "Fresh 50 kg bags of Ordinary Portland Cement (OPC 43/53) and Portland Pozzolana Cement (PPC) for structural RCC, masonry, and plastering.",
+    applicationsSummary: "RCC columns, beams, foundation footings, slabs, brickwork, and smooth wall plastering.",
+    exampleProducts: ["OPC 53 Grade Cement", "PPC Pozzolana Cement", "OPC 43 Grade Cement"],
+    isOverview: true,
     overview: "GG Construction Co. provides dependable supply and distribution of cement for residential houses, commercial buildings, and general construction work. Sourced through established trade channels, we cater to retail, contractor, and bulk project orders with prompt local and site deliveries.",
     advantages: [
       "Supplied in fresh, factory-packed 50 kg moisture-resistant bags directly to site",
@@ -103,65 +111,7 @@ export const materialsData: MaterialCategoryItem[] = [
         answer: "Yes. We regularly coordinate mixed truckload dispatches combining OPC for your structural slab pour and PPC for your ongoing brickwork and plastering.",
       },
     ],
-    relatedCategorySlugs: ["sand", "aggregates", "tmt-steel", "construction-chemicals"],
-  },
-  {
-    slug: "tmt-steel",
-    title: "TMT Steel & Rebars",
-    shortTitle: "TMT Steel",
-    subtitle: "High-Strength TMT Reinforcement Steel Bars (Fe 500 / Fe 500D)",
-    iconName: "ShieldCheck",
-    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80",
-    overview: "We supply Thermo-Mechanically Treated (TMT) steel reinforcement bars essential for reinforced concrete construction. Sourced through dependable supply networks, our rebars offer consistent rib patterns, superior bendability, and dependable yield strength for building foundations, columns, beams, and slabs.",
-    advantages: [
-      "Available in standard diameters: 8mm, 10mm, 12mm, 16mm, 20mm, and 25mm",
-      "High-ductility Fe 500D grade suitable for building earthquake resilience",
-      "Accurate weight and bundle counts with transparent billing",
-      "Local site unloading and direct truck delivery",
-    ],
-    authorizedBrandsPlaceholder: [
-      "[VERIFY AVAILABLE BRANDS - e.g. Tata Tiscon / JSW Neosteel / Jindal Panther / Kamdhenu / Regional Primary & Secondary Brands]",
-      "[VERIFY CURRENT RATE PER TONNE / PER BUNDLE]",
-    ],
-    qualityAssuranceNotes: "Standard Fe 500 and Fe 500D rebars conforming to IS 1786 specifications, ensuring proper elongation, tensile strength, and rib bonding with concrete.",
-    bulkLogisticsDetails: "Delivered in standard 12-meter straight lengths strapped in secure bundles. Dispatched by local flatbed trucks directly to your construction site.",
-    products: [
-      {
-        name: "Fe 500D Seismic Grade TMT Rebars",
-        gradeVariants: ["8mm", "10mm", "12mm", "16mm", "20mm", "25mm"],
-        specifications: [
-          { label: "Yield Strength", value: "[VERIFY SPECIFICATION - Minimum 500 N/mm²]" },
-          { label: "Total Elongation", value: "[VERIFY SPECIFICATION - Minimum 16% (High Ductility)]" },
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 1786 Fe 500D]" },
-          { label: "Length", value: "Standard 12 Meters (Straight Bundles)" },
-        ],
-        applications: ["RCC columns and structural beams", "Foundation mats and footings", "Roof slabs and cantilever balconies"],
-        packaging: "12m Bundles with Standard Weight Tolerances",
-        minimumOrder: "1 Metric Ton / Inquire for Project Lots",
-      },
-      {
-        name: "Binding Wire & Column Stirrups",
-        gradeVariants: ["18-Gauge Annealed Binding Wire", "Pre-Formed 8mm Stirrups / Rings"],
-        specifications: [
-          { label: "Material", value: "Mild Steel Annealed Wire / TMT Stirrups" },
-          { label: "Standard Use", value: "Binding reinforcement rebar intersections and shear links" },
-        ],
-        applications: ["Tying rebar cages in beams and columns", "Column lateral ties / rings"],
-        packaging: "25 kg Coils / Bundles",
-        minimumOrder: "2 Coils / 50 kg",
-      },
-    ],
-    faqs: [
-      {
-        question: "Why is Fe 500D recommended over regular Fe 500 for buildings?",
-        answer: "The 'D' in Fe 500D stands for ductility. While both grades have a yield strength of 500 N/mm², Fe 500D provides higher elongation (at least 16% compared to 12%), allowing the structure to absorb earthquake vibrations safely without sudden brittle failure.",
-      },
-      {
-        question: "How do you calculate the weight of TMT steel needed for a house?",
-        answer: "As a general estimate, residential RCC construction consumes approximately 3.5 to 4.5 kg of steel per square foot of built-up area, depending on the structural drawings. Contact us with your bar bending schedule (BBS) or structural plan for an exact quote.",
-      },
-    ],
-    relatedCategorySlugs: ["cement", "aggregates", "construction-chemicals"],
+    relatedCategorySlugs: ["bricks-blocks", "sand-aggregates", "shuttering-plywood", "cover-blocks"],
   },
   {
     slug: "bricks-blocks",
@@ -169,7 +119,11 @@ export const materialsData: MaterialCategoryItem[] = [
     shortTitle: "Bricks & Blocks",
     subtitle: "Kiln-Fired Red Clay Bricks, Lightweight AAC Blocks & Concrete Solid Blocks",
     iconName: "Boxes",
-    heroImage: "https://images.unsplash.com/photo-1584463699026-df06a5e1c0c6?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1584463699026-df06a5e1c0c6?auto=format&fit=crop&w=1200&q=80",
+    shortDescription: "Well-baked red clay bricks and precision lightweight AAC blocks delivered by trolley or truckload directly to your plot.",
+    applicationsSummary: "Load-bearing exterior walls, interior room partitions, compound boundary walls, and foundation substructures.",
+    exampleProducts: ["First-Class Red Clay Bricks", "AAC Lightweight Blocks (4\"/6\"/8\")", "Concrete Solid Blocks"],
+    isOverview: true,
     overview: "Wall masonry directly impacts structural load, thermal comfort, and plaster consumption. GG Construction Co. supplies well-baked red clay bricks, precision autoclaved aerated concrete (AAC) blocks, and concrete solid blocks for all residential and commercial building needs.",
     advantages: [
       "Well-baked red bricks offering solid compressive strength and traditional durability",
@@ -229,140 +183,31 @@ export const materialsData: MaterialCategoryItem[] = [
         answer: "We ensure careful loading and unloading. Standard acceptable transit breakage is under 2% for AAC blocks and 3% to 5% for red bricks, which can typically be used as bat pieces for door and window openings.",
       },
     ],
-    relatedCategorySlugs: ["cement", "sand", "construction-chemicals"],
-  },
-  {
-    slug: "sand",
-    title: "Sand & Fine Aggregates",
-    shortTitle: "Sand",
-    subtitle: "Screened Concrete Sand, Washed Plastering Sand & Crusher Sand",
-    iconName: "Gem",
-    heroImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
-    overview: "Clean, properly graded sand is vital for durable concrete and crack-free wall plaster. GG Construction Co. supplies screened concrete sand and washed plastering sand suitable for civil masonry, plaster work, and RCC casting across regional construction sites.",
-    advantages: [
-      "Screened to minimize silt, clay lumps, and organic debris",
-      "Properly graded fine aggregate ensuring strong cement bonding",
-      "Available for both structural concrete and smooth wall plastering",
-      "Delivered by full tipper truck or tractor trolley with honest measurement",
-    ],
-    authorizedBrandsPlaceholder: [
-      "[VERIFY REGIONAL SAND SOURCES & CRUSHER UNITS]",
-      "[VERIFY CURRENT RATE PER CUBIC FEET (CFT) / PER TONNE]",
-    ],
-    qualityAssuranceNotes: "Tested per IS 383 guidelines to verify silt content remains within safe limits (under 5% for structural concrete) to prevent mortar weakness.",
-    bulkLogisticsDetails: "Delivered loose by local 6-wheeler / 10-wheeler tipper trucks or tractor trolleys directly to your construction plot.",
-    products: [
-      {
-        name: "Concrete Sand (Zone II Graded)",
-        gradeVariants: ["Coarse Washed Sand / M-Sand"],
-        specifications: [
-          { label: "Grading Zone", value: "[VERIFY SPECIFICATION - IS 383 Zone II]" },
-          { label: "Silt Content", value: "[VERIFY SPECIFICATION - Safe limit < 5%]" },
-        ],
-        applications: ["RCC columns, beams, and slabs", "Foundation footings and ground flooring", "PCC bed concrete"],
-        packaging: "Loose Bulk Tipper Delivery",
-        minimumOrder: "1 Tractor Trolley / 1 Tipper Load (~8 to 16 MT)",
-      },
-      {
-        name: "Plastering Sand (Fine Washed)",
-        gradeVariants: ["Fine Screened Sand / P-Sand"],
-        specifications: [
-          { label: "Particle Size", value: "Fine graded (< 2.36mm) for smooth finish" },
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 383 Zone IV]" },
-        ],
-        applications: ["Internal wall smooth plastering", "External sand-face plastering", "Tile bedding mortar"],
-        packaging: "Loose Bulk Delivery / Bagged upon request",
-        minimumOrder: "1 Tractor Trolley / Tipper Load",
-      },
-    ],
-    faqs: [
-      {
-        question: "Why should plaster sand be finer than concrete sand?",
-        answer: "Concrete sand requires coarse, angular particles (Zone II) to interlock with stone aggregates and cement for high compressive strength. Plaster sand must be finer (Zone IV) and free of pebbles so the mason can achieve a uniform, smooth wall finish without surface pitting.",
-      },
-    ],
-    relatedCategorySlugs: ["aggregates", "cement", "bricks-blocks"],
-  },
-  {
-    slug: "aggregates",
-    title: "Coarse Aggregates & Stone",
-    shortTitle: "Aggregates",
-    subtitle: "Machine-Crushed Blue Metal Stone Aggregates (10mm, 20mm & 40mm)",
-    iconName: "Layers",
-    heroImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1600&q=80",
-    overview: "We supply machine-crushed hard-stone aggregates in standard 10mm, 20mm, and 40mm sizes, as well as stone dust and GSB for sub-base leveling. Sourced from certified crushing units, our aggregates provide dependable mechanical strength for structural RCC.",
-    advantages: [
-      "Machine-crushed angular stone particles ensuring solid mechanical interlocking",
-      "Screened to remove excess quarry dust and weak flaky stones",
-      "Supplied in full truckloads or trolleys for steady slab casting pours",
-      "Honest volume and weighbridge measurement",
-    ],
-    authorizedBrandsPlaceholder: [
-      "[VERIFY LOCAL CRUSHER SOURCES & QUARRIES]",
-      "[VERIFY RATE PER CUBIC FEET (CFT) / PER TONNE]",
-    ],
-    qualityAssuranceNotes: "Conforming to IS 383 specifications for coarse aggregates, ensuring appropriate impact resistance and low water absorption.",
-    bulkLogisticsDetails: "Delivered loose by 6-wheeler and 10-wheeler tipper dump trucks directly to the construction site.",
-    products: [
-      {
-        name: "20mm Graded Coarse Aggregate",
-        gradeVariants: ["Single Sized 20mm", "20mm-10mm Mixed Graded"],
-        specifications: [
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 383 Compliant]" },
-          { label: "Application", value: "Standard aggregate for RCC building frames" },
-        ],
-        applications: ["RCC slabs, beams, columns, and lintels", "Foundation footings and retaining walls"],
-        packaging: "Loose Tipper Delivery",
-        minimumOrder: "1 Tipper Load (~10 to 16 MT)",
-      },
-      {
-        name: "10mm Fine Stone Aggregate",
-        gradeVariants: ["Single Sized 10mm Stone Chips"],
-        specifications: [
-          { label: "Cleanliness", value: "Machine-screened crushed granite / basalt" },
-        ],
-        applications: ["Thin RCC sections and chajjas", "Flooring concrete screeds", "Pre-cast elements"],
-        packaging: "Loose Tipper Delivery",
-        minimumOrder: "1 Tipper Load",
-      },
-      {
-        name: "40mm Base Aggregate & Stone Dust",
-        gradeVariants: ["40mm Ballast", "Crushed Stone Dust"],
-        specifications: [
-          { label: "Standard", value: "Heavy sub-base compaction grade" },
-        ],
-        applications: ["Foundation mud mat (PCC)", "Driveways and ground slab bedding", "Floor leveling under tile work"],
-        packaging: "Loose Bulk Dumpers",
-        minimumOrder: "1 Tipper Load",
-      },
-    ],
-    faqs: [
-      {
-        question: "What is the standard ratio of 20mm and 10mm aggregates for roof slab casting?",
-        answer: "A widely used mix ratio for M20 or M25 slab concrete is approximately 60% of 20mm aggregate blended with 40% of 10mm aggregate. This grading fills voids efficiently, resulting in dense, leak-proof concrete.",
-      },
-    ],
-    relatedCategorySlugs: ["sand", "cement", "tmt-steel"],
+    relatedCategorySlugs: ["cement", "sand-aggregates", "hardware", "cover-blocks"],
   },
   {
     slug: "sand-aggregates",
-    title: "Sand & Aggregates Combo",
+    title: "Sand & Coarse Aggregates",
     shortTitle: "Sand & Aggregates",
-    subtitle: "Synchronized Supply of Screened Sand & Crushed Stone Aggregates",
+    subtitle: "Screened Concrete Sand, Washed Plaster Sand & Crushed Blue Stone Aggregates",
     iconName: "Gem",
-    heroImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
+    heroImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80",
+    shortDescription: "Clean screened concrete sand, washed plastering sand, and machine-crushed 10mm, 20mm & 40mm stone aggregates with honest weighbridge slips.",
+    applicationsSummary: "RCC roof slabs, column pours, foundation footings, masonry mortar, and smooth wall plastering.",
+    exampleProducts: ["Zone II Concrete Sand", "Washed Plaster Sand", "20mm & 10mm Blue Stone"],
+    isOverview: true,
     overview: "GG Construction Co. provides synchronized supply and delivery of both sand and coarse aggregates so builders and contractors receive all required dry materials together, preventing work halts during critical foundation and roof slab pours.",
     advantages: [
       "Single-point delivery coordination saving transit time and site congestion",
       "Screened concrete sand, plastering sand, 10mm, 20mm, and 40mm stone",
       "Direct weighbridge or volumetric measurement with honest billing",
-      "Reliable regional supply to construction sites",
+      "Reliable regional supply directly to building sites",
     ],
     authorizedBrandsPlaceholder: [
-      "[VERIFY REGIONAL CRUSHER ALLIANCES]",
+      "[VERIFY REGIONAL CRUSHER ALLIANCES & MINING SOURCES]",
       "[VERIFY COMBINED TARIFFS & TRUCKLOAD DISCOUNTS]",
     ],
-    qualityAssuranceNotes: "Compliant with IS 383 guidelines for clean, sound fine and coarse aggregates.",
+    qualityAssuranceNotes: "Tested per IS 383 guidelines for clean, sound fine and coarse aggregates with minimal silt content.",
     bulkLogisticsDetails: "Delivered by local tipper trucks or tractor trolleys directly to your construction plot.",
     products: [
       {
@@ -392,7 +237,306 @@ export const materialsData: MaterialCategoryItem[] = [
         answer: "Yes. We coordinate early morning or previous-evening deliveries so your materials are neatly staged on site before the concrete mixer and labor crew start.",
       },
     ],
-    relatedCategorySlugs: ["cement", "bricks-blocks", "construction-chemicals"],
+    relatedCategorySlugs: ["cement", "bricks-blocks", "shuttering-plywood", "cover-blocks"],
+  },
+  {
+    slug: "shuttering-plywood",
+    title: "Shuttering Plywood & Formwork",
+    shortTitle: "Shuttering Plywood",
+    subtitle: "Calibrated Film-Faced Shuttering Plywood Panels & Formwork Accessories",
+    iconName: "Layers",
+    heroImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80",
+    shortDescription: "High-density calibrated film-faced plywood sheets providing clean concrete slab finishes and repeated formwork pour cycles.",
+    applicationsSummary: "RCC slab shuttering, structural beam bottoms, column casting boxes, and pre-cast concrete molds.",
+    exampleProducts: ["12mm Film-Faced Plywood (30/34 kg)", "18mm Heavy-Duty Shuttering Sheets", "Shuttering Oil & Release Agents"],
+    isOverview: true,
+    overview: "High-quality shuttering plywood is essential for safe formwork and smooth concrete surfaces. GG Construction Co. supplies calibrated film-faced plywood sheets with high phenolic glue bonding, designed to withstand heavy concrete loads and provide multiple reuse cycles for slabs, beams, and columns.",
+    advantages: [
+      "Calibrated thickness ensuring level slab casting and minimal concrete leakage",
+      "Double-sided phenolic film coating providing mirror-smooth concrete finishes",
+      "High repetition rate across multiple casting pours when handled with shuttering oil",
+      "Available in standard 12mm and 18mm thicknesses for local delivery",
+    ],
+    authorizedBrandsPlaceholder: [
+      "[VERIFY AVAILABLE PLYWOOD BRANDS & REPUTED MILLS]",
+      "[VERIFY CURRENT SHEET RATES & BUNDLE DISCOUNTS]",
+    ],
+    qualityAssuranceNotes: "Manufactured with boiling waterproof (BWP) grade adhesives conforming to IS 4990 standards for concrete shuttering work.",
+    bulkLogisticsDetails: "Delivered in bundled palletized lots directly to your construction plot or contractor site.",
+    products: [
+      {
+        name: "12mm Calibrated Film-Faced Plywood",
+        gradeVariants: ["Standard 8x4 ft Sheets", "30 kg Density", "34 kg Density"],
+        specifications: [
+          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 4990 Compliant]" },
+          { label: "Dimensions", value: "8 ft x 4 ft (2440mm x 1220mm)" },
+          { label: "Film Coating", value: "Phenolic Film on both faces" },
+        ],
+        applications: ["RCC roof slab formwork", "Lintels and chajjas casting", "Light beam casing"],
+        packaging: "Strapped Bundles of Sheets",
+        minimumOrder: "15 Sheets",
+      },
+      {
+        name: "18mm Heavy-Duty Formwork Plywood",
+        gradeVariants: ["Standard 8x4 ft Sheets", "Heavy Density (~42 kg)"],
+        specifications: [
+          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 4990 Compliant]" },
+          { label: "Dimensions", value: "8 ft x 4 ft (2440mm x 1220mm)" },
+          { label: "Load Capacity", value: "Heavy commercial and thick slab casting" },
+        ],
+        applications: ["Heavy beam bottoms and sides", "Basement retaining wall formwork", "Column casting boxes"],
+        packaging: "Strapped Bundles",
+        minimumOrder: "10 Sheets",
+      },
+      {
+        name: "Formwork Shuttering Oil & Mold Release",
+        gradeVariants: ["Neat Oil", "Emulsion Concentrate"],
+        specifications: [
+          { label: "Usage", value: "Brush or spray application before rebar placement" },
+        ],
+        applications: ["Prolonging plywood sheet life and ensuring clean de-shuttering"],
+        packaging: "20 Liter Buckets / 200L Drums",
+        minimumOrder: "20 Liters",
+      },
+    ],
+    faqs: [
+      {
+        question: "How many times can film-faced shuttering plywood be reused?",
+        answer: "With careful handling, proper application of shuttering oil before each pour, and clean de-shuttering, quality 30–34 kg 12mm plywood typically delivers 8 to 12 reuse cycles on residential and low-rise building sites.",
+      },
+    ],
+    relatedCategorySlugs: ["cement", "sand-aggregates", "hardware", "cover-blocks"],
+  },
+  {
+    slug: "hardware",
+    title: "Construction Hardware & Fasteners",
+    shortTitle: "Hardware",
+    subtitle: "Binding Wire, Wire Nails, Column Clamps, Fasteners & Site Tools",
+    iconName: "Wrench",
+    heroImage: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=1200&q=80",
+    shortDescription: "Essential jobsite hardware including 18-gauge binding wire, wire nails, column clamps, fasteners, and daily construction consumables.",
+    applicationsSummary: "Rebar cage tying, formwork assembly, masonry alignment, scaffolding connections, and general site fabrication.",
+    exampleProducts: ["18-Gauge Annealed Binding Wire", "Wire Nails (2\" to 4\")", "Column Clamps & Tie Rods"],
+    isOverview: true,
+    overview: "Every construction site requires a steady stream of basic hardware and fixing supplies to keep work progressing without delays. GG Construction Co. supplies contractor-grade annealed binding wire, wire nails, column clamps, and essential jobsite fasteners alongside your main material orders.",
+    advantages: [
+      "Soft annealed 18-gauge binding wire that ties easily without snapping",
+      "Standard wire nails in assorted sizes (2-inch to 4-inch) for timber formwork",
+      "Heavy-duty adjustable steel column clamps and tie rod assemblies",
+      "Supplied in bulk coils and boxes directly with your primary material dispatches",
+    ],
+    authorizedBrandsPlaceholder: [
+      "[VERIFY LOCAL HARDWARE SOURCES & CONTRACTOR GRADE SUPPLY]",
+      "[VERIFY BUNDLE AND COIL WEIGHT DISCOUNTS]",
+    ],
+    qualityAssuranceNotes: "Annealed mild steel wire and high-strength fasteners inspected for consistent gauge and rust-free storage.",
+    bulkLogisticsDetails: "Packaged in coils, gunny bags, and cartons delivered directly to site.",
+    products: [
+      {
+        name: "18-Gauge Annealed Binding Wire",
+        gradeVariants: ["Standard Black Annealed Wire", "GI Rust-Resistant Wire"],
+        specifications: [
+          { label: "Gauge", value: "18 SWG (Standard Soft Annealed)" },
+          { label: "Packaging", value: "25 kg Coils" },
+        ],
+        applications: ["Tying TMT rebar intersections in slabs, columns, and beams", "Securing stirrups"],
+        packaging: "25 kg Wrapped Coils",
+        minimumOrder: "2 Coils (50 kg)",
+      },
+      {
+        name: "Construction Wire Nails (Assorted)",
+        gradeVariants: ["2-inch", "2.5-inch", "3-inch", "4-inch"],
+        specifications: [
+          { label: "Material", value: "Bright Drawn Hard Steel Wire" },
+        ],
+        applications: ["Timber formwork joining", "Shuttering props bracing", "General site carpentry"],
+        packaging: "50 kg Gunny Bags / 5 kg Boxes",
+        minimumOrder: "25 kg",
+      },
+      {
+        name: "Adjustable Steel Column Clamps",
+        gradeVariants: ["Standard 2.5 ft", "Heavy 3.0 ft"],
+        specifications: [
+          { label: "Material", value: "Forged Heavy Mild Steel" },
+        ],
+        applications: ["Holding column shuttering boxes firmly during concrete vibration"],
+        packaging: "Bundles of 10",
+        minimumOrder: "10 Pieces",
+      },
+    ],
+    faqs: [
+      {
+        question: "How much binding wire is typically required per ton of TMT steel?",
+        answer: "As a general construction benchmark, approximately 9 to 12 kg of 18-gauge binding wire is required per metric ton of reinforcement steel, depending on bar diameter and spacing.",
+      },
+    ],
+    relatedCategorySlugs: ["shuttering-plywood", "cover-blocks", "tarpaulins-site-essentials"],
+  },
+  {
+    slug: "cover-blocks",
+    title: "Concrete Cover Blocks & Spacers",
+    shortTitle: "Cover Blocks",
+    subtitle: "High-Strength Pre-Cast Concrete & PVC Spacers for Structural Rebar Cover",
+    iconName: "Boxes",
+    heroImage: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=1200&q=80",
+    shortDescription: "High-density pre-cast concrete cover blocks and PVC spacers ensuring structural reinforcement maintains accurate cover depth during concrete pours.",
+    applicationsSummary: "Roof slab bottom cover (20mm), beam sides & bottom (25mm), column cages (40mm), and foundation footings (50mm).",
+    exampleProducts: ["20mm Slab Cover Blocks", "25mm Beam Cover Blocks", "40mm Column Spacers", "50mm Footing Blocks"],
+    isOverview: true,
+    overview: "Adequate concrete cover over reinforcement steel is critical to prevent moisture ingress, rebar corrosion, and structural spalling. GG Construction Co. supplies pre-cast high-density concrete cover blocks and PVC spacers in all standard dimensions to protect your building's structural integrity.",
+    advantages: [
+      "Consistent cover dimensions conforming to IS 456 structural code requirements",
+      "High compressive strength matching or exceeding M30/M40 concrete grades",
+      "Integrated wire holes for secure tie-up to rebar mats before concrete pouring",
+      "Prevents rebar exposure, surface rust marks, and long-term concrete deterioration",
+    ],
+    authorizedBrandsPlaceholder: [
+      "[VERIFY LOCAL MANUFACTURERS & GRADE RATINGS]",
+      "[VERIFY BAG SIZES (100 / 500 PIECES)]",
+    ],
+    qualityAssuranceNotes: "Pre-cast with rich cement-sand-micro aggregate mortars and cured to prevent breakage under worker foot traffic.",
+    bulkLogisticsDetails: "Packed in convenient gunny bags of 100 or 500 pieces delivered alongside primary materials.",
+    products: [
+      {
+        name: "20mm & 25mm Concrete Slab & Beam Spacers",
+        gradeVariants: ["20mm (Slabs)", "25mm (Beams)"],
+        specifications: [
+          { label: "Standard", value: "IS 456 Structural Cover Compliant" },
+          { label: "Material", value: "High-Strength Dense Pre-Cast Concrete" },
+        ],
+        applications: ["Elevating bottom reinforcement rebar mesh in roof slabs and floor beams"],
+        packaging: "Bags of 250 / 500 Pieces",
+        minimumOrder: "2 Bags",
+      },
+      {
+        name: "40mm & 50mm Column & Footing Cover Blocks",
+        gradeVariants: ["40mm (Columns)", "50mm (Foundation Footings)"],
+        specifications: [
+          { label: "Standard", value: "IS 456 Foundation Cover Compliant" },
+        ],
+        applications: ["Maintaining peripheral concrete thickness in structural columns and foundation mats"],
+        packaging: "Bags of 100 / 250 Pieces",
+        minimumOrder: "2 Bags",
+      },
+    ],
+    faqs: [
+      {
+        question: "Why shouldn't broken brick pieces or stone chips be used as cover blocks?",
+        answer: "Broken bricks and irregular stones have uneven thickness, absorb water, and create weak spots in the concrete where moisture easily penetrates to rust the steel bars. Standard pre-cast concrete cover blocks provide uniform cover, high density, and complete bond with poured concrete.",
+      },
+    ],
+    relatedCategorySlugs: ["cement", "shuttering-plywood", "hardware"],
+  },
+  {
+    slug: "tarpaulins-site-essentials",
+    title: "Tarpaulins & Site Essentials",
+    shortTitle: "Tarpaulins & Site Essentials",
+    subtitle: "Heavy-Duty Waterproof HDPE Tarpaulins, Jute Curing Cloth & Site Protection",
+    iconName: "ShieldCheck",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
+    shortDescription: "Multilayer waterproof HDPE tarpaulins, absorbent jute curing hessian, and essential site protective gear to safeguard materials from rain and sun.",
+    applicationsSummary: "Covering cement bags and sand piles, moisture retention curing on concrete columns and slabs, monsoon weatherproofing, and site dust barriers.",
+    exampleProducts: ["HDPE Waterproof Tarpaulins (12x18 to 24x30 ft)", "Jute Hessian Curing Bags", "Site Safety Helmets & Vests"],
+    isOverview: true,
+    overview: "Protecting materials from unexpected rain, harsh sunlight, and dust keeps construction quality high and prevents material waste. GG Construction Co. supplies heavy-duty waterproof HDPE tarpaulins, natural jute hessian curing fabric, and essential jobsite safety gear.",
+    advantages: [
+      "100% waterproof multi-layer laminated HDPE tarpaulins with reinforced corner eyelets",
+      "Protects expensive cement bags, electrical boxes, and sand piles from rainwater spoilage",
+      "Natural jute hessian cloth ensuring continuous wet curing for columns and beams",
+      "Durable, UV-stabilized construction grade that withstands rough jobsite handling",
+    ],
+    authorizedBrandsPlaceholder: [
+      "[VERIFY AVAILABLE TARPAULIN GSM GRADES - e.g. 120 / 150 / 200 / 250 GSM]",
+      "[VERIFY STANDARD SHEET SIZES & BULK ROLL RATES]",
+    ],
+    qualityAssuranceNotes: "UV-stabilized virgin polymer tarpaulins with heat-sealed seams and aluminum eyelets every 3 feet.",
+    bulkLogisticsDetails: "Supplied in individual bundles and master bales delivered directly to your building plot.",
+    products: [
+      {
+        name: "Heavy-Duty Waterproof HDPE Tarpaulins",
+        gradeVariants: ["12x18 ft", "18x24 ft", "24x30 ft", "150 GSM / 200 GSM"],
+        specifications: [
+          { label: "Material", value: "Virgin HDPE Woven Fabric with LDPE Lamination" },
+          { label: "Eyelets", value: "Reinforced Aluminum Eyelets every 1 Meter" },
+        ],
+        applications: ["Covering cement stacks on site", "Sand pile rain protection", "Temporary site sheds and monsoon screening"],
+        packaging: "Individually Wrapped Sheets",
+        minimumOrder: "2 Sheets",
+      },
+      {
+        name: "Jute Hessian Curing Bags & Fabric",
+        gradeVariants: ["Standard Curing Rolls", "Jute Hessian Bags"],
+        specifications: [
+          { label: "Material", value: "100% Natural Biodegradable Jute Fiber" },
+        ],
+        applications: ["Wrapping RCC columns and beams for continuous water curing retention"],
+        packaging: "Bales / Bundles",
+        minimumOrder: "1 Bundle",
+      },
+      {
+        name: "Basic Jobsite Safety Gear",
+        gradeVariants: ["ISI Safety Helmets", "High-Visibility Reflective Jackets", "Heavy-Duty Gloves"],
+        specifications: [
+          { label: "Standard", value: "Standard On-Site Worker Protection" },
+        ],
+        applications: ["Construction site worker safety during excavation and casting"],
+        packaging: "Sets of 5 / 10",
+        minimumOrder: "5 Sets",
+      },
+    ],
+    faqs: [
+      {
+        question: "How long should jute hessian cloth remain on columns after casting?",
+        answer: "Columns should be wrapped in jute hessian immediately upon de-shuttering and kept continuously moist by water spraying for at least 14 days (up to 21 days in hot weather) to achieve full design compressive strength.",
+      },
+    ],
+    relatedCategorySlugs: ["cement", "shuttering-plywood", "hardware"],
+  },
+  // PRESERVED CATEGORIES (Kept in data layer so their individual detail routes do not break)
+  {
+    slug: "tmt-steel",
+    title: "TMT Steel & Rebars",
+    shortTitle: "TMT Steel",
+    subtitle: "High-Strength TMT Reinforcement Steel Bars (Fe 500 / Fe 500D)",
+    iconName: "ShieldCheck",
+    heroImage: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80",
+    overview: "We supply Thermo-Mechanically Treated (TMT) steel reinforcement bars essential for reinforced concrete construction. Sourced through dependable supply networks, our rebars offer consistent rib patterns, superior bendability, and dependable yield strength for building foundations, columns, beams, and slabs.",
+    shortDescription: "Tested Thermo-Mechanically Treated (TMT) steel reinforcement bars in Fe 500 / Fe 500D grades.",
+    applicationsSummary: "RCC columns, structural beams, foundation footings, and roof slabs.",
+    exampleProducts: ["Fe 500D TMT Rebars (8mm–25mm)", "Binding Wire", "Pre-Formed Stirrups"],
+    isOverview: false,
+    advantages: [
+      "Available in standard diameters: 8mm, 10mm, 12mm, 16mm, 20mm, and 25mm",
+      "High-ductility Fe 500D grade suitable for building earthquake resilience",
+      "Accurate weight and bundle counts with transparent billing",
+      "Local site unloading and direct truck delivery",
+    ],
+    authorizedBrandsPlaceholder: [
+      "[VERIFY AVAILABLE BRANDS - e.g. Tata Tiscon / JSW Neosteel / Jindal Panther / Kamdhenu / Regional Primary & Secondary Brands]",
+      "[VERIFY CURRENT RATE PER TONNE / PER BUNDLE]",
+    ],
+    qualityAssuranceNotes: "Standard Fe 500 and Fe 500D rebars conforming to IS 1786 specifications.",
+    bulkLogisticsDetails: "Delivered in standard 12-meter straight lengths strapped in secure bundles.",
+    products: [
+      {
+        name: "Fe 500D Seismic Grade TMT Rebars",
+        gradeVariants: ["8mm", "10mm", "12mm", "16mm", "20mm", "25mm"],
+        specifications: [
+          { label: "Yield Strength", value: "[VERIFY SPECIFICATION - Minimum 500 N/mm²]" },
+          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 1786 Fe 500D]" },
+        ],
+        applications: ["RCC columns and structural beams", "Foundation footings", "Roof slabs"],
+        packaging: "12m Bundles with Standard Weight Tolerances",
+        minimumOrder: "1 Metric Ton",
+      },
+    ],
+    faqs: [
+      {
+        question: "Why is Fe 500D recommended over regular Fe 500 for buildings?",
+        answer: "The 'D' in Fe 500D stands for ductility, allowing the structure to absorb vibration safely.",
+      },
+    ],
+    relatedCategorySlugs: ["cement", "shuttering-plywood", "hardware"],
   },
   {
     slug: "plumbing",
@@ -401,60 +545,41 @@ export const materialsData: MaterialCategoryItem[] = [
     subtitle: "CPVC, UPVC, SWR Pipes, Heavy-Duty Fittings & Overhead Water Tanks",
     iconName: "Wrench",
     heroImage: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1600&q=80",
-    overview: "Residential and commercial buildings require leak-proof, pressure-rated plumbing lines. GG Construction Co. supplies complete piping materials from CPVC hot/cold water supply pipes to UPVC drainage lines, brass fittings, and overhead water storage tanks.",
+    overview: "Residential and commercial buildings require leak-proof, pressure-rated plumbing lines. GG Construction Co. supplies piping materials from CPVC hot/cold water supply pipes to UPVC drainage lines, brass fittings, and overhead water storage tanks.",
+    shortDescription: "Complete piping solutions: CPVC water lines, UPVC SWR drainage, and storage tanks.",
+    applicationsSummary: "Concealed domestic water distribution, sanitary drainage, and rooftop water storage.",
+    exampleProducts: ["CPVC SDR 11 Pipes", "UPVC SWR Drainage Pipes", "Overhead Water Tanks"],
+    isOverview: false,
     advantages: [
-      "Lead-free, food-grade CPVC pipes and fittings for hot and cold domestic water",
+      "Lead-free, food-grade CPVC pipes and fittings for domestic water",
       "Durable UPVC pipes for sanitary soil, waste, and rainwater drainage",
-      "Full assortment of matching brass valves, elbows, tees, unions, and solvent cements",
+      "Full assortment of valves, elbows, tees, and solvent cements",
       "Reliable supply for entire building plumbing contracts",
     ],
     authorizedBrandsPlaceholder: [
-      "[VERIFY AVAILABLE BRANDS - e.g. Astral / Ashirvad / Supreme / Finolex / Prince / Sintex]",
-      "[VERIFY TRADE DISCOUNTS ON COMPLETE BILL OF QUANTITIES]",
+      "[VERIFY AVAILABLE BRANDS - e.g. Astral / Ashirvad / Supreme / Finolex / Prince]",
     ],
-    qualityAssuranceNotes: "Compliant with ASTM D2846 (CPVC), IS 15778, and IS 4985 / IS 13592 (UPVC/SWR). Tested for pressure resistance and leak-free performance.",
-    bulkLogisticsDetails: "Packed in protective sleeve bundles and cartons, delivered directly to your building site.",
+    qualityAssuranceNotes: "Compliant with ASTM D2846 and IS 15778.",
+    bulkLogisticsDetails: "Packed in protective sleeve bundles delivered directly to site.",
     products: [
       {
-        name: "CPVC Hot & Cold Water Distribution Pipes",
-        gradeVariants: ["SDR 11 (Class 1)", "SDR 13.5 (Class 2)", "Sizes: 1/2\" to 2\""],
+        name: "CPVC Hot & Cold Water Pipes",
+        gradeVariants: ["SDR 11", "SDR 13.5", "1/2\" to 2\""],
         specifications: [
-          { label: "Working Temperature", value: "[VERIFY SPECIFICATION - Up to 93°C (200°F)]" },
-          { label: "Standard", value: "[VERIFY SPECIFICATION - ASTM D2846 & IS 15778]" },
+          { label: "Standard", value: "ASTM D2846 & IS 15778" },
         ],
-        applications: ["Bathroom concealed water supply", "Kitchen and geyser hot water lines", "Overhead tank distribution pipelines"],
-        packaging: "3m & 5m Standard Bundles",
-        minimumOrder: "Project Lot / Inquire for Retail Quantities",
-      },
-      {
-        name: "UPVC SWR Drainage & Rainwater Pipes",
-        gradeVariants: ["Type A (Rainwater)", "Type B (Soil & Waste)", "75mm, 110mm, 160mm"],
-        specifications: [
-          { label: "Joint Type", value: "Rubber Ring Fit / Solvent Weld" },
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 13592]" },
-        ],
-        applications: ["Vertical drainage shafts", "Basement waste lines", "Roof rainwater downpipes"],
-        packaging: "Protective Bundles",
+        applications: ["Bathroom water supply", "Kitchen hot water lines"],
+        packaging: "3m & 5m Bundles",
         minimumOrder: "Project Lot",
-      },
-      {
-        name: "Multi-Layer Overhead Water Storage Tanks",
-        gradeVariants: ["500 Liters", "1,000 Liters", "1,500 Liters", "2,000 Liters"],
-        specifications: [
-          { label: "Construction", value: "3-Layer / 4-Layer UV Protected Food-Grade Plastic" },
-        ],
-        applications: ["Rooftop domestic water storage for houses and apartments"],
-        packaging: "Individual Factory Wrapped Units",
-        minimumOrder: "1 Unit",
       },
     ],
     faqs: [
       {
-        question: "Why is CPVC preferred over GI (galvanized iron) pipes for domestic plumbing?",
-        answer: "CPVC does not rust, corrode, or build up internal mineral scale over time, ensuring consistent water pressure and clean drinking water. It is also lighter, easier to install with solvent welding, and handles hot water safely.",
+        question: "Why is CPVC preferred over GI pipes?",
+        answer: "CPVC does not rust, corrode, or scale internally, ensuring clean drinking water.",
       },
     ],
-    relatedCategorySlugs: ["electrical", "construction-chemicals"],
+    relatedCategorySlugs: ["cement", "hardware"],
   },
   {
     slug: "electrical",
@@ -464,48 +589,39 @@ export const materialsData: MaterialCategoryItem[] = [
     iconName: "Zap",
     heroImage: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=1600&q=80",
     overview: "Electrical safety is non-negotiable in building construction. We supply certified Flame Retardant (FR/FRLS) copper wires, heavy-duty rigid PVC conduit pipes, concealed metal boxes, and distribution panels needed during civil construction and finishing.",
+    shortDescription: "Certified FR/FRLS copper wires, PVC conduit channeling, and electrical distribution boxes.",
+    applicationsSummary: "Concealed conduit wiring, heavy appliance power circuits, and lighting distribution.",
+    exampleProducts: ["FR Copper Wires (1.0 to 6.0 sq.mm)", "Rigid PVC Conduits", "Modular Metal Boxes"],
+    isOverview: false,
     advantages: [
-      "100% pure electrolytic grade copper wires for high conductivity and energy efficiency",
-      "Flame Retardant (FR/FRLS) insulation that resists fire spread",
+      "100% pure electrolytic grade copper wires for high conductivity",
+      "Flame Retardant (FR/FRLS) insulation resisting fire spread",
       "Heavy-duty rigid PVC conduit pipes for slab and wall concealed channeling",
-      "Complete electrical supplies for residential and commercial building work",
     ],
     authorizedBrandsPlaceholder: [
-      "[VERIFY AVAILABLE BRANDS - e.g. Polycab / Havells / KEI / Finolex / Anchor / Schneider / Legrand]",
-      "[VERIFY WHOLESALE ELECTRICAL DISCOUNTS ON PROJECT ORDERS]",
+      "[VERIFY AVAILABLE BRANDS - e.g. Polycab / Havells / KEI / Finolex / Anchor]",
     ],
-    qualityAssuranceNotes: "ISI marked copper wires conforming to IS 694 and conduit pipes conforming to IS 9537 specifications.",
-    bulkLogisticsDetails: "Packed in standard 90-meter shrink-wrapped coils and pipe bundles delivered directly to site.",
+    qualityAssuranceNotes: "ISI marked copper wires conforming to IS 694.",
+    bulkLogisticsDetails: "Packed in standard 90-meter shrink-wrapped coils.",
     products: [
       {
-        name: "FR / FRLS Pure Copper House Wires",
-        gradeVariants: ["0.75 sq.mm", "1.0 sq.mm", "1.5 sq.mm", "2.5 sq.mm", "4.0 sq.mm", "6.0 sq.mm"],
+        name: "FR Pure Copper House Wires",
+        gradeVariants: ["1.0 sq.mm", "1.5 sq.mm", "2.5 sq.mm", "4.0 sq.mm"],
         specifications: [
-          { label: "Conductivity", value: "100% Electrolytic Pure Copper" },
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 694 Certified]" },
+          { label: "Standard", value: "IS 694 Certified" },
         ],
-        applications: ["Concealed conduit house wiring", "Air conditioner and geyser power circuits", "Lighting and fan points"],
-        packaging: "90 Meter Standard Coils",
-        minimumOrder: "10 Coils Assorted / Full Project Lot",
-      },
-      {
-        name: "Rigid PVC Conduit Pipes & Junction Boxes",
-        gradeVariants: ["20mm Medium & Heavy", "25mm Heavy Gauge"],
-        specifications: [
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 9537 Part 3]" },
-        ],
-        applications: ["Concealed slab casting electrical piping", "Chased brick wall conduit routing"],
-        packaging: "Bundles of 25 lengths (3m each)",
-        minimumOrder: "5 Bundles",
+        applications: ["Concealed conduit house wiring", "Appliance power circuits"],
+        packaging: "90 Meter Coils",
+        minimumOrder: "10 Coils",
       },
     ],
     faqs: [
       {
-        question: "Which wire gauge should be used for air conditioners and power geysers?",
-        answer: "Standard practice is to use 4.0 sq.mm copper wire for 1.5 to 2.0 ton split air conditioners and water heaters, 2.5 sq.mm for standard power plug points, and 1.5 sq.mm for general lighting and fan circuits.",
+        question: "Which wire gauge is recommended for air conditioners?",
+        answer: "Standard practice is 4.0 sq.mm copper wire for 1.5 to 2.0 ton split air conditioners.",
       },
     ],
-    relatedCategorySlugs: ["plumbing", "construction-chemicals"],
+    relatedCategorySlugs: ["plumbing", "hardware"],
   },
   {
     slug: "construction-chemicals",
@@ -515,58 +631,81 @@ export const materialsData: MaterialCategoryItem[] = [
     iconName: "FlaskConical",
     heroImage: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=80",
     overview: "Proper chemical application prevents water leakage and enhances concrete quality. GG Construction Co. supplies proven waterproofing liquids, integral concrete compounds, polymer-modified tile adhesives, and joint sealants for residential and commercial building work.",
+    shortDescription: "Integral waterproofing admixtures, elastomeric roof coatings, and polymer tile adhesives.",
+    applicationsSummary: "Slab concrete waterproofing, roof terrace coatings, bathroom sunken slab sealing, and tile fixing.",
+    exampleProducts: ["Integral Waterproofing Liquids", "Terrace Waterproofing Membranes", "Tile Adhesives"],
+    isOverview: false,
     advantages: [
-      "Liquid integral waterproofing compounds mixed directly into concrete and plaster mortars",
-      "UV-resistant elastomeric coatings for roof terrace and balcony waterproofing",
-      "High-bond polymer tile adhesives for durable wall and floor tile fixing",
-      "Ready stock available in convenient cans, buckets, and bags",
+      "Liquid integral waterproofing compounds mixed directly into concrete",
+      "UV-resistant elastomeric coatings for roof terrace waterproofing",
+      "High-bond polymer tile adhesives for wall and floor tiles",
     ],
     authorizedBrandsPlaceholder: [
-      "[VERIFY AVAILABLE BRANDS - e.g. Dr. Fixit (Pidilite) / Fosroc / Sika / Asian Paints SmartCare / Roff]",
-      "[VERIFY PACKAGING SIZES & TRADE DISCOUNTS]",
+      "[VERIFY AVAILABLE BRANDS - e.g. Dr. Fixit / Fosroc / Sika / Asian Paints SmartCare]",
     ],
-    qualityAssuranceNotes: "Formulated to standard construction specifications (IS 2645 for integral waterproofing, IS 15477 for tile adhesives). Supplied with manufacturer batch numbers.",
-    bulkLogisticsDetails: "Available in 1L, 5L, 20L cans, 200L drums, and 20kg/25kg bags delivered directly to site.",
+    qualityAssuranceNotes: "Conforms to IS 2645 for integral waterproofing and IS 15477 for tile adhesives.",
+    bulkLogisticsDetails: "Available in 1L, 5L, 20L cans, and 20kg bags.",
     products: [
       {
         name: "Integral Concrete Waterproofing Compound",
-        gradeVariants: ["Standard Liquid Admixture (e.g., LW+)"],
+        gradeVariants: ["Standard Liquid Admixture"],
         specifications: [
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 2645 Compliant]" },
-          { label: "Dosage", value: "Typically 200ml per 50 kg cement bag" },
+          { label: "Standard", value: "IS 2645 Compliant" },
         ],
-        applications: ["Basement concrete and foundation footings", "Roof slab concrete pours", "External wall plaster mortars"],
+        applications: ["Basement concrete", "Roof slab pours", "Wall plaster mortars"],
         packaging: "1L, 5L, 20L Containers",
         minimumOrder: "5 Liters",
-      },
-      {
-        name: "Terrace & Bathroom Waterproofing Coating",
-        gradeVariants: ["Elastomeric Acrylic Membrane / Polymer Coating"],
-        specifications: [
-          { label: "Application", value: "Brush-applied 2-coat system with fiber mesh" },
-        ],
-        applications: ["Flat roof terrace waterproofing", "Bathroom sunken slabs", "Balconies and chajjas"],
-        packaging: "4kg, 20kg Pails",
-        minimumOrder: "1 Pail",
-      },
-      {
-        name: "Polymer-Modified Tile Adhesive",
-        gradeVariants: ["Type 1 (Floor Tiling)", "Type 2 (Wall & Vitrified Tiling)"],
-        specifications: [
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 15477 Compliant]" },
-        ],
-        applications: ["Fixing vitrified tiles, ceramic tiles, and granite slabs", "Tile-on-tile renovation"],
-        packaging: "20 kg Moisture-Proof Bags",
-        minimumOrder: "5 Bags",
       },
     ],
     faqs: [
       {
-        question: "How much integral waterproofing liquid should be added per bag of cement?",
-        answer: "Standard practice for typical integral waterproofing liquids is approximately 200 ml per 50 kg bag of cement. It should be mixed thoroughly into the gauging water before adding to dry sand and cement.",
+        question: "How much waterproofing liquid should be added per bag of cement?",
+        answer: "Typically 200 ml per 50 kg bag of cement mixed into the water.",
       },
     ],
-    relatedCategorySlugs: ["cement", "tmt-steel", "sand"],
+    relatedCategorySlugs: ["cement", "sand-aggregates"],
+  },
+  {
+    slug: "sand",
+    title: "Sand & Fine Aggregates",
+    shortTitle: "Sand",
+    subtitle: "Screened Concrete Sand, Washed Plastering Sand & Crusher Sand",
+    iconName: "Gem",
+    heroImage: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
+    overview: "Clean, properly graded sand is vital for durable concrete and crack-free wall plaster. GG Construction Co. supplies screened concrete sand and washed plastering sand suitable for civil masonry, plaster work, and RCC casting across regional construction sites.",
+    advantages: [
+      "Screened to minimize silt, clay lumps, and organic debris",
+      "Properly graded fine aggregate ensuring strong cement bonding",
+      "Available for both structural concrete and smooth wall plastering",
+      "Delivered by full tipper truck or tractor trolley with honest measurement",
+    ],
+    authorizedBrandsPlaceholder: ["[VERIFY REGIONAL SOURCES]"],
+    qualityAssuranceNotes: "Tested per IS 383 guidelines.",
+    bulkLogisticsDetails: "Delivered loose by tipper trucks or tractor trolleys.",
+    products: [],
+    faqs: [],
+    relatedCategorySlugs: ["sand-aggregates", "cement"],
+    isOverview: false,
+  },
+  {
+    slug: "aggregates",
+    title: "Coarse Aggregates & Stone",
+    shortTitle: "Aggregates",
+    subtitle: "Machine-Crushed Blue Metal Stone Aggregates (10mm, 20mm & 40mm)",
+    iconName: "Layers",
+    heroImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1600&q=80",
+    overview: "We supply machine-crushed hard-stone aggregates in standard 10mm, 20mm, and 40mm sizes, as well as stone dust and GSB for sub-base leveling.",
+    advantages: [
+      "Machine-crushed angular stone particles ensuring solid mechanical interlocking",
+      "Screened to remove excess quarry dust",
+    ],
+    authorizedBrandsPlaceholder: ["[VERIFY LOCAL CRUSHERS]"],
+    qualityAssuranceNotes: "Conforming to IS 383 specifications.",
+    bulkLogisticsDetails: "Delivered loose by tipper dump trucks.",
+    products: [],
+    faqs: [],
+    relatedCategorySlugs: ["sand-aggregates", "cement"],
+    isOverview: false,
   },
   {
     slug: "other-building-supplies",
@@ -580,53 +719,37 @@ export const materialsData: MaterialCategoryItem[] = [
       "Calibrated film-faced shuttering plywood providing smooth concrete slab finishes",
       "Concrete cover blocks ensuring proper rebar cover depth in slabs and beams",
       "Essential site safety gear including helmets, gloves, and reflective jackets",
-      "Convenient one-stop supply alongside your cement, steel, and bricks",
     ],
-    authorizedBrandsPlaceholder: [
-      "[VERIFY LOCAL HARDWARE SUPPLIERS & BRANDED CONSUMABLES]",
-      "[VERIFY PLYWOOD SPECIFICATIONS & REUSE GRADES]",
-    ],
-    qualityAssuranceNotes: "Durable jobsite consumables conforming to standard construction site safety and formwork practices.",
-    bulkLogisticsDetails: "Delivered alongside primary building materials to save transport costs and ensure timely availability.",
-    products: [
-      {
-        name: "Film-Faced Shuttering Plywood",
-        gradeVariants: ["12mm Calibrated", "18mm Calibrated", "30 kg / 34 kg Density"],
-        specifications: [
-          { label: "Standard", value: "[VERIFY SPECIFICATION - IS 4990 Compliant]" },
-          { label: "Repetition", value: "Multiple re-use cycles with proper shuttering oil" },
-        ],
-        applications: ["Concrete slab and beam formwork", "Column casting boxes"],
-        packaging: "Bundles of Sheets",
-        minimumOrder: "10 Sheets",
-      },
-      {
-        name: "Concrete Cover Blocks & Spacers",
-        gradeVariants: ["20mm (Slabs)", "25mm (Beams)", "40mm (Columns)", "50mm (Footings)"],
-        specifications: [
-          { label: "Material", value: "High-density concrete / PVC spacers" },
-        ],
-        applications: ["Maintaining structural rebar cover depth during concrete pours"],
-        packaging: "Bags of 100 / 500 Pieces",
-        minimumOrder: "2 Bags",
-      },
-      {
-        name: "Basic Site Safety Essentials",
-        gradeVariants: ["ISI Safety Helmets", "Reflective Jackets", "Gloves"],
-        specifications: [
-          { label: "Standard", value: "Standard workforce protective equipment" },
-        ],
-        applications: ["On-site construction worker protection"],
-        packaging: "Bundled Packs",
-        minimumOrder: "5 Sets",
-      },
-    ],
-    faqs: [
-      {
-        question: "Why are concrete cover blocks critical during slab casting?",
-        answer: "Cover blocks ensure that reinforcement steel remains elevated at the correct distance from the shuttering surface. Without proper cover blocks, steel bars get exposed to air and moisture, leading to rust stains and concrete spalling.",
-      },
-    ],
-    relatedCategorySlugs: ["cement", "tmt-steel", "construction-chemicals"],
+    authorizedBrandsPlaceholder: ["[VERIFY LOCAL SUPPLIERS]"],
+    qualityAssuranceNotes: "Durable jobsite consumables.",
+    bulkLogisticsDetails: "Delivered alongside primary building materials.",
+    products: [],
+    faqs: [],
+    relatedCategorySlugs: ["shuttering-plywood", "hardware", "cover-blocks", "tarpaulins-site-essentials"],
+    isOverview: false,
   },
 ];
+
+/**
+ * Overview categories strictly focused on the 7 primary materials requested:
+ * 1. Cement
+ * 2. Bricks & Blocks
+ * 3. Sand & Aggregates
+ * 4. Shuttering Plywood
+ * 5. Hardware
+ * 6. Cover Blocks
+ * 7. Tarpaulins & Site Essentials
+ */
+export const overviewMaterialSlugs = [
+  "cement",
+  "bricks-blocks",
+  "sand-aggregates",
+  "shuttering-plywood",
+  "hardware",
+  "cover-blocks",
+  "tarpaulins-site-essentials",
+] as const;
+
+export const overviewMaterials: MaterialCategoryItem[] = overviewMaterialSlugs
+  .map((slug) => materialsData.find((m) => m.slug === slug))
+  .filter((m): m is MaterialCategoryItem => Boolean(m));

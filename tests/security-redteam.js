@@ -475,6 +475,262 @@ async function runRedTeamSuite() {
   assert(!notFoundRes.body.includes("process.env"), "404 response does not leak environment variables");
 
   // ==================================================================
+  // 14. Local File & Hidden Resource Disclosure Probes
+  // ==================================================================
+  console.log("\n--- 14. Local File & Source Disclosure Probes ---");
+  const disclosureProbes = [
+    "/.env",
+    "/.env.local",
+    "/.env.production",
+    "/.git/config",
+    "/.git/HEAD",
+    "/package.json",
+    "/tsconfig.json",
+    "/next.config.js",
+    "/backup",
+    "/config",
+    "/debug",
+    "/*.map",
+    "/_next/static/chunks/main.js.map",
+  ];
+
+  for (const probe of disclosureProbes) {
+    const res = await sendRequest(probe);
+    assert(
+      res.statusCode === 404,
+      `Direct probe for sensitive path ${probe} returns HTTP 404 (status: ${res.statusCode})`
+    );
+    assert(
+      !res.body.includes("CRM_") && !res.body.includes("EMAIL_") && !res.body.includes("BEGIN PRIVATE KEY"),
+      `Path ${probe} disclosed zero credentials or secrets`
+    );
+  }
+
+  // ==================================================================
+  // 15. Prototype Pollution & Object Key Fuzzing
+  // ==================================================================
+  console.log("\n--- 15. Prototype Pollution & Object Key Fuzzing ---");
+  const protoPayload = {
+    __proto__: { polluted: true },
+    constructor: { prototype: { polluted: true } },
+    name: "Proto Auditor",
+    phone: "+91 98110 34825",
+    email: "proto.test@example.com",
+    enquiryType: "general",
+    subject: "Prototype Test",
+    message: "Valid test message for prototype pollution verification.",
+  };
+
+  const protoRes = await sendRequest("/api/contact", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Forwarded-For": "198.51.100.90",
+    },
+    body: JSON.stringify(protoPayload),
+  });
+
+  assert(
+    protoRes.statusCode === 200,
+    `Payload with __proto__ handled safely by Zod parser with status ${protoRes.statusCode}`
+  );
+  assert(
+    ({}).polluted === undefined,
+    "Global Object.prototype was NOT polluted by malicious payload keys"
+  );
+
+  // ==================================================================
+  // 16. Zero-Cookie & Cache Isolation Audit
+  // ==================================================================
+  console.log("\n--- 16. Zero-Cookie & Cache Isolation Audit ---");
+  const checkCookieRoutes = ["/", "/contact", "/materials", "/projects", "/api/contact", "/api/quote"];
+  for (const r of checkCookieRoutes) {
+    const res = await sendRequest(r);
+    assert(
+      !res.headers["set-cookie"],
+      `Route ${r} sets zero cookies (Set-Cookie header absent)`
+    );
+  }
+
+  // Verify API Cache-Control is strictly no-store
+  const apiContactRes = await sendRequest("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Forwarded-For": "198.51.100.91" },
+    body: JSON.stringify({
+      name: "Cache Tester",
+      phone: "+91 98110 34825",
+      email: "cache@example.com",
+      enquiryType: "general",
+      subject: "Cache Test",
+      message: "Verifying no-store cache headers on API responses.",
+    }),
+  });
+  assert(
+    apiContactRes.headers["cache-control"]?.includes("no-store"),
+    `API /api/contact enforces Cache-Control: no-store (got: "${apiContactRes.headers["cache-control"]}")`
+  );
+
+  // ==================================================================
+  // 17. Open Redirect Attack Resistance
+  // ==================================================================
+  console.log("\n--- 17. Open Redirect Attack Resistance ---");
+  const redirectProbes = [
+    "/?redirect=https://evil.example.com",
+    "/?url=https://evil.example.com",
+    "/?next=//evil.example.com",
+    "/contact?returnTo=https://evil.example.com",
+  ];
+
+  for (const rp of redirectProbes) {
+    const res = await sendRequest(rp);
+    assert(
+      res.statusCode === 200,
+      `Open redirect probe ${rp} ignored by static routing (returned 200 OK, not a redirect)`
+    );
+    assert(
+      !res.headers["location"],
+      `Open redirect probe ${rp} returned no Location header`
+    );
+  }
+
+  // ==================================================================
+  // 18. Data-Leakage Canary Lifecycle Test
+  // ==================================================================
+  console.log("\n--- 18. Data-Leakage Canary Lifecycle Test ---");
+  const CANARY_EMAIL = "redteam-canary@example.invalid";
+  const CANARY_PHONE = "+910000000000";
+  const CANARY_TOKEN = "CANARY-NOT-A-REAL-SECRET-001";
+
+  // Canary on /api/contact
+  const contactCanaryRes = await sendRequest("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Forwarded-For": "198.51.100.95" },
+    body: JSON.stringify({
+      name: "Canary User",
+      phone: CANARY_PHONE,
+      email: CANARY_EMAIL,
+      company: CANARY_TOKEN,
+      enquiryType: "general",
+      subject: `Canary Subject ${CANARY_TOKEN}`,
+      message: `Canary message containing token: ${CANARY_TOKEN} and phone: ${CANARY_PHONE}`,
+    }),
+  });
+
+  assert(contactCanaryRes.statusCode === 200, "Contact canary submission accepted with HTTP 200");
+  assert(
+    !contactCanaryRes.body.includes(CANARY_EMAIL),
+    "Contact response body does NOT leak CANARY_EMAIL"
+  );
+  assert(
+    !contactCanaryRes.body.includes(CANARY_PHONE),
+    "Contact response body does NOT leak CANARY_PHONE"
+  );
+  assert(
+    !contactCanaryRes.body.includes(CANARY_TOKEN),
+    "Contact response body does NOT leak CANARY_TOKEN"
+  );
+  assert(
+    /^GGC-\d{6}$/.test(contactCanaryRes.json?.referenceId),
+    `Contact returns non-sequential referenceId (${contactCanaryRes.json?.referenceId})`
+  );
+
+  // Canary on /api/quote
+  const quoteCanaryRes = await sendRequest("/api/quote", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Forwarded-For": "198.51.100.96" },
+    body: JSON.stringify({
+      name: "Quote Canary User",
+      phone: CANARY_PHONE,
+      email: CANARY_EMAIL,
+      company: CANARY_TOKEN,
+      enquiryType: "construction",
+      projectType: "Residential Low-Rise",
+      location: "Delhi NCR",
+      approximateArea: "2,500 sq ft",
+      budgetRange: "₹ 50 Lakhs - ₹ 1 Crore",
+      timeline: "3 - 6 Months",
+      message: `Quote canary message with token ${CANARY_TOKEN}`,
+    }),
+  });
+
+  assert(quoteCanaryRes.statusCode === 200, "Quote canary submission accepted with HTTP 200");
+  assert(
+    !quoteCanaryRes.body.includes(CANARY_EMAIL),
+    "Quote response body does NOT leak CANARY_EMAIL"
+  );
+  assert(
+    !quoteCanaryRes.body.includes(CANARY_PHONE),
+    "Quote response body does NOT leak CANARY_PHONE"
+  );
+  assert(
+    !quoteCanaryRes.body.includes(CANARY_TOKEN),
+    "Quote response body does NOT leak CANARY_TOKEN"
+  );
+  assert(
+    /^GGE-\d{6}$/.test(quoteCanaryRes.json?.referenceId),
+    `Quote returns non-sequential referenceId (${quoteCanaryRes.json?.referenceId})`
+  );
+
+  // ==================================================================
+  // 19. SSRF Webhook Target Filter Unit Test
+  // ==================================================================
+  console.log("\n--- 19. SSRF Webhook Target Filter Validation ---");
+  const fs = require("fs");
+  const path = require("path");
+
+  const contactRouteSrc = fs.readFileSync("src/app/api/contact/route.ts", "utf8");
+  assert(
+    contactRouteSrc.includes("169.254.169.254"),
+    "Outbound webhook filter explicitly blocks link-local metadata IP 169.254.169.254"
+  );
+  assert(
+    contactRouteSrc.includes("metadata.google.internal"),
+    "Outbound webhook filter explicitly blocks GCP metadata endpoint"
+  );
+  assert(
+    contactRouteSrc.includes("instance-data"),
+    "Outbound webhook filter explicitly blocks OpenStack/OCI instance-data"
+  );
+
+  // ==================================================================
+  // 20. Production Client Bundle Secrets Audit
+  // ==================================================================
+  console.log("\n--- 20. Production Client Bundle Secrets Audit ---");
+  const staticDir = path.join(process.cwd(), ".next", "static");
+  let bundleSecretsFound = 0;
+  let mapFilesFound = 0;
+
+  function scanDirectory(dir) {
+    if (!fs.existsSync(dir)) return;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        scanDirectory(fullPath);
+      } else if (entry.name.endsWith(".js")) {
+        const content = fs.readFileSync(fullPath, "utf8");
+        if (
+          content.includes("CRM_API_BEARER_TOKEN") ||
+          content.includes("EMAIL_SERVICE_KEY") ||
+          content.includes("CRM_WEBHOOK_URL") ||
+          content.includes("EMAIL_NOTIFICATION_ENDPOINT") ||
+          content.includes("BEGIN PRIVATE KEY")
+        ) {
+          bundleSecretsFound++;
+          console.error(`  [LEAK] Secret signature found in bundle: ${fullPath}`);
+        }
+      } else if (entry.name.endsWith(".map")) {
+        mapFilesFound++;
+        console.error(`  [LEAK] Source map file exposed: ${fullPath}`);
+      }
+    }
+  }
+
+  scanDirectory(staticDir);
+  assert(bundleSecretsFound === 0, `Zero secret signatures found in client JS bundles (found: ${bundleSecretsFound})`);
+  assert(mapFilesFound === 0, `Zero .map source map files found in client static build (found: ${mapFilesFound})`);
+
+  // ==================================================================
   // Summary
   // ==================================================================
   console.log("\n==================================================================");

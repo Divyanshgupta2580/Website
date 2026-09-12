@@ -154,32 +154,42 @@ export default function Footer() {
               <ul className="space-y-2.5 text-xs">
                 <li>
                   <Link href="/materials/cement" className="hover:text-[#B89A63] transition-colors">
-                    Bulk Cement (OPC/PPC)
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/materials/tmt-steel" className="hover:text-[#B89A63] transition-colors">
-                    Primary TMT Fe 500D
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/materials/ready-mix-concrete" className="hover:text-[#B89A63] transition-colors">
-                    Ready-Mix Concrete (RMC)
+                    Cement (OPC / PPC)
                   </Link>
                 </li>
                 <li>
                   <Link href="/materials/bricks-blocks" className="hover:text-[#B89A63] transition-colors">
-                    AAC Blocks &amp; Red Bricks
+                    Bricks &amp; AAC Blocks
                   </Link>
                 </li>
                 <li>
-                  <Link href="/materials/sand" className="hover:text-[#B89A63] transition-colors">
-                    VSI M-Sand &amp; P-Sand
+                  <Link href="/materials/sand-aggregates" className="hover:text-[#B89A63] transition-colors">
+                    Sand &amp; Aggregates
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/materials/shuttering-plywood" className="hover:text-[#B89A63] transition-colors">
+                    Shuttering Plywood
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/materials/hardware" className="hover:text-[#B89A63] transition-colors">
+                    Hardware &amp; Fasteners
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/materials/cover-blocks" className="hover:text-[#B89A63] transition-colors">
+                    Concrete Cover Blocks
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/materials/tarpaulins-site-essentials" className="hover:text-[#B89A63] transition-colors">
+                    Tarpaulins &amp; Essentials
                   </Link>
                 </li>
                 <li>
                   <Link href="/materials" className="text-[#B89A63] inline-flex items-center gap-1 pt-1 font-medium">
-                    All Categories <ArrowUpRight className="w-3 h-3" />
+                    All Materials <ArrowUpRight className="w-3 h-3" />
                   </Link>
                 </li>
               </ul>

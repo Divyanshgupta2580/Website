@@ -181,44 +181,47 @@ The interface design is structured around four primary pillars:
 
 ## Environment Variables
 
-The application references **only 5 environment variables** in production application code. These are cleanly documented in [`.env.example`](file:///Users/apple/Desktop/Website/.env.example):
+The website is designed with a strictly minimal, server-safe environment footprint:
 
-### Variable Definitions
-| Variable | Scope | Status | Purpose |
-| :--- | :--- | :--- | :--- |
-| `NEXT_PUBLIC_APP_URL` | **Public** (Browser & Server) | **Required in Production** | Canonical application base URL used for OpenGraph images, social cards, sitemap, and robots.txt. In local development, falls back to `http://localhost:3000`. Production builds require this variable and will halt with an explicit error rather than silently defaulting to an unconfirmed domain. |
-| `CRM_WEBHOOK_URL` | **Server-only** | Optional | Outbound HTTP POST destination URL receiving JSON lead payloads from form submissions. |
-| `CRM_API_BEARER_TOKEN` | **Server-only** | Optional | Bearer token passed in the `Authorization: Bearer <token>` header to authenticate with the CRM webhook. |
-| `EMAIL_NOTIFICATION_ENDPOINT` | **Server-only** | Optional | Internal relay endpoint for dispatching email alerts to project desks upon lead submission. |
-| `EMAIL_SERVICE_KEY` | **Server-only** | Optional | Shared secret key sent in the `X-Service-Key` header to authenticate with the email dispatch service. |
+> **`RESEND_API_KEY` is the ONLY environment variable you must enter into Vercel.**
+
+All Contact Us and Get a Quote enquiries are forwarded automatically to **`gunjan29gupta@gmail.com`** via the server-side Resend API. The API key remains strictly server-side and is never exposed to browser bundles.
+
+### Variable Inventory
+
+| Variable | Scope | Status | Purpose | Where to Obtain |
+| :--- | :--- | :--- | :--- | :--- |
+| `RESEND_API_KEY` | **Server-only** | **Required for Email Delivery** | Authenticates outbound dispatch to the Resend API to forward form enquiries to `gunjan29gupta@gmail.com`. | [resend.com/api-keys](https://resend.com/api-keys) |
 
 ### Configuration Rules
-- **Canonical Domain Safeguard**: In production environments, `NEXT_PUBLIC_APP_URL` is mandatory. The application will never silently default to an unconfirmed domain (e.g. `ggconstruction.com`). In local development (`NODE_ENV !== "production"`), it safely defaults to `http://localhost:3000`.
-- **Public vs. Secret**: Only `NEXT_PUBLIC_APP_URL` is exposed to the browser. All CRM and email keys are strictly server-side secrets and must **never** be prefixed with `NEXT_PUBLIC_`.
-- **Git Safety**: Never commit `.env` or `.env.local` files to version control. The repository `.gitignore` strictly blocks them.
-- **Port Management**: Do **NOT** define `PORT` as an environment variable for Vercel deployment. The hosting platform manages runtime port allocation dynamically.
+- **Variables to Enter into Vercel**: Enter **`RESEND_API_KEY`** in Vercel Project Settings > Environment Variables.
+- **Automatic Platform Variables**: Enable Vercel's “Automatically expose System Environment Variables” setting; the application then uses `VERCEL_PROJECT_PRODUCTION_URL` for canonical metadata and `VERCEL_URL` for previews. You do not enter either value.
+- **Variables NOT Needed**: `NEXT_PUBLIC_APP_URL`, `PORT`, `DATABASE_URL`, `REDIS_URL`, `JWT_SECRET`, or CRM webhooks.
+- **Recipient Destination**: Hardcoded to `gunjan29gupta@gmail.com`; there is no recipient environment variable.
+- **Git Safety**: Never commit `.env`, `.env.local`, or any private API keys. The repository `.gitignore` strictly blocks them.
 
-### Example Template (`.env.example`)
+### Environment Template (`.env.example`)
 ```bash
 # ============================================================
 # GG Construction Co. — Environment Configuration
 # ============================================================
 
-# Public application URL (canonical base URL)
-NEXT_PUBLIC_APP_URL=
-
-# ============================================================
-# Optional CRM Integration (Server-side secrets)
-# ============================================================
-CRM_WEBHOOK_URL=
-CRM_API_BEARER_TOKEN=
-
-# ============================================================
-# Optional Email Notification Integration (Server-side secrets)
-# ============================================================
-EMAIL_NOTIFICATION_ENDPOINT=
-EMAIL_SERVICE_KEY=
+# Transactional Email Delivery (Server-Only Secret)
+# Required in Vercel to forward Contact Us and Quote form submissions to: gunjan29gupta@gmail.com
+# Obtain your API key from: https://resend.com/api-keys
+RESEND_API_KEY=
 ```
+
+---
+
+## Protected Routing Audit
+
+- **Public Routes**: 23 route definitions (54 statically prerendered pages + 2 public enquiry API route handlers)
+- **Protected Routes**: 0
+- **Admin Routes**: 0
+- **Authentication Present**: NO
+- **Authorization Present**: NO
+- **Architectural Reason**: The GG Construction Co. platform is purely a public corporate brochure, catalogue, and prospective client enquiry website. It contains no customer account portal, staff dashboard, or administrative interface. All marketing and information pages are intentionally accessible to the general public and search crawlers without login. No artificial authentication is added.
 
 ---
 
@@ -277,10 +280,7 @@ The platform provides two dedicated API endpoints for lead capture:
 5. **Zod Server Validation**: Incoming data is parsed against strict schemas enforcing type constraints and maximum string bounds. Invalid submissions return `422 Unprocessable Entity` with specific field errors.
 6. **Masked Audit Logging**: Valid submissions generate a timestamped server log with masked client IP addresses (e.g. `203.0.*.*`) to prevent PII exposure in server logs.
 7. **Safe Error Masking**: Internal server errors return a neutral, generic error message (`500 Internal Server Error`) to prevent exposing backend implementation details.
-8. **Optional Downstream Dispatch**: When `CRM_WEBHOOK_URL` or `EMAIL_NOTIFICATION_ENDPOINT` are configured, the API dispatches JSON payloads asynchronously using a 3-second timeout (`AbortSignal.timeout(3000)`). If an external webhook is offline, user submissions still succeed and return a reference ID (`GGC-xxxxxx` or `GGE-xxxxxx`).
-
-> [!IMPORTANT]
-> External lead forwarding requires `CRM_WEBHOOK_URL` and/or `EMAIL_NOTIFICATION_ENDPOINT` to be configured in your deployment platform. Without these variables, lead submissions are safely logged to standard output server-side without external delivery.
+8. **Email Delivery Confirmation**: The API reports success only after Resend accepts the notification. Provider failures return a safe error without exposing internal details.
 
 ---
 
@@ -355,9 +355,8 @@ The application is optimized for deployment on the [Vercel](https://vercel.com) 
 2. Log in to [vercel.com](https://vercel.com) and click **"Add New..."** > **"Project"**.
 3. Import the `Website` repository.
 4. Allow Vercel to automatically detect the **Next.js** framework preset.
-5. In the **Environment Variables** section, configure:
-   - `NEXT_PUBLIC_APP_URL`: Your production domain (e.g. `https://ggconstruction.com`).
-6. Add optional server-side integration variables (`CRM_WEBHOOK_URL`, `CRM_API_BEARER_TOKEN`, `EMAIL_NOTIFICATION_ENDPOINT`, `EMAIL_SERVICE_KEY`) only if connecting external live endpoints.
+5. In the **Environment Variables** section, add `RESEND_API_KEY`.
+6. Enable **Automatically expose System Environment Variables** so Vercel supplies canonical deployment URLs.
 7. Click **"Deploy"**.
 8. Post-deployment, verify:
    - Homepage and all dynamic routes load properly.
@@ -370,13 +369,7 @@ The application is optimized for deployment on the [Vercel](https://vercel.com) 
 
 ### Vercel Environment Variables Configuration
 ```env
-NEXT_PUBLIC_APP_URL=https://your-domain.example
-
-# Optional server-side secrets (leave blank if not yet connected)
-CRM_WEBHOOK_URL=
-CRM_API_BEARER_TOKEN=
-EMAIL_NOTIFICATION_ENDPOINT=
-EMAIL_SERVICE_KEY=
+RESEND_API_KEY=
 ```
 
 ---
