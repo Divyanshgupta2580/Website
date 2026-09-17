@@ -223,7 +223,8 @@ export default function ServicesPage() {
       {/* 4. Complete Services Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <SectionHeading
-          eyebrow="Building Services"
+          sectionNumber="02"
+          eyebrow="SERVICES"
           title="Our Construction Services"
           description="Specialized services for residential homes, builder floors, commercial shops, small offices, renovations, and structural improvement."
         />
@@ -239,7 +240,8 @@ export default function ServicesPage() {
       <section className="py-16 bg-white border-y border-[#D5D4D0] mb-20">
         <Container size="default">
           <SectionHeading
-            eyebrow="Workflow"
+            sectionNumber="03"
+            eyebrow="WORKFLOW"
             title="Building Construction Steps"
             description="Our systematic approach ensuring quality workmanship and clear communication from ground-break to handover."
           />
@@ -248,7 +250,7 @@ export default function ServicesPage() {
             {processSteps.map((step) => (
               <div
                 key={step.number}
-                className="p-6 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl flex flex-col justify-between"
+                className="p-6 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl flex flex-col justify-between"
               >
                 <div>
                   <span className="text-2xl font-extrabold text-[#18324A] block mb-2">
@@ -270,7 +272,8 @@ export default function ServicesPage() {
       {/* 6. Construction FAQs */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <SectionHeading
-          eyebrow="Frequently Asked Questions"
+          sectionNumber="04"
+          eyebrow="FAQS"
           title="Building Construction FAQs"
           align="center"
         />
@@ -293,7 +296,7 @@ export default function ServicesPage() {
 
       {/* 7. Final Conversion CTA */}
       <CTA
-        eyebrow="GET IN TOUCH"
+        eyebrow="05 // CONTACT"
         title="Planning a Construction Project?"
         description="Tell us about your building requirement and we'll get in touch."
         primaryCtaText="GET A QUOTE"

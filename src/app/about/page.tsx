@@ -176,9 +176,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. Final Conversion CTA */}
+      {/* 4. Final Conversion CTA */}
       <CTA
-        eyebrow="06 // CONTACT"
+        eyebrow="04 // CONTACT"
         title="PLANNING A CONSTRUCTION PROJECT?"
         description="Tell us about your building requirement and we'll get in touch."
         primaryCtaText="GET A QUOTE"

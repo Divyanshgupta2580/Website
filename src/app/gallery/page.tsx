@@ -64,7 +64,7 @@ export default function GalleryPage() {
           <p className="text-base sm:text-lg text-[#66717A] leading-relaxed mb-4">
             Representative photographic records of low-rise building construction, reinforced concrete frame execution, brick masonry, and finished spaces across Delhi localities.
           </p>
-          <div className="p-4 bg-white border border-[#D5D4D0] shadow-sm text-xs text-[#66717A] flex items-center gap-2.5">
+          <div className="p-4 bg-white border border-[#D5D4D0] rounded-xl shadow-xs text-xs text-[#66717A] flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-[#D96B27] flex-shrink-0" />
             <span>
               <strong className="text-[#18324A]">Note:</strong> Visual archives depict representative structural methods, masonry works, and low-rise building typologies up to 4–5 floors.

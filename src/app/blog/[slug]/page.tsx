@@ -116,7 +116,7 @@ export default function BlogPostDetailPage({ params }: BlogPostPageProps) {
               ))}
 
               {section.callout && (
-                <div className="my-6 p-5 bg-white border-l-4 border-[#D96B27] border-y border-r border-[#D5D4D0] text-sm text-[#18324A] font-medium shadow-sm rounded-r-2xl">
+                <div className="my-6 p-5 bg-white border-l-4 border-[#D96B27] border-y border-r border-[#D5D4D0] text-sm text-[#18324A] font-medium shadow-xs rounded-r-xl">
                   &ldquo;{section.callout}&rdquo;
                 </div>
               )}

@@ -45,7 +45,7 @@ export default function ContactPage() {
 
             <Suspense
               fallback={
-                <div className="p-8 bg-white border border-[#D5D4D0] text-xs text-[#66717A]">
+                <div className="p-8 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#66717A]">
                   Loading enquiry form...
                 </div>
               }

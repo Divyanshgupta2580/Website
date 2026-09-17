@@ -76,7 +76,7 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">4–5 Floors</span>
                 <TrendingUp className="w-5 h-5 text-[#D96B27]" />
@@ -89,7 +89,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">Local Delhi</span>
                 <MapPin className="w-5 h-5 text-[#D96B27]" />
@@ -102,7 +102,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">RCC Frame</span>
                 <CheckCircle2 className="w-5 h-5 text-[#D96B27]" />
@@ -115,7 +115,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">Direct Desk</span>
                 <ShieldCheck className="w-5 h-5 text-[#D96B27]" />
@@ -134,7 +134,7 @@ export default function TestimonialsPage() {
       {/* Featured Testimonial Banner */}
       {featuredTestimonial && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className="p-8 sm:p-12 bg-white border border-[#D5D4D0] rounded-3xl shadow-sm relative overflow-hidden">
+          <div className="p-8 sm:p-12 bg-white border border-[#D5D4D0] rounded-xl shadow-xs relative overflow-hidden">
             <Quote className="absolute right-6 bottom-4 w-32 h-32 text-[#D5D4D0]/40 pointer-events-none" />
             
             <div className="relative z-10 max-w-3xl">
@@ -243,7 +243,7 @@ export default function TestimonialsPage() {
 
       {/* Bottom CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="p-10 border border-[#D5D4D0] bg-white shadow-sm">
+        <div className="p-10 border border-[#D5D4D0] bg-white rounded-xl shadow-xs">
           <h2 className="text-2xl font-bold text-[#18324A] mb-3">
             Planning a Construction Project?
           </h2>

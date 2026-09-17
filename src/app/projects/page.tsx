@@ -44,7 +44,7 @@ export default function ProjectsPage() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-              03 //
+              01 //
             </span>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
               PROJECTS
@@ -219,12 +219,13 @@ export default function ProjectsPage() {
       {/* 6. Project Portfolio FAQs */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          eyebrow="Practical Building Questions"
+          sectionNumber="02"
+          eyebrow="FAQS"
           title="Building Construction FAQs"
           align="center"
         />
 
-        <div className="bg-white border border-[#D5D4D0] shadow-sm p-6 sm:p-10">
+        <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-10">
           <Accordion>
             {projectFaqs.map((faq, idx) => (
               <AccordionItem
@@ -242,7 +243,7 @@ export default function ProjectsPage() {
 
       {/* 7. Conversion CTA */}
       <CTA
-        eyebrow="Construction Planning"
+        eyebrow="03 // CONTACT"
         title="Planning a Construction Project?"
         description="Speak with our team regarding your plot size, building plan, or construction requirements in Rohini, Pitampura, and nearby Delhi areas. We provide honest estimates and dependable execution."
         primaryCtaText="GET A QUOTE"
