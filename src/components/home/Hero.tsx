@@ -13,7 +13,7 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Tag / Eyebrow */}
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="px-3 py-1 bg-[#F3D8C7] text-[#B9551D] border border-[#D96B27]/40 text-xs font-extrabold uppercase tracking-widest rounded-sm">
+              <span className="px-3 py-1 bg-[#F3D8C7] text-[#B9551D] border border-[#D96B27]/40 text-xs font-extrabold uppercase tracking-widest rounded-lg">
                 BUILDING CONSTRUCTION
               </span>
               <span className="text-xs font-bold uppercase tracking-wider text-[#66717A] hidden sm:inline">
@@ -55,7 +55,7 @@ export default function Hero() {
 
             {/* 3 Practical Trust Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 border-t border-[#D5D4D0]">
-              <div className="bg-white p-3.5 border border-[#D5D4D0] rounded-sm shadow-xs">
+              <div className="bg-white p-3.5 border border-[#D5D4D0] rounded-xl shadow-xs">
                 <div className="flex items-center gap-2 text-[#18324A] font-bold text-xs mb-1">
                   <HardHat className="w-4 h-4 text-[#D96B27] flex-shrink-0" />
                   <span>Low-Rise Focus</span>
@@ -65,7 +65,7 @@ export default function Hero() {
                 </p>
               </div>
 
-              <div className="bg-white p-3.5 border border-[#D5D4D0] rounded-sm shadow-xs">
+              <div className="bg-white p-3.5 border border-[#D5D4D0] rounded-xl shadow-xs">
                 <div className="flex items-center gap-2 text-[#18324A] font-bold text-xs mb-1">
                   <MapPin className="w-4 h-4 text-[#D96B27] flex-shrink-0" />
                   <span>Local Experience</span>
@@ -75,7 +75,7 @@ export default function Hero() {
                 </p>
               </div>
 
-              <div className="bg-white p-3.5 border border-[#D5D4D0] rounded-sm shadow-xs">
+              <div className="bg-white p-3.5 border border-[#D5D4D0] rounded-xl shadow-xs">
                 <div className="flex items-center gap-2 text-[#18324A] font-bold text-xs mb-1">
                   <ShieldCheck className="w-4 h-4 text-[#D96B27] flex-shrink-0" />
                   <span>Site Supervision</span>
@@ -89,7 +89,7 @@ export default function Hero() {
 
           {/* Right Column: Prominent Real Construction Photography */}
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/5] w-full rounded-sm overflow-hidden border-2 border-[#D5D4D0] shadow-md bg-white">
+            <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/5] w-full rounded-3xl overflow-hidden border-2 border-[#D5D4D0] shadow-md bg-white">
               <Image
                 src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=85"
                 alt="Building construction work with concrete framework and masonry in Delhi"
@@ -100,7 +100,7 @@ export default function Hero() {
               />
 
               {/* Floating Real-World Tag */}
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm border border-[#D5D4D0] p-3 rounded-sm shadow-sm">
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm border border-[#D5D4D0] p-3 rounded-2xl shadow-sm">
                 <div className="flex items-center justify-between gap-2">
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#D96B27] block">
@@ -110,7 +110,7 @@ export default function Hero() {
                       RCC Framing &bull; Masonry &bull; Civil Work
                     </span>
                   </div>
-                  <span className="px-2 py-0.5 bg-[#E8E6E1] text-[#18324A] text-[10px] font-bold uppercase rounded-xs">
+                  <span className="px-2 py-0.5 bg-[#E8E6E1] text-[#18324A] text-[10px] font-bold uppercase rounded-md">
                     Up to 4–5 Floors
                   </span>
                 </div>

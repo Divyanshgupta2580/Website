@@ -26,12 +26,12 @@ export function AccordionItem({
         aria-expanded={isOpen}
         aria-controls={`accordion-panel-${id}`}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-4 sm:py-5 px-1 flex items-center justify-between text-left group transition-colors focus-visible:ring-2 focus-visible:ring-[#D96B27] rounded-sm"
+        className="w-full py-4 sm:py-5 px-1 flex items-center justify-between text-left group transition-colors focus-visible:ring-2 focus-visible:ring-[#D96B27] rounded-xl"
       >
         <span className="text-base sm:text-lg font-bold text-[#18324A] group-hover:text-[#D96B27] transition-colors pr-4">
           {title}
         </span>
-        <span className="flex-shrink-0 w-8 h-8 rounded-sm border border-[#D5D4D0] flex items-center justify-center text-[#18324A] group-hover:border-[#D96B27] group-hover:text-[#D96B27] group-hover:bg-[#F3D8C7]/30 transition-colors">
+        <span className="flex-shrink-0 w-8 h-8 rounded-lg border border-[#D5D4D0] flex items-center justify-center text-[#18324A] group-hover:border-[#D96B27] group-hover:text-[#D96B27] group-hover:bg-[#F3D8C7]/30 transition-colors">
           {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </span>
       </button>

@@ -116,7 +116,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-sm shadow-sm" id="enquiry-form">
+    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-3xl sm:rounded-[28px] shadow-sm" id="enquiry-form">
       {/* Category Selector */}
       <div className="mb-8">
         <label className="block text-xs uppercase tracking-wider font-extrabold text-[#18324A] mb-3">
@@ -126,7 +126,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={() => setEnquiryType("residential")}
-            className={`flex items-center gap-2.5 p-3 text-left border rounded-sm transition-all ${
+            className={`flex items-center gap-2.5 p-3 text-left border rounded-xl transition-all ${
               enquiryType === "residential"
                 ? "bg-[#F3D8C7]/40 border-2 border-[#D96B27] text-[#18324A]"
                 : "bg-white border-[#D5D4D0] text-[#66717A] hover:border-[#18324A] hover:text-[#18324A]"
@@ -142,7 +142,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={() => setEnquiryType("commercial")}
-            className={`flex items-center gap-2.5 p-3 text-left border rounded-sm transition-all ${
+            className={`flex items-center gap-2.5 p-3 text-left border rounded-xl transition-all ${
               enquiryType === "commercial"
                 ? "bg-[#F3D8C7]/40 border-2 border-[#D96B27] text-[#18324A]"
                 : "bg-white border-[#D5D4D0] text-[#66717A] hover:border-[#18324A] hover:text-[#18324A]"
@@ -158,7 +158,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={() => setEnquiryType("renovation")}
-            className={`flex items-center gap-2.5 p-3 text-left border rounded-sm transition-all ${
+            className={`flex items-center gap-2.5 p-3 text-left border rounded-xl transition-all ${
               enquiryType === "renovation"
                 ? "bg-[#F3D8C7]/40 border-2 border-[#D96B27] text-[#18324A]"
                 : "bg-white border-[#D5D4D0] text-[#66717A] hover:border-[#18324A] hover:text-[#18324A]"
@@ -174,7 +174,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={() => setEnquiryType("general")}
-            className={`flex items-center gap-2.5 p-3 text-left border rounded-sm transition-all ${
+            className={`flex items-center gap-2.5 p-3 text-left border rounded-xl transition-all ${
               enquiryType === "general"
                 ? "bg-[#F3D8C7]/40 border-2 border-[#D96B27] text-[#18324A]"
                 : "bg-white border-[#D5D4D0] text-[#66717A] hover:border-[#18324A] hover:text-[#18324A]"
@@ -191,7 +191,7 @@ export default function ContactForm() {
 
       {/* Success Notification */}
       {submitStatus === "success" && (
-        <div className="mb-6 p-5 bg-[#F4F2EE] border-2 border-[#D96B27] rounded-sm text-left">
+        <div className="mb-6 p-5 bg-[#F4F2EE] border-2 border-[#D96B27] rounded-2xl text-left">
           <div className="flex items-start gap-3">
             <CheckCircle className="w-5 h-5 text-[#D96B27] flex-shrink-0 mt-0.5" />
             <div>
@@ -202,7 +202,7 @@ export default function ContactForm() {
                 {feedbackMessage}
               </p>
               {referenceId && (
-                <div className="mt-3 inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-[#D5D4D0] rounded-xs text-[11px] font-bold text-[#18324A]">
+                <div className="mt-3 inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-[#D5D4D0] rounded-md text-[11px] font-bold text-[#18324A]">
                   <span>Reference ID:</span>
                   <span className="text-[#D96B27]">{referenceId}</span>
                 </div>
@@ -214,7 +214,7 @@ export default function ContactForm() {
 
       {/* Error Notification */}
       {submitStatus === "error" && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-300 rounded-sm text-left flex items-start gap-3">
+        <div className="mb-6 p-4 bg-red-50 border border-red-300 rounded-xl text-left flex items-start gap-3">
           <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
           <p className="text-xs text-red-800 font-medium">{feedbackMessage}</p>
         </div>
@@ -249,7 +249,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="e.g. Rajesh Sharma"
-              className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+              className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
                 errors.name ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
               }`}
             />
@@ -269,7 +269,7 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder="e.g. +91 98110 00000"
-              className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+              className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
                 errors.phone ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
               }`}
             />
@@ -289,7 +289,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="e.g. client@example.com"
-              className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+              className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
                 errors.email ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
               }`}
             />
@@ -308,7 +308,7 @@ export default function ContactForm() {
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               placeholder="e.g. Individual Homeowner"
-              className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
+              className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
             />
           </div>
         </div>
@@ -326,7 +326,7 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
             placeholder="e.g. Construction Enquiry for 4-Storey Builder Floor in Rohini"
-            className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+            className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
               errors.subject ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
             }`}
           />
@@ -346,7 +346,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Describe your construction requirement, plot dimensions, expected scope, or timeline..."
-            className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+            className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
               errors.message ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
             }`}
           />

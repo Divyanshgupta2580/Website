@@ -185,7 +185,7 @@ export default function QuoteForm() {
   };
 
   return (
-    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 lg:p-12 rounded-sm shadow-sm relative overflow-hidden">
+    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 lg:p-12 rounded-3xl sm:rounded-[28px] shadow-sm relative overflow-hidden">
       {/* Top Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 
@@ -207,7 +207,7 @@ export default function QuoteForm() {
 
       {/* Success Notification */}
       {submitStatus === "success" && (
-        <div className="mb-8 p-6 bg-[#F4F2EE] border-2 border-[#D96B27] rounded-sm text-left">
+        <div className="mb-8 p-6 bg-[#F4F2EE] border-2 border-[#D96B27] rounded-2xl text-left">
           <div className="flex items-start gap-4">
             <CheckCircle className="w-6 h-6 text-[#D96B27] flex-shrink-0 mt-0.5" />
             <div>
@@ -218,7 +218,7 @@ export default function QuoteForm() {
                 {feedbackMessage}
               </p>
               {referenceId && (
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-[#D5D4D0] rounded-xs text-xs font-bold text-[#18324A]">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-[#D5D4D0] rounded-md text-xs font-bold text-[#18324A]">
                   <span>Reference ID:</span>
                   <span className="text-[#D96B27]">{referenceId}</span>
                 </div>
@@ -230,7 +230,7 @@ export default function QuoteForm() {
 
       {/* Error Notification */}
       {submitStatus === "error" && (
-        <div className="mb-8 p-5 bg-red-50 border border-red-300 rounded-sm text-left flex items-start gap-3">
+        <div className="mb-8 p-5 bg-red-50 border border-red-300 rounded-xl text-left flex items-start gap-3">
           <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
           <div className="text-xs text-red-800 leading-relaxed font-medium">
             {feedbackMessage}
@@ -271,7 +271,7 @@ export default function QuoteForm() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Rajesh Sharma"
-                className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
                   errors.name ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
                 }`}
               />
@@ -290,7 +290,7 @@ export default function QuoteForm() {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="e.g. +91 98110 00000"
-                className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
                   errors.phone ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
                 }`}
               />
@@ -309,7 +309,7 @@ export default function QuoteForm() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="e.g. client@example.com"
-                className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
                   errors.email ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
                 }`}
               />
@@ -328,7 +328,7 @@ export default function QuoteForm() {
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                 placeholder="e.g. Rohini Sector 8, Pitampura, Delhi"
-                className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                className={`w-full px-4 py-3 bg-white border rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
                   errors.location ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
                 }`}
               />
@@ -346,7 +346,7 @@ export default function QuoteForm() {
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                 placeholder="e.g. Individual Homebuilder / Local Enterprise"
-                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
               />
             </div>
           </div>
@@ -367,7 +367,7 @@ export default function QuoteForm() {
                 name="projectType"
                 value={formData.projectType}
                 onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionProjectTypes.map((type) => (
                   <option key={type} value={type}>
@@ -386,7 +386,7 @@ export default function QuoteForm() {
                 name="floors"
                 value={formData.floors}
                 onChange={(e) => setFormData({ ...formData, floors: e.target.value })}
-                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionFloorOptions.map((opt) => (
                   <option key={opt} value={opt}>
@@ -407,7 +407,7 @@ export default function QuoteForm() {
                 value={formData.approximateArea}
                 onChange={(e) => setFormData({ ...formData, approximateArea: e.target.value })}
                 placeholder="e.g. 4,500 Sq. Ft. or 200 Sq. Yards Plot"
-                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
               />
             </div>
 
@@ -420,7 +420,7 @@ export default function QuoteForm() {
                 name="stage"
                 value={formData.stage}
                 onChange={(e) => setFormData({ ...formData, stage: e.target.value })}
-                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionStages.map((st) => (
                   <option key={st} value={st}>
@@ -439,7 +439,7 @@ export default function QuoteForm() {
                 name="budgetRange"
                 value={formData.budgetRange}
                 onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionBudgetRanges.map((b) => (
                   <option key={b} value={b}>
@@ -458,7 +458,7 @@ export default function QuoteForm() {
                 name="timeline"
                 value={formData.timeline}
                 onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionTimelines.map((tl) => (
                   <option key={tl} value={tl}>
@@ -481,7 +481,7 @@ export default function QuoteForm() {
               return (
                 <label
                   key={scope}
-                  className={`flex items-start gap-3 p-3 border rounded-sm cursor-pointer transition-colors ${
+                  className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-colors ${
                     isChecked
                       ? "bg-[#F3D8C7]/30 border-[#D96B27] text-[#18324A] font-bold"
                       : "bg-white border-[#D5D4D0] text-[#20272D] hover:border-[#18324A]"
@@ -512,7 +512,7 @@ export default function QuoteForm() {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Describe specific plot considerations, drawing readiness, or details you would like us to know..."
-            className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
+            className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
           />
         </div>
 

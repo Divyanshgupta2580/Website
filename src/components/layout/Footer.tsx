@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
           <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-sm bg-white text-[#18324A] flex items-center justify-center font-extrabold text-base shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-white text-[#18324A] flex items-center justify-center font-extrabold text-base shadow-xs">
                 GG
               </div>
               <div>
@@ -33,7 +33,7 @@ export default function Footer() {
             {/* Direct Contact Links */}
             <div className="pt-2 space-y-3">
               <div className="flex items-center gap-3 text-xs">
-                <div className="w-8 h-8 rounded-sm bg-white/10 flex items-center justify-center text-[#D96B27] flex-shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#D96B27] flex-shrink-0">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <div>
@@ -51,7 +51,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3 text-xs">
-                <div className="w-8 h-8 rounded-sm bg-white/10 flex items-center justify-center text-[#D96B27] flex-shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#D96B27] flex-shrink-0">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <div>

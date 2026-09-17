@@ -57,7 +57,7 @@ export default function TestimonialsPage() {
 
       {/* Construction Standards Pillars */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 shadow-sm">
+        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-3xl shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#D5D4D0]">
             <div>
               <span className="text-xs uppercase font-bold tracking-widest text-[#D96B27] block mb-1">
@@ -74,7 +74,7 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0]">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">4–5 Floors</span>
                 <TrendingUp className="w-5 h-5 text-[#D96B27]" />
@@ -87,7 +87,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0]">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">Local Delhi</span>
                 <MapPin className="w-5 h-5 text-[#D96B27]" />
@@ -100,7 +100,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0]">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">RCC Frame</span>
                 <CheckCircle2 className="w-5 h-5 text-[#D96B27]" />
@@ -113,7 +113,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0]">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">Direct Desk</span>
                 <ShieldCheck className="w-5 h-5 text-[#D96B27]" />
@@ -132,7 +132,7 @@ export default function TestimonialsPage() {
       {/* Featured Testimonial Banner */}
       {featuredTestimonial && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className="p-8 sm:p-12 bg-white border border-[#D5D4D0] shadow-sm relative overflow-hidden">
+          <div className="p-8 sm:p-12 bg-white border border-[#D5D4D0] rounded-3xl shadow-sm relative overflow-hidden">
             <Quote className="absolute right-6 bottom-4 w-32 h-32 text-[#D5D4D0]/40 pointer-events-none" />
             
             <div className="relative z-10 max-w-3xl">
@@ -178,7 +178,7 @@ export default function TestimonialsPage() {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                 activeCategory === cat
                   ? "bg-[#D96B27] text-white border-[#D96B27]"
                   : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
@@ -196,7 +196,7 @@ export default function TestimonialsPage() {
           {filteredTestimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-white border border-[#D5D4D0] p-8 flex flex-col justify-between shadow-sm hover:border-[#D96B27] transition-colors"
+              className="bg-white border border-[#D5D4D0] p-8 rounded-2xl sm:rounded-[22px] flex flex-col justify-between shadow-sm hover:border-[#D96B27] transition-colors"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">

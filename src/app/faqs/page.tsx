@@ -73,7 +73,7 @@ export default function FaqsPage() {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                 activeCategory === cat
                   ? "bg-[#D96B27] text-white border-[#D96B27]"
                   : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
@@ -100,11 +100,11 @@ export default function FaqsPage() {
               <div
                 key={catKey}
                 id={catKey.toLowerCase().replace(/\s+/g, "-")}
-                className="bg-white border border-[#D5D4D0] p-6 sm:p-10 shadow-sm"
+                className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-3xl shadow-sm"
               >
                 {/* Section Group Header */}
                 <div className="flex items-center gap-3 pb-6 mb-6 border-b border-[#D5D4D0]">
-                  <div className="w-9 h-9 bg-[#F3D8C7]/50 border border-[#D96B27]/30 flex items-center justify-center flex-shrink-0">
+                  <div className="w-9 h-9 bg-[#F3D8C7]/50 border border-[#D96B27]/30 flex items-center justify-center flex-shrink-0 rounded-lg">
                     <Icon className="w-4 h-4 text-[#D96B27]" />
                   </div>
                   <div>
@@ -139,7 +139,7 @@ export default function FaqsPage() {
 
       {/* Direct Contact Box */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="p-8 sm:p-10 border border-[#D5D4D0] bg-white shadow-sm">
+        <div className="p-8 sm:p-10 border border-[#D5D4D0] bg-white rounded-3xl shadow-sm">
           <HelpCircle className="w-8 h-8 text-[#D96B27] mx-auto mb-3" />
           <h2 className="text-xl font-bold text-[#18324A] mb-2">
             Have a Specific Construction Question Not Listed Here?

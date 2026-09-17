@@ -118,7 +118,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* 3. Key Service Statistics Ribbon */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-white border border-[#D5D4D0] shadow-sm p-6 sm:p-8">
+        <div className="bg-white border border-[#D5D4D0] rounded-2xl sm:rounded-[22px] shadow-sm p-6 sm:p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs divide-y sm:divide-y-0 sm:divide-x divide-[#D5D4D0]">
             <div className="pt-2 sm:pt-0 sm:pr-4">
               <span className="text-xs uppercase font-bold text-[#66717A] block mb-1">
@@ -170,7 +170,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               {service.overview}
             </p>
 
-            <div className="p-4 bg-white border border-[#D5D4D0] shadow-sm flex items-start gap-3 text-xs">
+            <div className="p-4 bg-white border border-[#D5D4D0] rounded-xl shadow-sm flex items-start gap-3 text-xs">
               <ShieldCheck className="w-5 h-5 text-[#D96B27] flex-shrink-0 mt-0.5" />
               <p className="text-[#66717A] leading-snug">
                 All structural work, reinforcement placement, and concrete casting adheres to IS 456 concrete standards and NBC building safety guidelines.
@@ -178,7 +178,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] shadow-sm p-6 sm:p-8">
+          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] rounded-2xl sm:rounded-[22px] shadow-sm p-6 sm:p-8">
             <h3 className="text-xs uppercase tracking-widest font-bold text-[#18324A] mb-6 pb-2 border-b border-[#D5D4D0]">
               Core Capabilities
             </h3>
@@ -207,7 +207,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             {service.benefits.map((b, idx) => (
               <div
                 key={idx}
-                className="bg-[#F4F2EE] border border-[#D5D4D0] p-6 flex flex-col justify-between"
+                className="bg-[#F4F2EE] border border-[#D5D4D0] p-6 rounded-2xl flex flex-col justify-between"
               >
                 <div>
                   <span className="text-xs font-bold text-[#D96B27] block mb-2">
@@ -238,7 +238,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           {service.process.map((step) => (
             <div
               key={step.stepNumber}
-              className="bg-white border border-[#D5D4D0] shadow-sm p-6 flex flex-col justify-between"
+              className="bg-white border border-[#D5D4D0] rounded-2xl shadow-sm p-6 flex flex-col justify-between"
             >
               <div>
                 <span className="text-3xl font-extrabold text-[#D96B27] block mb-3">

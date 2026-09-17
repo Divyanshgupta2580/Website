@@ -32,7 +32,7 @@ export default function FeaturedProjects() {
         />
 
         {/* 1. Large Editorial Lead Project */}
-        <div className="bg-white border border-[#D5D4D0] rounded-sm overflow-hidden mb-8 group hover:border-[#18324A] transition-all shadow-xs">
+        <div className="bg-white border border-[#D5D4D0] rounded-3xl sm:rounded-[28px] overflow-hidden mb-8 group hover:border-[#18324A] transition-all shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Image Column */}
             <div className="lg:col-span-7 relative min-h-[340px] lg:min-h-[460px] bg-[#E8E6E1] overflow-hidden">
@@ -47,17 +47,17 @@ export default function FeaturedProjects() {
 
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                 <Badge variant="orange">{leadProject.sectorLabel}</Badge>
-                <span className="px-2.5 py-1 text-[11px] uppercase font-bold tracking-wider bg-white/95 text-[#18324A] border border-[#D5D4D0] rounded-xs shadow-xs">
+                <span className="px-2.5 py-1 text-[11px] uppercase font-bold tracking-wider bg-white/95 text-[#18324A] border border-[#D5D4D0] rounded-lg shadow-xs">
                   {leadProject.floors}
                 </span>
               </div>
 
               <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-1.5 bg-white/95 px-3 py-1 border border-[#D5D4D0] rounded-xs shadow-xs text-[#18324A] font-bold">
+                <div className="flex items-center gap-1.5 bg-white/95 px-3 py-1 border border-[#D5D4D0] rounded-lg shadow-xs text-[#18324A] font-bold">
                   <MapPin className="w-3.5 h-3.5 text-[#D96B27]" />
                   <span>{leadProject.location}</span>
                 </div>
-                <span className="font-mono text-xs font-bold text-[#18324A] bg-white/95 px-2.5 py-1 border border-[#D5D4D0] rounded-xs shadow-xs">
+                <span className="font-mono text-xs font-bold text-[#18324A] bg-white/95 px-2.5 py-1 border border-[#D5D4D0] rounded-lg shadow-xs">
                   {leadProject.builtUpArea}
                 </span>
               </div>
@@ -70,7 +70,7 @@ export default function FeaturedProjects() {
                   <span className="text-[11px] uppercase tracking-wider font-extrabold text-[#D96B27]">
                     PROJECT TYPE: {leadProject.sectorLabel.toUpperCase()}
                   </span>
-                  <span className="text-[10px] font-bold text-[#66717A] bg-[#E8E6E1] px-2 py-0.5 rounded-xs">
+                  <span className="text-[10px] font-bold text-[#66717A] bg-[#E8E6E1] px-2 py-0.5 rounded-md">
                     Representative Scope
                   </span>
                 </div>
@@ -132,7 +132,7 @@ export default function FeaturedProjects() {
         {/* 2. Secondary Editorial Projects Grid (Commercial & Family Residence) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {/* Commercial Building */}
-          <div className="bg-white border border-[#D5D4D0] rounded-sm overflow-hidden group hover:border-[#18324A] transition-all flex flex-col justify-between shadow-xs">
+          <div className="bg-white border border-[#D5D4D0] rounded-2xl sm:rounded-[22px] overflow-hidden group hover:border-[#18324A] hover:shadow-md transition-all flex flex-col justify-between shadow-xs">
             <div>
               <div className="relative aspect-[16/10] bg-[#E8E6E1] overflow-hidden">
                 <Image
@@ -145,13 +145,13 @@ export default function FeaturedProjects() {
 
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
                   <Badge variant="navy">{commercialProject.sectorLabel}</Badge>
-                  <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded-xs shadow-xs">
+                  <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded-lg shadow-xs">
                     {commercialProject.floors}
                   </span>
                 </div>
 
                 <div className="absolute bottom-3 left-3 z-10">
-                  <div className="flex items-center gap-1.5 bg-white/95 px-2.5 py-1 border border-[#D5D4D0] rounded-xs shadow-xs text-xs text-[#18324A] font-bold">
+                  <div className="flex items-center gap-1.5 bg-white/95 px-2.5 py-1 border border-[#D5D4D0] rounded-lg shadow-xs text-xs text-[#18324A] font-bold">
                     <MapPin className="w-3.5 h-3.5 text-[#D96B27]" />
                     <span>{commercialProject.location}</span>
                   </div>
@@ -169,7 +169,7 @@ export default function FeaturedProjects() {
                   {commercialProject.subtitle}
                 </p>
 
-                <div className="p-3 bg-[#F4F2EE] border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] mb-4">
+                <div className="p-3 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] mb-4">
                   <span className="text-[#18324A] font-bold block uppercase tracking-wider text-[10px] mb-1">
                     Construction Scope
                   </span>
@@ -193,7 +193,7 @@ export default function FeaturedProjects() {
           </div>
 
           {/* Family Residence */}
-          <div className="bg-white border border-[#D5D4D0] rounded-sm overflow-hidden group hover:border-[#18324A] transition-all flex flex-col justify-between shadow-xs">
+          <div className="bg-white border border-[#D5D4D0] rounded-2xl sm:rounded-[22px] overflow-hidden group hover:border-[#18324A] hover:shadow-md transition-all flex flex-col justify-between shadow-xs">
             <div>
               <div className="relative aspect-[16/10] bg-[#E8E6E1] overflow-hidden">
                 <Image
@@ -206,13 +206,13 @@ export default function FeaturedProjects() {
 
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
                   <Badge variant="orange">{familyResidence.sectorLabel}</Badge>
-                  <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded-xs shadow-xs">
+                  <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded-lg shadow-xs">
                     {familyResidence.floors}
                   </span>
                 </div>
 
                 <div className="absolute bottom-3 left-3 z-10">
-                  <div className="flex items-center gap-1.5 bg-white/95 px-2.5 py-1 border border-[#D5D4D0] rounded-xs shadow-xs text-xs text-[#18324A] font-bold">
+                  <div className="flex items-center gap-1.5 bg-white/95 px-2.5 py-1 border border-[#D5D4D0] rounded-lg shadow-xs text-xs text-[#18324A] font-bold">
                     <MapPin className="w-3.5 h-3.5 text-[#D96B27]" />
                     <span>{familyResidence.location}</span>
                   </div>
@@ -230,7 +230,7 @@ export default function FeaturedProjects() {
                   {familyResidence.subtitle}
                 </p>
 
-                <div className="p-3 bg-[#F4F2EE] border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] mb-4">
+                <div className="p-3 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl text-xs text-[#20272D] mb-4">
                   <span className="text-[#18324A] font-bold block uppercase tracking-wider text-[10px] mb-1">
                     Construction Scope
                   </span>

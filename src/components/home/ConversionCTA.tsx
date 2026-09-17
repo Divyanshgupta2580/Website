@@ -9,7 +9,7 @@ export default function ConversionCTA() {
   return (
     <section className="py-16 md:py-24 bg-[#F4F2EE] border-t border-[#D5D4D0]">
       <Container size="default">
-        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-sm shadow-md relative overflow-hidden">
+        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-3xl sm:rounded-[28px] shadow-md relative overflow-hidden">
           {/* Top Orange Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 
@@ -77,7 +77,7 @@ export default function ConversionCTA() {
             </div>
 
             {/* Right Feature Card */}
-            <div className="lg:col-span-4 bg-white/5 border border-white/15 p-6 rounded-sm backdrop-blur-xs">
+            <div className="lg:col-span-4 bg-white/5 border border-white/15 p-6 rounded-2xl backdrop-blur-xs">
               <span className="text-xs uppercase tracking-wider font-extrabold text-[#F3D8C7] block mb-2">
                 DIRECT CONSULTATION
               </span>

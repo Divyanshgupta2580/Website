@@ -18,7 +18,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <article
-      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden rounded-sm ${className}`}
+      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden rounded-2xl sm:rounded-[22px] shadow-xs ${className}`}
     >
       {/* Project Image Container */}
       <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#E8E6E1]">
@@ -34,18 +34,18 @@ export default function ProjectCard({
         {/* Top Badges Bar */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
           <Badge variant="orange">{project.sectorLabel}</Badge>
-          <span className="px-2.5 py-1 text-[11px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded-xs shadow-xs">
+          <span className="px-2.5 py-1 text-[11px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded-lg shadow-xs">
             {project.status} &bull; {project.floors}
           </span>
         </div>
 
         {/* Bottom Location Indicator inside Image */}
         <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs z-10">
-          <div className="flex items-center gap-1.5 bg-white/95 px-2.5 py-1 border border-[#D5D4D0] rounded-xs shadow-xs text-[#18324A] font-bold">
+          <div className="flex items-center gap-1.5 bg-white/95 px-2.5 py-1 border border-[#D5D4D0] rounded-lg shadow-xs text-[#18324A] font-bold">
             <MapPin className="w-3.5 h-3.5 text-[#D96B27]" />
             <span className="text-[11px] line-clamp-1">{project.location}</span>
           </div>
-          <span className="text-[11px] font-mono font-bold bg-white/95 px-2 py-1 border border-[#D5D4D0] rounded-xs shadow-xs text-[#18324A]">
+          <span className="text-[11px] font-mono font-bold bg-white/95 px-2 py-1 border border-[#D5D4D0] rounded-lg shadow-xs text-[#18324A]">
             {project.builtUpArea}
           </span>
         </div>
@@ -55,7 +55,7 @@ export default function ProjectCard({
       <div className="p-6 flex-1 flex flex-col justify-between">
         <div>
           {project.isRepresentativePlaceholder && (
-            <span className="text-[10px] font-bold uppercase text-[#B9551D] bg-[#F3D8C7] px-2 py-0.5 rounded-xs mb-2.5 inline-block">
+            <span className="text-[10px] font-bold uppercase text-[#B9551D] bg-[#F3D8C7] px-2 py-0.5 rounded-md mb-2.5 inline-block">
               Representative Example
             </span>
           )}

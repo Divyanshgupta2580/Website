@@ -51,7 +51,7 @@ export default function AboutPage() {
 
       {/* 2. Hero Image Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="relative aspect-[21/9] w-full overflow-hidden bg-white border border-[#D5D4D0] rounded-sm shadow-xs">
+        <div className="relative aspect-[21/9] w-full overflow-hidden bg-white border border-[#D5D4D0] rounded-3xl shadow-xs">
           <Image
             src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1800&q=80"
             alt="GG Construction Co. building construction operations and site execution"
@@ -61,7 +61,7 @@ export default function AboutPage() {
             className="object-cover"
           />
           <div className="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-            <div className="bg-white/95 backdrop-blur-sm border border-[#D5D4D0] p-3.5 max-w-md rounded-sm shadow-xs">
+            <div className="bg-white/95 backdrop-blur-sm border border-[#D5D4D0] p-3.5 max-w-md rounded-2xl shadow-xs">
               <span className="text-[10px] uppercase font-bold tracking-wider text-[#D96B27] block">
                 CORE FOCUS
               </span>
@@ -69,7 +69,7 @@ export default function AboutPage() {
                 Rigorous structural execution, transparent milestones, and attentive site supervision for low-rise structures.
               </p>
             </div>
-            <div className="text-right text-xs font-bold text-[#18324A] bg-white/95 p-2 px-3 border border-[#D5D4D0] rounded-sm shadow-xs">
+            <div className="text-right text-xs font-bold text-[#18324A] bg-white/95 p-2 px-3 border border-[#D5D4D0] rounded-xl shadow-xs">
               Rohini &bull; Pitampura &bull; Delhi NCR
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] p-7 sm:p-9 rounded-sm shadow-xs space-y-6">
+          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] p-7 sm:p-9 rounded-2xl sm:rounded-[22px] shadow-xs space-y-6">
             <h3 className="text-xs uppercase tracking-[0.18em] font-extrabold text-[#18324A] pb-3 border-b border-[#D5D4D0]">
               Operational Profile &amp; Scope
             </h3>
@@ -150,9 +150,9 @@ export default function AboutPage() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <div className="p-7 bg-[#F4F2EE] border border-[#D5D4D0] rounded-sm">
+            <div className="p-7 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl sm:rounded-[22px]">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-white border border-[#D5D4D0] rounded-sm flex items-center justify-center text-[#18324A]">
+                <div className="w-10 h-10 bg-white border border-[#D5D4D0] rounded-xl flex items-center justify-center text-[#18324A]">
                   <Target className="w-5 h-5" />
                 </div>
                 <span className="text-xs uppercase font-extrabold tracking-wider text-[#D96B27]">
@@ -167,9 +167,9 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="p-7 bg-[#F4F2EE] border border-[#D5D4D0] rounded-sm">
+            <div className="p-7 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl sm:rounded-[22px]">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-white border border-[#D5D4D0] rounded-sm flex items-center justify-center text-[#18324A]">
+                <div className="w-10 h-10 bg-white border border-[#D5D4D0] rounded-xl flex items-center justify-center text-[#18324A]">
                   <Eye className="w-5 h-5" />
                 </div>
                 <span className="text-xs uppercase font-extrabold tracking-wider text-[#D96B27]">
@@ -190,7 +190,7 @@ export default function AboutPage() {
             {companyData.values.map((val, idx) => (
               <div
                 key={idx}
-                className="p-6 bg-white border border-[#D5D4D0] rounded-sm shadow-xs flex flex-col justify-between"
+                className="p-6 bg-white border border-[#D5D4D0] rounded-2xl shadow-xs flex flex-col justify-between"
               >
                 <div>
                   <span className="text-xs font-bold text-[#D96B27] block mb-2">
@@ -221,7 +221,7 @@ export default function AboutPage() {
           {companyData.practicalPrinciples.map((phil, idx) => (
             <div
               key={idx}
-              className="bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-sm shadow-xs flex flex-col justify-between"
+              className="bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-2xl shadow-xs flex flex-col justify-between"
             >
               <div>
                 <span className="text-2xl font-extrabold text-[#18324A] block mb-2">

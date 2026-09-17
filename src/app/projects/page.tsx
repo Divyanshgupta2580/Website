@@ -59,7 +59,7 @@ export default function ProjectsPage() {
 
       {/* 2. Flagship Project Feature */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-        <div className="bg-white border border-[#D5D4D0] shadow-sm overflow-hidden">
+        <div className="bg-white border border-[#D5D4D0] rounded-3xl sm:rounded-[28px] shadow-sm overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] bg-[#18324A]">
               <Image
@@ -74,7 +74,7 @@ export default function ProjectsPage() {
               <div className="absolute top-4 left-4 z-10">
                 <Badge variant="orange">{flagshipProject.sectorLabel}</Badge>
               </div>
-              <div className="absolute bottom-4 left-4 z-10 text-xs font-semibold text-white bg-[#18324A]/90 px-3 py-1.5 border border-white/20">
+              <div className="absolute bottom-4 left-4 z-10 text-xs font-semibold text-white bg-[#18324A]/90 px-3 py-1.5 border border-white/20 rounded-md">
                 {flagshipProject.floors} &bull; {flagshipProject.location}
               </div>
             </div>
@@ -179,7 +179,7 @@ export default function ProjectsPage() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveFilter(tab.id)}
-                className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+                className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                   activeFilter === tab.id
                     ? "bg-[#D96B27] text-white border-[#D96B27]"
                     : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"

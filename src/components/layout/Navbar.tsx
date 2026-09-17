@@ -69,11 +69,11 @@ export default function Navbar() {
           {/* Logo / Brand */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[#D96B27] rounded-sm"
+            className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[#D96B27] rounded-xl"
             aria-label="GG Construction Co. Home"
           >
             {/* Monogram Brand Mark */}
-            <div className="w-9 h-9 rounded-sm bg-[#18324A] flex items-center justify-center text-white font-extrabold text-sm tracking-tighter shadow-xs">
+            <div className="w-9 h-9 rounded-xl bg-[#18324A] flex items-center justify-center text-white font-extrabold text-sm tracking-tighter shadow-xs">
               GG
             </div>
             <div className="flex flex-col">
@@ -100,7 +100,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3 py-2 text-xs uppercase tracking-wider font-bold transition-colors relative rounded-sm ${
+                  className={`px-3 py-2 text-xs uppercase tracking-wider font-bold transition-colors relative rounded-lg ${
                     isActive
                       ? "text-[#D96B27]"
                       : "text-[#20272D] hover:text-[#D96B27]"
@@ -139,7 +139,7 @@ export default function Navbar() {
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-nav"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-              className="w-9 h-9 border border-[#D5D4D0] bg-[#F4F2EE] rounded-sm flex items-center justify-center text-[#18324A] hover:border-[#18324A] focus-visible:ring-2 focus-visible:ring-[#D96B27]"
+              className="w-9 h-9 border border-[#D5D4D0] bg-[#F4F2EE] rounded-xl flex items-center justify-center text-[#18324A] hover:border-[#18324A] focus-visible:ring-2 focus-visible:ring-[#D96B27]"
             >
               {isMobileMenuOpen ? (
                 <X className="w-5 h-5 text-[#D96B27]" />
@@ -210,7 +210,7 @@ export default function Navbar() {
             <div className="grid grid-cols-2 gap-3">
               <a
                 href={`tel:${companyData.contact.phone}`}
-                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#18324A] font-bold border border-[#D5D4D0] bg-[#F4F2EE] hover:border-[#18324A] rounded-sm transition-colors"
+                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#18324A] font-bold border border-[#D5D4D0] bg-[#F4F2EE] hover:border-[#18324A] rounded-xl transition-colors"
                 aria-label={`Call GG Construction Co. at ${companyData.contact.phoneFormatted}`}
               >
                 <Phone className="w-3.5 h-3.5 text-[#D96B27]" />
@@ -218,7 +218,7 @@ export default function Navbar() {
               </a>
               <a
                 href={`mailto:${companyData.contact.email}`}
-                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#18324A] font-bold border border-[#D5D4D0] bg-[#F4F2EE] hover:border-[#18324A] rounded-sm transition-colors"
+                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#18324A] font-bold border border-[#D5D4D0] bg-[#F4F2EE] hover:border-[#18324A] rounded-xl transition-colors"
                 aria-label={`Email GG Construction Co. at ${companyData.contact.email}`}
               >
                 <Mail className="w-3.5 h-3.5 text-[#D96B27]" />

@@ -61,8 +61,15 @@ export const spacing = {
 
 export const radius = {
   none: "rounded-none",
-  sm: "rounded-sm",
-  md: "rounded-md",
+  xs: "rounded-lg",
+  sm: "rounded-xl",
+  md: "rounded-2xl",
+  lg: "rounded-[22px]",
+  xl: "rounded-3xl",
+  mac: "rounded-[22px]",
+  macLg: "rounded-[28px]",
+  macSm: "rounded-xl",
+  macXs: "rounded-lg",
 } as const;
 
 export const shadows = {

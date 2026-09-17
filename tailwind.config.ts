@@ -44,6 +44,12 @@ const config: Config = {
         sans: ["var(--font-manrope)", "Manrope", "system-ui", "sans-serif"],
         display: ["var(--font-manrope)", "Manrope", "sans-serif"],
       },
+      borderRadius: {
+        mac: "22px",
+        "mac-lg": "28px",
+        "mac-sm": "14px",
+        "mac-xs": "8px",
+      },
     },
   },
   plugins: [],

@@ -40,13 +40,13 @@ export default function ServicesPreview() {
             return (
               <div
                 key={service.slug}
-                className={`bg-white border border-[#D5D4D0] p-6 sm:p-7 flex flex-col justify-between hover:border-[#18324A] transition-all rounded-sm shadow-xs ${
+                className={`bg-white border border-[#D5D4D0] p-6 sm:p-7 flex flex-col justify-between hover:border-[#18324A] hover:shadow-md transition-all rounded-2xl sm:rounded-[22px] shadow-xs ${
                   isFeatured ? "md:col-span-2 lg:col-span-1 border-t-2 border-t-[#D96B27]" : ""
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-sm bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#18324A]">
+                    <div className="w-10 h-10 rounded-xl bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#18324A]">
                       <Icon className="w-5 h-5" />
                     </div>
                     <Badge variant={isFeatured ? "orange" : "slate"}>

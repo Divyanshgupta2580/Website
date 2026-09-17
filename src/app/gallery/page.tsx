@@ -80,7 +80,7 @@ export default function GalleryPage() {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                 activeCategory === cat
                   ? "bg-[#D96B27] text-white border-[#D96B27]"
                   : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
@@ -99,7 +99,7 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
-              className="group relative aspect-[16/11] bg-white border border-[#D5D4D0] hover:border-[#D96B27] shadow-sm transition-all cursor-pointer overflow-hidden"
+              className="group relative aspect-[16/11] bg-white border border-[#D5D4D0] hover:border-[#D96B27] rounded-2xl sm:rounded-[22px] shadow-sm transition-all cursor-pointer overflow-hidden"
             >
               <Image
                 src={item.image}
@@ -111,7 +111,7 @@ export default function GalleryPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#18324A]/90 via-[#18324A]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-5">
                 <div className="flex justify-between items-center">
                   <Badge variant="orange">{item.category}</Badge>
-                  <span className="w-8 h-8 rounded-none bg-[#18324A]/80 border border-white/20 flex items-center justify-center text-white">
+                  <span className="w-8 h-8 rounded-lg bg-[#18324A]/80 border border-white/20 flex items-center justify-center text-white">
                     <Maximize2 className="w-4 h-4 text-[#D96B27]" />
                   </span>
                 </div>
@@ -140,14 +140,14 @@ export default function GalleryPage() {
           onClick={() => setSelectedItem(null)}
         >
           <div
-            className="relative max-w-5xl w-full bg-white border border-[#D5D4D0] overflow-hidden shadow-2xl"
+            className="relative max-w-5xl w-full bg-white border border-[#D5D4D0] rounded-3xl overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               type="button"
               onClick={() => setSelectedItem(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 border border-[#D5D4D0] text-[#18324A] hover:text-[#D96B27] flex items-center justify-center focus:outline-none shadow-sm"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-xl bg-white/90 border border-[#D5D4D0] text-[#18324A] hover:text-[#D96B27] flex items-center justify-center focus:outline-none shadow-sm"
               aria-label="Close Lightbox"
             >
               <X className="w-5 h-5" />

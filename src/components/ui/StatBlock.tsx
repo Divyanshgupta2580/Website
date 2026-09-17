@@ -17,7 +17,7 @@ export default function StatBlock({
 }: StatBlockProps) {
   return (
     <div
-      className={`bg-white border border-[#D5D4D0] p-6 sm:p-7 flex flex-col justify-between hover:border-[#18324A] transition-colors rounded-sm shadow-xs ${className}`}
+      className={`bg-white border border-[#D5D4D0] p-6 sm:p-7 flex flex-col justify-between hover:border-[#18324A] transition-colors rounded-2xl shadow-xs ${className}`}
     >
       <div>
         <div className="flex items-center justify-between mb-3">

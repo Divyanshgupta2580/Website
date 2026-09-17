@@ -13,7 +13,7 @@ export interface BlogCardProps {
 export default function BlogCard({ post, className = "" }: BlogCardProps) {
   return (
     <article
-      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden rounded-sm shadow-xs ${className}`}
+      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[22px] shadow-xs ${className}`}
     >
       <div>
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E8E6E1]">

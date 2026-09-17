@@ -30,7 +30,7 @@ export default function CTA({
   return (
     <section className={`py-16 md:py-24 bg-[#F4F2EE] border-t border-[#D5D4D0] relative ${className}`}>
       <Container size="default">
-        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-sm shadow-md relative overflow-hidden">
+        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-3xl shadow-md relative overflow-hidden">
           {/* Subtle Orange Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 

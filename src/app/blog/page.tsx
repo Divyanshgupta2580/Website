@@ -48,7 +48,7 @@ export default function BlogPage() {
       {/* Featured Article Banner */}
       {featuredPost && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <div className="bg-white border border-[#D5D4D0] shadow-sm hover:border-[#D96B27] transition-all overflow-hidden">
+          <div className="bg-white border border-[#D5D4D0] rounded-3xl sm:rounded-[28px] shadow-sm hover:border-[#D96B27] transition-all overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12">
               <div className="lg:col-span-7 relative min-h-[320px] lg:min-h-[440px] bg-[#18324A]">
                 <Image
@@ -124,7 +124,7 @@ export default function BlogPage() {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                 activeCategory === cat
                   ? "bg-[#D96B27] text-white border-[#D96B27]"
                   : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"

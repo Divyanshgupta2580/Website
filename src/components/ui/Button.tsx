@@ -20,7 +20,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D96B27] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F2EE] disabled:opacity-50 disabled:pointer-events-none uppercase tracking-wider text-xs rounded-sm";
+    "inline-flex items-center justify-center font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D96B27] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F2EE] disabled:opacity-50 disabled:pointer-events-none uppercase tracking-wider text-xs rounded-xl";
 
   const sizeStyles = {
     sm: "px-3.5 py-2 text-xs",
