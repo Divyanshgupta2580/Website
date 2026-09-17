@@ -53,7 +53,7 @@ export const projectsData: ProjectItem[] = [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
     galleryImages: [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80",
+      "/images/construction-structure.jpg",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
     ],
     scope: [
@@ -206,7 +206,7 @@ export const projectsData: ProjectItem[] = [
       "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1600&q=80",
     galleryImages: [
       "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80",
+      "/images/construction-structure.jpg",
     ],
     scope: [
       "Deep footing and column frame construction for 5-storey load capacity",
@@ -302,7 +302,7 @@ export const projectsData: ProjectItem[] = [
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80",
     galleryImages: [
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80",
+      "/images/construction-structure.jpg",
     ],
     scope: [
       "Inspection and reinforcement of existing structural columns and beams",

@@ -298,8 +298,8 @@ export default function ServicesPage() {
         description="Tell us about your building requirement and we'll get in touch."
         primaryCtaText="GET A QUOTE"
         primaryCtaHref="/get-a-quote"
-        secondaryCtaText="CONTACT US"
-        secondaryCtaHref="/contact"
+        secondaryCtaText="VIEW PROJECTS"
+        secondaryCtaHref="/projects"
         showContacts={true}
       />
     </div>

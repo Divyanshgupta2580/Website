@@ -107,7 +107,7 @@ export const blogPostsData: BlogPost[] = [
     authorNamePlaceholder: "[GG CONSTRUCTION CO. SITE TEAM]",
     authorRole: "Construction Supervision Team",
     heroImage:
-      "https://images.unsplash.com/photo-1584463699026-df06a5e1c0c6?auto=format&fit=crop&w=1600&q=80",
+      "/images/construction-site.jpg",
     tags: ["Red Bricks", "AAC Blocks", "Wall Masonry", "House Construction", "Structural Framing"],
     content: [
       {

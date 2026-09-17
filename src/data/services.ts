@@ -412,7 +412,7 @@ export const servicesData: ServiceItem[] = [
       "End-to-end project coordination, material scheduling, on-site supervision, and stage-wise execution for low-rise building construction.",
     iconName: "ClipboardCheck",
     heroImage:
-      "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1600&q=80",
+      "/images/construction-planning.jpg",
     badge: "Site Execution",
     overview:
       "GG Construction Co. provides comprehensive construction planning and site execution for residential and commercial building projects up to 4–5 floors across Rohini, Pitampura, and nearby areas of Delhi. We coordinate material procurement schedules, supervise masonry and concrete crews daily, and enforce milestone timelines so your building is completed smoothly without common contractor delays.",

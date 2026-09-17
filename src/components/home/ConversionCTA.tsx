@@ -1,6 +1,6 @@
 import React from "react";
-import { ArrowRight, Phone, Mail } from "lucide-react";
-import Button from "@/components/ui/Button";
+import Link from "next/link";
+import { Phone, Mail } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { companyData } from "@/data/company";
 
@@ -31,24 +31,22 @@ export default function ConversionCTA() {
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8">
-                <Button
+              <div className="flex flex-wrap gap-4 mb-8">
+                <Link
                   href="/get-a-quote"
-                  variant="primary"
-                  size="lg"
-                  className="group bg-[#D96B27] hover:bg-[#B9551D] text-white border-0"
+                  className="inline-flex items-center justify-center gap-2 bg-[#D96B27] px-7 py-4 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#B9551D] rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   <span>GET A QUOTE</span>
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                </Button>
+                  <span aria-hidden="true">↗</span>
+                </Link>
 
-                <a
-                  href={`tel:${companyData.contact.phone}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-none border-2 border-white/30 hover:border-white hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider transition-colors"
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center justify-center gap-2 border border-[#18324A] bg-white px-7 py-4 text-sm font-semibold uppercase tracking-wide text-[#18324A] transition-colors hover:bg-[#18324A] hover:text-white rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  <Phone className="w-4 h-4 text-[#D96B27]" />
-                  <span>CALL +91 98110 34825</span>
-                </a>
+                  <span>VIEW PROJECTS</span>
+                  <span aria-hidden="true">→</span>
+                </Link>
               </div>
 
               {/* Direct Contact Row */}

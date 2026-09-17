@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       "Reliable low-rise building construction for homes and commercial premises across Rohini, Pitampura, and nearby areas of Delhi.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
         alt: "GG Construction Co. Building Construction",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     title: "GG Construction Co. | Building Construction",
     description:
       "Low-rise residential and commercial building construction in Rohini, Pitampura, and Delhi.",
-    images: ["https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80"],
+    images: ["https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=1200&q=80"],
   },
   robots: {
     index: true,

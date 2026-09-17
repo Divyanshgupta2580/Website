@@ -55,7 +55,7 @@ const servicesList = [
     title: "CONSTRUCTION PLANNING & EXECUTION",
     slug: "construction-planning",
     image:
-      "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=800&q=80",
+      "/images/construction-planning.jpg",
     imageAlt: "Construction site planning, rebar supervision, and project coordination [Representative Example]",
     description:
       "End-to-end project coordination, trade sequencing, daily on-site supervision of steel rebar and concrete pours, and stage-wise milestone billing from foundation excavation to final handover.",

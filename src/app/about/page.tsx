@@ -20,7 +20,7 @@ export default function AboutPage() {
   const featuredTestimonial = testimonialsData[0];
 
   return (
-    <div className="pt-28 pb-20 bg-[#F4F2EE]">
+    <div className="pt-28 pb-0 bg-[#F4F2EE]">
       {/* 1. Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="max-w-3xl">
@@ -43,7 +43,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="relative aspect-[21/9] w-full overflow-hidden bg-[#E8E6E1] border border-[#D5D4D0] rounded-none">
           <Image
-            src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1800&q=80"
+            src="/images/construction-site.jpg"
             alt="GG Construction Co. on-site building execution in Delhi NCR [Representative Example]"
             fill
             priority
@@ -159,7 +159,7 @@ export default function AboutPage() {
       </section>
 
       {/* 5. Client Testimonial */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
         <SectionHeading
           eyebrow="CLIENT FEEDBACK"
           title="Client Feedback"

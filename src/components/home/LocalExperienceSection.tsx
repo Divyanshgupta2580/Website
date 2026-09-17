@@ -72,7 +72,7 @@ export default function LocalExperienceSection() {
             <div className="bg-white border border-[#D5D4D0] rounded-none overflow-hidden">
               <div className="relative aspect-[16/11] w-full bg-[#E8E6E1] overflow-hidden border-b border-[#D5D4D0]">
                 <Image
-                  src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1000&q=80"
+                  src="/images/construction-site.jpg"
                   alt="Low-rise building civil construction site in Delhi NCR [Representative Example]"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, ShieldCheck, HardHat, MapPin } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
@@ -41,14 +42,13 @@ export default function Hero() {
                 <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Button>
 
-              <Button
+              <Link
                 href="/projects"
-                variant="outline"
-                size="lg"
-                className="border-2 border-[#18324A] text-[#18324A] bg-white hover:bg-[#18324A] hover:text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-[#18324A] bg-white px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-[#18324A] transition-colors hover:bg-[#18324A] hover:text-white rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D96B27]"
               >
-                VIEW PROJECTS
-              </Button>
+                <span>VIEW PROJECTS</span>
+                <span aria-hidden="true" className="text-sm font-normal">→</span>
+              </Link>
             </div>
 
             {/* 3 Practical Grounded Trust Pillars */}
@@ -89,7 +89,7 @@ export default function Hero() {
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/5] w-full rounded-none overflow-hidden border border-[#D5D4D0] bg-[#E8E6E1]">
               <Image
-                src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=85"
+                src="/images/construction-structure.jpg"
                 alt="Low-rise residential building under construction with RCC framework and masonry in Delhi NCR [Representative Example]"
                 fill
                 priority

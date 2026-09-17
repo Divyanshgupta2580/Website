@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import {
   Star,
   Quote,
@@ -249,12 +250,20 @@ export default function TestimonialsPage() {
             Discuss your residential or commercial low-rise construction plans with our team.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button href="/contact" variant="primary" size="md">
-              GET A QUOTE
-            </Button>
-            <Button href="/projects" variant="outline" size="md">
-              VIEW PROJECTS
-            </Button>
+            <Link
+              href="/get-a-quote"
+              className="inline-flex items-center justify-center gap-2 bg-[#D96B27] px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#B9551D] rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D96B27]"
+            >
+              <span>GET A QUOTE</span>
+              <span aria-hidden="true" className="text-sm font-normal">↗</span>
+            </Link>
+            <Link
+              href="/projects"
+              className="inline-flex items-center justify-center gap-2 border border-[#18324A] bg-white px-7 py-3.5 text-xs font-bold uppercase tracking-wider text-[#18324A] transition-colors hover:bg-[#18324A] hover:text-white rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D96B27]"
+            >
+              <span>VIEW PROJECTS</span>
+              <span aria-hidden="true" className="text-sm font-normal">→</span>
+            </Link>
           </div>
         </div>
       </section>

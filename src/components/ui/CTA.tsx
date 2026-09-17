@@ -1,6 +1,6 @@
 import React from "react";
-import { ArrowUpRight, Phone, Mail } from "lucide-react";
-import Button from "@/components/ui/Button";
+import Link from "next/link";
+import { Phone, Mail } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { companyData } from "@/data/company";
 
@@ -22,8 +22,8 @@ export default function CTA({
   description = "Tell us about your building requirement and we'll get in touch.",
   primaryCtaText = "GET A QUOTE",
   primaryCtaHref = "/get-a-quote",
-  secondaryCtaText = "CONTACT US",
-  secondaryCtaHref = "/contact",
+  secondaryCtaText = "VIEW PROJECTS",
+  secondaryCtaHref = "/projects",
   showContacts = true,
   className = "",
 }: CTAProps) {
@@ -36,7 +36,7 @@ export default function CTA({
     : undefined;
 
   return (
-    <section className={`py-16 md:py-24 bg-[#F4F2EE] border-t border-[#D5D4D0] relative ${className}`}>
+    <section className={`py-12 md:py-16 bg-[#F4F2EE] border-t border-[#D5D4D0] relative ${className}`}>
       <Container size="default">
         <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-none relative overflow-hidden border border-[#102232]">
           {/* Subtle Orange Accent Line */}
@@ -45,7 +45,7 @@ export default function CTA({
           <div className="max-w-3xl">
             {cleanEyebrow && (
               <div className="inline-flex items-center gap-2 mb-3">
-                <span className="w-4 h-[2px] bg-[#D96B27]" />
+                <span className="w-2 h-2 bg-[#D96B27]" />
                 <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#F3D8C7]">
                   {cleanEyebrow}
                 </span>
@@ -63,23 +63,25 @@ export default function CTA({
             )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+            <div className="flex flex-wrap gap-4 mb-8">
               {primaryCtaText && (
-                <Button href={primaryCtaHref} variant="primary" size="lg" className="group rounded-none">
+                <Link
+                  href={primaryCtaHref}
+                  className="inline-flex items-center justify-center gap-2 bg-[#D96B27] px-7 py-4 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-[#B9551D] rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
                   <span>{primaryCtaText}</span>
-                  <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Button>
+                  <span aria-hidden="true" className="text-base font-normal">↗</span>
+                </Link>
               )}
 
               {secondaryCtaText && (
-                <Button
+                <Link
                   href={secondaryCtaHref}
-                  variant="outline"
-                  size="lg"
-                  className="bg-transparent text-white border-white/30 hover:border-white hover:bg-white/10 rounded-none"
+                  className="inline-flex items-center justify-center gap-2 border border-[#18324A] bg-white px-7 py-4 text-sm font-semibold uppercase tracking-wide text-[#18324A] transition-colors hover:bg-[#18324A] hover:text-white rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  {secondaryCtaText}
-                </Button>
+                  <span>{secondaryCtaText}</span>
+                  <span aria-hidden="true" className="text-base font-normal">→</span>
+                </Link>
               )}
             </div>
 
