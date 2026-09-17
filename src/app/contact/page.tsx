@@ -5,9 +5,9 @@ import ContactForm from "@/components/forms/ContactForm";
 import Container from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Contact Us | GG Construction Co.",
+  title: "Contact Us | GG Construction Co. — Building Construction",
   description:
-    "Get in touch with GG Construction Co. Dedicated enquiry paths for building materials supply, building construction, and real estate sales assistance.",
+    "Get in touch with GG Construction Co. for residential and commercial building construction, builder floor execution, and renovations across Rohini, Pitampura, and Delhi.",
 };
 
 export default function ContactPage() {
@@ -36,10 +36,10 @@ export default function ContactPage() {
                 id="enquiry-form-heading"
                 className="text-2xl sm:text-3xl font-light text-[#F3F1EC] tracking-tight"
               >
-                Send a Project Specification
+                Send a Construction Enquiry
               </h2>
               <p className="text-xs sm:text-sm text-[#A7ADB3] mt-1.5 leading-relaxed">
-                Submit your building material requirements, construction project details, or real estate enquiries directly to our team. Reviewed within 24 business hours.
+                Submit your construction requirements, residential build plans, or renovation scope directly to our team. Reviewed promptly with practical advice and pricing guidance.
               </p>
             </div>
 

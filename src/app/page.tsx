@@ -1,10 +1,7 @@
 import React from "react";
 import Hero from "@/components/home/Hero";
-import DivisionsSection from "@/components/home/DivisionsSection";
-import MaterialsPreview from "@/components/home/MaterialsPreview";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
-import PropertyOpportunities from "@/components/home/PropertyOpportunities";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import ProcessSection from "@/components/home/ProcessSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -14,37 +11,28 @@ import ConversionCTA from "@/components/home/ConversionCTA";
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero */}
+      {/* 1. Hero: Construction Positioning & Dual CTAs */}
       <Hero />
 
-      {/* 2. Three Business Areas: Building Materials (1), Construction (2), Real Estate (3) */}
-      <DivisionsSection />
-
-      {/* 3. Featured Materials (Primary Business Emphasis) */}
-      <MaterialsPreview />
-
-      {/* 4. Construction Services (Secondary Business: Small to Medium Buildings) */}
+      {/* 2. Core Construction Services (Residential, Commercial, Shops/Offices, Renovation) */}
       <ServicesPreview />
 
-      {/* 5. Selected Building Projects (Up to 4-5 Floors) */}
+      {/* 3. Selected Low-Rise Building Projects (Rohini & Pitampura Experience) */}
       <FeaturedProjects />
 
-      {/* 6. Property Opportunities (Sales Assistance & Marketing) */}
-      <PropertyOpportunities />
-
-      {/* 7. Why Choose GG Construction Co. */}
+      {/* 4. Why Choose GG Construction Co. (5 Construction Pillars) */}
       <WhyChooseUs />
 
-      {/* 8. How We Work (5-Step Lifecycle) */}
+      {/* 5. How We Build (5-Stage Construction Process) */}
       <ProcessSection />
 
-      {/* 9. Customer Testimonials */}
+      {/* 6. Client Testimonials (Verified Sample Feedback) */}
       <TestimonialsSection />
 
-      {/* 10. FAQ */}
+      {/* 7. Frequently Asked Construction Questions */}
       <HomeFaqSection />
 
-      {/* 11. Contact / Enquiry CTA */}
+      {/* 8. Conversion Contact / Quote Consultation */}
       <ConversionCTA />
     </>
   );

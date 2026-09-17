@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
 
   return {
     title: `${project.title} | GG Construction Co.`,
-    description: `${project.subtitle}. Practical low-rise construction and materials support by GG Construction Co.`,
+    description: `${project.subtitle}. Practical low-rise building construction by GG Construction Co.`,
   };
 }
 
@@ -265,8 +265,8 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                 </div>
                 <div className="p-4 bg-[#15191D] border border-[#2A3035]">
                   <ShieldCheck className="w-4 h-4 text-[#B89A63] mb-2" />
-                  <span className="text-[#F3F1EC] font-semibold block mb-1">Site Supervison</span>
-                  <p className="text-[#A7ADB3]">Continuous on-site coordination ensuring material quality and safety.</p>
+                  <span className="text-[#F3F1EC] font-semibold block mb-1">Site Supervision</span>
+                  <p className="text-[#A7ADB3]">Continuous on-site coordination ensuring construction quality and safety.</p>
                 </div>
               </div>
             </div>
@@ -293,27 +293,27 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               </div>
             </div>
 
-            {/* Materials & Supplies */}
+            {/* Structural Specifications & Components */}
             <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-4 pb-2 border-b border-[#2A3035]">
-                Materials & Supplies Utilized
+                Structural Specifications & Components
               </h3>
               <ul className="space-y-2.5 text-xs text-[#A7ADB3]">
                 <li className="flex items-center gap-2">
-                  <Boxes className="w-3.5 h-3.5 text-[#B89A63]" />
+                  <Layers className="w-3.5 h-3.5 text-[#B89A63]" />
                   <span>Fe 500D Grade Reinforcement TMT Rebars</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Layers className="w-3.5 h-3.5 text-[#B89A63]" />
-                  <span>Standard PPC / OPC Construction Cement</span>
+                  <span>Standard PPC / OPC Structural Cement</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#B89A63]" />
-                  <span>Integral Waterproofing Additives</span>
+                  <span>Integral Waterproofing & Plinth DPC Barriers</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#B89A63]" />
-                  <span>Quality River Sand & Graded Coarse Aggregates</span>
+                  <span>Quality Graded Coarse Aggregates & River Sand</span>
                 </li>
               </ul>
             </div>
@@ -333,27 +333,13 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               </ul>
             </div>
 
-            {/* Testimonial Placeholder */}
-            <div className="p-6 bg-[#0B0D0F] border border-[#2A3035]">
-              <Quote className="w-6 h-6 text-[#B89A63] mb-3" />
-              <p className="text-xs text-[#A7ADB3] italic mb-3 leading-relaxed">
-                &ldquo;[ADD VERIFIED CUSTOMER REVIEW]&rdquo;
-              </p>
-              <div className="text-[11px] font-mono text-[#B89A63]">
-                {project.clientTypePlaceholder} &bull; Client
-              </div>
-              <span className="text-[10px] text-[#667582] block mt-1">
-                [CUSTOMER REVIEW PLACEHOLDER]
-              </span>
-            </div>
-
             {/* Action Box */}
             <div className="p-6 bg-[#15191D] border border-[#B89A63]/40 text-center">
               <h4 className="text-sm font-medium text-[#F3F1EC] mb-2">
                 Need Similar Building Work?
               </h4>
               <p className="text-xs text-[#A7ADB3] mb-4">
-                Consult with our team regarding project feasibility, floor planning, and preliminary material estimates.
+                Consult with our team regarding project feasibility, floor planning, and preliminary construction estimates.
               </p>
               <Button
                 href={`/get-a-quote?project=${project.slug}`}
@@ -421,7 +407,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
       <CTA
         eyebrow="Start Your Project"
         title="Plan Your Building Construction With Us"
-        description="Connect with our team to discuss your residential or commercial low-rise construction requirements, material supply, and site schedule."
+        description="Connect with our team to discuss your residential or commercial low-rise construction requirements, structural specifications, and site schedule."
         primaryCtaText="Request Project Estimate"
         primaryCtaHref={`/get-a-quote?project=${project.slug}`}
         secondaryCtaText="Contact Our Office"

@@ -5,9 +5,9 @@ import { ShieldCheck, ArrowLeft } from "lucide-react";
 import { companyData } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Data Protection & Governance",
+  title: "Privacy Policy | GG Construction Co. — Building Construction",
   description:
-    "Privacy Policy and data protection standards governing communications, project tenders, and estimation requests submitted to GG Construction Co.",
+    "Privacy Policy and data protection standards governing communications, project enquiries, and quotation requests submitted to GG Construction Co.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -28,37 +28,24 @@ export default function PrivacyPolicyPage() {
           <div className="inline-flex items-center gap-2 mb-3">
             <ShieldCheck className="w-4 h-4 text-[#B89A63]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-              Corporate Data Governance
+              Data Protection &amp; Confidentiality
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-light text-[#F3F1EC] mb-2">
-            Privacy Policy & Data Protection
+            Privacy Policy &amp; Data Protection
           </h1>
           <p className="text-xs font-mono text-[#667582]">
             Effective Date: October 2024 &bull; Last Reviewed: {new Date().getFullYear()}
           </p>
         </div>
 
-        {/* Legal Advisory Callout */}
-        <div className="mb-10 p-5 bg-[#15191D] border border-[#B89A63]/40 flex items-start gap-3.5">
-          <div className="w-2 h-2 rounded-full bg-[#B89A63] mt-1.5 flex-shrink-0" />
-          <div className="text-xs text-[#A7ADB3] space-y-1">
-            <span className="font-semibold text-[#F3F1EC] uppercase tracking-wider block font-mono text-[11px]">
-              [LEGAL COUNSEL REVIEW REQUIRED]
-            </span>
-            <p>
-              This document provides the foundational operating governance and data protection disclosures for GG Construction Co. Specific clauses regarding statutory Indian jurisdictional compliances, Digital Personal Data Protection (DPDP) Act nuances, RERA escrow mechanics, and corporate arbitration specifications must be validated by qualified legal counsel prior to formal execution.
-            </p>
-          </div>
-        </div>
-
         <div className="prose prose-invert max-w-none text-xs sm:text-sm text-[#A7ADB3] leading-relaxed space-y-8 font-light">
           <section>
             <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">
-              1. Corporate Entity & Scope
+              1. Business Entity &amp; Scope
             </h2>
             <p>
-              This Privacy Policy governs the collection, processing, and protection of information by {companyData.name} (&ldquo;the Company&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;), operating across our three integrated business verticals: Construction & Engineering, Real Estate & Property Development, and Building Materials Supply.
+              This Privacy Policy governs the collection, processing, and protection of information submitted to {companyData.name} (&ldquo;the Company&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;), a building construction contractor specializing in low-rise residential and commercial construction up to 4–5 floors.
             </p>
           </section>
 
@@ -67,13 +54,12 @@ export default function PrivacyPolicyPage() {
               2. Information We Collect
             </h2>
             <p>
-              We collect information strictly necessary to evaluate civil engineering scopes, process real estate inquiries, generate material supply quotations, and fulfill statutory compliance mandates:
+              We collect information strictly necessary to evaluate construction projects, provide itemized estimates, and coordinate on-site execution:
             </p>
             <ul className="list-disc pl-5 space-y-1 mt-2 text-[#F3F1EC]">
-              <li>Contact details: Name, business email, telephone number, corporate entity affiliation.</li>
-              <li>Project scope data: Construction location, approximate floorplate / site area, structural drawings (if uploaded), and target completion schedules.</li>
-              <li>Procurement specifications: Required steel rebar grades, cement types, and dispatch destinations.</li>
-              <li>Technical telemetries: Standard server access logs, IP addresses, and user-agent data used solely for abuse prevention and rate-limiting.</li>
+              <li>Contact details: Name, email address, and telephone number.</li>
+              <li>Project scope details: Plot or site location, approximate floor area, required room/floor count, and timeline expectations.</li>
+              <li>Technical records: Server access logs and IP addresses used solely for abuse prevention and rate-limiting.</li>
             </ul>
           </section>
 
@@ -85,40 +71,39 @@ export default function PrivacyPolicyPage() {
               Collected information is utilized exclusively for:
             </p>
             <ul className="list-disc pl-5 space-y-1 mt-2 text-[#F3F1EC]">
-              <li>Formulating preliminary Bill of Quantities (BOQ) and structural feasibility assessments.</li>
-              <li>Fulfilling customer service inquiries regarding real estate developments and RERA disclosures.</li>
-              <li>Dispatching material consignments and tracking freight transit.</li>
-              <li>Complying with statutory reporting mandates under Indian corporate and tax legislation.</li>
+              <li>Preparing construction feasibility assessments and stage-wise quotation estimates.</li>
+              <li>Communicating directly with project owners regarding project scopes and schedules.</li>
+              <li>Complying with statutory reporting mandates under Indian tax and commercial legislation.</li>
             </ul>
             <p className="mt-2">
-              We do NOT sell, lease, or monetize customer contact records or project specifications to third-party marketing brokers under any circumstance.
+              We do not sell, rent, or lease customer contact details or project specifications to third-party marketing services under any circumstance.
             </p>
           </section>
 
           <section>
             <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">
-              4. Commercial Confidentiality & Architectural Plans
+              4. Commercial Confidentiality
             </h2>
             <p>
-              Architectural blueprints, CAD models, structural calculations, and commercial budgets submitted through our contact or quote forms are treated as proprietary trade secrets under strict internal confidentiality controls. Access is restricted strictly to licensed quantity surveyors and designated project directors.
+              Architectural blueprints, layout drawings, and project notes submitted through our contact or quote forms are treated as private and confidential between the client and GG Construction Co.
             </p>
           </section>
 
           <section>
             <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">
-              5. Data Security & Server Protections
+              5. Data Security Protections
             </h2>
             <p>
-              We implement comprehensive technological safeguards including TLS 1.3 cryptographic transit protocols, rigorous Content Security Policies (CSP), input sanitization, automated rate-limiting against automated scraping, and strict server-side validation.
+              We implement industry-standard technological safeguards including TLS encryption in transit, strict Content Security Policies (CSP), input sanitization, automated rate-limiting against spam, and secure server-side validation.
             </p>
           </section>
 
           <section>
             <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">
-              6. Grievance Redressal & Contact
+              6. Contact &amp; Enquiries
             </h2>
             <p>
-              For any questions regarding this policy or to request deletion of non-statutory commercial inquiries, please contact our Legal & Compliance Officer:
+              For any questions regarding this policy or your project enquiry data, please contact:
             </p>
             <div className="p-4 bg-[#15191D] border border-[#2A3035] mt-2 font-mono text-xs">
               <span className="block text-[#F3F1EC] font-semibold">GG Construction Co.</span>

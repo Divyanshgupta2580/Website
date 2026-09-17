@@ -8,12 +8,12 @@ import Button from "@/components/ui/Button";
 import { companyData } from "@/data/company";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
-  { label: "Real Estate", href: "/real-estate" },
-  { label: "Materials", href: "/materials" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Testimonials", href: "/testimonials" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -83,7 +83,7 @@ export default function Navbar() {
                 GG Construction Co.
               </span>
               <span className="text-[9px] uppercase tracking-[0.25em] text-[#A7ADB3]">
-                Engineering &bull; Development &bull; Supply
+                Building Construction
               </span>
             </div>
           </Link>
@@ -95,8 +95,9 @@ export default function Navbar() {
           >
             {navLinks.map((link) => {
               const isActive =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname.startsWith(link.href);
               return (
                 <Link
                   key={link.href}
@@ -119,7 +120,7 @@ export default function Navbar() {
           {/* Desktop Primary CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <Button href="/get-a-quote" size="sm" variant="primary">
-              Get a Quote
+              GET A QUOTE
             </Button>
           </div>
 
@@ -131,7 +132,7 @@ export default function Navbar() {
               variant="primary"
               className="py-1.5 px-3 text-[11px]"
             >
-              Quote
+              QUOTE
             </Button>
 
             <button
@@ -164,8 +165,9 @@ export default function Navbar() {
             </div>
             {navLinks.map((link) => {
               const isActive =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname === link.href || pathname.startsWith(link.href);
               return (
                 <Link
                   key={link.href}
@@ -182,17 +184,17 @@ export default function Navbar() {
               );
             })}
             <Link
-              href="/blog"
-              className="flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#2A3035]/50 text-[#A7ADB3]"
-            >
-              <span>Knowledge Centre</span>
-              <ArrowUpRight className="w-4 h-4 opacity-50" />
-            </Link>
-            <Link
               href="/faqs"
               className="flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#2A3035]/50 text-[#A7ADB3]"
             >
               <span>FAQs</span>
+              <ArrowUpRight className="w-4 h-4 opacity-50" />
+            </Link>
+            <Link
+              href="/blog"
+              className="flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#2A3035]/50 text-[#A7ADB3]"
+            >
+              <span>Construction Guidance</span>
               <ArrowUpRight className="w-4 h-4 opacity-50" />
             </Link>
           </div>
@@ -204,7 +206,7 @@ export default function Navbar() {
               size="lg"
               className="w-full"
             >
-              Request a Project Quote
+              GET A QUOTE
             </Button>
 
             <div className="grid grid-cols-2 gap-3">

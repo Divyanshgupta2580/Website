@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowUpRight, ShieldCheck, Truck, Home } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, HardHat, MapPin } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 
@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 bg-[#0B0D0F]">
         <Image
           src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=2200&q=85"
-          alt="Building construction and materials supply"
+          alt="GG Construction Co. building construction work"
           fill
           priority
           sizes="100vw"
@@ -29,66 +29,66 @@ export default function Hero() {
           <div className="inline-flex items-center gap-3 p-1.5 pr-4 mb-6 bg-[#15191D]/80 border border-[#2A3035] backdrop-blur-md">
             <span className="w-2 h-2 rounded-none bg-[#B89A63]" aria-hidden="true" />
             <span className="text-[11px] uppercase tracking-[0.25em] font-mono text-[#F3F1EC]">
-              Building Materials &bull; Construction &bull; Real Estate
+              GG Construction Co. &bull; Building Construction
             </span>
           </div>
 
-          {/* Exact Required Headline */}
+          {/* Construction-Focused Headline */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-[#F3F1EC] leading-[1.08] mb-6 font-display">
-            Building Materials.{" "}
+            Reliable Construction for{" "}
             <span className="text-[#B89A63] font-normal block sm:inline">
-              Construction. Real Estate.
+              Homes &amp; Low-Rise Buildings.
             </span>
           </h1>
 
-          {/* Exact Required Support Text */}
+          {/* Support Text with Local Experience */}
           <p className="text-base sm:text-lg md:text-xl text-[#A7ADB3] leading-relaxed max-w-2xl mb-10 font-light">
-            Reliable building materials, practical construction services and property sales assistance under one trusted name.
+            Specialized in low-rise residential and commercial building construction up to 4–5 floors. GG Construction Co. has carried out construction work across Rohini, Pitampura and nearby areas of Delhi with disciplined site supervision and transparent milestone billing.
           </p>
 
-          {/* Exact Required Dual CTAs */}
+          {/* Primary & Secondary Dual CTAs */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-16">
             <Button
-              href="/contact"
+              href="/get-a-quote"
               variant="primary"
               size="lg"
               className="group"
             >
-              <span>Enquire Now</span>
+              <span>GET A QUOTE</span>
               <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Button>
 
             <Button
-              href="/materials"
+              href="/projects"
               variant="outline"
               size="lg"
             >
-              Explore Materials
+              VIEW PROJECTS
             </Button>
           </div>
 
           {/* Bottom Trust Indicators Grid */}
           <div className="pt-8 border-t border-[#2A3035]/80 grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-[#A7ADB3]">
             <div className="flex items-start gap-3">
-              <Truck className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
+              <HardHat className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
               <div>
                 <span className="text-[#F3F1EC] font-semibold block uppercase tracking-wider text-[11px]">
-                  Building Materials
+                  Low-Rise Specialization
                 </span>
                 <span className="text-[11px] leading-snug block mt-0.5">
-                  Direct site supply of cement, TMT steel, red bricks, sand, and aggregates.
+                  Residential builder floors, independent houses, shops, and offices up to approximately 4–5 floors.
                 </span>
               </div>
             </div>
 
             <div className="flex items-start gap-3">
-              <Home className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
+              <MapPin className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
               <div>
                 <span className="text-[#F3F1EC] font-semibold block uppercase tracking-wider text-[11px]">
-                  Practical Construction
+                  Local Experience
                 </span>
                 <span className="text-[11px] leading-snug block mt-0.5">
-                  Quality civil construction for residential & commercial buildings up to 4–5 floors.
+                  Extensive building execution experience across Rohini, Pitampura, and nearby areas of Delhi.
                 </span>
               </div>
             </div>
@@ -97,10 +97,10 @@ export default function Hero() {
               <ShieldCheck className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
               <div>
                 <span className="text-[#F3F1EC] font-semibold block uppercase tracking-wider text-[11px]">
-                  Property Assistance
+                  On-Site Supervision
                 </span>
                 <span className="text-[11px] leading-snug block mt-0.5">
-                  Transparent buyer-seller coordination and verified property marketing.
+                  Disciplined daily oversight of steel rebar placement, concrete curing, and true masonry lines.
                 </span>
               </div>
             </div>

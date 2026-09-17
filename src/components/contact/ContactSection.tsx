@@ -19,13 +19,13 @@ export default function ContactSection({
   const enquiryChoices = [
     {
       index: "01",
-      title: "BUILDING MATERIALS",
+      title: "RESIDENTIAL CONSTRUCTION",
       isPrimary: true,
-      badge: "PRIMARY BUSINESS",
+      badge: "CORE FOCUS",
       description:
-        "Cement, bricks, blocks, sand, aggregates and other materials for building work.",
-      cta: "EXPLORE MATERIALS",
-      href: "/contact?division=materials#enquiry-form",
+        "Independent homes, builder floors (G+3 and G+4 floors), and residential duplexes with sound RCC structural framing.",
+      cta: "DISCUSS A RESIDENTIAL PROJECT",
+      href: "/contact?type=residential#enquiry-form",
       icon: (
         <svg
           className="w-8 h-8 text-[#B89A63]"
@@ -37,30 +37,21 @@ export default function ContactSection({
           strokeLinejoin="round"
           aria-hidden="true"
         >
-          {/* Top Cube */}
-          <path d="M16 3L23 7V15L16 19L9 15V7L16 3Z" />
-          <path d="M16 3V19" />
-          <path d="M9 7L16 11L23 7" />
-          {/* Bottom Left Cube */}
-          <path d="M9 15L2 19V27L9 31L16 27V19L9 15Z" />
-          <path d="M9 15V31" />
-          <path d="M2 19L9 23L16 19" />
-          {/* Bottom Right Cube */}
-          <path d="M23 15L16 19V27L23 31L30 27V19L23 15Z" />
-          <path d="M23 15V31" />
-          <path d="M16 19L23 23L30 19" />
+          <path d="M5 14L16 5L27 14" />
+          <path d="M8 12V27H24V12" />
+          <path d="M13 27V18H19V27" />
         </svg>
       ),
     },
     {
       index: "02",
-      title: "BUILDING CONSTRUCTION",
+      title: "COMMERCIAL & SHOPS",
       isPrimary: false,
-      badge: "CONSTRUCTION",
+      badge: "COMMERCIAL",
       description:
-        "Residential and low-rise commercial buildings, shops, offices and renovation work.",
-      cta: "DISCUSS A PROJECT",
-      href: "/contact?division=construction#enquiry-form",
+        "Low-rise commercial complexes, retail shop fronts, and small office premises up to 4–5 floors.",
+      cta: "DISCUSS A COMMERCIAL PROJECT",
+      href: "/contact?type=commercial#enquiry-form",
       icon: (
         <svg
           className="w-8 h-8 text-[#B89A63]"
@@ -72,31 +63,26 @@ export default function ContactSection({
           strokeLinejoin="round"
           aria-hidden="true"
         >
-          {/* Ground level line */}
           <line x1="3" y1="28" x2="29" y2="28" />
-          {/* 4-Floor Low-Rise Building Frame */}
           <rect x="7" y="6" width="18" height="22" rx="0.5" />
-          {/* Floor levels */}
           <line x1="7" y1="12" x2="25" y2="12" />
           <line x1="7" y1="17" x2="25" y2="17" />
           <line x1="7" y1="22" x2="25" y2="22" />
-          {/* Vertical structural columns */}
           <line x1="13" y1="6" x2="13" y2="28" />
           <line x1="19" y1="6" x2="19" y2="28" />
-          {/* Entrance opening */}
           <path d="M13 28V23H19V28" />
         </svg>
       ),
     },
     {
       index: "03",
-      title: "REAL ESTATE SALES",
+      title: "RENOVATION & ADDITIONS",
       isPrimary: false,
-      badge: "PROPERTY SALES",
+      badge: "RENOVATION",
       description:
-        "Property marketing, buying opportunities and buyer-seller coordination.",
-      cta: "VIEW PROPERTY OPTIONS",
-      href: "/contact?division=real-estate#enquiry-form",
+        "Vertical floor additions, structural strengthening, AAC block masonry, and building modernization.",
+      cta: "DISCUSS A RENOVATION",
+      href: "/contact?type=renovation#enquiry-form",
       icon: (
         <svg
           className="w-8 h-8 text-[#B89A63]"
@@ -108,10 +94,10 @@ export default function ContactSection({
           strokeLinejoin="round"
           aria-hidden="true"
         >
-          {/* Architectural House / Roof Outline */}
-          <path d="M5 14L16 5L27 14" />
-          <path d="M8 12V27H24V12" />
-          <path d="M13 27V18H19V27" />
+          <path d="M14 4L18 8L7 19L3 19L3 15L14 4Z" />
+          <path d="M16 6L20 10" />
+          <line x1="10" y1="28" x2="28" y2="28" />
+          <line x1="18" y1="20" x2="26" y2="28" />
         </svg>
       ),
     },
@@ -128,59 +114,56 @@ export default function ContactSection({
       <Container size="default" className="relative z-10">
         {/* Top Contact Composition: Editorial Two-Column with Low-Rise Architectural Accent */}
         <div className="relative">
-          {/* Tasteful Architectural Background Image on Right Side */}
+          {/* Architectural Background Image on Right Side */}
           <div
             className="absolute right-0 top-0 bottom-0 w-full sm:w-[50%] lg:w-[46%] xl:w-[42%] overflow-hidden pointer-events-none select-none opacity-40 sm:opacity-50 lg:opacity-75 transition-opacity"
             aria-hidden="true"
           >
             <Image
               src="/images/contact-architecture.jpg"
-              alt="GG Construction Co. Architectural Entrance"
+              alt="GG Construction Co. Architectural Structure"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover object-right"
               priority
             />
-            {/* Dark gradient overlay blending seamlessly from left to right */}
+            {/* Dark gradient overlays */}
             <div
               className="absolute inset-0 bg-gradient-to-r from-[#0B0D0F] via-[#0B0D0F]/85 to-transparent"
               aria-hidden="true"
             />
-            {/* Dark gradient overlay blending from bottom to top */}
             <div
               className="absolute inset-0 bg-gradient-to-t from-[#0B0D0F] via-[#0B0D0F]/30 to-transparent"
               aria-hidden="true"
             />
-            {/* Subtle top shadow */}
             <div
               className="absolute inset-0 bg-gradient-to-b from-[#0B0D0F]/70 via-transparent to-transparent"
               aria-hidden="true"
             />
 
-            {/* Architectural Typography on the Wall matching core business divisions */}
+            {/* Architectural Typography on the Wall */}
             <div
               className="absolute right-6 top-10 hidden 2xl:flex flex-col items-end text-right space-y-1 opacity-65 pointer-events-none"
               aria-hidden="true"
             >
               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#8A95A0]">BUILDING</span>
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#8A95A0]">MATERIALS</span>
               <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#8A95A0]">CONSTRUCTION</span>
-              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#8A95A0]">REAL ESTATE</span>
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#8A95A0]">SUPERVISION</span>
+              <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#8A95A0]">DELHI NCR</span>
             </div>
             <div
               className="absolute right-6 bottom-4 hidden 2xl:block text-right opacity-50 pointer-events-none"
               aria-hidden="true"
             >
-              <span className="text-[9px] font-mono tracking-[0.25em] uppercase text-[#8A95A0] block">PRACTICAL SOLUTIONS.</span>
-              <span className="text-[9px] font-mono tracking-[0.25em] uppercase text-[#8A95A0] block">STRONGER TOMORROWS.</span>
+              <span className="text-[9px] font-mono tracking-[0.25em] uppercase text-[#8A95A0] block">PRACTICAL CONSTRUCTION.</span>
+              <span className="text-[9px] font-mono tracking-[0.25em] uppercase text-[#8A95A0] block">HONEST SUPERVISION.</span>
             </div>
           </div>
 
           {/* Two-Column Editorial Grid */}
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0 items-center">
-            {/* LEFT COLUMN: Eyebrow, Large Editorial Headline, Supporting Copy, Action CTAs, Desktop Call Link */}
+            {/* LEFT COLUMN */}
             <div className="lg:col-span-6 lg:pr-10 xl:pr-14 space-y-6">
-              {/* Editorial Eyebrow with Subtle Bronze Line */}
               <div className="inline-flex items-center gap-3">
                 <span className="w-6 h-[1px] bg-[#B89A63]" aria-hidden="true" />
                 <span className="text-[11px] font-mono font-medium tracking-[0.25em] text-[#B89A63] uppercase">
@@ -188,22 +171,20 @@ export default function ContactSection({
                 </span>
               </div>
 
-              {/* Main Headline with Intentional Editorial Line Break */}
               <HeadingTag
                 id="contact-heading"
                 className="text-4xl sm:text-5xl lg:text-[50px] xl:text-[54px] font-light text-[#F3F1EC] leading-[1.14] tracking-tight font-serif"
               >
-                Let’s Build, Buy &amp;
+                Let’s Build
                 <br />
-                Source Together.
+                Together.
               </HeadingTag>
 
-              {/* Supporting Text Reflecting Three Core Activities */}
               <p className="text-sm sm:text-[15px] text-[#A7ADB3] leading-relaxed max-w-lg font-light">
-                Looking for building materials, planning a low-rise building, or exploring a property opportunity? Get in touch with GG Construction Co.
+                Planning a residential home, builder floor, shop, or commercial building? Get in touch with GG Construction Co. We have carried out construction work across Rohini, Pitampura and nearby areas of Delhi.
               </p>
 
-              {/* Action Buttons: Primary (GET A QUOTE) & Secondary (EMAIL US) */}
+              {/* Action Buttons */}
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
                 <Link
                   href="/get-a-quote"
@@ -222,7 +203,7 @@ export default function ContactSection({
                 </a>
               </div>
 
-              {/* Desktop Direct Phone Quick Link */}
+              {/* Desktop Direct Phone Link */}
               <div className="pt-2 hidden lg:block">
                 <a
                   href={`tel:${companyData.contact.phone}`}
@@ -234,26 +215,26 @@ export default function ContactSection({
                   </div>
                   <div>
                     <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-[#B89A63] font-medium">
-                      CALL US
+                      CALL US DIRECTLY
                     </span>
                     <span className="block text-sm font-mono text-[#F3F1EC] group-hover:text-[#D0B47A] transition-colors">
                       {companyData.contact.phoneFormatted}
                     </span>
                     <span className="block text-[11px] text-[#A7ADB3]">
-                      For enquiries about materials, construction or property.
+                      Direct project discussion with our construction team.
                     </span>
                   </div>
                 </a>
               </div>
             </div>
 
-            {/* VERTICAL DIVIDER between columns on desktop */}
+            {/* Vertical Divider */}
             <div
               className="hidden lg:block lg:col-span-1 lg:w-[1px] h-full min-h-[300px] bg-[#2A3035] justify-self-center"
               aria-hidden="true"
             />
 
-            {/* RIGHT COLUMN: Clean Editorial Contact-Information Panel */}
+            {/* RIGHT COLUMN */}
             <div className="lg:col-span-5 lg:pl-6 xl:pl-10 space-y-8 sm:space-y-10">
               {/* PHONE */}
               <div className="group">
@@ -263,7 +244,7 @@ export default function ContactSection({
                   </div>
                   <div className="flex-1">
                     <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#B89A63] block mb-1 font-medium">
-                      CALL US
+                      PHONE
                     </span>
                     <a
                       href={`tel:${companyData.contact.phone}`}
@@ -279,7 +260,7 @@ export default function ContactSection({
                       />
                     </a>
                     <p className="text-xs text-[#A7ADB3] mt-1.5 font-light">
-                      For enquiries about materials, construction or property.
+                      Speak directly regarding ongoing or planned construction projects.
                     </p>
                   </div>
                 </div>
@@ -309,7 +290,7 @@ export default function ContactSection({
                       />
                     </a>
                     <p className="text-xs text-[#A7ADB3] mt-1.5 font-light">
-                      Send us an email and we&apos;ll get back to you.
+                      Send drawings or project specifications directly to our desk.
                     </p>
                   </div>
                 </div>
@@ -318,15 +299,14 @@ export default function ContactSection({
           </div>
         </div>
 
-        {/* Thin Full-Width Architectural Divider */}
+        {/* Thin Divider */}
         <div
           className="w-full h-[1px] bg-[#2A3035] my-12 sm:my-16 lg:my-18"
           aria-hidden="true"
         />
 
-        {/* Secondary Enquiry Section: Minimal 3-Column Layout with Building Materials Prominence */}
+        {/* Secondary Enquiry Options */}
         <div>
-          {/* Section Header Row */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 sm:mb-10">
             <div className="flex items-center gap-2">
               <span className="text-[11px] font-mono text-[#B89A63]">01</span>
@@ -336,11 +316,10 @@ export default function ContactSection({
               </span>
             </div>
             <div className="text-[11px] uppercase tracking-[0.25em] font-mono text-[#667582] pb-0.5 border-b border-[#2A3035] self-start sm:self-auto">
-              DEDICATED ENQUIRY OPTIONS
+              CONSTRUCTION ENQUIRY PATHS
             </div>
           </div>
 
-          {/* Three Horizontally Aligned Editorial Enquiry Items */}
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#2A3035]">
             {enquiryChoices.map((item) => (
               <Link
@@ -351,7 +330,6 @@ export default function ContactSection({
                 }`}
                 aria-label={`${item.title}: ${item.description}`}
               >
-                {/* Numbering and Priority Badge */}
                 <div className="flex items-center justify-between mb-5">
                   <span
                     className={`text-xs font-mono tracking-widest font-medium ${
@@ -371,7 +349,6 @@ export default function ContactSection({
                   )}
                 </div>
 
-                {/* Category Header Row: Icon + Title + Circle Arrow Button */}
                 <div className="flex items-start justify-between gap-3 mb-3.5">
                   <div className="flex items-center gap-3.5">
                     <div
@@ -402,12 +379,10 @@ export default function ContactSection({
                   </div>
                 </div>
 
-                {/* Restrained Description */}
                 <p className="text-xs text-[#A7ADB3] leading-relaxed mb-6 font-light group-hover:text-[#F3F1EC]/90 transition-colors">
                   {item.description}
                 </p>
 
-                {/* Bottom Underline Action with Exact Required CTA Label */}
                 <div
                   className={`inline-flex items-center gap-1.5 text-[11px] uppercase tracking-[0.2em] font-mono pb-0.5 transition-colors ${
                     item.isPrimary

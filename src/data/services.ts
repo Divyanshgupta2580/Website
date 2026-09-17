@@ -32,618 +32,468 @@ export const servicesData: ServiceItem[] = [
   {
     slug: "residential-construction",
     title: "Residential Building Construction",
-    shortDescription: "Complete construction of independent family houses, builder floors, duplex homes, and residential buildings up to 4–5 floors.",
+    shortDescription:
+      "Complete construction of independent family houses, builder floors, and residential buildings up to 4–5 floors with quality RCC structural framing and dedicated site supervision.",
     iconName: "Home",
-    heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+    heroImage:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
     badge: "Residential Specialist",
-    overview: "GG Construction Co. specializes in constructing sturdy, practical residential buildings including independent houses, family floors, and apartment buildings up to 4–5 floors. We coordinate all stages from foundation footings and brickwork to casting, plastering, plumbing, and electrical finishing with hands-on site supervision.",
+    overview:
+      "GG Construction Co. specializes in constructing sturdy, practical residential buildings including independent family houses, builder floors (G+3 and G+4 floors), and duplex residences across Rohini, Pitampura, and nearby areas of Delhi. We manage the construction process from foundation excavation and plinth casting to brick masonry, RCC slab pouring, plastering, and finishing with attentive on-site supervision.",
     capabilities: [
-      "Independent family home and villa construction",
-      "Builder floor buildings (G+3 and G+4 floors)",
-      "Foundation footing excavation and RCC column casting",
-      "Quality brickwork and plastering with verified cement and sand",
-      "Plumbing, electrical conduit laying and finishing work",
-      "Flooring, tile setting, interior painting and waterproofing",
+      "Independent family home and house construction",
+      "Residential builder floors (G+3 and G+4 floor configurations)",
+      "Foundation footing excavation, PCC bed, and RCC plinth beam casting",
+      "Quality red brick and lightweight AAC block wall masonry",
+      "Electrical conduit routing and sanitary plumbing line installation",
+      "Smooth internal cement plastering, external weather-coat, and tile flooring",
     ],
     benefits: [
       {
-        title: "Hands-On Supervision",
-        description: "Our experienced team is on-site to inspect steel tie-ups, concrete casting, and brick alignment at every stage.",
+        title: "Hands-On Site Supervision",
+        description:
+          "Our experienced construction team inspects reinforcement placement, concrete batching, and brick alignment on site every day.",
       },
       {
-        title: "Direct Material Quality",
-        description: "Our building materials supply arm ensures proper cement, verified TMT steel, and sound bricks are used directly on your home.",
+        title: "Durable Structural Execution",
+        description:
+          "We follow disciplined building standards with proper water-cement ratios and full 14–21 day curing cycles for all slabs and columns.",
       },
       {
-        title: "Transparent Cost Estimation",
-        description: "We provide clear itemized estimates for materials and labor so you know your project costs upfront.",
+        title: "Transparent Itemized Estimates",
+        description:
+          "Clear cost breakdowns for civil work, masonry, and finishing stages so you know your project budget upfront.",
       },
       {
-        title: "Realistic Timelines",
-        description: "We establish practical, achievable construction schedules and keep you updated as each floor progresses.",
+        title: "Realistic Construction Schedules",
+        description:
+          "We establish practical timelines for each floor and keep you updated as each structural milestone is reached.",
       },
     ],
     process: [
       {
         stepNumber: "01",
         title: "Plot Inspection & Requirement Discussion",
-        description: "Review of plot dimensions, soil condition, floor plan requirements, and target budget.",
-        deliverables: ["Initial Scope Summary", "Basic Layout Plan", "Preliminary Cost Estimate"],
+        description:
+          "Review of plot dimensions, soil conditions, room layouts, floor configuration, and target budget.",
+        deliverables: ["Initial Scope Summary", "Layout Discussion", "Preliminary Cost Estimate"],
       },
       {
         stepNumber: "02",
-        title: "Foundation & Substructure",
-        description: "Excavation, anti-termite treatment, PCC base, RCC footings, plinth beam casting, and damp-proof course.",
+        title: "Foundation & Plinth Substructure",
+        description:
+          "Excavation, anti-termite treatment, PCC base, RCC footings, and plinth beam casting with damp-proof course (DPC).",
         deliverables: ["Plinth Level Verification", "Foundation Quality Check", "Plinth Beam Inspection"],
       },
       {
         stepNumber: "03",
-        title: "Superstructure & Brickwork",
-        description: "RCC columns, beam casting, slab casting per floor, followed by exterior and interior brick wall masonry.",
-        deliverables: ["Slab Curing Records", "Brickwork Alignment Check", "Window & Door Frame Fixing"],
+        title: "Superstructure & Slab Casting",
+        description:
+          "RCC columns, beam framing, formwork shuttering, and roof slab casting per floor with disciplined concrete curing.",
+        deliverables: ["Slab Curing Records", "Structural Frame Verification", "Lintel & Beam Check"],
       },
       {
         stepNumber: "04",
-        title: "Plumbing, Electrical & Plaster",
-        description: "Concealed electrical and plumbing lines, internal wall plastering, exterior weather-coat plaster, and tile base prep.",
+        title: "Brickwork, Plumbing & Electrical",
+        description:
+          "Exterior and interior wall masonry, concealed electrical conduit piping, and sanitary drainage lines.",
         deliverables: ["Plumbing Pressure Test", "Conduit Verification", "Plaster Curing Confirmation"],
       },
       {
         stepNumber: "05",
         title: "Finishing & Handover",
-        description: "Flooring, wall putty, painting, sanitary ware fitting, doors, and final client walkthrough for handover.",
-        deliverables: ["Completed Building Handover", "Final Itemized Accounts", "Ongoing Support Contact"],
+        description:
+          "Internal and external plastering, waterproofing, flooring, and a comprehensive client walkthrough before handover.",
+        deliverables: ["Completed Building Handover", "Final Milestone Accounts", "Ongoing Support Contact"],
       },
     ],
     relatedProjectSlugs: ["residential-building-4-floors", "family-residence-3-floors"],
     faqs: [
       {
-        question: "What is the typical scale of residential buildings you construct?",
-        answer: "We typically build residential projects ranging from single-family houses to 3, 4, and 5-floor residential apartment/builder floor buildings.",
+        question: "What types of residential buildings do you construct?",
+        answer:
+          "We build independent homes, builder floors (typically G+3 or G+4 floors), and residential duplexes up to approximately 4–5 floors maximum across Rohini, Pitampura, and nearby Delhi areas.",
       },
       {
-        question: "Can we source our own finishing materials like tiles and sanitary fittings?",
-        answer: "Yes. Clients are welcome to choose their own tiles, paint shades, and sanitary fixtures, or we can assist in procuring them through our trade contacts.",
+        question: "How do you ensure structural quality during slab casting?",
+        answer:
+          "We verify steel rebar placement against structural drawings, ensure proper concrete cover, monitor mechanical vibration during the pour, and enforce strict 14 to 21-day pond curing for maximum compressive strength.",
+      },
+      {
+        question: "Can you work from our existing architectural drawings?",
+        answer:
+          "Yes. If you already have approved drawings and municipal sanctions, we review them carefully, provide an itemized construction estimate, and execute the civil construction accordingly.",
       },
     ],
   },
   {
     slug: "commercial-construction",
-    title: "Commercial Building Construction",
-    shortDescription: "Construction of small to medium-sized commercial premises, office buildings, and retail complexes up to 4–5 floors.",
+    title: "Low-Rise Commercial Construction",
+    shortDescription:
+      "Construction of small commercial buildings, office complexes, and retail premises up to 4–5 floors with open floor plans and durable civil finishes.",
     iconName: "Building2",
-    heroImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
-    badge: "Commercial Buildings",
-    overview: "We construct practical, functional commercial buildings up to 4–5 floors tailored for local businesses, corporate offices, clinics, and professional practices. Our focus is on open floor layouts, durable finishes, reliable plumbing and electrical distribution, and timely completion.",
+    heroImage:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
+    badge: "Commercial Specialist",
+    overview:
+      "GG Construction Co. provides practical commercial construction services for low-rise commercial buildings, shops, and small offices up to 4–5 floors across Rohini, Pitampura, and nearby areas of Delhi. We build durable structures designed for high footfall, practical column placement for open commercial layouts, and robust utility infrastructure.",
     capabilities: [
-      "Low-rise commercial office buildings (up to 4–5 floors)",
-      "Open floor-plate designs for office cubicles and meeting rooms",
-      "Sturdy commercial staircases and lift shaft construction",
-      "Heavy-duty commercial vitrified tile and granite flooring",
-      "Commercial electrical power distribution and backup wiring prep",
-      "Exterior modern facade, ACP panel, or glass elevation work",
+      "Low-rise commercial buildings and office blocks up to 4–5 floors",
+      "Wide-span beam and column layouts for flexible commercial floor plates",
+      "Sturdy ground-floor storefronts and customer entrance construction",
+      "Staircase, ramp, and commercial passenger lift shaft integration",
+      "Heavy-duty commercial flooring and electrical sub-meter provisions",
+      "Terrace waterproofing and low-maintenance exterior wall finishes",
     ],
     benefits: [
       {
-        title: "Optimized Usable Space",
-        description: "We plan beam and column positions to maximize open commercial floor space for tenants or your own business.",
+        title: "Open Commercial Layouts",
+        description:
+          "RCC column-beam structural designs that maximize usable floor area for showrooms, offices, or retail partitions.",
       },
       {
-        title: "Durable Commercial Finishes",
-        description: "Using quality cement, heavy-duty tiles, and weather-resistant exterior finishes designed for regular foot traffic.",
+        title: "Local Execution Experience",
+        description:
+          "Demonstrated construction experience in commercial hubs and neighborhood markets across Rohini, Pitampura, and Delhi.",
       },
       {
-        title: "Direct Material Logistics",
-        description: "Our material supply arm keeps construction moving without waiting on delayed local retail dealers.",
+        title: "Stage-Wise Milestone Delivery",
+        description:
+          "Structured milestone schedules that keep commercial building owners informed and work progressing steadily.",
       },
       {
-        title: "Practical Commercial Advice",
-        description: "We guide you on cost-effective construction choices that look professional while keeping capital expenditure reasonable.",
+        title: "Heavy-Duty Specifications",
+        description:
+          "Commercial-grade concrete, durable floor screeds, and resilient waterproofing suitable for business operations.",
       },
     ],
     process: [
       {
         stepNumber: "01",
-        title: "Commercial Needs Assessment",
-        description: "Reviewing commercial plot zoning, client parking requirements, intended tenant use, and floor heights.",
-        deliverables: ["Commercial Feasibility Note", "Floor Height Recommendations", "Preliminary BOQ"],
+        title: "Commercial Site & Layout Planning",
+        description:
+          "Site access analysis, plot survey, commercial utility assessment, and review of intended occupancy.",
+        deliverables: ["Site Logistics Plan", "Floor Layout Scope", "Preliminary Commercial Estimate"],
       },
       {
         stepNumber: "02",
-        title: "RCC Frame & Slab Casting",
-        description: "Constructing columns, lift shaft walls, and RCC slabs designed for commercial live loads per standard building codes.",
-        deliverables: ["Frame Inspection", "Slab Casting Verification", "Lift Well Alignment"],
+        title: "Heavy Footing & Substructure",
+        description:
+          "Deep footing excavation, plinth casting, and ground preparation designed for commercial floor loadings.",
+        deliverables: ["Substructure Inspection", "DPC Application Record", "Load Bearing Check"],
       },
       {
         stepNumber: "03",
-        title: "Masonry & Core Services",
-        description: "Brick or AAC block partition walls, washroom blocks, commercial plumbing risers, and heavy electrical conduit runs.",
-        deliverables: ["Masonry Inspection", "Riser Testing", "Concealed Piping Checks"],
+        title: "RCC Frame & Wide-Span Slabs",
+        description:
+          "Pouring commercial columns, transfer beams, and floor slabs with monitored curing schedules.",
+        deliverables: ["Frame Dimensional Verification", "Slab Pouring Log", "Curing Records"],
       },
       {
         stepNumber: "04",
-        title: "Commercial Finishes & Handover",
-        description: "High-traffic floor tiles, glass or ACP facade installation, entrance foyer finishes, and final utility testing.",
-        deliverables: ["Ready-for-Fitout Handover", "As-Built Utility Guide", "Final Statement of Accounts"],
+        title: "Wall Enclosures & Services Channeling",
+        description:
+          "Masonry partition walls, high-capacity electrical conduits, commercial plumbing lines, and fire staircases.",
+        deliverables: ["Utility Conduits Sign-off", "Plumbing Pressure Test", "Wall Alignment Inspection"],
+      },
+      {
+        stepNumber: "05",
+        title: "Commercial Finishing & Handover",
+        description:
+          "Tiling, facade plastering, rolling shutter / glass front openings, and joint site inspection for handover.",
+        deliverables: ["Building Handover Document", "As-Built Scope Notes", "Operational Contacts"],
       },
     ],
     relatedProjectSlugs: ["commercial-building-4-floors", "shop-and-office-building-3-floors"],
     faqs: [
       {
-        question: "What is the maximum height of commercial buildings you undertake?",
-        answer: "We focus on low-rise and mid-rise commercial buildings typically up to 4 or 5 floors.",
+        question: "What is your typical commercial building scale?",
+        answer:
+          "We construct small to medium low-rise commercial buildings, typically between 2 to 5 floors, including commercial shops, standalone office buildings, and retail blocks.",
       },
       {
-        question: "Can you provide bare-shell handover for tenant customization?",
-        answer: "Yes, we frequently complete bare-shell or semi-finished commercial buildings where tenants install customized interiors.",
+        question: "Can you accommodate lift provisions in low-rise commercial structures?",
+        answer:
+          "Yes. We regularly construct reinforced RCC lift shafts and machine rooms for standard commercial passenger or freight lifts in 3 to 5-floor buildings.",
+      },
+      {
+        question: "How do you manage construction on tight commercial plots?",
+        answer:
+          "We carefully schedule off-peak material deliveries, coordinate daily site cleanliness, and use compact staging areas to prevent disruption to surrounding businesses.",
       },
     ],
   },
   {
-    slug: "turnkey-construction",
-    title: "Turnkey Building Construction",
-    shortDescription: "Complete single-point construction responsibility from plot excavation and civil structure to interior handover.",
-    iconName: "KeyRound",
-    heroImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1600&q=80",
-    badge: "Complete Building Contract",
-    overview: "Our Turnkey Building Construction service is designed for property owners who want a complete, single-point solution. We manage the entire building process—from raw earth excavation and foundation casting to masonry, roofing, plastering, wiring, plumbing, and painting—delivering a move-in ready building on time.",
+    slug: "shop-office-construction",
+    title: "Shop & Office Construction",
+    shortDescription:
+      "Dedicated construction of retail shops, showroom spaces, and workplace office structures with practical layouts and reliable utilities.",
+    iconName: "Briefcase",
+    heroImage:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
+    badge: "Commercial Workspaces",
+    overview:
+      "GG Construction Co. constructs dedicated retail shops, local commercial markets, and small office premises across Rohini, Pitampura, and nearby areas of Delhi. We focus on durable building construction that maximizes floor visibility, storefront access, and practical utility integration for commercial tenants and business owners.",
     capabilities: [
-      "Single-point contractor responsibility for civil and finishing work",
-      "Direct procurement of verified cement, TMT steel, and brick supplies",
-      "Coordination of skilled masons, steel fixers, carpenters, and painters",
-      "Complete plumbing and electrical sanitary installation",
-      "Quality floor tiling, granite counters, doors, and window installations",
-      "Final site cleanup and keys handover with complete billing transparency",
+      "Retail shop and storefront civil construction",
+      "Multi-unit neighborhood market and shop row construction",
+      "Office building shells and floor partitions",
+      "High-durability vitrified tile flooring and heavy-duty thresholds",
+      "Electrical cable conduits planned for computers, lighting, and HVAC",
+      "Restroom and pantry plumbing lines for commercial occupancies",
     ],
     benefits: [
       {
-        title: "Single Accountability",
-        description: "No disputes between different labor contractors or material vendors. We handle everything under one roof.",
+        title: "Retail-Ready Spaces",
+        description:
+          "Practical frontage layouts with clear openings for glass facades or rolling shutters.",
       },
       {
-        title: "Material Cost Advantage",
-        description: "Direct access to our own building materials division eliminates dealer markups on cement, sand, and steel.",
+        title: "Robust Electrical & Utility Planning",
+        description:
+          "Proper conduit layouts designed for commercial air conditioning, lighting, and signage.",
       },
       {
-        title: "Owner Peace of Mind",
-        description: "You don't need to spend every day managing laborers or chasing suppliers; we handle daily site coordination.",
+        title: "Durable Finishes",
+        description:
+          "Wear-resistant plastering and flooring designed to withstand daily customer foot traffic.",
       },
       {
-        title: "Transparent Progress Billing",
-        description: "Payments are tied directly to visible project milestones (foundation, each slab, brickwork, plaster, and finishing).",
+        title: "Timely Project Execution",
+        description:
+          "Focused scheduling to help business owners open and begin commercial operations on time.",
       },
     ],
     process: [
       {
         stepNumber: "01",
-        title: "Scope & Specification Agreement",
-        description: "Defining structural specifications, tile grades, sanitary brands, and milestone payment schedules.",
-        deliverables: ["Signed Agreement", "Detailed Specification Sheet", "Milestone Schedule"],
+        title: "Requirement & Commercial Review",
+        description:
+          "Discussion of shop dimensions, counter requirements, electrical points, and access layout.",
+        deliverables: ["Scope Definition", "Shop Layout Check", "Itemized Budget"],
       },
       {
         stepNumber: "02",
-        title: "Foundation to Plinth",
-        description: "Earthwork excavation, footing casting, anti-termite treatment, and plinth beam completion.",
-        deliverables: ["Plinth Milestone Inspection", "Material Testing Review"],
+        title: "Civil Shell & Masonry Construction",
+        description:
+          "Foundational masonry, structural framing, boundary partitions, and ceiling slab casting.",
+        deliverables: ["Structural Shell Check", "Partition Layout Verification"],
       },
       {
         stepNumber: "03",
-        title: "Floor Slab Castings",
-        description: "Sequential casting of columns, beams, and slabs up to the terrace floor with proper curing periods.",
-        deliverables: ["Slab Completion Certificates", "Weekly Progress Photos"],
+        title: "Services, Plaster & Flooring",
+        description:
+          "Laying concealed power cables, sanitary plumbing lines, wall plastering, and floor base preparation.",
+        deliverables: ["Conduit Layout Sign-off", "Plaster Curing Confirmation"],
       },
       {
         stepNumber: "04",
         title: "Finishing & Handover",
-        description: "Masonry, plastering, electrical, plumbing, tiling, painting, and thorough walkthrough before final handover.",
-        deliverables: ["Move-In Ready Handover", "Warranty on Workmanship", "Final Settlement"],
+        description:
+          "Flooring tile installation, shutter/frame fittings, wall painting, and complete cleanup for occupancy.",
+        deliverables: ["Final Inspection", "Commercial Handover"],
       },
     ],
-    relatedProjectSlugs: ["residential-building-4-floors", "mixed-use-building-5-floors"],
+    relatedProjectSlugs: ["shop-and-office-building-3-floors", "commercial-building-4-floors"],
     faqs: [
       {
-        question: "How are payments structured on a turnkey building contract?",
-        answer: "Payments are divided into milestone stages: advance on signing, foundation completion, each roof slab casting, plaster completion, and final handover.",
+        question: "Do you construct standalone shops as well as multi-shop complexes?",
+        answer:
+          "Yes, we build both individual retail shops and small commercial row complexes with multiple shop units.",
       },
       {
-        question: "Who purchases the building materials on a turnkey contract?",
-        answer: "On turnkey contracts, we supply and manage all primary materials (cement, steel, bricks, sand, aggregate) directly through our materials division.",
-      },
-    ],
-  },
-  {
-    slug: "industrial-construction",
-    title: "Low-Rise & Workshop Construction",
-    shortDescription: "Construction of low-rise storage godowns, light manufacturing workshops, and commercial sheds.",
-    iconName: "Warehouse",
-    heroImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80",
-    badge: "Godowns & Workshops",
-    overview: "We undertake practical low-rise industrial building construction for local businesses needing godowns, storage sheds, workshops, or light assembly spaces. We construct reinforced concrete flooring, durable masonry boundary walls, and sturdy structural roofing.",
-    capabilities: [
-      "Low-rise warehouse and storage godown construction",
-      "Small workshop and light industrial shed building",
-      "Reinforced concrete industrial floor slabs for equipment loads",
-      "Boundary wall construction, security gates, and perimeter fencing",
-      "Ventilated roofing, water drainage channels, and loading bays",
-      "Heavy electrical load wiring prep and industrial lighting layout",
-    ],
-    benefits: [
-      {
-        title: "Durable Floor Construction",
-        description: "We cast high-strength concrete floors properly cured to withstand vehicular movement and goods stacking.",
-      },
-      {
-        title: "Speedy Execution",
-        description: "Simple, robust structural design that allows workshops and godowns to become operational quickly.",
-      },
-      {
-        title: "Practical Material Sourcing",
-        description: "Direct supply of structural steel sections, cement, and aggregates to keep storage construction cost-effective.",
-      },
-      {
-        title: "Weatherproof Construction",
-        description: "Proper rainwater drainage, roof overhangs, and waterproofing to safeguard stored goods.",
-      },
-    ],
-    process: [
-      {
-        stepNumber: "01",
-        title: "Site & Load Assessment",
-        description: "Evaluating soil stability, vehicle turning space, floor loading requirements, and shed dimensions.",
-        deliverables: ["Layout Proposal", "Floor Thickness Recommendation", "Cost Estimate"],
-      },
-      {
-        stepNumber: "02",
-        title: "Foundations & Heavy Flooring",
-        description: "Excavation, base compaction, reinforcement mesh laying, and heavy-duty concrete floor casting.",
-        deliverables: ["Compaction Verification", "Floor Pour Inspection"],
-      },
-      {
-        stepNumber: "03",
-        title: "Superstructure & Roof Installation",
-        description: "Brick or block side masonry, structural columns, roof trusses, and profile sheet installation.",
-        deliverables: ["Roof Water-tightness Check", "Side Masonry Quality Check"],
-      },
-      {
-        stepNumber: "04",
-        title: "Shutters, Electrical & Handover",
-        description: "Rolling shutter installation, industrial lighting and power connection points, and site handover.",
-        deliverables: ["Completed Shed Handover", "Operational Signoff"],
-      },
-    ],
-    relatedProjectSlugs: ["commercial-building-4-floors"],
-    faqs: [
-      {
-        question: "Do you build large logistics parks or mega industrial plants?",
-        answer: "No. We focus on small to medium-sized commercial sheds, storage godowns, and local workshop buildings.",
+        question: "Can you assist with structural modifications for existing shops?",
+        answer:
+          "Yes, we undertake shop expansions, wall removals with proper structural lintel supports, and updated commercial floorings.",
       },
     ],
   },
   {
     slug: "renovation-remodeling",
-    title: "Renovation & Remodeling",
-    shortDescription: "Structural additions, floor additions, home remodeling, and complete building modernization.",
+    title: "Renovation & Structural Improvement",
+    shortDescription:
+      "Vertical floor additions, structural strengthening, layout remodeling, and building improvements for existing residential and commercial buildings.",
     iconName: "Hammer",
-    heroImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80",
-    badge: "Building Remodeling",
-    overview: "GG Construction Co. provides comprehensive renovation, remodeling, and structural improvement services. Whether you want to add an additional floor to an existing residential building, reconfigure commercial shop layouts, or modernise an older property, we deliver safe, clean execution with minimal disruption.",
+    heroImage:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80",
+    badge: "Building Renovation",
+    overview:
+      "GG Construction Co. provides comprehensive building renovation and structural improvement services across Rohini, Pitampura, and nearby areas of Delhi. We specialize in vertical additions (adding an upper floor or room extension to an existing structure), structural column retrofitting, dampness rectification, terrace waterproofing, and modernizing older residential and commercial buildings.",
     capabilities: [
-      "Additional floor construction on existing building structures",
-      "Internal wall removal and structural beam retrofitting",
-      "Complete bathroom, kitchen, and living space renovation",
-      "Exterior facade rejuvenation, plaster repair, and weather coating",
-      "Dampness treatment, terrace waterproofing, and roof resurfacing",
-      "Complete electrical rewiring and modern plumbing replacement",
+      "Vertical floor additions (adding 3rd or 4th floor to existing residential buildings)",
+      "Room extensions and structural layout reconfiguration",
+      "RCC column and beam retrofitting with structural steel brackets",
+      "Lightweight AAC block masonry to minimize dead load on existing foundations",
+      "Terrace and roof waterproofing to permanently resolve seepage",
+      "Complete replacement of aging plumbing lines, electrical conduits, and floor tiles",
     ],
     benefits: [
       {
-        title: "Structural Safety First",
-        description: "We assess the existing building's columns and foundations before recommending any floor additions or wall modifications.",
+        title: "Careful Structural Assessment",
+        description:
+          "We evaluate existing foundations and columns before adding floors or altering load-bearing walls.",
       },
       {
-        title: "Quality Upgraded Materials",
-        description: "Replacing aging pipes, degraded wiring, and worn tiles with durable, modern materials sourced from our supply arm.",
+        title: "Lightweight Material Utilization",
+        description:
+          "Using precision AAC blocks and lightweight mortar to keep structural dead weight within safe limits.",
       },
       {
-        title: "Clean, Organized Site Management",
-        description: "We take care to manage debris disposal and maintain clean working conditions to minimize inconvenience to occupants.",
+        title: "Minimal Disturbance to Occupants",
+        description:
+          "Systematic phasing of demolition and construction to keep disruptions to lower floors to a minimum.",
       },
       {
-        title: "Enhanced Property Value",
-        description: "A well-executed renovation significantly improves daily comfort and enhances market rental or resale value.",
+        title: "Long-Term Waterproofing",
+        description:
+          "Multi-layer terrace waterproofing systems that permanently prevent roof leakage and wall dampness.",
       },
     ],
     process: [
       {
         stepNumber: "01",
-        title: "Structural Inspection & Scope",
-        description: "Assessing existing column conditions, foundation strength, crack inspection, and client renovation goals.",
-        deliverables: ["Renovation Assessment Report", "Proposed Layout", "Itemized Budget"],
+        title: "Structural Inspection & Feasibility",
+        description:
+          "Detailed inspection of the existing structure, foundation condition, column locations, and wall thickness.",
+        deliverables: ["Feasibility Report", "Renovation Scope", "Itemized Costing"],
       },
       {
         stepNumber: "02",
-        title: "Demolition & Structural Prep",
-        description: "Controlled removal of old plaster, non-loadbearing walls, or damaged flooring with safe debris hauling.",
-        deliverables: ["Demolition Safety Clearance", "Structural Tie-in Prep"],
+        title: "Controlled Demolition & Site Prep",
+        description:
+          "Careful dismantling of old parapets, outdated tiles, or partition walls with protective safety measures.",
+        deliverables: ["Demolition Safety Check", "Site Clearance Confirmation"],
       },
       {
         stepNumber: "03",
-        title: "New Construction & Services",
-        description: "Erecting new walls, new floor casting (if floor addition), and rough-in plumbing and electrical lines.",
-        deliverables: ["Rough-in Verification", "Waterproofing Test"],
+        title: "Structural Masonry & New Casting",
+        description:
+          "Column extensions, slab pouring for upper floors, and lightweight block masonry walls.",
+        deliverables: ["Structural Extension Check", "Curing Records"],
       },
       {
         stepNumber: "04",
-        title: "Finishes & Final Touch-up",
-        description: "Tiling, wall skimming, painting, fixture installation, and thorough site cleaning before handover.",
-        deliverables: ["Renovated Space Handover", "Final Bill Reconciliation"],
+        title: "Waterproofing, Services & Plastering",
+        description:
+          "Terrace waterproofing, plumbing upgrades, concealed wiring, and cement plastering.",
+        deliverables: ["Waterproofing Ponding Test", "Utility Verification"],
+      },
+      {
+        stepNumber: "05",
+        title: "Final Finishing & Clean Handover",
+        description:
+          "Flooring, wall putty, paint finish, sanitary fittings, and thorough site cleanup for handover.",
+        deliverables: ["Renovated Building Handover", "Warranty Guidance"],
       },
     ],
-    relatedProjectSlugs: ["residential-renovation-floors", "commercial-showroom-renovation"],
+    relatedProjectSlugs: ["family-residence-3-floors", "residential-building-4-floors"],
     faqs: [
       {
-        question: "Can an extra floor be added to my existing 2-story building?",
-        answer: "We inspect your existing column size, footing type, and wall structure. If the structure is sound, we plan a lightweight or standard RCC addition.",
-      },
-    ],
-  },
-  {
-    slug: "site-development",
-    title: "Small Office & Shop Construction",
-    shortDescription: "Construction and fit-out of neighborhood commercial shops, showrooms, and local office premises.",
-    iconName: "Store",
-    heroImage: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80",
-    badge: "Shops & Showrooms",
-    overview: "We construct and prepare retail shops, showrooms, and boutique commercial offices. From sturdy rolling shutter entrances and glazed storefronts to durable flooring and electrical provision for heavy signage, we deliver retail-ready spaces tailored for business owners.",
-    capabilities: [
-      "Commercial retail shop construction and street-level storefronts",
-      "Small boutique offices and professional consultation suites",
-      "Sturdy motorized or manual rolling shutter installation",
-      "Polished vitrified tile, Kota stone, or granite shop flooring",
-      "Adequate power circuitry for commercial refrigeration and display lighting",
-      "Glass front elevations and signage support framing",
-    ],
-    benefits: [
-      {
-        title: "Commercial Street Visibility",
-        description: "Designed with clean glass frontages and maximum street visibility to attract customers to your business.",
+        question: "Can I add another floor to my existing house?",
+        answer:
+          "Yes, depending on the strength of your existing foundation and RCC columns. We assess your building first and often use lightweight AAC blocks to safely minimize the load on lower floors.",
       },
       {
-        title: "Sturdy & Secure",
-        description: "High-strength steel rolling shutters, secure lock points, and durable masonry for business security.",
+        question: "How do you protect lower floors from rain during upper floor construction?",
+        answer:
+          "We maintain active weather protection, keep terrace drainage channels clear, and schedule roof slab casting during dry weather windows to safeguard existing living areas below.",
       },
       {
-        title: "Prompt Turnaround",
-        description: "We understand that every day spent in construction is a day without business revenue; we work to tight schedules.",
-      },
-      {
-        title: "Direct Material Supplies",
-        description: "Supplying quality cement, sand, and bricks directly to keep shop construction costs controlled.",
-      },
-    ],
-    process: [
-      {
-        stepNumber: "01",
-        title: "Shop Requirements & Layout",
-        description: "Assessing shop dimensions, display window placement, rolling shutter height, and utility needs.",
-        deliverables: ["Shop Floor Layout", "Estimate of Materials & Labor"],
-      },
-      {
-        stepNumber: "02",
-        title: "Civil Work & Frontage",
-        description: "Brick masonry, RCC beam support for rolling shutter, plastering, and floor base preparation.",
-        deliverables: ["Masonry Inspection", "Plaster Curing Confirmation"],
-      },
-      {
-        stepNumber: "03",
-        title: "Shutters, Tiling & Electrical",
-        description: "Installing rolling shutters, heavy-duty commercial flooring, and circuit wiring for lights and equipment.",
-        deliverables: ["Shutter Operation Check", "Electrical Circuit Check"],
-      },
-      {
-        stepNumber: "04",
-        title: "Handover for Store Setup",
-        description: "Final paint coat, glass installation, and key handover ready for commercial display shelving.",
-        deliverables: ["Ready-to-Trade Handover", "Final Invoice"],
-      },
-    ],
-    relatedProjectSlugs: ["commercial-showroom-renovation", "shop-and-office-building-3-floors"],
-    faqs: [
-      {
-        question: "Can you construct shops with attached storage mezzanine floors?",
-        answer: "Yes, where ceiling heights permit, we frequently build sturdy steel or RCC mezzanine floors for extra inventory storage.",
-      },
-    ],
-  },
-  {
-    slug: "project-management",
-    title: "Building Maintenance & Improvement",
-    shortDescription: "Essential structural repair, terrace waterproofing, plumbing overhauls, and routine building upkeep.",
-    iconName: "Wrench",
-    heroImage: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=80",
-    badge: "Building Care",
-    overview: "Regular building maintenance prevents minor seepage or hairline cracks from turning into costly structural headaches. GG Construction Co. provides practical maintenance and repair services for residential buildings, apartment blocks, and commercial premises.",
-    capabilities: [
-      "Terrace and parapet wall waterproofing to prevent monsoon leaks",
-      "Repair of concrete spalling, exposed rebar treatment, and crack filling",
-      "Overhead water tank repair, cleaning, and waterproof coating",
-      "Replacement of aging galvanized iron (GI) pipes with modern CPVC/UPVC lines",
-      "Drainage pipe unblocking, line realignment, and inspection chamber repairs",
-      "Exterior building repainting and weather-shield coatings",
-    ],
-    benefits: [
-      {
-        title: "Early Problem Resolution",
-        description: "Fixing seepage and plaster cracks early protects reinforcement steel from internal rusting.",
-      },
-      {
-        title: "Experienced Repair Masons",
-        description: "Our skilled workmen know how to properly treat concrete and masonry issues rather than just covering them with paint.",
-      },
-      {
-        title: "Direct Material Access",
-        description: "We use tested waterproofing polymers, repair mortars, and certified piping from our supply division.",
-      },
-      {
-        title: "Reliable Response",
-        description: "A local, accessible team that homeowners and building societies can contact directly.",
-      },
-    ],
-    process: [
-      {
-        stepNumber: "01",
-        title: "Site Inspection & Problem Diagnosis",
-        description: "Inspecting dampness, seepage origin, structural cracks, or plumbing issues across the property.",
-        deliverables: ["Problem Diagnosis Note", "Recommended Solution & Estimate"],
-      },
-      {
-        stepNumber: "02",
-        title: "Surface Preparation & Treatment",
-        description: "Chipping loose plaster, cleaning exposed rebar, rust converter application, or waterproofing surface prep.",
-        deliverables: ["Substrate Preparation Check"],
-      },
-      {
-        stepNumber: "03",
-        title: "Repair Execution",
-        description: "Applying polymer repair mortar, laying waterproofing membranes, or installing replacement pipe runs.",
-        deliverables: ["Ponding / Leakage Test for Waterproofing"],
-      },
-      {
-        stepNumber: "04",
-        title: "Re-plastering & Paint Touchup",
-        description: "Restoring wall surfaces with matched plaster and paint, cleaning the work area, and final signoff.",
-        deliverables: ["Completed Repair Signoff", "Maintenance Tips"],
-      },
-    ],
-    relatedProjectSlugs: ["residential-renovation-floors"],
-    faqs: [
-      {
-        question: "How do you treat terrace water leakage?",
-        answer: "We inspect for cracks in the screed, repair joint gaps, apply polymer-modified waterproofing coats, and ensure proper slope toward rainwater drain outlets.",
+        question: "Do you handle complete bathroom and kitchen plumbing overhauls?",
+        answer:
+          "Yes, we replace aging galvanized iron pipes with modern CPVC/UPVC lines, test for leaks under pressure, and apply waterproofing under new tile floors.",
       },
     ],
   },
   {
     slug: "construction-planning",
-    title: "Construction Planning & Material Estimation",
-    shortDescription: "Practical bill of quantities (BOQ), material requirement calculations, and budget estimation for building owners.",
-    iconName: "FileSpreadsheet",
-    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
-    badge: "Budget & Planning",
-    overview: "Before laying the first brick, knowing how much cement, steel, sand, and bricks your project needs is vital. We help building owners and small contractors prepare realistic material estimates, stage-wise budget plans, and construction timelines so projects finish without budget shocks.",
+    title: "Construction Planning & Execution",
+    shortDescription:
+      "End-to-end project coordination, material scheduling, on-site supervision, and stage-wise execution for low-rise building construction.",
+    iconName: "ClipboardCheck",
+    heroImage:
+      "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1600&q=80",
+    badge: "Site Execution",
+    overview:
+      "GG Construction Co. provides comprehensive construction planning and site execution for residential and commercial building projects up to 4–5 floors across Rohini, Pitampura, and nearby areas of Delhi. We coordinate material procurement schedules, supervise masonry and concrete crews daily, and enforce milestone timelines so your building is completed smoothly without common contractor delays.",
     capabilities: [
-      "Detailed material quantity estimation (cement bags, steel tonnage, bricks, sand volume)",
-      "Stage-by-stage construction cost breakdown for 1 to 5 floor buildings",
-      "Material requirement scheduling to prevent site overstocking and wastage",
-      "Comparison of construction options (e.g. red bricks vs. AAC blocks)",
-      "Independent contractor quote evaluation and item-rate validation",
-      "Milestone-linked cash-flow planning for building owners",
+      "Itemized construction quantity surveying and cost estimation",
+      "Stage-wise milestone scheduling from excavation to handover",
+      "Coordination of compliant steel, cement, bricks, and aggregate arrivals on site",
+      "Daily on-site supervision of steel rebar tying, formwork, and concrete pouring",
+      "Trade coordination between masons, electricians, plumbers, and plasterers",
+      "Direct milestone reporting and personal walkthroughs with the property owner",
     ],
     benefits: [
       {
-        title: "Avoid Cost Overruns",
-        description: "Accurate material calculation prevents emergency mid-project budget shortages.",
+        title: "Disciplined Daily Supervision",
+        description:
+          "An experienced site manager on site to verify workmanship, mortar ratios, and rebar placement continuously.",
       },
       {
-        title: "Prevent Material Wastage",
-        description: "Knowing exact stage-wise quantities means you order cement and sand only when needed on site.",
+        title: "Predictable Milestone Scheduling",
+        description:
+          "Structured phases prevent trades from clashing and keep your building moving forward steadily.",
       },
       {
-        title: "Fair Market Pricing",
-        description: "Backed by our daily experience in building material trade, our estimates reflect real local market rates.",
+        title: "Transparent Cost Management",
+        description:
+          "Clear billing aligned with verified progress on site, preventing unexpected cost overruns.",
       },
       {
-        title: "Empowered Decision Making",
-        description: "Compare trade-offs between different building materials with clear price and durability facts.",
+        title: "Local Delhi NCR Knowledge",
+        description:
+          "Proven coordination of materials and labor in Rohini, Pitampura, and North-West Delhi neighborhoods.",
       },
     ],
     process: [
       {
         stepNumber: "01",
-        title: "Drawing & Requirement Review",
-        description: "Analyzing your floor plans, proposed number of floors, built-up area, and desired finishing specifications.",
-        deliverables: ["Scope Definition"],
+        title: "Project Scope & Timeline Mapping",
+        description:
+          "Detailed breakdown of drawings into work packages, material quantities, and phase schedules.",
+        deliverables: ["Master Schedule", "Quantity Estimate", "Milestone Breakdown"],
       },
       {
         stepNumber: "02",
-        title: "Material Quantity Takeoff",
-        description: "Calculating volume of concrete, steel reinforcement weights, brick counts, and plaster areas.",
-        deliverables: ["Itemized Quantity Sheet"],
+        title: "Site Mobilization & Procurement Plan",
+        description:
+          "Arranging site storage, water supply, electricity, and staged material drop-offs.",
+        deliverables: ["Site Setup Confirmation", "Delivery Calendar"],
       },
       {
         stepNumber: "03",
-        title: "Cost Estimation & Scheduling",
-        description: "Applying realistic material and labor rates to compile a stage-by-stage budget and delivery schedule.",
-        deliverables: ["Comprehensive Project Cost Estimate", "Stage-wise Cash Flow Guide"],
+        title: "Civil Execution & Daily Supervision",
+        description:
+          "Managing active crews, inspecting reinforcement, checking concrete slump, and verifying masonry alignment.",
+        deliverables: ["Weekly Progress Updates", "Quality Inspection Notes"],
+      },
+      {
+        stepNumber: "04",
+        title: "Trades Coordination & Inspections",
+        description:
+          "Overseeing electrical conduit routing, plumbing pressure checks, and surface plastering.",
+        deliverables: ["Utility Test Certificates", "Pre-Finishing Checklist"],
+      },
+      {
+        stepNumber: "05",
+        title: "Final Walkthrough & Project Closure",
+        description:
+          "Complete quality snagging, fixture verification, final billing reconciliation, and handover.",
+        deliverables: ["Handover Certificate", "Final Milestone Reconciliation"],
       },
     ],
     relatedProjectSlugs: ["residential-building-4-floors", "commercial-building-4-floors"],
     faqs: [
       {
-        question: "Can you provide a material estimate if I have my own labor contractor?",
-        answer: "Yes. We frequently provide material estimates and supply materials to owners who have their own masons or labor teams.",
-      },
-    ],
-  },
-  {
-    slug: "engineering-coordination",
-    title: "Site Coordination & Quality Supervision",
-    shortDescription: "On-site supervision, contractor coordination, and material quality checks for ongoing building projects.",
-    iconName: "ClipboardCheck",
-    heroImage: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1600&q=80",
-    badge: "On-Site Supervision",
-    overview: "Proper building execution depends on careful on-site oversight. We provide site coordination services for residential and commercial building projects, checking that steel reinforcement matches drawings, concrete is properly vibrated and cured, and masonry walls are plumb and true.",
-    capabilities: [
-      "On-site inspection of rebar placement and cover blocks prior to slab casting",
-      "Concrete mixing proportion checks and slump consistency monitoring",
-      "Supervision of curing periods for slabs, columns, and brickwork",
-      "Checking masonry plumb, mortar ratios, and joint thicknesses",
-      "Coordination between masonry, plumbing, and electrical trade workers",
-      "Daily progress updates and material consumption tracking for the owner",
-    ],
-    benefits: [
-      {
-        title: "Quality Assurance",
-        description: "Ensures labor contractors follow proper building practices instead of taking shortcuts during casting.",
+        question: "How do you coordinate with clients during construction?",
+        answer:
+          "We hold regular on-site walkthroughs at key milestones (foundation, each slab casting, brickwork, and plastering) and provide direct photo and milestone updates.",
       },
       {
-        title: "Material Verification",
-        description: "Verify that specified steel grades and cement types are used correctly on the jobsite.",
-      },
-      {
-        title: "Less Stress for Owners",
-        description: "Owners who cannot visit the site every day get independent, experienced supervision.",
-      },
-      {
-        title: "Defect Prevention",
-        description: "Catching mistakes during steel-tying or shuttering prevents permanent structural flaws in cured concrete.",
-      },
-    ],
-    process: [
-      {
-        stepNumber: "01",
-        title: "Site Onboarding & Drawing Review",
-        description: "Reviewing approved drawings, contractor work schedules, and setting up inspection checkpoints.",
-        deliverables: ["Inspection Checklist"],
-      },
-      {
-        stepNumber: "02",
-        title: "Milestone Site Inspections",
-        description: "Visiting the site at critical stages: footing steel, plinth, column ties, slab shuttering, and before pours.",
-        deliverables: ["Pre-Pour Inspection Clearance", "Photo Records"],
-      },
-      {
-        stepNumber: "03",
-        title: "Quality & Curing Monitoring",
-        description: "Ensuring proper water curing schedules are strictly maintained on newly cast concrete and brickwork.",
-        deliverables: ["Curing Log Confirmation", "Progress Summary for Owner"],
-      },
-    ],
-    relatedProjectSlugs: ["residential-building-4-floors", "mixed-use-building-5-floors"],
-    faqs: [
-      {
-        question: "Why is pre-pour inspection critical on a building site?",
-        answer: "Once concrete is poured, reinforcement mistakes or missing cover blocks cannot be fixed. Inspection before casting ensures safety.",
+        question: "Can you manage projects where the client already has an architect?",
+        answer:
+          "Yes, we collaborate smoothly with your appointed architect, following structural drawings precisely and coordinating technical site queries promptly.",
       },
     ],
   },

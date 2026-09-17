@@ -18,7 +18,7 @@ export default function ServiceCard({ service, className = "" }: ServiceCardProp
         <div className="flex items-center justify-between mb-5">
           <Badge variant="bronze">{service.badge}</Badge>
           <span className="text-[11px] font-mono text-[#667582] uppercase tracking-wider">
-            CIVIL // ENG
+            BUILDING // CONST
           </span>
         </div>
 
@@ -56,7 +56,7 @@ export default function ServiceCard({ service, className = "" }: ServiceCardProp
           <ArrowUpRight className="w-3.5 h-3.5 text-[#B89A63] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
         <span className="text-[10px] text-[#667582] font-mono">
-          IS // NBC COMPLIANT
+          LOW-RISE // CIVIL
         </span>
       </div>
     </article>

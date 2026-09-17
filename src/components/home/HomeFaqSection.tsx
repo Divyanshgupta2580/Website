@@ -16,7 +16,7 @@ export default function HomeFaqSection() {
         <SectionHeading
           eyebrow="Questions & Technical Clarity"
           title="Frequently Asked Questions"
-          description="Straightforward answers regarding our three-division integration, statutory certifications, testing protocols, and contract models."
+          description="Straightforward answers regarding our low-rise building construction work, project scope, estimates, and construction process."
           align="center"
         />
 

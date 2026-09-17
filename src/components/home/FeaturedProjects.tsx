@@ -20,9 +20,9 @@ export default function FeaturedProjects() {
     <section className="py-20 md:py-28 bg-[#15191D]/35 border-t border-[#2A3035]">
       <Container size="default">
         <SectionHeading
-          eyebrow="Building Work"
+          eyebrow="Local Experience // Rohini & Pitampura"
           title="Selected Building Projects"
-          description="Representative project examples illustrating our construction work for residential homes, independent floors, and commercial buildings up to approximately 4–5 floors maximum."
+          description="GG Construction Co. has carried out construction work across Rohini, Pitampura and nearby areas of Delhi. The representative projects below illustrate our practical construction work for residential homes, independent floors, shops, and offices up to approximately 4–5 floors maximum."
           action={
             <Button href="/projects" variant="outline" size="sm">
               <span>View All Projects</span>

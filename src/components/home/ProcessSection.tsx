@@ -6,38 +6,43 @@ export default function ProcessSection() {
   const steps = [
     {
       number: "01",
-      title: "Enquiry & Assessment",
-      subtitle: "Material Needs & Site Review",
-      description: "We understand your exact requirements—whether you need bulk cement and steel delivered to your site, or complete construction planning for a 3–4 floor residential or commercial building.",
-      deliverables: ["Requirement Checklist", "Plot / Site Discussion", "Preliminary Cost Guidance"],
+      title: "Plot & Scope Consultation",
+      subtitle: "Site Review & Requirements",
+      description:
+        "We discuss your plot dimensions, architectural layout plans, floor requirements, and budget expectations for your residential or commercial project.",
+      deliverables: ["Plot & Site Feasibility", "Floor Layout Scope", "Preliminary Cost Guidance"],
     },
     {
       number: "02",
-      title: "Transparent Estimation",
-      subtitle: "Clear Pricing & Milestones",
-      description: "We provide an itemized material quote or stage-wise building estimate based on actual market rates, without hidden extras or confusing contractual language.",
-      deliverables: ["Itemized Material Rates", "Stage-Wise Construction Plan", "Clear Commercial Terms"],
+      title: "Itemized Cost Estimation",
+      subtitle: "Transparent Milestones",
+      description:
+        "We prepare a detailed, itemized cost estimate broken down across structural stages, civil works, and finishing packages with clear milestone timelines.",
+      deliverables: ["Itemized Civil Breakdown", "Stage-Wise Milestone Plan", "Clear Commercial Terms"],
     },
     {
       number: "03",
-      title: "Material Staging & Delivery",
-      subtitle: "Direct Site Supply",
-      description: "For material orders, we schedule direct truck/trolley deliveries. For construction projects, we stage quality cement, steel, bricks, and sand systematically to keep work flowing.",
-      deliverables: ["Direct Plot Delivery", "Weighbridge / Volumetric Check", "Safe Unloading Coordination"],
+      title: "Foundation & Substructure",
+      subtitle: "Footings, Plinth & DPC",
+      description:
+        "Excavation, anti-termite treatment, lean concrete bed, RCC footing cages, plinth beam casting, and damp-proof course (DPC) installation.",
+      deliverables: ["Foundation Inspection", "Plinth Beam Casting Log", "DPC Quality Verification"],
     },
     {
       number: "04",
-      title: "Construction & Supervision",
-      subtitle: "Disciplined Civil Execution",
-      description: "Execution of foundation footings, RCC column-beam framing, slab pours, and brick masonry under experienced daily supervision, maintaining proper concrete curing periods.",
-      deliverables: ["RCC Structural Framing", "Quality Brick & AAC Masonry", "Attentive Site Oversight"],
+      title: "Superstructure & Masonry",
+      subtitle: "Columns, Slabs & Walls",
+      description:
+        "Erecting RCC columns, beam framing, floor slab pouring per floor with disciplined 14–21 day water curing, followed by true red brick or AAC block masonry.",
+      deliverables: ["Slab Curing Records", "Structural Frame Verification", "Plumb Line Masonry Check"],
     },
     {
       number: "05",
-      title: "Finishing & Handover",
-      subtitle: "Inspection & Handover",
-      description: "Checking plumbing lines, electrical conduits, plaster finishes, and roof waterproofing before a clean, organized handover to the property owner.",
-      deliverables: ["Comprehensive Quality Walkthrough", "Plumbing & Electrical Check", "Customer Handover"],
+      title: "Services, Finishing & Handover",
+      subtitle: "Plumbing, Plaster & Handover",
+      description:
+        "Concealed electrical piping, sanitary drainage, internal/external cement plastering, terrace waterproofing, and a structured joint client walkthrough for handover.",
+      deliverables: ["Plumbing Pressure Test", "Waterproofing Ponding Sign-off", "Clean Building Handover"],
     },
   ];
 
@@ -46,8 +51,8 @@ export default function ProcessSection() {
       <Container size="default">
         <SectionHeading
           eyebrow="Structured Execution"
-          title="How We Work"
-          description="A practical, 5-step methodology ensuring transparent pricing, dependable material delivery, and honest construction supervision."
+          title="How We Build"
+          description="A disciplined 5-stage construction methodology ensuring structural integrity, attentive on-site supervision, and honest milestone delivery from ground breaking to handover."
         />
 
         {/* 5-Step Process Grid */}
@@ -58,39 +63,36 @@ export default function ProcessSection() {
               className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8 flex flex-col justify-between hover:border-[#B89A63]/60 transition-colors group relative"
             >
               {/* Top Accent Indicator */}
-              <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-[#2A3035] to-transparent group-hover:via-[#B89A63] transition-colors" />
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#2A3035]">
+                <span className="text-2xl sm:text-3xl font-mono font-light text-[#B89A63]">
+                  {step.number}
+                </span>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-[#667582]">
+                  STAGE // {step.number}
+                </span>
+              </div>
 
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl font-light font-mono text-[#B89A63]">
-                    {step.number}
-                  </span>
-                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#667582] bg-[#0B0D0F] px-2 py-0.5 border border-[#2A3035]">
-                    STEP {step.number}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-light text-[#F3F1EC] group-hover:text-[#B89A63] transition-colors mb-1">
+                <h3 className="text-xl font-light text-[#F3F1EC] mb-1 group-hover:text-[#B89A63] transition-colors">
                   {step.title}
                 </h3>
                 <span className="text-xs font-mono uppercase tracking-wider text-[#A7ADB3] block mb-3">
                   {step.subtitle}
                 </span>
-
-                <p className="text-xs text-[#A7ADB3] leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-[#A7ADB3] leading-relaxed mb-6">
                   {step.description}
                 </p>
               </div>
 
               <div className="pt-4 border-t border-[#2A3035]/60">
-                <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-2 font-semibold">
-                  Key Steps
+                <span className="text-[10px] uppercase font-mono tracking-widest text-[#667582] block mb-2">
+                  Key Deliverables
                 </span>
-                <ul className="space-y-1 text-[11px] text-[#A7ADB3]">
-                  {step.deliverables.map((deliv, i) => (
-                    <li key={i} className="flex items-center gap-1.5">
-                      <span className="w-1 h-1 bg-[#B89A63] rounded-full" />
-                      <span className="line-clamp-1">{deliv}</span>
+                <ul className="space-y-1 text-xs text-[#A7ADB3]">
+                  {step.deliverables.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <span className="w-1 h-1 bg-[#B89A63]" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>

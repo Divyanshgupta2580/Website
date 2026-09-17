@@ -49,10 +49,10 @@ export default function ProjectsPage() {
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
-            Small & Medium Building Projects (Up to 4–5 Floors)
+            Low-Rise Building Projects (Up to 4–5 Floors)
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            Representative project examples illustrating our construction work for residential homes, independent floors, shops, and small offices up to approximately 4–5 floors maximum.
+            Representative project examples illustrating our construction work across Rohini, Pitampura, and nearby areas of Delhi for residential homes, builder floors, shops, and small offices.
           </p>
         </div>
       </section>
@@ -155,15 +155,15 @@ export default function ProjectsPage() {
             />
             <StatBlock
               index={2}
-              label="Primary Business"
-              value="Materials Supply"
-              helper="Direct supply of cement, TMT steel, red bricks, sand, and stone"
+              label="Key Locations"
+              value="Rohini & Pitampura"
+              helper="Extensive building construction experience across North-West Delhi"
             />
             <StatBlock
               index={3}
-              label="Property Desk"
-              value="Sales Assistance"
-              helper="Buyer-seller coordination and property marketing services"
+              label="Jobsite Oversight"
+              value="Daily Supervision"
+              helper="Close monitoring of concrete curing, rebar placement, and masonry"
             />
           </div>
         </Container>
@@ -243,9 +243,9 @@ export default function ProjectsPage() {
       <CTA
         eyebrow="Construction Planning"
         title="Planning a Building Project?"
-        description="Speak with our team regarding your plot size, building plan, or material requirements. We provide honest estimates and dependable execution."
-        primaryCtaText="Enquire Now"
-        primaryCtaHref="/contact"
+        description="Speak with our team regarding your plot size, building plan, or construction requirements in Rohini, Pitampura, and nearby Delhi areas. We provide honest estimates and dependable execution."
+        primaryCtaText="Get a Construction Quote"
+        primaryCtaHref="/get-a-quote"
         secondaryCtaText="Call +91 98110 34825"
         secondaryCtaHref="tel:+919811034825"
         showContacts={true}

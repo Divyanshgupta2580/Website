@@ -19,24 +19,24 @@ const BASE_URL = getBaseUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "GG Construction Co. | Building Materials, Construction & Real Estate",
+    default: "GG Construction Co. | Building Construction",
     template: "%s | GG Construction Co.",
   },
   description:
-    "GG Construction Co. provides reliable building materials supply as our primary business, alongside practical building construction up to 4–5 floors and property sales assistance.",
+    "GG Construction Co. specializes in low-rise building construction for residential homes, builder floors, shops, and small offices across Rohini, Pitampura, and nearby areas of Delhi.",
   keywords: [
     "GG Construction Co.",
-    "building materials supplier",
-    "cement supply",
-    "TMT steel supplier",
-    "red bricks",
-    "AAC blocks",
-    "sand and aggregates",
-    "residential building construction",
+    "construction company",
+    "building construction",
+    "residential construction",
     "commercial construction",
-    "low rise building contractor",
-    "real estate sales assistance",
-    "Delhi NCR construction",
+    "low rise construction",
+    "construction contractor",
+    "building contractor",
+    "construction services",
+    "Rohini construction",
+    "Pitampura construction",
+    "Delhi construction",
   ],
   authors: [{ name: "GG Construction Co." }],
   creator: "GG Construction Co.",
@@ -51,24 +51,24 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: BASE_URL,
     siteName: "GG Construction Co.",
-    title: "GG Construction Co. | Building Materials. Construction. Real Estate.",
+    title: "GG Construction Co. | Building Construction",
     description:
-      "Reliable building materials, practical construction services and property sales assistance under one trusted name.",
+      "Reliable low-rise building construction for homes and commercial premises across Rohini, Pitampura, and nearby areas of Delhi.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
-        alt: "GG Construction Co. Building Materials & Construction",
+        alt: "GG Construction Co. Building Construction",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GG Construction Co. | Construction, Real Estate & Materials",
+    title: "GG Construction Co. | Building Construction",
     description:
-      "Integrated engineering, property development, and building material supply in India.",
-    images: ["https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80"],
+      "Low-rise residential and commercial building construction in Rohini, Pitampura, and Delhi.",
+    images: ["https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1200&q=80"],
   },
   robots: {
     index: true,
@@ -88,7 +88,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Structured Organization Schema JSON-LD
+  // Structured Organization Schema JSON-LD (GeneralContractor)
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
@@ -99,13 +99,19 @@ export default function RootLayout({
     logo: `${BASE_URL}/logo.png`,
     telephone: companyData.contact.phoneFormatted,
     email: companyData.contact.email,
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
-    sameAs: [
-      "https://www.linkedin.com/company/gg-construction",
-      "https://twitter.com/ggconstruction",
+    areaServed: [
+      {
+        "@type": "AdministrativeArea",
+        name: "Rohini, Delhi",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Pitampura, Delhi",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Delhi NCR",
+      },
     ],
   };
 

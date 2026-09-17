@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { ArrowUpRight, CheckCircle2, ShieldCheck, ArrowLeft, Layers, Cpu, Award } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, ArrowLeft } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProjectCard from "@/components/cards/ProjectCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
@@ -46,7 +46,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
   // Relevant testimonial
   const contextualTestimonial =
-    testimonialsData.find((t) => t.division === "Building Construction") ||
+    testimonialsData.find((t) => t.category === "Residential Construction") ||
     testimonialsData[0];
 
   return (
@@ -79,7 +79,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="flex items-center gap-3 mb-4">
               <Badge variant="bronze">{service.badge}</Badge>
               <span className="text-[11px] font-mono text-[#667582] uppercase tracking-wider">
-                CONSTRUCTION // 02
+                BUILDING CONSTRUCTION
               </span>
             </div>
 
@@ -102,7 +102,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               </Button>
 
               <Button
-                href={`/contact?division=construction&subject=${encodeURIComponent(
+                href={`/contact?subject=${encodeURIComponent(
                   `Enquiry regarding ${service.title}`
                 )}`}
                 variant="outline"
@@ -140,7 +140,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 QUALITY SUPERVISION
               </span>
               <span className="text-[#F3F1EC] text-sm block">
-                Batch & Slump Verification
+                Direct Site Oversight
               </span>
             </div>
             <div className="pt-2 sm:pt-0 sm:pl-4">
@@ -148,7 +148,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 CLIENT ASSURANCE
               </span>
               <span className="text-[#B89A63] text-sm block">
-                Direct Site Coordination
+                Direct Project Accessibility
               </span>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="p-4 bg-[#15191D] border border-[#2A3035] flex items-start gap-3 text-xs">
               <ShieldCheck className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
               <p className="text-[#A7ADB3] leading-snug">
-                All structural work, reinforcement placement, and material usage adheres to IS 456 concrete standards and NBC building safety guidelines.
+                All structural work, reinforcement placement, and concrete casting adheres to IS 456 concrete standards and NBC building safety guidelines.
               </p>
             </div>
           </div>
@@ -199,7 +199,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           <SectionHeading
             eyebrow="Service Benefits"
             title="Why Clients Choose GG Construction Co."
-            description="Practical building construction backed by dependable material knowledge, transparent communication, and dedicated site coordination."
+            description="Practical building construction backed by genuine local experience across Rohini, Pitampura, and Delhi, transparent communication, and dedicated site coordination."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -230,7 +230,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         <SectionHeading
           eyebrow="Project Workflow"
           title="How We Execute Your Build"
-          description="A structured 4-step process from planning and material estimates to site execution and handover."
+          description="A structured 4-step process from planning and structural estimates to site execution and handover."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -290,7 +290,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="max-w-3xl mx-auto">
           <span className="text-[10px] uppercase font-mono tracking-widest text-[#B89A63] block mb-3 text-center">
-            REPRESENTATIVE CLIENT VALIDATION
+            REPRESENTATIVE CLIENT FEEDBACK
           </span>
           <TestimonialCard testimonial={contextualTestimonial} />
         </div>
@@ -330,7 +330,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
         primaryCtaText="Request Project Estimate"
         primaryCtaHref={`/get-a-quote?service=${service.slug}`}
         secondaryCtaText="Contact Construction Team"
-        secondaryCtaHref={`/contact?division=construction&subject=${encodeURIComponent(
+        secondaryCtaHref={`/contact?subject=${encodeURIComponent(
           `Consultation: ${service.title}`
         )}`}
         showContacts={true}

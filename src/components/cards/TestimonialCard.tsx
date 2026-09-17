@@ -27,7 +27,7 @@ export default function TestimonialCard({
             ))}
           </div>
           <span className="text-[10px] uppercase font-mono tracking-wider text-[#667582] bg-[#0B0D0F] px-2 py-0.5 border border-[#2A3035]">
-            {testimonial.division.split(" ")[0]}
+            {testimonial.category}
           </span>
         </div>
 

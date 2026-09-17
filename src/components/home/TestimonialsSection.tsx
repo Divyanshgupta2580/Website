@@ -13,9 +13,9 @@ export default function TestimonialsSection() {
     <section className="py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035]">
       <Container size="default">
         <SectionHeading
-          eyebrow="Customer Feedback"
-          title="Customer Testimonials"
-          description="Customer feedback and reviews from building material buyers, home construction clients, and property customers."
+          eyebrow="Client Perspectives"
+          title="Construction Testimonials"
+          description="Representative client feedback from residential homebuilders, commercial owners, and building renovation clients across Delhi."
           action={
             <Button href="/testimonials" variant="outline" size="sm">
               <span>View Testimonials</span>

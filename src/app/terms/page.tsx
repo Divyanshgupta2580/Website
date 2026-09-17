@@ -5,9 +5,9 @@ import { Scale, ArrowLeft } from "lucide-react";
 import { companyData } from "@/data/company";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Contractual Framework",
+  title: "Terms & Conditions | GG Construction Co. — Building Construction",
   description:
-    "Terms and conditions governing web portal usage, preliminary quotations, engineering estimates, and commercial communications with GG Construction Co.",
+    "Terms and conditions governing website usage, preliminary construction estimates, and project communications with GG Construction Co.",
 };
 
 export default function TermsPage() {
@@ -28,28 +28,15 @@ export default function TermsPage() {
           <div className="inline-flex items-center gap-2 mb-3">
             <Scale className="w-4 h-4 text-[#B89A63]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-              Contractual & Legal Governance
+              Website Terms of Use
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-light text-[#F3F1EC] mb-2">
-            Terms & Conditions of Service
+            Terms &amp; Conditions
           </h1>
           <p className="text-xs font-mono text-[#667582]">
             Governing Law: Republic of India &bull; Last Revised: {new Date().getFullYear()}
           </p>
-        </div>
-
-        {/* Legal Advisory Callout */}
-        <div className="mb-10 p-5 bg-[#15191D] border border-[#B89A63]/40 flex items-start gap-3.5">
-          <div className="w-2 h-2 rounded-full bg-[#B89A63] mt-1.5 flex-shrink-0" />
-          <div className="text-xs text-[#A7ADB3] space-y-1">
-            <span className="font-semibold text-[#F3F1EC] uppercase tracking-wider block font-mono text-[11px]">
-              [LEGAL COUNSEL REVIEW REQUIRED]
-            </span>
-            <p>
-              These Terms &amp; Conditions establish standard engineering, supply chain, and developmental terms of engagement. Formal contractual commitments require bilateral execution of detailed FIDIC / CPWD standard contracts, escrow agreements, and confirmed Bills of Quantities vetted by corporate legal counsel.
-            </p>
-          </div>
         </div>
 
         <div className="prose prose-invert max-w-none text-xs sm:text-sm text-[#A7ADB3] leading-relaxed space-y-8 font-light">
@@ -58,7 +45,7 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p>
-              By accessing, browsing, or submitting project parameters via this website operated by {companyData.name}, you agree to be bound by these Terms and Conditions. These terms apply across all three operating verticals: Construction & Engineering, Real Estate & Property Development, and Building Materials Supply.
+              By accessing, browsing, or submitting construction enquiries via this website operated by {companyData.name}, you agree to be bound by these Terms and Conditions. Our business is strictly building construction focused on low-rise residential and commercial projects up to approximately 4–5 floors.
             </p>
           </section>
 
@@ -67,48 +54,39 @@ export default function TermsPage() {
               2. Nature of Preliminary Online Estimates
             </h2>
             <p>
-              All cost indications, Bill of Quantities (BOQ) figures, and schedules generated through the &ldquo;Get a Quote&rdquo; tool or initial correspondence represent preliminary indicative calculations. They do NOT constitute binding construction contracts or irrevocable legal tenders until confirmed by:
+              All cost indications, stage schedules, and estimates generated through the &ldquo;Get a Quote&rdquo; form or preliminary correspondence represent indicative estimates for planning purposes. They do not constitute a binding construction contract until verified by:
             </p>
             <ul className="list-disc pl-5 space-y-1 mt-2 text-[#F3F1EC]">
-              <li>Physical site inspection and measurement verification.</li>
-              <li>Verification of architectural floor plans and structural requirements.</li>
-              <li>Execution of a formal written construction contract or material supply agreement signed by the parties.</li>
+              <li>Physical plot inspection and measurement verification.</li>
+              <li>Verification of sanctioned architectural floor plans and structural drawings.</li>
+              <li>Execution of a mutually agreed, written construction agreement detailing stage-wise payment milestones and project scope.</li>
             </ul>
           </section>
 
           <section>
             <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">
-              3. Material Specifications & Mill Tolerances
+              3. Structural Standards &amp; Site Supervision
             </h2>
             <p>
-              All building materials (including TMT steel rebars, cements, manufactured sand, and coarse aggregates) are supplied subject to standard Bureau of Indian Standards (BIS) manufacturing tolerances (e.g., IS 1786 weight-per-meter tolerances for rebars). Invoices and dispatches are settled strictly based on certified weighbridge gross and tare readouts.
+              All building construction work executed by GG Construction Co. follows standard building safety norms (IS 456 for concrete and masonry standards) with scheduled on-site supervision. Stage completion certificates and milestone sign-offs are conducted jointly with the client before advancing to subsequent structural stages.
             </p>
           </section>
 
           <section>
             <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">
-              4. Real Estate Disclosures & Statutory Compliance
+              4. Intellectual Property
             </h2>
             <p>
-              Information regarding real estate developments is published in compliance with the Real Estate (Regulation and Development) Act (RERA). Visual renderings, mock-ups, and architectural representations are artistic impressions intended to convey general design direction. Sanctioned master plans, apartment carpet areas, and statutory RERA registration numbers supersede website visual assets.
+              All content, photography, branding, and text displayed on this website remain the property of {companyData.name}. Unauthorized scraping or reproduction for commercial purposes is prohibited.
             </p>
           </section>
 
           <section>
             <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">
-              5. Intellectual Property & Digital Rights
+              5. Dispute Resolution &amp; Jurisdiction
             </h2>
             <p>
-              All blueprints, case study documentation, photography, custom code, technical articles, and brand marks displayed on this domain remain the exclusive intellectual property of {companyData.name}. Unauthorized extraction, automated scraping, or unauthorized commercial reproduction is strictly prohibited.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-base sm:text-lg font-medium text-[#F3F1EC] mb-2">
-              6. Dispute Resolution & Jurisdiction
-            </h2>
-            <p>
-              Any disputes arising out of web inquiries or commercial transactions shall be governed by the laws of India and subject to the exclusive jurisdiction of the competent civil courts of the company&apos;s registered corporate seat.
+              Any disputes or matters arising out of web communications or construction agreements shall be subject to the jurisdiction of the competent courts in Delhi, India.
             </p>
           </section>
         </div>

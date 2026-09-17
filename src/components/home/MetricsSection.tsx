@@ -7,24 +7,24 @@ import { companyData } from "@/data/company";
 export default function MetricsSection() {
   const metrics = [
     {
-      label: "Construction Work",
+      label: "Building Scale",
       value: "Up to 4–5 Floors",
-      helper: "Practical building construction for residential homes, shops, and small offices",
+      helper: "Practical low-rise construction for residential homes, builder floors, shops, and small offices",
     },
     {
-      label: "Primary Business",
-      value: "Materials Supply",
-      helper: "Direct supply of cement, TMT steel, bricks, blocks, sand, and aggregates",
+      label: "Local Experience",
+      value: "Rohini & Pitampura",
+      helper: companyData.metrics.regionalFocus,
     },
     {
-      label: "Regional Area",
-      value: companyData.metrics.regionalFocus,
-      helper: "Serving local building projects and contractors across the region",
+      label: "Structural Quality",
+      value: "RCC & Masonry",
+      helper: "Compliant column-beam framing, quality brickwork, and disciplined 14–21 day curing",
     },
     {
-      label: "Real Estate",
-      value: "Sales Assistance",
-      helper: "Property marketing, buyer-seller coordination, and enquiry assistance",
+      label: "On-Site Supervision",
+      value: "Daily Oversight",
+      helper: "Dedicated supervisory presence on site for continuous quality check",
     },
   ];
 
@@ -35,10 +35,10 @@ export default function MetricsSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
             <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#B89A63] block mb-1">
-              BUSINESS SCOPE
+              CONSTRUCTION CAPABILITY
             </span>
             <h2 className="text-2xl font-light text-[#F3F1EC]">
-              Practical Experience & Core Focus
+              Practical Experience &amp; Core Standards
             </h2>
           </div>
           <span className="text-xs font-mono text-[#667582]">

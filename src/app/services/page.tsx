@@ -9,8 +9,7 @@ import {
   HardHat,
   Compass,
   Layers,
-  Boxes,
-  Truck,
+  MapPin,
   Building2,
   Home,
 } from "lucide-react";
@@ -18,7 +17,6 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
 import ServiceCard from "@/components/cards/ServiceCard";
 import TestimonialCard from "@/components/cards/TestimonialCard";
-import StatBlock from "@/components/ui/StatBlock";
 import Accordion, { AccordionItem } from "@/components/ui/Accordion";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
@@ -31,15 +29,13 @@ import { faqsData } from "@/data/faqs";
 export const metadata: Metadata = {
   title: "Building Construction Services | GG Construction Co.",
   description:
-    "Explore practical building construction services from GG Construction Co. specializing in residential homes, 3–4 floor apartments, shops, small offices, and renovations up to 4–5 floors.",
+    "Explore practical building construction services from GG Construction Co. specializing in residential homes, builder floors, shops, small offices, and renovations up to 4–5 floors across Rohini, Pitampura, and Delhi.",
 };
 
 export default function ServicesPage() {
   const residentialService =
     servicesData.find((s) => s.slug === "residential-construction") || servicesData[0];
-  const constructionTestimonials = testimonialsData
-    .filter((t) => t.division === "Building Construction")
-    .slice(0, 2);
+  const constructionTestimonials = testimonialsData.slice(0, 2);
   const constructionFaqs = faqsData.filter((f) => f.category === "Construction");
 
   const processSteps = [
@@ -53,7 +49,7 @@ export default function ServicesPage() {
       number: "02",
       title: "Itemized Cost Estimate",
       description:
-        "Preparing a clear, itemized construction estimate with stage-wise milestone schedules and material specifications.",
+        "Preparing a clear, itemized construction estimate with stage-wise milestone schedules and structural specifications.",
     },
     {
       number: "03",
@@ -83,7 +79,7 @@ export default function ServicesPage() {
 
   return (
     <div className="pt-28 pb-20 bg-[#0B0D0F]">
-      {/* 1. Hero & Division Introduction */}
+      {/* 1. Hero & Service Introduction */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
@@ -96,7 +92,7 @@ export default function ServicesPage() {
             Practical Building Construction (Up to 4–5 Floors)
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            GG Construction Co. undertakes building construction for residential homes, independent apartments, commercial shops, and small offices. Backed by our primary materials supply business, we ensure dependable cement, steel, and masonry execution with attentive on-site supervision.
+            GG Construction Co. undertakes building construction for residential homes, builder floors, commercial shops, and small offices. With genuine local experience across Rohini, Pitampura, and nearby areas, we ensure dependable structural execution and attentive on-site supervision.
           </p>
         </div>
       </section>
@@ -186,13 +182,13 @@ export default function ServicesPage() {
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035] flex items-start gap-3 text-xs">
                   <ShieldCheck className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
                   <p className="text-[#A7ADB3]">
-                    <strong className="text-[#F3F1EC]">Dedicated Curing Timelines:</strong> Ensuring mandatory 14 to 21-day continuous water curing for slabs and columns to achieve complete design strength.
+                    <strong className="text-[#F3F1EC]">Dedicated Curing Timelines:</strong> Ensuring mandatory continuous water curing for slabs and columns to achieve complete design strength.
                   </p>
                 </div>
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035] flex items-start gap-3 text-xs">
                   <Compass className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
                   <p className="text-[#A7ADB3]">
-                    <strong className="text-[#F3F1EC]">Damp-Proofing Protection:</strong> Plinth-level DPC barriers and terrace membrane waterproofing to prevent moisture seepage into living areas.
+                    <strong className="text-[#F3F1EC]">Damp-Proofing Protection:</strong> Plinth-level DPC barriers and terrace waterproofing to prevent moisture seepage.
                   </p>
                 </div>
               </div>
@@ -211,8 +207,8 @@ export default function ServicesPage() {
                   <span className="text-[#A7ADB3] text-[11px]">Strict water-cement ratio and mechanical vibration</span>
                 </div>
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035]">
-                  <span className="text-[#B89A63] block font-semibold mb-1">STEEL COVER BLOCKS</span>
-                  <span className="text-[#A7ADB3] text-[11px]">Ensuring proper concrete cover around rebar</span>
+                  <span className="text-[#B89A63] block font-semibold mb-1">STEEL PLACEMENT</span>
+                  <span className="text-[#A7ADB3] text-[11px]">Ensuring proper concrete cover and rebar spacing</span>
                 </div>
                 <div className="p-3 bg-[#0B0D0F] border border-[#2A3035]">
                   <span className="text-[#B89A63] block font-semibold mb-1">BRICKWORK PLUMB</span>
@@ -233,7 +229,7 @@ export default function ServicesPage() {
         <SectionHeading
           eyebrow="Building Services"
           title="Our Construction Services"
-          description="Specialized services for residential homes, independent floors, commercial shops, small offices, renovations, and site coordination."
+          description="Specialized services for residential homes, builder floors, commercial shops, small offices, renovations, and structural improvement."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -248,17 +244,17 @@ export default function ServicesPage() {
         <SectionHeading
           eyebrow="Practical Advantages"
           title="Why Build With GG Construction Co."
-          description="Clear benefits that save time, avoid material delays, and ensure sound building quality."
+          description="Clear benefits that ensure sound building quality, clear communication, and reliable execution."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="p-6 bg-[#15191D] border border-[#2A3035]">
-            <Boxes className="w-5 h-5 text-[#B89A63] mb-3" />
+            <MapPin className="w-5 h-5 text-[#B89A63] mb-3" />
             <h4 className="text-base font-medium text-[#F3F1EC] mb-2">
-              In-House Materials Supply
+              Local Delhi Experience
             </h4>
             <p className="text-xs text-[#A7ADB3] leading-relaxed">
-              Our primary materials business supplies cement, steel, bricks, and sand directly, avoiding site delays.
+              Confirmed construction experience across Rohini, Pitampura, and surrounding Delhi localities.
             </p>
           </div>
 
@@ -275,10 +271,10 @@ export default function ServicesPage() {
           <div className="p-6 bg-[#15191D] border border-[#2A3035]">
             <ShieldCheck className="w-5 h-5 text-[#B89A63] mb-3" />
             <h4 className="text-base font-medium text-[#F3F1EC] mb-2">
-              Stage-Wise Payments
+              Stage-Wise Milestones
             </h4>
             <p className="text-xs text-[#A7ADB3] leading-relaxed">
-              Transparent payment milestones linked to completed civil stages (foundation, slabs, brickwork, plaster).
+              Transparent payment schedules linked directly to verified civil milestones (foundation, slabs, masonry).
             </p>
           </div>
 
@@ -370,9 +366,9 @@ export default function ServicesPage() {
       <CTA
         eyebrow="Construction Enquiries"
         title="Planning a Building Project?"
-        description="Discuss your plot dimensions, building requirements, or renovation plans with GG Construction Co. Call +91 98110 34825 or send an enquiry."
-        primaryCtaText="Enquire Now"
-        primaryCtaHref="/contact"
+        description="Discuss your plot dimensions, building requirements, or renovation plans with GG Construction Co. Call +91 98110 34825 or request a quotation."
+        primaryCtaText="Get a Construction Quote"
+        primaryCtaHref="/get-a-quote"
         secondaryCtaText="Call +91 98110 34825"
         secondaryCtaHref="tel:+919811034825"
         showContacts={true}

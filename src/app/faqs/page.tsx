@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Filter, HelpCircle, ArrowUpRight, Building2, HardHat, Home, Package, FileSpreadsheet } from "lucide-react";
+import { Filter, HelpCircle, ArrowUpRight, Building2, HardHat, FileSpreadsheet } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Accordion, { AccordionItem } from "@/components/ui/Accordion";
 import Button from "@/components/ui/Button";
@@ -11,8 +11,6 @@ const categories = [
   "All Categories",
   "General",
   "Construction",
-  "Real Estate",
-  "Materials",
   "Quotes and Process",
 ] as const;
 
@@ -23,28 +21,18 @@ const categoryMeta: Record<
   { title: string; subtitle: string; icon: React.ComponentType<{ className?: string }> }
 > = {
   General: {
-    title: "General & Business Overview",
-    subtitle: "How our building materials, construction, and property assistance operations work together.",
+    title: "General & Company Overview",
+    subtitle: "GG Construction Co. scope, low-rise capabilities, and regional experience across Delhi.",
     icon: Building2,
   },
   Construction: {
     title: "Building Construction",
-    subtitle: "Residential and commercial building work (up to 4–5 floors), renovations, and site supervision.",
+    subtitle: "Residential homes, builder floors, shops, offices up to 4–5 floors, structural framing, and on-site supervision.",
     icon: HardHat,
   },
-  "Real Estate": {
-    title: "Real Estate Sales & Assistance",
-    subtitle: "Property sales assistance, marketing opportunities, and buyer-seller coordination.",
-    icon: Home,
-  },
-  Materials: {
-    title: "Building Materials Supply",
-    subtitle: "Cement, TMT steel, bricks, blocks, sand, aggregates, and local jobsite delivery.",
-    icon: Package,
-  },
   "Quotes and Process": {
-    title: "Quotes & Enquiries",
-    subtitle: "How to request material quotations, construction estimates, and project consultations.",
+    title: "Quotes & Construction Process",
+    subtitle: "How to request construction quotations, milestone payment schedules, and site consultations.",
     icon: FileSpreadsheet,
   },
 };
@@ -54,9 +42,7 @@ export default function FaqsPage() {
 
   const distinctCategories: Exclude<CategoryType, "All Categories">[] = [
     "General",
-    "Materials",
     "Construction",
-    "Real Estate",
     "Quotes and Process",
   ];
 
@@ -67,14 +53,14 @@ export default function FaqsPage() {
         <div className="inline-flex items-center gap-2 mb-3">
           <span className="w-6 h-[1px] bg-[#B89A63]" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-            Customer Knowledge &amp; Guidance
+            Construction Guidance &amp; FAQs
           </span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-4">
           Frequently Asked Questions
         </h1>
         <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-          Clear, practical answers regarding building materials supply, low-rise building construction (up to 4–5 floors), and property sales assistance.
+          Clear, practical answers regarding our building construction services for residential and commercial low-rise structures up to 4–5 floors across Rohini, Pitampura, and Delhi.
         </p>
       </section>
 
@@ -151,22 +137,23 @@ export default function FaqsPage() {
           })}
       </section>
 
-      {/* Direct Escalation Box */}
+      {/* Direct Contact Box */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="p-8 sm:p-10 border border-[#2A3035] bg-[#15191D]/50">
           <HelpCircle className="w-8 h-8 text-[#B89A63] mx-auto mb-3" />
           <h2 className="text-xl font-light text-[#F3F1EC] mb-2">
-            Have a Specific Project Question Not Listed Here?
+            Have a Specific Construction Question Not Listed Here?
           </h2>
-          <p className="text-xs text-[#A7ADB3] max-w-md mx-auto mb-6">
-            Our engineering desk can provide statutory code references, material test certificates, or detailed commercial contract templates.
+          <p className="text-xs sm:text-sm text-[#A7ADB3] max-w-md mx-auto mb-6">
+            Speak directly with our team. We are happy to discuss plot dimensions, building feasibility, or stage-wise construction milestones.
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-4">
             <Button href="/contact" variant="primary" size="sm">
-              Contact Engineering Desk
+              <span>Send an Enquiry</span>
+              <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
             </Button>
             <Button href="/get-a-quote" variant="outline" size="sm">
-              Request Project Estimate
+              Request Construction Quote
             </Button>
           </div>
         </div>

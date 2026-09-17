@@ -47,7 +47,7 @@ const testSchema = {
   "@context": "https://schema.org",
   name: "Test </script><script>alert('XSS')</script>",
 };
-const serialized = JSON.stringify(testSchema).replace(/</g, "\\\\u003c");
+const serialized = JSON.stringify(testSchema).replace(/</g, "\\u003c");
 assert(!serialized.includes("</script>"), "Serialized JSON-LD contains no unescaped </script> tag");
 assert(serialized.includes(String.raw`\u003c/script>`), "Left angle bracket properly escaped as literal \\u003c");
 
@@ -57,7 +57,7 @@ const contactSchema = z.object({
   phone: z.string().min(8).max(20),
   email: z.string().email(),
   company: z.string().max(120).optional().default(""),
-  enquiryType: z.enum(["construction", "real-estate", "materials", "general"]),
+  enquiryType: z.enum(["residential", "commercial", "renovation", "general"]),
   subject: z.string().min(3).max(150),
   message: z.string().min(10).max(2000),
   bot_field: z.string().max(0).optional().default(""),
@@ -68,8 +68,8 @@ const invalidEmail = contactSchema.safeParse({
   name: "Rajesh",
   phone: "+91 9876543210",
   email: "invalid-email-format",
-  enquiryType: "construction",
-  subject: "Civil Tender",
+  enquiryType: "residential",
+  subject: "Construction Enquiry",
   message: "Detailed description of requirements here.",
 });
 assert(invalidEmail.success === false, "Rejects malformed email format");
@@ -79,7 +79,7 @@ const botSubmission = contactSchema.safeParse({
   name: "Bot User",
   phone: "+91 9876543210",
   email: "bot@spammer.com",
-  enquiryType: "construction",
+  enquiryType: "residential",
   subject: "Spam Tender",
   message: "Buy cheap crypto now please.",
   bot_field: "http://malicious-spam-url.com",
@@ -90,10 +90,10 @@ assert(botSubmission.success === false, "Honeypot detects non-empty bot field");
 const validSubmission = contactSchema.safeParse({
   name: "Rajesh Sharma",
   phone: "+91 9876543210",
-  email: "rajesh@apexinfra.com",
-  enquiryType: "construction",
-  subject: "Turnkey EPC Tender",
-  message: "We require turnkey construction for a 200,000 sq ft industrial warehouse.",
+  email: "rajesh@example.com",
+  enquiryType: "residential",
+  subject: "Residential Construction in Rohini",
+  message: "We require construction for a 4-floor residential building in Rohini Sector 9.",
 });
 assert(validSubmission.success === true, "Valid submission passes schema parse");
 

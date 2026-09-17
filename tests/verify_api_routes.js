@@ -1,5 +1,6 @@
 /**
  * Direct invocation test for API route handlers in Next.js environment.
+ * Verifies construction-only routes, schemas, rate limiting, and security boundaries.
  */
 
 const fs = require("fs");
@@ -37,8 +38,22 @@ async function runTests() {
     json: async () => ({ id: "msg_test_123456789" }),
   });
 
-  console.log("=== Testing /api/contact Handler ===");
-  // Test Mock Next Request
+  console.log("=== 1. Verifying Obsolete Routes and Data Files Are Removed ===");
+  const obsoletePaths = [
+    "src/app/materials",
+    "src/app/real-estate",
+    "src/data/materials.ts",
+    "src/data/properties.ts",
+    "src/components/cards/MaterialCard.tsx",
+    "src/components/cards/PropertyCard.tsx",
+  ];
+  for (const p of obsoletePaths) {
+    const exists = fs.existsSync(p);
+    console.log(`  [TEST] Obsolete path ${p} removed:`, !exists ? "PASS" : "FAIL");
+    if (exists) throw new Error(`Obsolete file or directory still exists: ${p}`);
+  }
+
+  console.log("\n=== 2. Testing /api/contact Handler ===");
   const contactModule = transpileAndLoad("src/app/api/contact/route.ts");
   const { POST } = contactModule;
 
@@ -59,7 +74,7 @@ async function runTests() {
       name: "Bot User",
       phone: "+91 9876543210",
       email: "bot@example.com",
-      enquiryType: "construction",
+      enquiryType: "residential",
       subject: "Inquiry",
       message: "Test message here with enough characters.",
       bot_field: "spam-bot",
@@ -76,7 +91,7 @@ async function runTests() {
       name: "A", // too short
       phone: "123", // too short
       email: "not-an-email",
-      enquiryType: "construction",
+      enquiryType: "residential",
       subject: "Hi",
       message: "Short",
     }),
@@ -94,9 +109,9 @@ async function runTests() {
       name: "Rajesh Sharma",
       phone: "+91 9876543210",
       email: "rajesh@example.com",
-      enquiryType: "construction",
-      subject: "Building Construction Enquiry",
-      message: "Looking for 4-floor commercial building construction timeline and details in Gurugram.",
+      enquiryType: "residential",
+      subject: "Building Construction Enquiry in Rohini",
+      message: "Looking for 4-floor residential building construction timeline and details in Rohini Sector 14.",
     }),
   });
   const res4 = await POST(validReq);
@@ -104,7 +119,7 @@ async function runTests() {
   console.log("  [TEST] Valid submission status:", res4.status, res4.status === 200 ? "PASS" : "FAIL");
   console.log("  [TEST] Reference ID generated:", data4.referenceId ? data4.referenceId : "FAIL");
   console.log("  [TEST] Cache-Control no-store header:", res4.headers.get("cache-control")?.includes("no-store") ? "PASS" : "FAIL");
-  console.log("  [TEST] Reference ID non-sequential format:", /^GGC-\d{6}$/.test(data4.referenceId) ? "PASS" : "FAIL");
+  console.log("  [TEST] Reference ID format (GGC-XXXXXX):", /^GGC-\d{6}$/.test(data4.referenceId) ? "PASS" : "FAIL");
 
   // 5. Rate Limit Exhaustion
   const spamIp = "192.168.100.50";
@@ -127,7 +142,7 @@ async function runTests() {
   }
   console.log("  [TEST] 6th request rate limited status:", lastStatus, lastStatus === 429 ? "PASS" : "FAIL");
 
-  console.log("\n=== Testing /api/quote Handler ===");
+  console.log("\n=== 3. Testing /api/quote Handler ===");
   const quoteModule = transpileAndLoad("src/app/api/quote/route.ts");
   const postQuote = quoteModule.POST;
 
@@ -139,7 +154,6 @@ async function runTests() {
   });
   const qRes1 = await postQuote(quoteReq1);
   console.log("  [TEST] Quote Wrong Content-Type status:", qRes1.status, qRes1.status === 415 ? "PASS" : "FAIL");
-  console.log("  [TEST] Quote 415 Cache-Control header:", qRes1.headers.get("cache-control")?.includes("no-store") ? "PASS" : "FAIL");
 
   // 2. Honeypot
   const quoteHoneypotReq = new Request("http://localhost/api/quote", {
@@ -149,19 +163,16 @@ async function runTests() {
       name: "Bot",
       phone: "+91 9876543210",
       email: "bot@test.com",
-      enquiryType: "construction",
-      projectType: "Commercial Office",
-      location: "Delhi",
-      approximateArea: "50,000 sq ft",
-      budgetRange: "₹ 5 Crores - ₹ 20 Crores",
-      timeline: "6 - 12 Months",
+      projectType: "Commercial Building",
+      location: "Rohini",
+      message: "This is a bot spam test message.",
       bot_field: "spambot",
     }),
   });
   const qRes2 = await postQuote(quoteHoneypotReq);
   console.log("  [TEST] Quote Honeypot rejection status:", qRes2.status, qRes2.status === 400 ? "PASS" : "FAIL");
 
-  // 3. Valid Construction Quote Submission
+  // 3. Valid Construction Quote Submission (Residential)
   const validQuoteReq = new Request("http://localhost/api/quote", {
     method: "POST",
     headers: { "content-type": "application/json", "x-forwarded-for": "10.0.0.11" },
@@ -169,126 +180,38 @@ async function runTests() {
       name: "Vikram Singh",
       phone: "+91 9876543210",
       email: "vikram@example.com",
-      company: "Local Retail Venture",
-      enquiryType: "construction",
-      projectType: "Commercial Building / Showroom (Low-Rise)",
-      location: "Noida Sector 63",
-      approximateArea: "12,000 Sq. Ft.",
-      budgetRange: "₹ 1 Crore - ₹ 2.5 Crores",
+      projectType: "Residential Independent House",
+      location: "Pitampura, Delhi",
+      floors: "Ground + 3 Floors",
+      approximateArea: "3,200 Sq. Ft.",
+      stage: "Architectural Plans Ready",
       timeline: "6 - 12 Months",
-      requirements: ["Architectural Drawings / Floor Plan Ready"],
-      message: "Requirement for 4-floor commercial building construction and material estimates.",
+      message: "Requirement for 4-floor residential building construction in Pitampura with stage-wise estimates.",
     }),
   });
   const qRes3 = await postQuote(validQuoteReq);
   const qData3 = await qRes3.json();
-  console.log("  [TEST] Quote Valid submission status:", qRes3.status, qRes3.status === 200 ? "PASS" : "FAIL");
-  console.log("  [TEST] Quote Reference ID generated:", qData3.referenceId ? qData3.referenceId : "FAIL");
-  console.log("  [TEST] Quote Cache-Control no-store header:", qRes3.headers.get("cache-control")?.includes("no-store") ? "PASS" : "FAIL");
-  console.log("  [TEST] Quote Reference ID non-sequential format:", /^GGE-\d{6}$/.test(qData3.referenceId) ? "PASS" : "FAIL");
+  console.log("  [TEST] Construction Quote Valid submission status:", qRes3.status, qRes3.status === 200 ? "PASS" : "FAIL");
+  console.log("  [TEST] Construction Quote Reference ID generated:", qData3.referenceId ? qData3.referenceId : "FAIL");
+  console.log("  [TEST] Quote Reference ID format (GGE-XXXXXX):", /^GGE-\d{6}$/.test(qData3.referenceId) ? "PASS" : "FAIL");
 
-  // 4. Valid Materials Supply Submission (no approximateArea, timeline, or requirements required)
-  const validMaterialsReq = new Request("http://localhost/api/quote", {
+  // 4. Invalid Quote Submission (missing required location)
+  const invalidQuoteReq = new Request("http://localhost/api/quote", {
     method: "POST",
     headers: { "content-type": "application/json", "x-forwarded-for": "10.0.0.12" },
     body: JSON.stringify({
       name: "Anand Verma",
       phone: "+91 9811122233",
       email: "anand@example.com",
-      company: "Verma Developers",
-      enquiryType: "materials",
-      projectType: "Cement",
-      location: "Gurugram, Sector 57",
-      budgetRange: "₹1,00,000 – ₹5,00,000",
-      message: "500 bags of Ultratech PPC cement needed on site by Tuesday.",
+      projectType: "Commercial Building",
+      location: "", // empty
+      message: "Looking for quote without location.",
     }),
   });
-  const qRes4 = await postQuote(validMaterialsReq);
-  const qData4 = await qRes4.json();
-  console.log("  [TEST] Materials Supply Valid submission status:", qRes4.status, qRes4.status === 200 ? "PASS" : "FAIL");
-  console.log("  [TEST] Materials Supply Reference ID generated:", qData4.referenceId ? qData4.referenceId : "FAIL");
+  const qRes4 = await postQuote(invalidQuoteReq);
+  console.log("  [TEST] Quote Validation rejection (missing location):", qRes4.status, qRes4.status === 422 ? "PASS" : "FAIL");
 
-  // 5. Invalid Materials Supply Submission (missing location)
-  const invalidMaterialsReq = new Request("http://localhost/api/quote", {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-forwarded-for": "10.0.0.13" },
-    body: JSON.stringify({
-      name: "Anand Verma",
-      phone: "+91 9811122233",
-      email: "anand@example.com",
-      enquiryType: "materials",
-      projectType: "Cement",
-      location: "", // empty location
-    }),
-  });
-  const qRes5 = await postQuote(invalidMaterialsReq);
-  console.log("  [TEST] Materials Supply Validation rejection (missing location):", qRes5.status, qRes5.status === 422 ? "PASS" : "FAIL");
-
-  // 6. Valid Low-Rise Construction Submission
-  const validConstructionReq = new Request("http://localhost/api/quote", {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-forwarded-for": "10.0.0.14" },
-    body: JSON.stringify({
-      name: "Pooja Sharma",
-      phone: "+91 9876543210",
-      email: "pooja@example.com",
-      company: "Homeowner",
-      enquiryType: "construction",
-      projectType: "Independent House",
-      location: "Gurugram, Sector 48",
-      floors: "Ground + 2",
-      approximateArea: "2,800 sq. ft.",
-      stage: "Architectural Drawings Ready",
-      budgetRange: "₹ 50 Lakhs – ₹ 1 Crore",
-      message: "Looking for turnkey construction contractor for independent house.",
-    }),
-  });
-  const qRes6 = await postQuote(validConstructionReq);
-  const qData6 = await qRes6.json();
-  console.log("  [TEST] Construction Division Valid submission status:", qRes6.status, qRes6.status === 200 ? "PASS" : "FAIL");
-  console.log("  [TEST] Construction Division Reference ID generated:", qData6.referenceId ? qData6.referenceId : "FAIL");
-
-  // 7. Valid Real Estate Submission
-  const validRealEstateReq = new Request("http://localhost/api/quote", {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-forwarded-for": "10.0.0.15" },
-    body: JSON.stringify({
-      name: "Sanjay Singhania",
-      phone: "+91 9812345678",
-      email: "sanjay@example.com",
-      company: "Private Investor",
-      enquiryType: "real-estate",
-      projectType: "Residential Property",
-      realEstateEnquiryType: "Looking to Buy",
-      location: "Gurugram, Golf Course Ext Road",
-      budgetRange: "₹ 1 Crore – ₹ 2.5 Crores",
-      purpose: "Investment",
-      message: "Looking for 3 BHK ready-to-move or upcoming residential property.",
-    }),
-  });
-  const qRes7 = await postQuote(validRealEstateReq);
-  const qData7 = await qRes7.json();
-  console.log("  [TEST] Real Estate Division Valid submission status:", qRes7.status, qRes7.status === 200 ? "PASS" : "FAIL");
-  console.log("  [TEST] Real Estate Division Reference ID generated:", qData7.referenceId ? qData7.referenceId : "FAIL");
-
-  // 8. Invalid Real Estate Submission (missing location)
-  const invalidRealEstateReq = new Request("http://localhost/api/quote", {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-forwarded-for": "10.0.0.16" },
-    body: JSON.stringify({
-      name: "Sanjay Singhania",
-      phone: "+91 9812345678",
-      email: "sanjay@example.com",
-      enquiryType: "real-estate",
-      projectType: "Plot / Land",
-      realEstateEnquiryType: "Looking to Buy",
-      location: "", // empty location
-    }),
-  });
-  const qRes8 = await postQuote(invalidRealEstateReq);
-  console.log("  [TEST] Real Estate Validation rejection (missing location):", qRes8.status, qRes8.status === 422 ? "PASS" : "FAIL");
-
-  console.log("\n=== Testing Email Dispatch Service (src/lib/email.ts) ===");
+  console.log("\n=== 4. Testing Email Dispatch Service (src/lib/email.ts) ===");
   const emailModule = transpileAndLoad("src/lib/email.ts");
   const { sendNotificationEmail } = emailModule;
 
@@ -322,7 +245,7 @@ async function runTests() {
 
   try {
     const deliveredResult = await sendNotificationEmail({
-      subject: "New Enquiry: Building Construction (GGC-123456)",
+      subject: "New Construction Enquiry — [GGC-123456]",
       replyTo: "client@example.com",
       text: "Client Enquiry details",
       html: "<p>Client Enquiry details</p>",

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Clock, Calendar, User, BookOpen, Filter } from "lucide-react";
+import { ArrowUpRight, Clock, Calendar, BookOpen, Filter } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import BlogCard from "@/components/cards/BlogCard";
 import Button from "@/components/ui/Button";
@@ -12,9 +12,7 @@ import { blogPostsData, BlogPost } from "@/data/blog";
 
 const categories = [
   "All Articles",
-  "Building Materials",
   "Construction Guidance",
-  "Property Buying Tips",
 ];
 
 export default function BlogPage() {
@@ -39,10 +37,10 @@ export default function BlogPage() {
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
-            Building & Material Guides
+            Building Construction Guides
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
-            Practical articles on choosing quality construction materials, understanding structural building basics, and checklists for property buyers.
+            Practical insights on low-rise building construction, RCC framing standards, curing timelines, and damp-proofing best practices for home and building owners.
           </p>
         </div>
       </section>
@@ -61,7 +59,7 @@ export default function BlogPage() {
                   className="object-cover"
                 />
                 <div className="absolute top-4 left-4">
-                  <Badge variant="bronze">Featured Engineering Briefing</Badge>
+                  <Badge variant="bronze">Featured Construction Guide</Badge>
                 </div>
               </div>
 
@@ -106,7 +104,7 @@ export default function BlogPage() {
                       size="sm"
                       className="flex-shrink-0"
                     >
-                      <span>Read Deep Dive</span>
+                      <span>Read Guide</span>
                       <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
                     </Button>
                   </div>
@@ -147,22 +145,22 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Contextual Technical Newsletter / Consultation CTA */}
+      {/* Construction Planning CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="p-10 border border-[#2A3035] bg-[#15191D]/50">
           <BookOpen className="w-8 h-8 text-[#B89A63] mx-auto mb-3" />
           <h2 className="text-2xl font-light text-[#F3F1EC] mb-3">
-            Need Technical Specification or Structural Peer Review?
+            Planning a Building Project?
           </h2>
           <p className="text-sm text-[#A7ADB3] max-w-xl mx-auto mb-6">
-            Submit your structural drawings, BOQ schedules, or statutory due diligence questions to our central engineering desk for peer review.
+            Speak with our construction team regarding plot dimensions, structural planning, and realistic construction estimates across Rohini, Pitampura, and Delhi.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button href="/contact" variant="primary" size="md">
-              Consult Engineering Directorate
+            <Button href="/get-a-quote" variant="primary" size="md">
+              Get a Construction Quote
             </Button>
-            <Button href="/get-a-quote" variant="outline" size="md">
-              Request Project Estimate
+            <Button href="/contact" variant="outline" size="md">
+              Contact Construction Team
             </Button>
           </div>
         </div>

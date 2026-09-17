@@ -13,17 +13,17 @@ export default function ServicesPreview() {
     servicesData.find((s) => s.slug === "residential-construction") || servicesData[0];
   const supportingServices = [
     servicesData.find((s) => s.slug === "commercial-construction"),
+    servicesData.find((s) => s.slug === "shop-office-construction"),
     servicesData.find((s) => s.slug === "renovation-remodeling"),
-    servicesData.find((s) => s.slug === "construction-planning"),
   ].filter((s): s is (typeof servicesData)[0] => Boolean(s));
 
   return (
     <section className="py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035]">
       <Container size="default">
         <SectionHeading
-          eyebrow="Secondary Business // Building Construction"
+          eyebrow="Core Construction Services"
           title="Practical Building Construction Services"
-          description="We construct small to medium-sized buildings: residential homes, 3–4 floor independent apartments, commercial shops, and small offices (up to approximately 4–5 floors maximum), backed by honest supervision and quality materials."
+          description="We construct low-rise buildings across Rohini, Pitampura, and nearby areas of Delhi: residential homes, builder floors, commercial shops, and small offices (up to approximately 4–5 floors maximum), backed by attentive on-site supervision and disciplined civil execution."
           action={
             <Button href="/services" variant="outline" size="sm">
               <span>All Construction Services</span>
@@ -59,7 +59,7 @@ export default function ServicesPreview() {
             <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between">
               <div>
                 <span className="text-[10px] uppercase font-mono tracking-widest text-[#B89A63] block mb-2">
-                  RESIDENTIAL & COMMERCIAL
+                  RESIDENTIAL &bull; UP TO 4–5 FLOORS
                 </span>
 
                 <h3 className="text-2xl sm:text-3xl font-light text-[#F3F1EC] mb-3 group-hover:text-[#B89A63] transition-colors">
@@ -109,7 +109,7 @@ export default function ServicesPreview() {
           </div>
         </div>
 
-        {/* Alternating Asymmetric 3-Column Grid for Supporting Services */}
+        {/* Supporting Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {supportingServices.map((service, idx) => (
             <div

@@ -11,46 +11,22 @@ const NO_CACHE_HEADERS = {
   Pragma: "no-cache",
 };
 
-const baseQuoteSchema = z.object({
+const constructionQuoteSchema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters").max(100),
   phone: z.string().trim().min(8, "Valid phone number required").max(20),
   email: z.string().trim().email("Valid email address required"),
   company: z.string().trim().max(120).optional().default(""),
-  location: z.string().trim().min(2, "Location / city required").max(100),
+  location: z.string().trim().min(2, "Project location / area required").max(100),
+  projectType: z.string().trim().min(2, "Project type required").max(100),
+  floors: z.string().trim().max(50).optional().default(""),
+  approximateArea: z.string().trim().max(80).optional().default(""),
+  stage: z.string().trim().max(80).optional().default(""),
+  budgetRange: z.string().trim().max(50).optional().default(""),
+  timeline: z.string().trim().max(50).optional().default(""),
+  requirements: z.array(z.string().trim().max(100)).max(20).optional().default([]),
   message: z.string().trim().max(3000).optional().default(""),
   bot_field: z.string().max(0, "Bot detected").optional().default(""),
 });
-
-const quoteSchema = z.discriminatedUnion("enquiryType", [
-  baseQuoteSchema.extend({
-    enquiryType: z.literal("materials"),
-    projectType: z.string().trim().min(2, "Material category required").max(80),
-    budgetRange: z.string().trim().max(50).optional().default(""),
-    approximateArea: z.string().trim().max(50).optional().default(""),
-    timeline: z.string().trim().max(50).optional().default(""),
-    requirements: z.array(z.string().trim().max(100)).max(20).optional().default([]),
-  }),
-  baseQuoteSchema.extend({
-    enquiryType: z.literal("construction"),
-    projectType: z.string().trim().min(2, "Project type required").max(80),
-    floors: z.string().trim().max(50).optional().default(""),
-    approximateArea: z.string().trim().max(50).optional().default(""),
-    stage: z.string().trim().max(80).optional().default(""),
-    budgetRange: z.string().trim().max(50).optional().default(""),
-    timeline: z.string().trim().max(50).optional().default(""),
-    requirements: z.array(z.string().trim().max(100)).max(20).optional().default([]),
-  }),
-  baseQuoteSchema.extend({
-    enquiryType: z.literal("real-estate"),
-    projectType: z.string().trim().min(2, "Property type required").max(80),
-    realEstateEnquiryType: z.string().trim().max(80).optional().default(""),
-    purpose: z.string().trim().max(80).optional().default(""),
-    approximateArea: z.string().trim().max(50).optional().default(""),
-    budgetRange: z.string().trim().max(50).optional().default(""),
-    timeline: z.string().trim().max(50).optional().default(""),
-    requirements: z.array(z.string().trim().max(100)).max(20).optional().default([]),
-  }),
-]);
 
 export async function POST(request: Request) {
   // 1. Content-Type Check
@@ -127,7 +103,7 @@ export async function POST(request: Request) {
     }
 
     // 5. Zod Schema Validation
-    const validation = quoteSchema.safeParse(body);
+    const validation = constructionQuoteSchema.safeParse(body);
 
     if (!validation.success) {
       const errors = validation.error.flatten().fieldErrors;
@@ -147,66 +123,40 @@ export async function POST(request: Request) {
 
     // 6. Sanitize strings
     const sanitizedData = {
-      ...data,
       name: data.name.trim(),
+      phone: data.phone.trim(),
       email: data.email.trim().toLowerCase(),
-      projectType: data.projectType.trim(),
+      company: data.company.trim(),
       location: data.location.trim(),
-      approximateArea: data.approximateArea?.trim() || "",
-      budgetRange: data.budgetRange?.trim() || "",
-      timeline: data.timeline?.trim() || "",
+      projectType: data.projectType.trim(),
+      floors: data.floors.trim(),
+      approximateArea: data.approximateArea.trim(),
+      stage: data.stage.trim(),
+      budgetRange: data.budgetRange.trim(),
+      timeline: data.timeline.trim(),
+      requirements: data.requirements,
       message: data.message.trim(),
-      floors: "floors" in data && typeof data.floors === "string" ? data.floors.trim() : "",
-      stage: "stage" in data && typeof data.stage === "string" ? data.stage.trim() : "",
-      realEstateEnquiryType:
-        "realEstateEnquiryType" in data && typeof data.realEstateEnquiryType === "string"
-          ? data.realEstateEnquiryType.trim()
-          : "",
-      purpose: "purpose" in data && typeof data.purpose === "string" ? data.purpose.trim() : "",
     };
 
-    // Cryptographically unpredictable, non-sequential reference identifier
+    // Unpredictable reference identifier
     const randomSuffix = Math.floor(100000 + Math.random() * 900000);
     const referenceId = `GGE-${randomSuffix}`;
     const timestamp = new Date().toUTCString();
 
-    const isMaterials = sanitizedData.enquiryType === "materials";
-    const isRealEstate = sanitizedData.enquiryType === "real-estate";
-    const isConstruction = sanitizedData.enquiryType === "construction";
+    const specRows: [string, string][] = [
+      ["Project Type", sanitizedData.projectType],
+      ["Project Location", sanitizedData.location],
+    ];
 
-    const divisionLabel = isMaterials
-      ? "Materials Supply"
-      : isRealEstate
-      ? "Real Estate Sales & Assistance"
-      : "Building Construction";
-
-    const specRows: [string, string][] = [];
-
-    if (isMaterials) {
-      specRows.push(["Material Category", sanitizedData.projectType]);
-      specRows.push(["Delivery Location", sanitizedData.location]);
-      if (sanitizedData.budgetRange) specRows.push(["Target Budget Range", sanitizedData.budgetRange]);
-    } else if (isConstruction) {
-      specRows.push(["Project Type", sanitizedData.projectType]);
-      specRows.push(["Project Location", sanitizedData.location]);
-      if (sanitizedData.floors) specRows.push(["Number of Floors", sanitizedData.floors]);
-      if (sanitizedData.approximateArea) specRows.push(["Approx. Built-up Area", sanitizedData.approximateArea]);
-      if (sanitizedData.stage) specRows.push(["Current Project Stage", sanitizedData.stage]);
-      if (sanitizedData.budgetRange) specRows.push(["Expected Construction Budget", sanitizedData.budgetRange]);
-      if (sanitizedData.timeline) specRows.push(["Target Timeline", sanitizedData.timeline]);
-    } else {
-      if (sanitizedData.realEstateEnquiryType) specRows.push(["Enquiry Type", sanitizedData.realEstateEnquiryType]);
-      specRows.push(["Property Type", sanitizedData.projectType]);
-      specRows.push(["Preferred Location", sanitizedData.location]);
-      if (sanitizedData.approximateArea) specRows.push(["Approx. Space / Area", sanitizedData.approximateArea]);
-      if (sanitizedData.purpose) specRows.push(["Purpose of Enquiry", sanitizedData.purpose]);
-      if (sanitizedData.budgetRange) specRows.push(["Approx. Budget Range", sanitizedData.budgetRange]);
-      if (sanitizedData.timeline) specRows.push(["Target Timeline", sanitizedData.timeline]);
-    }
+    if (sanitizedData.floors) specRows.push(["Proposed Scale / Floors", sanitizedData.floors]);
+    if (sanitizedData.approximateArea) specRows.push(["Approx. Built-Up Area", sanitizedData.approximateArea]);
+    if (sanitizedData.stage) specRows.push(["Planning Stage", sanitizedData.stage]);
+    if (sanitizedData.budgetRange) specRows.push(["Expected Budget", sanitizedData.budgetRange]);
+    if (sanitizedData.timeline) specRows.push(["Target Start Timeline", sanitizedData.timeline]);
 
     // 7. Dispatch notification email to gunjan29gupta@gmail.com via Resend
     const textContent = [
-      `NEW ${divisionLabel.toUpperCase()} ENQUIRY — GG CONSTRUCTION CO.`,
+      `NEW CONSTRUCTION QUOTE REQUEST — GG CONSTRUCTION CO.`,
       "==================================================",
       `Reference ID: ${referenceId}`,
       `Received At:  ${timestamp}`,
@@ -216,19 +166,19 @@ export async function POST(request: Request) {
       `  Email:    ${sanitizedData.email}`,
       `  Phone:    ${sanitizedData.phone}`,
       sanitizedData.company ? `  Company:  ${sanitizedData.company}` : "",
-      `  Division: ${divisionLabel}`,
+      `  Location: ${sanitizedData.location}`,
       "",
-      `${divisionLabel.toUpperCase()} SPECIFICATION:`,
+      "CONSTRUCTION SPECIFICATIONS:",
       ...specRows.map(([label, value]) => `  ${label}: ${value}`),
       "",
-      sanitizedData.requirements && sanitizedData.requirements.length > 0
+      sanitizedData.requirements.length > 0
         ? [
-            "REQUIREMENTS / PREFERENCES:",
+            "SCOPE REQUIREMENTS:",
             ...sanitizedData.requirements.map((r) => `  - ${r}`),
             "",
           ].join("\n")
         : "",
-      "ADDITIONAL REQUIREMENTS / NOTES:",
+      "ADDITIONAL NOTES / MESSAGE:",
       sanitizedData.message || "None provided.",
       "",
       "==================================================",
@@ -238,11 +188,10 @@ export async function POST(request: Request) {
       .join("\n");
 
     const htmlRows = [
-      `<tr><td style="padding: 6px 0; color: #9CA3AF; width: 150px;">Client Name:</td><td style="color: #FFFFFF; font-weight: 600;">${escapeHtml(sanitizedData.name)}</td></tr>`,
+      `<tr><td style="padding: 6px 0; color: #9CA3AF; width: 160px;">Client Name:</td><td style="color: #FFFFFF; font-weight: 600;">${escapeHtml(sanitizedData.name)}</td></tr>`,
       `<tr><td style="padding: 6px 0; color: #9CA3AF;">Email:</td><td><a href="mailto:${escapeHtml(sanitizedData.email)}" style="color: #60A5FA;">${escapeHtml(sanitizedData.email)}</a></td></tr>`,
       `<tr><td style="padding: 6px 0; color: #9CA3AF;">Phone:</td><td style="color: #FFFFFF;">${escapeHtml(sanitizedData.phone)}</td></tr>`,
       sanitizedData.company ? `<tr><td style="padding: 6px 0; color: #9CA3AF;">Company:</td><td style="color: #FFFFFF;">${escapeHtml(sanitizedData.company)}</td></tr>` : "",
-      `<tr><td style="padding: 6px 0; color: #9CA3AF;">Division:</td><td style="color: #F59E0B; font-weight: 600;">${escapeHtml(divisionLabel)}</td></tr>`,
       ...specRows.map(
         ([label, value]) =>
           `<tr><td style="padding: 6px 0; color: #9CA3AF;">${escapeHtml(label)}:</td><td style="color: #FFFFFF; font-weight: 600;">${escapeHtml(value)}</td></tr>`
@@ -258,7 +207,7 @@ export async function POST(request: Request) {
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0B0D0F; color: #F3F1EC; padding: 24px;">
   <div style="max-width: 600px; margin: 0 auto; background-color: #14181D; border: 1px solid #28303A; border-radius: 8px; padding: 28px;">
     <div style="border-bottom: 2px solid #D97706; padding-bottom: 16px; margin-bottom: 20px;">
-      <h2 style="color: #D97706; margin: 0; font-size: 20px;">GG Construction Co. — New ${divisionLabel} Request</h2>
+      <h2 style="color: #D97706; margin: 0; font-size: 20px;">GG Construction Co. — New Construction Quote Request</h2>
       <p style="color: #9CA3AF; margin: 4px 0 0 0; font-size: 13px;">Ref: <strong>${referenceId}</strong> | ${timestamp}</p>
     </div>
 
@@ -267,10 +216,10 @@ export async function POST(request: Request) {
     </table>
 
     ${
-      sanitizedData.requirements && sanitizedData.requirements.length > 0
+      sanitizedData.requirements.length > 0
         ? `
     <div style="background-color: #0B0D0F; border: 1px solid #1F2937; border-radius: 6px; padding: 12px 16px; margin-bottom: 16px;">
-      <p style="margin: 0 0 6px 0; color: #9CA3AF; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Selected Requirements / Preferences:</p>
+      <p style="margin: 0 0 6px 0; color: #9CA3AF; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Scope Components Selected:</p>
       <ul style="margin: 0; padding-left: 18px; color: #E5E7EB; font-size: 13px;">
         ${sanitizedData.requirements.map((r) => `<li style="margin-bottom: 4px;">${escapeHtml(r)}</li>`).join("")}
       </ul>
@@ -282,7 +231,7 @@ export async function POST(request: Request) {
       sanitizedData.message
         ? `
     <div style="background-color: #0B0D0F; border: 1px solid #1F2937; border-radius: 6px; padding: 16px;">
-      <p style="margin: 0 0 8px 0; color: #9CA3AF; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Notes & Details:</p>
+      <p style="margin: 0 0 8px 0; color: #9CA3AF; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Project Notes:</p>
       <p style="margin: 0; color: #E5E7EB; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">${escapeHtml(sanitizedData.message)}</p>
     </div>`
         : ""
@@ -292,14 +241,8 @@ export async function POST(request: Request) {
 </html>
 `;
 
-    const subjectPrefix = isMaterials
-      ? "New Material Supply Quote"
-      : isRealEstate
-      ? "New Real Estate Enquiry"
-      : "New Construction Estimate";
-
     const emailResult = await sendNotificationEmail({
-      subject: `[GG Construction] ${subjectPrefix}: ${sanitizedData.projectType} (${referenceId})`,
+      subject: `New Construction Quote Request — [${referenceId}]`,
       replyTo: sanitizedData.email,
       text: textContent,
       html: htmlContent,
@@ -312,16 +255,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const confirmationMessage = isMaterials
-      ? `Your material quotation request has been received (Ref: ${referenceId}). Our materials procurement desk will review your specifications and follow up with itemized pricing and delivery scheduling.`
-      : isRealEstate
-      ? `Your real estate enquiry has been received (Ref: ${referenceId}). Our property assistance team will review your requirements and connect with you.`
-      : `Your project specification has been logged and forwarded to our estimation desk (Ref: ${referenceId}). Our team will review your details and connect with you to provide preliminary cost guidance.`;
-
     return NextResponse.json(
       {
         success: true,
-        message: confirmationMessage,
+        message: `Your project specification has been logged and forwarded to our estimation desk (Ref: ${referenceId}). Our team will review your details and connect with you to provide preliminary cost guidance.`,
         referenceId,
       },
       {

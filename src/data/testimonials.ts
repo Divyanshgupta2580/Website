@@ -1,16 +1,14 @@
-export type TestimonialDivision =
-  | "Building Materials Supply"
-  | "Building Construction"
-  | "Real Estate Sales & Assistance"
-  | "Construction & Engineering"
-  | "Real Estate & Property Development";
+export type TestimonialCategory =
+  | "Residential Construction"
+  | "Commercial Construction"
+  | "Building Renovation";
 
 export interface TestimonialItem {
   id: string;
   clientNamePlaceholder: string;
   designation: string;
   organizationPlaceholder: string;
-  division: TestimonialDivision;
+  category: TestimonialCategory;
   projectContext: string;
   quote: string;
   rating: number;
@@ -21,54 +19,41 @@ export interface TestimonialItem {
 export const testimonialsData: TestimonialItem[] = [
   {
     id: "testimonial-placeholder-1",
-    clientNamePlaceholder: "[ADD VERIFIED CUSTOMER REVIEW]",
-    designation: "Independent Home Builder",
-    organizationPlaceholder: "Residential Project",
-    division: "Building Materials Supply",
-    projectContext: "Cement, Sand & Masonry Supplies",
+    clientNamePlaceholder: "[REPRESENTATIVE HOMEOWNER FEEDBACK]",
+    designation: "Residential Building Owner",
+    organizationPlaceholder: "G+3 Builder Floor Project (Rohini)",
+    category: "Residential Construction",
+    projectContext: "Low-Rise Residential Construction",
     quote:
-      "We were able to get most of the material we needed from one place, which made the construction work easier to manage. Delivery was on time as scheduled.",
+      "The on-site supervision was steady throughout the foundation and slab casting stages. Work was explained clearly as each floor progressed without unexpected costs.",
     rating: 5,
-    year: "2024",
+    year: "Representative Scope",
     isPlaceholder: true,
   },
   {
     id: "testimonial-placeholder-2",
-    clientNamePlaceholder: "[ADD VERIFIED CUSTOMER REVIEW]",
-    designation: "Local Civil Contractor",
-    organizationPlaceholder: "Site Procurement",
-    division: "Building Materials Supply",
-    projectContext: "Shuttering & Site Hardware Supplies",
+    clientNamePlaceholder: "[REPRESENTATIVE COMMERCIAL OWNER FEEDBACK]",
+    designation: "Commercial Property Owner",
+    organizationPlaceholder: "Shop & Commercial Building (Pitampura)",
+    category: "Commercial Construction",
+    projectContext: "Low-Rise Commercial Construction",
     quote:
-      "The team was helpful when we were comparing material options and quantities. Communication was straightforward without unnecessary back and forth.",
+      "They understood practical building requirements for retail spaces. Column placement and front shop shutters were executed accurately according to our layout.",
     rating: 5,
-    year: "2024",
+    year: "Representative Scope",
     isPlaceholder: true,
   },
   {
     id: "testimonial-placeholder-3",
-    clientNamePlaceholder: "[ADD VERIFIED CUSTOMER REVIEW]",
+    clientNamePlaceholder: "[REPRESENTATIVE RENOVATION CLIENT FEEDBACK]",
     designation: "Homeowner",
-    organizationPlaceholder: "G+2 Residential Build",
-    division: "Building Construction",
-    projectContext: "Civil Construction up to 4-5 Floors",
+    organizationPlaceholder: "Upper Floor Addition & Waterproofing (Delhi)",
+    category: "Building Renovation",
+    projectContext: "Structural Floor Addition",
     quote:
-      "Apart from supplying materials, they also understood the practical side of the construction work, which was useful for us during slab casting and brickwork.",
+      "We added an upper floor while staying downstairs. The team used lightweight blocks as promised and handled terrace waterproofing cleanly.",
     rating: 5,
-    year: "2024",
-    isPlaceholder: true,
-  },
-  {
-    id: "testimonial-placeholder-4",
-    clientNamePlaceholder: "[ADD VERIFIED CUSTOMER REVIEW]",
-    designation: "Plot Buyer",
-    organizationPlaceholder: "Residential Plot Consultation",
-    division: "Real Estate Sales & Assistance",
-    projectContext: "Property Advisory & Visits",
-    quote:
-      "We contacted them for property requirements in the area. Got honest guidance on location and site details without any pressure.",
-    rating: 5,
-    year: "2024",
+    year: "Representative Scope",
     isPlaceholder: true,
   },
 ];

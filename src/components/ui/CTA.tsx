@@ -17,12 +17,12 @@ export interface CTAProps {
 }
 
 export default function CTA({
-  eyebrow = "Initiate Engagement",
-  title = "Planning Your Next Project?",
-  description = "Connect directly with our engineering directors to discuss structural feasibility, site requirements, and material supply frameworks.",
-  primaryCtaText = "Start a Project",
+  eyebrow = "Start Your Project",
+  title = "Planning a Building Project?",
+  description = "Connect directly with our construction team to discuss plot dimensions, building feasibility, and stage-wise construction estimates across Rohini, Pitampura, and Delhi.",
+  primaryCtaText = "Get a Construction Quote",
   primaryCtaHref = "/get-a-quote",
-  secondaryCtaText = "Speak with Engineering",
+  secondaryCtaText = "Contact Construction Team",
   secondaryCtaHref = "/contact",
   showContacts = true,
   className = "",

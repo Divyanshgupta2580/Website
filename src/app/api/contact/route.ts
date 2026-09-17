@@ -16,7 +16,7 @@ const contactSchema = z.object({
   phone: z.string().trim().min(8, "Valid phone number required").max(20),
   email: z.string().trim().email("Valid email address required"),
   company: z.string().trim().max(120).optional().default(""),
-  enquiryType: z.enum(["construction", "real-estate", "materials", "general"]),
+  enquiryType: z.enum(["residential", "commercial", "renovation", "general"]),
   subject: z.string().trim().min(3, "Subject required").max(150),
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(2000),
   bot_field: z.string().max(0, "Bot detected").optional().default(""), // Honeypot
@@ -126,21 +126,29 @@ export async function POST(request: Request) {
 
     // Server-side audit log (PII safe, IP masked)
     console.log("[INCOMING ENQUIRY RECEIVED]:", {
-      division: sanitizedData.enquiryType,
+      type: sanitizedData.enquiryType,
       subject: sanitizedData.subject,
       ip: clientIp.replace(/(\d+)\.(\d+)\..*/, "$1.$2.*.*"), // Masked IP
       timestamp: new Date().toISOString(),
     });
 
-    // Cryptographically unpredictable, non-sequential reference identifier
+    // Cryptographically unpredictable reference identifier
     const randomSuffix = Math.floor(100000 + Math.random() * 900000);
     const referenceId = `GGC-${randomSuffix}`;
     const timestamp = new Date().toUTCString();
 
+    const categoryLabels: Record<string, string> = {
+      residential: "Residential Construction",
+      commercial: "Commercial Construction",
+      renovation: "Renovation & Structural",
+      general: "General Consultation",
+    };
+    const categoryLabel = categoryLabels[sanitizedData.enquiryType] || sanitizedData.enquiryType;
+
     // 7. Dispatch notification email to gunjan29gupta@gmail.com via Resend
     const textContent = [
-      "NEW CONTACT ENQUIRY — GG CONSTRUCTION CO.",
-      "==========================================",
+      "NEW CONSTRUCTION ENQUIRY — GG CONSTRUCTION CO.",
+      "==============================================",
       `Reference ID: ${referenceId}`,
       `Received At:  ${timestamp}`,
       "",
@@ -149,15 +157,15 @@ export async function POST(request: Request) {
       `  Email:    ${sanitizedData.email}`,
       `  Phone:    ${sanitizedData.phone}`,
       sanitizedData.company ? `  Company:  ${sanitizedData.company}` : "",
-      `  Division: ${sanitizedData.enquiryType}`,
+      `  Type:     ${categoryLabel}`,
       "",
       "ENQUIRY DETAILS:",
       `  Subject:  ${sanitizedData.subject}`,
       "",
-      "MESSAGE:",
+      "MESSAGE BODY:",
       sanitizedData.message,
       "",
-      "==========================================",
+      "==============================================",
       "Dispatched from GG Construction Co. Website",
     ]
       .filter(Boolean)
@@ -170,16 +178,16 @@ export async function POST(request: Request) {
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0B0D0F; color: #F3F1EC; padding: 24px;">
   <div style="max-width: 600px; margin: 0 auto; background-color: #14181D; border: 1px solid #28303A; border-radius: 8px; padding: 28px;">
     <div style="border-bottom: 2px solid #D97706; padding-bottom: 16px; margin-bottom: 20px;">
-      <h2 style="color: #D97706; margin: 0; font-size: 20px;">GG Construction Co. — New Enquiry</h2>
+      <h2 style="color: #D97706; margin: 0; font-size: 20px;">GG Construction Co. — New Construction Enquiry</h2>
       <p style="color: #9CA3AF; margin: 4px 0 0 0; font-size: 13px;">Ref: <strong>${referenceId}</strong> | ${timestamp}</p>
     </div>
 
     <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
-      <tr><td style="padding: 6px 0; color: #9CA3AF; width: 110px;">Client Name:</td><td style="color: #FFFFFF; font-weight: 600;">${escapeHtml(sanitizedData.name)}</td></tr>
+      <tr><td style="padding: 6px 0; color: #9CA3AF; width: 120px;">Client Name:</td><td style="color: #FFFFFF; font-weight: 600;">${escapeHtml(sanitizedData.name)}</td></tr>
       <tr><td style="padding: 6px 0; color: #9CA3AF;">Email:</td><td><a href="mailto:${escapeHtml(sanitizedData.email)}" style="color: #60A5FA;">${escapeHtml(sanitizedData.email)}</a></td></tr>
       <tr><td style="padding: 6px 0; color: #9CA3AF;">Phone:</td><td style="color: #FFFFFF;">${escapeHtml(sanitizedData.phone)}</td></tr>
       ${sanitizedData.company ? `<tr><td style="padding: 6px 0; color: #9CA3AF;">Company:</td><td style="color: #FFFFFF;">${escapeHtml(sanitizedData.company)}</td></tr>` : ""}
-      <tr><td style="padding: 6px 0; color: #9CA3AF;">Division:</td><td style="color: #F59E0B; text-transform: capitalize;">${escapeHtml(sanitizedData.enquiryType)}</td></tr>
+      <tr><td style="padding: 6px 0; color: #9CA3AF;">Project Scope:</td><td style="color: #F59E0B; font-weight: 600;">${escapeHtml(categoryLabel)}</td></tr>
       <tr><td style="padding: 6px 0; color: #9CA3AF;">Subject:</td><td style="color: #FFFFFF;">${escapeHtml(sanitizedData.subject)}</td></tr>
     </table>
 
@@ -193,7 +201,7 @@ export async function POST(request: Request) {
 `;
 
     const emailResult = await sendNotificationEmail({
-      subject: `[GG Construction] New Enquiry: ${sanitizedData.subject} (${referenceId})`,
+      subject: `New Construction Enquiry — [${referenceId}]`,
       replyTo: sanitizedData.email,
       text: textContent,
       html: htmlContent,
@@ -209,7 +217,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        message: `Thank you. Your enquiry has been received (Ref: ${referenceId}). We will review your request and get back to you shortly.`,
+        message: `Thank you. Your construction enquiry has been received (Ref: ${referenceId}). We will review your request and get back to you shortly.`,
         referenceId,
       },
       {

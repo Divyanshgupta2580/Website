@@ -1,5 +1,5 @@
 import React from "react";
-import { Compass, ShieldCheck, Truck, Scale, HeartHandshake, CheckCircle2 } from "lucide-react";
+import { Compass, ShieldCheck, HardHat, Scale, HeartHandshake, CheckCircle2, MapPin } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
 
@@ -7,62 +7,67 @@ export default function WhyChooseUs() {
   const pillars = [
     {
       number: "01",
-      icon: Truck,
-      title: "Dependable Material Supply",
-      subtitle: "Primary Business Focus",
-      description: "Direct and steady supply of essential construction materials: cement, TMT steel, red bricks, sand, aggregates, and plumbing supplies delivered directly to your building site without unnecessary delays.",
+      icon: HardHat,
+      title: "Quality-Focused Low-Rise Construction",
+      subtitle: "Up to 4–5 Floors",
+      description:
+        "Specialized in small-to-medium building construction up to 4–5 floors maximum. We maintain rigorous standards for concrete mixing ratios, reinforcement tie placement, and proper 14–21 day curing cycles.",
       highlights: [
-        "Fresh cement bags and tested TMT steel rebars",
-        "Honest weighbridge and volumetric measurement",
-        "Prompt local truck & trolley dispatch",
+        "Sound RCC column and beam structural frame casting",
+        "First-class red clay brick & lightweight AAC masonry",
+        "Disciplined 14–21 day water curing protocols",
       ],
     },
     {
       number: "02",
-      icon: ShieldCheck,
-      title: "Quality-Focused Construction",
-      subtitle: "Small to Medium Buildings",
-      description: "Specialized in small-to-medium building construction up to 4–5 floors maximum. We maintain rigorous standards for concrete mixing ratios, reinforcement tie placement, and proper 14–21 day curing cycles.",
+      icon: MapPin,
+      title: "Genuine Local Delhi Experience",
+      subtitle: "Rohini, Pitampura & Nearby Areas",
+      description:
+        "GG Construction Co. has carried out construction work across Rohini, Pitampura and nearby areas of Delhi. We understand local ground conditions, neighborhood logistics, and municipal building practices thoroughly.",
       highlights: [
-        "Sound RCC column and beam structural frame casting",
-        "First-class red clay brick & lightweight AAC masonry",
-        "Dedicated day-to-day on-site supervision",
+        "Confirmed construction experience across North-West Delhi",
+        "Practical neighborhood site delivery coordination",
+        "Familiarity with local soil and residential layout norms",
       ],
     },
     {
       number: "03",
       icon: Scale,
       title: "Transparent Estimates & Billing",
-      subtitle: "Honest Dealings",
-      description: "Clear, itemized cost estimates without hidden extras. Whether ordering 50 bags of cement or contracting a full 4-storey residential house, you receive honest pricing and stage-wise accountability.",
+      subtitle: "Honest Milestone Accounting",
+      description:
+        "Clear, itemized cost estimates without hidden extras or confusing contract terms. Milestone payments are tied directly to verified physical progress on site from foundation to finishing.",
       highlights: [
-        "Transparent daily material pricing and discounts",
-        "Stage-wise construction milestone payments",
-        "Accurate delivery challans with zero ambiguity",
+        "Itemized civil and structural quantity breakdowns",
+        "Stage-wise milestone payments tied to physical progress",
+        "No unexpected cost surges or hidden billing items",
       ],
     },
     {
       number: "04",
-      icon: Compass,
-      title: "Property Sales Assistance",
-      subtitle: "Real Estate Coordination",
-      description: "Assisting customers with property enquiries, marketing listed properties on behalf of owners and developers, scheduling site visits, and ensuring transparent buyer-seller coordination.",
+      icon: ShieldCheck,
+      title: "Attentive On-Site Supervision",
+      subtitle: "Daily Quality Oversight",
+      description:
+        "Every active building project receives dedicated on-site supervision. Our experienced supervisors oversee steel rebar tying, concrete pouring, mortar mixes, and plumb lines continuously.",
       highlights: [
-        "Assistance with title document verification",
-        "Clear distinction between built and marketed properties",
-        "Personal guidance from site visit to transaction",
+        "Daily site presence for critical casting operations",
+        "Rebar binding and concrete cover inspection",
+        "True vertical plumb lines and mortar joint verification",
       ],
     },
     {
       number: "05",
       icon: HeartHandshake,
-      title: "Accessible Personal Service",
-      subtitle: "Direct Communication",
-      description: "We believe in personal accessibility. Speak directly with our team regarding material delivery times, ongoing construction milestones, or property details whenever you need assistance.",
+      title: "Direct Client Accessibility",
+      subtitle: "Clear Personal Communication",
+      description:
+        "We believe in personal accessibility and straightforward communication. Speak directly with our core project team for milestone updates, technical queries, or on-site walkthroughs.",
       highlights: [
-        "Direct founder and management availability",
-        "Practical understanding of local construction conditions",
-        "Long-term customer relationships built on trust",
+        "Direct contact with core construction management",
+        "Regular milestone walkthroughs on site",
+        "Long-term client relationships built on dependability",
       ],
     },
   ];
@@ -73,7 +78,7 @@ export default function WhyChooseUs() {
         <SectionHeading
           eyebrow="Practical Advantages"
           title="Why Choose GG Construction Co."
-          description="A customer-focused business combining dependable building materials supply, practical construction up to 4–5 floors, and transparent property sales assistance."
+          description="A dedicated building construction contractor focused on durable low-rise residential and commercial buildings across Rohini, Pitampura, and nearby areas of Delhi."
         />
 
         {/* 5-Pillar Asymmetric Layout */}

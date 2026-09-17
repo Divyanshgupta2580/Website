@@ -10,16 +10,15 @@ import Badge from "@/components/ui/Badge";
 import { galleryData, GalleryItem } from "@/data/gallery";
 
 const categories = [
-  "All Plates",
-  "Residential",
-  "Commercial",
-  "Industrial",
-  "Real Estate",
-  "Materials",
+  "All Works",
+  "Residential Construction",
+  "Commercial Construction",
+  "Structural Work",
+  "Masonry & Finishing",
 ];
 
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState("All Plates");
+  const [activeCategory, setActiveCategory] = useState("All Works");
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
   // Accessible keyboard listener for Esc key
@@ -42,7 +41,7 @@ export default function GalleryPage() {
   }, [selectedItem]);
 
   const filteredItems =
-    activeCategory === "All Plates"
+    activeCategory === "All Works"
       ? galleryData
       : galleryData.filter((item) => item.category === activeCategory);
 
@@ -54,19 +53,19 @@ export default function GalleryPage() {
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-6 h-[1px] bg-[#B89A63]" />
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-              Visual Archives & Documentation
+              Visual Records & Documentation
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
-            Architectural & Engineering Gallery
+            Construction Work Gallery
           </h1>
           <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed mb-4">
-            High-resolution visual records of civil execution, structural works, material stockyards, and delivered spaces.
+            Representative photographic records of low-rise building construction, reinforced concrete frame execution, brick masonry, and finished spaces across Delhi localities.
           </p>
           <div className="p-3.5 bg-[#15191D] border border-[#2A3035] text-xs text-[#A7ADB3] flex items-center gap-2.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#B89A63] flex-shrink-0" />
             <span>
-              <strong className="text-[#F3F1EC]">Archival Notice:</strong> Imagery illustrates representative structural typologies and engineering benchmarks. [VERIFY SITE-SPECIFIC PORTFOLIO PHOTOGRAPHY WITH PROJECT CELL]
+              <strong className="text-[#F3F1EC]">Note:</strong> Visual archives depict representative structural methods, masonry works, and low-rise building typologies up to 4–5 floors.
             </span>
           </div>
         </div>
@@ -189,7 +188,7 @@ export default function GalleryPage() {
                   size="sm"
                   className="flex-shrink-0"
                 >
-                  <span>Explore Case Study</span>
+                  <span>Explore Project</span>
                   <ArrowUpRight className="w-3.5 h-3.5 ml-2" />
                 </Button>
               )}
