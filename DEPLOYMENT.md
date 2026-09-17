@@ -1,31 +1,35 @@
 # GG Construction Co. — Production Deployment Guide
 
-A streamlined, production-ready guide for deploying and maintaining the **GG Construction Co.** web application.
+A streamlined, production-ready guide for deploying and maintaining the **GG Construction Co.** building construction web application.
 
 ---
 
-## 1. Environment Variables
+## 1. Environment Variables & Protected Routing
 
-Configure environment variables in your deployment platform (e.g., Vercel Project Settings > Environment Variables). When running locally, copy [.env.example](file:///.env.example) to `.env.local`.
+### Environment Variables
+> **`RESEND_API_KEY` is the ONLY environment variable you must enter into Vercel.**
 
-### Public Client Variable
-| Variable | Scope | Required | Default / Fallback | Purpose |
+When visitors submit the Contact Us or Get a Quote forms, enquiries are forwarded automatically to **`gunjan29gupta@gmail.com`** via the Resend API.
+
+| Variable | Scope | Required in Vercel | Default / Fallback | Purpose |
 |---|---|---|---|---|
-| `NEXT_PUBLIC_APP_URL` | Public (Browser & Server) | **Required in Production** | `http://localhost:3000` (Dev only) | Canonical base URL used for metadata, OpenGraph, sitemap, and robots.txt. Production deployments strictly require this variable; the build halts with an explicit error rather than silently defaulting to an unconfirmed domain. |
+| `RESEND_API_KEY` | Server-only | **YES** | None | Authenticates outbound lead emails to `gunjan29gupta@gmail.com`. Obtain at [resend.com/api-keys](https://resend.com/api-keys). |
 
-### Optional Server-Side Integrations
-These are server-only secrets. Do **NOT** prefix them with `NEXT_PUBLIC_`. When omitted, form submissions are safely logged server-side with masked IPs and reference IDs generated with zero errors.
+Enable Vercel's **Automatically expose System Environment Variables** setting. The application uses Vercel's production-domain URL (`VERCEL_PROJECT_PRODUCTION_URL`) for canonical metadata and its preview URL (`VERCEL_URL`) when appropriate; neither needs to be entered manually. `NEXT_PUBLIC_APP_URL` is completely eliminated.
 
-| Variable | Scope | Required | Purpose |
-|---|---|---|---|
-| `CRM_WEBHOOK_URL` | Server-only | Optional | Secure webhook endpoint receiving JSON payloads for CRM lead forwarding. |
-| `CRM_API_BEARER_TOKEN` | Server-only | Optional | Bearer authentication token sent in the `Authorization` header to the CRM webhook. |
-| `EMAIL_NOTIFICATION_ENDPOINT` | Server-only | Optional | HTTP relay endpoint for dispatching email notifications upon lead submission. |
-| `EMAIL_SERVICE_KEY` | Server-only | Optional | Secret key sent in `X-Service-Key` header to the email notification relay. |
+### Protected Routing Audit
+- **Public Routes**: 33 total routes (31 pre-rendered static/SSG pages + 2 public enquiry APIs)
+- **Protected Routes**: 0
+- **Admin Routes**: 0
+- **Authentication Present**: NO
+- **Authorization Present**: NO
+- **Reason**: The application is an intentionally public corporate website for a building construction company. No customer account portal, staff dashboard, or administrative interface exists in the codebase. All public marketing pages are intended to remain fully open to users and search crawlers without authentication.
 
 ### Runtime Environment & Port Notes
-- **`PORT`**: Do **NOT** define `PORT` as an environment variable. The runtime hosting platform (e.g. Vercel, AWS, Cloud Run) assigns and manages the port dynamically.
-- **`NODE_ENV`**: Do **NOT** configure `NODE_ENV` manually on Vercel. Next.js and Vercel automatically manage the appropriate runtime environment during build and start.
+- **`PORT`**: Do **NOT** define `PORT` as an environment variable for Vercel. The hosting platform assigns and manages the port dynamically.
+- **`NODE_ENV`**: Do **NOT** configure `NODE_ENV` manually on Vercel. Next.js and Vercel automatically manage the appropriate runtime environment (`production`) during build and start.
+- **Database / Auth / External Services**: This application does not use external databases, JWT authentication, Stripe, or AWS. No such environment variables should be created.
+- **Git Safety**: Never commit `.env`, `.env.local`, or any private secrets.
 
 A clean template is maintained in [.env.example](file:///.env.example).
 
@@ -70,7 +74,7 @@ npm run build
 npm run build
 ```
 This produces a fully static and pre-rendered distribution in `.next/` with:
-- **50 Pre-Rendered Routes** (Static Site Generation for all services, projects, materials, and blog deep dives).
+- **33 Routes Generated** (Static Site Generation for all services, projects, blog guides, gallery, and core pages).
 - **87.3 kB Shared First-Load JS** for rapid Largest Contentful Paint (LCP).
 - Zero hydration errors or runtime warnings.
 
@@ -91,11 +95,12 @@ npx next start -p 8080
 1. Push repository to GitHub.
 2. Import project into Vercel dashboard.
 3. Framework Preset: **Next.js** (auto-detected).
-4. Configure `NEXT_PUBLIC_APP_URL` in Project Settings > Environment Variables.
+4. Add `RESEND_API_KEY` and enable **Automatically expose System Environment Variables**.
 5. Deploy. (Automatic global CDN caching, Edge rate limiting, and SSL provisioning).
 
 ### Option B: Docker / Node.js VM / AWS ECS
 A minimal production Docker container can be run using the standard Next.js standalone output:
+```dockerfile
 FROM node:20-alpine AS runner
 WORKDIR /app
 
@@ -118,37 +123,26 @@ Currently, `/api/contact` and `/api/quote`:
 2. Reject non-JSON bodies (`415`) and oversized payloads > 32 KB (`413`).
 3. Reject bot crawlers via honeypot traps (`400`).
 4. Throttle abusive clients with **sliding-window IP rate limiting** (`429`).
-5. Log masked dossiers (`[INCOMING ENQUIRY RECEIVED]`) and return unique reference numbers (`GGC-XXXXXX` / `GGE-XXXXXX`).
+5. Log masked dossiers (`[INCOMING ENQUIRY RECEIVED]`) and return cryptographically secure reference numbers (`GGC-XXXXXX` / `GGE-XXXXXX`).
 
-### Attaching Live Email (e.g., Resend / SendGrid)
-In `src/app/api/contact/route.ts` and `src/app/api/quote/route.ts`, uncomment the notification trigger:
-```typescript
-// Example: Resend Integration
-await resend.emails.send({
-  from: "enquiries@ggconstruction.com",
-  to: "directorate@ggconstruction.com",
-  subject: `[New Enquiry] ${sanitizedData.subject}`,
-  text: `From: ${sanitizedData.name} (${sanitizedData.email})\nPhone: ${sanitizedData.phone}\n\n${sanitizedData.message}`,
-});
-```
+### Email delivery
+Email delivery is implemented through Resend in `src/lib/email.ts`. The form routes return success only after Resend accepts the notification; configuration or provider failures return a safe error response.
 
 ---
 
-## 6. Content & CMS Migration Notes
+## 6. Content & Data Layer
 
-All corporate copy, project plates, material specifications, and FAQs are currently managed as strictly typed TypeScript data modules under `src/data/`:
-- [`src/data/company.ts`](file:///src/data/company.ts): Corporate addresses, phone numbers, WhatsApp lines, milestones, values.
-- [`src/data/services.ts`](file:///src/data/services.ts): 9 construction service scopes, deliverables, and capabilities.
-- [`src/data/projects.ts`](file:///src/data/projects.ts): 7 flagship projects with itemized technical specifications and outcomes.
-- [`src/data/materials.ts`](file:///src/data/materials.ts): 10 bulk material categories, grades, and packaging sizes.
-- [`src/data/faqs.ts`](file:///src/data/faqs.ts): 16 grouped technical and commercial FAQs.
-- [`src/data/blog.ts`](file:///src/data/blog.ts): Technical engineering articles and statutory due diligence deep dives.
+All corporate copy, project plates, and FAQs are managed as strictly typed TypeScript data modules under `src/data/`:
+- [`src/data/company.ts`](file:///src/data/company.ts): Corporate details, contact numbers, founder bio placeholders, core values.
+- [`src/data/services.ts`](file:///src/data/services.ts): 5 building construction services and capabilities.
+- [`src/data/projects.ts`](file:///src/data/projects.ts): 6 practical low-rise building construction projects.
+- [`src/data/faqs.ts`](file:///src/data/faqs.ts): 16 construction-focused technical FAQs.
+- [`src/data/blog.ts`](file:///src/data/blog.ts): 3 technical engineering articles and homeowner construction guides.
+- [`src/data/testimonials.ts`](file:///src/data/testimonials.ts): Representative homeowner reviews.
+- [`src/data/gallery.ts`](file:///src/data/gallery.ts): Construction site photography plates.
 
 **Replacing Verification Tokens**:
-Search for `[VERIFY` across `src/data/` to replace placeholder statistics, client names, and founder biographies with official verified corporate credentials before public marketing campaigns.
-
-**Headless CMS Migration**:
-To connect a headless CMS (Sanity, Contentful, Strapi), swap the static array imports in `src/data/` with fetch queries in `generateStaticParams()` and page components without modifying the presentation components.
+Search for `[VERIFY` across `src/data/` to replace placeholder credentials, contractor registration numbers, and founder details with official verified corporate credentials prior to public marketing campaigns.
 
 ---
 
@@ -163,13 +157,13 @@ To connect a headless CMS (Sanity, Contentful, Strapi), swap the static array im
 ## 8. Post-Deployment Verification Checklist
 
 After deploying to production, execute this 10-point check:
-1. [ ] **Homepage Verification**: Open `https://your-domain.com` and check that the dark architectural theme renders smoothly without layout shifts.
+1. [ ] **Homepage Verification**: Open `https://your-domain.com` and check that the clean construction visual system (`#F4F2EE` background, `#18324A` navy, `#D96B27` orange) renders smoothly without layout shifts.
 2. [ ] **Navigation & Mobile Drawer**: Confirm desktop navigation links and mobile hamburger menu open, close, and respond to the `Escape` key.
-3. [ ] **Dynamic Pre-Rendered Pages**: Click through `/services/turnkey-construction`, `/projects/apex-commercial-tower`, `/materials/tmt-steel`, and `/blog/understanding-is-1786-seismic-ductility-fe500d`.
-4. [ ] **Interactive Lightbox**: Open `/gallery`, click an architectural plate, and verify keyboard `Escape` closes the modal.
+3. [ ] **Dynamic Pre-Rendered Pages**: Click through `/services/residential-construction`, `/projects/residential-building-4-floors`, and `/blog/how-to-choose-tmt-steel-for-house-construction`.
+4. [ ] **Interactive Lightbox**: Open `/gallery`, click a construction plate, and verify keyboard `Escape` closes the modal.
 5. [ ] **Contact Form Submission**: Submit a valid enquiry on `/contact` and confirm the success alert and reference ID (`GGC-XXXXXX`) render.
 6. [ ] **Quote Form Submission**: Complete a multi-step estimate request on `/get-a-quote` and confirm reference ID generation (`GGE-XXXXXX`).
 7. [ ] **Rate Limiting**: Fire 6 rapid submissions and verify the 6th returns a friendly wait notice with `Retry-After`.
-8. [ ] **404 Handling**: Navigate to `https://your-domain.com/random-path` and verify the architectural 404 page ("Blueprint Not Found").
+8. [ ] **404 Handling**: Navigate to `https://your-domain.com/random-path` and verify the branded 404 page.
 9. [ ] **Sitemap & Robots**: Verify `https://your-domain.com/sitemap.xml` and `https://your-domain.com/robots.txt` respond with HTTP 200.
 10. [ ] **Security Headers**: Inspect response headers in Chrome DevTools to confirm HSTS, CSP, X-Frame-Options, and X-Content-Type-Options are served.
