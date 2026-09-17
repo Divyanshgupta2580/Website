@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { ServiceItem } from "@/data/services";
 import Badge from "@/components/ui/Badge";
 
@@ -12,34 +13,39 @@ export interface ServiceCardProps {
 export default function ServiceCard({ service, className = "" }: ServiceCardProps) {
   return (
     <article
-      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 rounded-xl shadow-xs ${className}`}
+      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] transition-all duration-300 flex flex-col justify-between rounded-none overflow-hidden ${className}`}
     >
       <div>
-        <div className="flex items-center justify-between mb-4">
-          <Badge variant="orange">{service.badge}</Badge>
-          <span className="text-[11px] font-bold text-[#66717A] uppercase tracking-wider">
-            BUILDING // CONST
-          </span>
+        {/* Strong Rectangular Image Area */}
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E8E6E1] border-b border-[#D5D4D0]">
+          <Image
+            src={service.heroImage}
+            alt={service.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute top-3 left-3 z-10">
+            <Badge variant="orange">{service.badge}</Badge>
+          </div>
         </div>
 
-        <h3 className="text-xl sm:text-2xl font-bold text-[#18324A] group-hover:text-[#D96B27] transition-colors mb-2.5">
-          <Link href={`/services/${service.slug}`} className="focus:outline-none">
-            {service.title}
-          </Link>
-        </h3>
+        {/* Content Section */}
+        <div className="p-6">
+          <h3 className="text-xl font-bold text-[#18324A] group-hover:text-[#D96B27] transition-colors mb-2.5 leading-snug">
+            <Link href={`/services/${service.slug}`} className="focus:outline-none">
+              {service.title}
+            </Link>
+          </h3>
 
-        <p className="text-[#66717A] text-sm leading-relaxed mb-6">
-          {service.shortDescription}
-        </p>
+          <p className="text-[#66717A] text-sm leading-relaxed mb-4">
+            {service.shortDescription}
+          </p>
 
-        <div className="pt-4 border-t border-[#D5D4D0] mb-6">
-          <span className="text-[11px] uppercase tracking-wider font-bold text-[#18324A] block mb-2.5">
-            Core Scope
-          </span>
-          <ul className="space-y-2">
-            {service.capabilities.slice(0, 3).map((cap, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-[#20272D]">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#D96B27] flex-shrink-0 mt-0.5" />
+          <ul className="space-y-1.5 pt-3 border-t border-[#D5D4D0] text-xs text-[#20272D]">
+            {service.capabilities.slice(0, 2).map((cap, i) => (
+              <li key={i} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-[#D96B27] flex-shrink-0" />
                 <span className="line-clamp-1">{cap}</span>
               </li>
             ))}
@@ -47,17 +53,14 @@ export default function ServiceCard({ service, className = "" }: ServiceCardProp
         </div>
       </div>
 
-      <div className="pt-4 border-t border-[#D5D4D0] flex items-center justify-between">
+      <div className="px-6 pb-6 pt-2">
         <Link
           href={`/services/${service.slug}`}
-          className="text-xs uppercase tracking-wider font-bold text-[#18324A] group-hover:text-[#D96B27] inline-flex items-center gap-1 transition-colors"
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-[#18324A] group-hover:text-[#D96B27] transition-colors"
         >
-          <span>Detailed Capabilities</span>
-          <ArrowUpRight className="w-3.5 h-3.5" />
+          <span>Learn More</span>
+          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </Link>
-        <span className="text-[10px] font-bold text-[#66717A] uppercase">
-          Low-Rise Civil
-        </span>
       </div>
     </article>
   );

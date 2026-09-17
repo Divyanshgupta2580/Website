@@ -111,7 +111,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
       {/* 4. Project Metadata Ribbon */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-8">
+        <div className="bg-white border border-[#D5D4D0] rounded-none p-6 sm:p-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-xs divide-y sm:divide-y-0 sm:divide-x divide-[#D5D4D0]">
             <div className="pt-2 sm:pt-0 sm:pr-4">
               <span className="text-xs uppercase font-bold text-[#66717A] block mb-1">
@@ -189,7 +189,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
 
             {/* Requirements & Approach */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-white border border-[#D5D4D0] rounded-xl shadow-xs">
+              <div className="p-6 bg-white border border-[#D5D4D0] rounded-none">
                 <span className="text-xs uppercase tracking-wider font-bold text-[#D96B27] block mb-2">
                   Project Requirements
                 </span>
@@ -198,7 +198,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                 </p>
               </div>
 
-              <div className="p-6 bg-white border border-[#D96B27]/40 rounded-xl shadow-xs">
+              <div className="p-6 bg-white border border-[#D96B27]/40 rounded-none">
                 <span className="text-xs uppercase tracking-wider font-bold text-[#D96B27] block mb-2">
                   Construction Approach
                 </span>
@@ -228,7 +228,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#18324A] mb-4 pb-2 border-b border-[#D5D4D0]">
                 Construction Specifications &amp; Standards
               </h3>
-              <div className="border border-[#D5D4D0] divide-y divide-[#D5D4D0] text-sm shadow-xs rounded-xl overflow-hidden">
+              <div className="border border-[#D5D4D0] divide-y divide-[#D5D4D0] text-sm rounded-none overflow-hidden">
                 <div className="grid grid-cols-2 p-3.5 bg-white">
                   <span className="text-[#66717A] font-medium">Structural System</span>
                   <span className="text-[#18324A] font-bold">Reinforced Cement Concrete (RCC) Frame</span>
@@ -258,12 +258,12 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
                 Project Delivery Highlights
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div className="p-4 bg-white border border-[#D5D4D0] rounded-xl shadow-xs">
-                  <Award className="w-5 h-5 text-[#D96B27] mb-2" />
+                <div className="p-4 bg-white border border-[#D5D4D0] rounded-none">
+                  <ShieldCheck className="w-5 h-5 text-[#D96B27] mb-2" />
                   <span className="text-[#18324A] font-bold block mb-1">Schedule Coordination</span>
                   <p className="text-[#66717A]">Planned execution across structural, masonry, and finishing milestones.</p>
                 </div>
-                <div className="p-4 bg-white border border-[#D5D4D0] rounded-xl shadow-xs">
+                <div className="p-4 bg-white border border-[#D5D4D0] rounded-none">
                   <ShieldCheck className="w-5 h-5 text-[#D96B27] mb-2" />
                   <span className="text-[#18324A] font-bold block mb-1">Site Supervision</span>
                   <p className="text-[#66717A]">Continuous on-site coordination ensuring construction quality and safety.</p>
@@ -275,7 +275,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
           {/* Sidebar */}
           <div className="lg:col-span-5 space-y-8">
             {/* Practical Construction Highlights */}
-            <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-8">
+            <div className="bg-white border border-[#D5D4D0] rounded-none p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#D96B27] mb-6 pb-2 border-b border-[#D5D4D0]">
                 Construction &amp; Planning Highlights
               </h3>
@@ -294,7 +294,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             </div>
 
             {/* Structural Specifications & Components */}
-            <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-8">
+            <div className="bg-white border border-[#D5D4D0] rounded-none p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#18324A] mb-4 pb-2 border-b border-[#D5D4D0]">
                 Structural Specifications &amp; Components
               </h3>
@@ -319,14 +319,14 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             </div>
 
             {/* Architectural & Functional Features */}
-            <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-8">
+            <div className="bg-white border border-[#D5D4D0] rounded-none p-6 sm:p-8">
               <h3 className="text-xs uppercase tracking-widest font-bold text-[#18324A] mb-4 pb-2 border-b border-[#D5D4D0]">
                 Functional Features
               </h3>
               <ul className="space-y-2 text-xs text-[#66717A]">
                 {project.keyFeatures.map((feat, i) => (
                   <li key={i} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-[#D96B27] rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                     <span>{feat}</span>
                   </li>
                 ))}
@@ -334,7 +334,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             </div>
 
             {/* Action Box */}
-            <div className="p-6 bg-white border border-[#D96B27]/40 rounded-xl shadow-xs text-center">
+            <div className="p-6 bg-white border border-[#D96B27]/40 rounded-none text-center">
               <h4 className="text-sm font-bold text-[#18324A] mb-2">
                 Need Similar Building Work?
               </h4>
@@ -367,7 +367,7 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             {project.galleryImages.map((imgUrl, idx) => (
               <div
                 key={idx}
-                className="relative aspect-[16/10] bg-white border border-[#D5D4D0] rounded-xl shadow-xs overflow-hidden group"
+                className="relative aspect-[16/10] bg-white border border-[#D5D4D0] rounded-none overflow-hidden group"
               >
                 <Image
                   src={imgUrl}

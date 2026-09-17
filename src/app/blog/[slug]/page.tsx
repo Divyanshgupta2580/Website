@@ -84,13 +84,13 @@ export default function BlogPostDetailPage({ params }: BlogPostPageProps) {
             </span>
           </div>
 
-          <span className="text-xs font-bold text-[#18324A] uppercase tracking-wider bg-white px-3 py-1 border border-[#D5D4D0] shadow-sm rounded-lg">
+          <span className="text-xs font-bold text-[#18324A] uppercase tracking-wider bg-white px-3 py-1 border border-[#D5D4D0] rounded-none">
             GG Construction Guide
           </span>
         </div>
 
         {/* Hero Image */}
-        <div className="relative aspect-[16/9] w-full my-10 bg-white border border-[#D5D4D0] shadow-xs rounded-xl overflow-hidden">
+        <div className="relative aspect-[16/9] w-full my-10 bg-white border border-[#D5D4D0] rounded-none overflow-hidden">
           <Image
             src={post.heroImage}
             alt={post.title}
@@ -116,7 +116,7 @@ export default function BlogPostDetailPage({ params }: BlogPostPageProps) {
               ))}
 
               {section.callout && (
-                <div className="my-6 p-5 bg-white border-l-4 border-[#D96B27] border-y border-r border-[#D5D4D0] text-sm text-[#18324A] font-medium shadow-xs rounded-r-xl">
+                <div className="my-6 p-5 bg-white border-l-4 border-[#D96B27] border-y border-r border-[#D5D4D0] text-sm text-[#18324A] font-medium rounded-none">
                   &ldquo;{section.callout}&rdquo;
                 </div>
               )}
@@ -134,7 +134,7 @@ export default function BlogPostDetailPage({ params }: BlogPostPageProps) {
             {post.tags.map((tag, tIdx) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs font-semibold bg-white border border-[#D5D4D0] text-[#18324A] shadow-sm rounded-lg"
+                className="px-3 py-1 text-xs font-semibold bg-white border border-[#D5D4D0] text-[#18324A] rounded-none"
               >
                 #{tag}
               </span>

@@ -13,7 +13,7 @@ export default function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <div
-      className={`bg-white border border-[#D5D4D0] p-7 flex flex-col justify-between hover:border-[#18324A] transition-colors rounded-xl shadow-xs ${className}`}
+      className={`bg-white border border-[#D5D4D0] p-7 flex flex-col justify-between hover:border-[#18324A] transition-colors rounded-none ${className}`}
     >
       <div>
         <div className="flex items-center justify-between mb-5">
@@ -26,7 +26,7 @@ export default function TestimonialCard({
               />
             ))}
           </div>
-          <span className="text-[10px] uppercase font-bold tracking-wider text-[#18324A] bg-[#F4F2EE] px-2 py-0.5 border border-[#D5D4D0] rounded-md">
+          <span className="text-[10px] uppercase font-bold tracking-wider text-[#18324A] bg-[#F4F2EE] px-2 py-0.5 border border-[#D5D4D0] rounded-none">
             {testimonial.category}
           </span>
         </div>

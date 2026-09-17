@@ -25,9 +25,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-              01 //
-            </span>
+            <span className="w-2 h-2 bg-[#D96B27]" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
               ABOUT GG CONSTRUCTION CO.
             </span>
@@ -43,7 +41,7 @@ export default function AboutPage() {
 
       {/* 2. Hero Image Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="relative aspect-[21/9] w-full overflow-hidden bg-[#E8E6E1] border border-[#D5D4D0] rounded-xl shadow-xs">
+        <div className="relative aspect-[21/9] w-full overflow-hidden bg-[#E8E6E1] border border-[#D5D4D0] rounded-none">
           <Image
             src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1800&q=80"
             alt="GG Construction Co. on-site building execution in Delhi NCR [Representative Example]"
@@ -53,7 +51,7 @@ export default function AboutPage() {
             className="object-cover"
           />
           <div className="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-            <div className="bg-white/95 backdrop-blur-xs border border-[#D5D4D0] p-3 max-w-md rounded-lg shadow-xs">
+            <div className="bg-white/95 backdrop-blur-xs border border-[#D5D4D0] p-3 max-w-md rounded-none">
               <span className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#D96B27] block">
                 PRACTICAL SCOPE
               </span>
@@ -61,7 +59,7 @@ export default function AboutPage() {
                 Low-rise residential and commercial structures with attentive on-site supervision.
               </p>
             </div>
-            <div className="text-right text-xs font-bold text-[#18324A] bg-white/95 p-2 px-3 border border-[#D5D4D0] rounded-lg shadow-xs">
+            <div className="text-right text-xs font-bold text-[#18324A] bg-white/95 p-2 px-3 border border-[#D5D4D0] rounded-none">
               Rohini &bull; Pitampura &bull; Delhi NCR
             </div>
           </div>
@@ -86,7 +84,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-xl shadow-xs space-y-5">
+          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-none space-y-5">
             <h3 className="text-xs font-mono uppercase tracking-[0.18em] font-extrabold text-[#18324A] pb-3 border-b border-[#D5D4D0]">
               CONFIRMED COMPANY SCOPE
             </h3>
@@ -135,8 +133,7 @@ export default function AboutPage() {
       {/* 4. Practical Principles */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <SectionHeading
-          sectionNumber="02"
-          eyebrow="PRINCIPLES"
+          eyebrow="OUR PRINCIPLES"
           title="Practical Construction Principles"
           description="Every building project is handled with direct supervision, honest measurement, and structural discipline."
         />
@@ -145,12 +142,10 @@ export default function AboutPage() {
           {companyData.practicalPrinciples.map((phil, idx) => (
             <div
               key={idx}
-              className="bg-white border border-[#D5D4D0] p-6 rounded-xl shadow-xs flex flex-col justify-between"
+              className="bg-white border border-[#D5D4D0] p-6 rounded-none flex flex-col justify-between hover:border-[#18324A] transition-colors"
             >
               <div>
-                <span className="text-xl font-mono font-extrabold text-[#D96B27] block mb-2">
-                  {`0${idx + 1}`}
-                </span>
+                <div className="w-2 h-2 bg-[#D96B27] mb-3" />
                 <h3 className="text-sm font-bold text-[#18324A] mb-2">
                   {phil.title}
                 </h3>
@@ -166,8 +161,7 @@ export default function AboutPage() {
       {/* 5. Client Testimonial */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <SectionHeading
-          sectionNumber="03"
-          eyebrow="FEEDBACK"
+          eyebrow="CLIENT FEEDBACK"
           title="Client Feedback"
         />
 
@@ -178,7 +172,7 @@ export default function AboutPage() {
 
       {/* 4. Final Conversion CTA */}
       <CTA
-        eyebrow="04 // CONTACT"
+        eyebrow="CONTACT US"
         title="PLANNING A CONSTRUCTION PROJECT?"
         description="Tell us about your building requirement and we'll get in touch."
         primaryCtaText="GET A QUOTE"

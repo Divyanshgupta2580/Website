@@ -36,8 +36,7 @@ export default function LocalExperienceSection() {
     <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="default">
         <SectionHeading
-          sectionNumber="04"
-          eyebrow="LOCAL EXPERIENCE"
+          eyebrow="LOCAL CONSTRUCTION EXPERIENCE"
           title="CONSTRUCTION EXPERIENCE IN NORTH-WEST DELHI."
           description="GG Construction Co. has carried out construction work across Rohini, Pitampura and nearby areas of Delhi. Our focus is on practical, dependable building construction tailored to local plot sizes and neighborhood access."
         />
@@ -50,10 +49,10 @@ export default function LocalExperienceSection() {
               return (
                 <div
                   key={idx}
-                  className="bg-white border border-[#D5D4D0] p-5 sm:p-6 rounded-xl shadow-xs hover:border-[#18324A] transition-all flex flex-col justify-between"
+                  className="bg-white border border-[#D5D4D0] p-5 sm:p-6 rounded-none hover:border-[#18324A] transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-9 h-9 rounded-lg bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#D96B27] mb-3">
+                    <div className="w-9 h-9 rounded-none bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#D96B27] mb-3">
                       <Icon className="w-4 h-4" />
                     </div>
                     <h3 className="text-base font-extrabold text-[#18324A] mb-2 leading-snug">
@@ -70,7 +69,7 @@ export default function LocalExperienceSection() {
 
           {/* Right: Grounded Contextual Visual */}
           <div className="lg:col-span-5">
-            <div className="bg-white border border-[#D5D4D0] rounded-xl overflow-hidden shadow-xs">
+            <div className="bg-white border border-[#D5D4D0] rounded-none overflow-hidden">
               <div className="relative aspect-[16/11] w-full bg-[#E8E6E1] overflow-hidden border-b border-[#D5D4D0]">
                 <Image
                   src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1000&q=80"
@@ -79,7 +78,7 @@ export default function LocalExperienceSection() {
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"
                 />
-                <div className="absolute top-3 left-3 bg-white/95 px-3 py-1 border border-[#D5D4D0] rounded text-xs font-bold text-[#18324A]">
+                <div className="absolute top-3 left-3 bg-white/95 px-3 py-1 border border-[#D5D4D0] rounded-none text-xs font-bold text-[#18324A]">
                   <MapPin className="w-3.5 h-3.5 text-[#D96B27] inline mr-1" />
                   Rohini &bull; Pitampura &bull; Delhi
                 </div>

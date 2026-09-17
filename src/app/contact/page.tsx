@@ -26,9 +26,8 @@ export default function ContactPage() {
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">
               <div className="inline-flex items-center gap-2 mb-2">
-                <span className="text-xs font-bold text-[#D96B27]">02</span>
-                <span className="text-[#D5D4D0]">/</span>
-                <span className="text-xs uppercase tracking-widest font-semibold text-[#66717A]">
+                <div className="w-2 h-2 bg-[#D96B27]" />
+                <span className="text-xs uppercase tracking-widest font-bold text-[#18324A]">
                   Direct Enquiry Desk
                 </span>
               </div>
@@ -45,7 +44,7 @@ export default function ContactPage() {
 
             <Suspense
               fallback={
-                <div className="p-8 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#66717A]">
+                <div className="p-8 bg-white border border-[#D5D4D0] rounded-none text-xs text-[#66717A]">
                   Loading enquiry form...
                 </div>
               }

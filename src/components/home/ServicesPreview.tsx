@@ -68,8 +68,7 @@ export default function ServicesPreview() {
     <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="default">
         <SectionHeading
-          sectionNumber="02"
-          eyebrow="SERVICES"
+          eyebrow="OUR SERVICES"
           title="CONSTRUCTION, FROM STRUCTURE TO COMPLETION."
           description="We provide dependable civil construction for residential and low-rise commercial projects across Rohini, Pitampura, and nearby areas of Delhi. Each service is carried out with attentive on-site supervision and disciplined structural standards."
         />
@@ -77,13 +76,10 @@ export default function ServicesPreview() {
         {/* 5 Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesList.map((service, idx) => {
-            const isWide = idx === 0 || idx === 1;
             return (
               <div
                 key={service.slug}
-                className={`bg-white border border-[#D5D4D0] rounded-xl overflow-hidden shadow-xs hover:border-[#18324A] transition-all flex flex-col justify-between group ${
-                  idx === 0 ? "lg:col-span-1" : ""
-                }`}
+                className="bg-white border border-[#D5D4D0] rounded-none overflow-hidden hover:border-[#18324A] transition-all flex flex-col justify-between group"
               >
                 <div>
                   {/* Contextual Construction Image */}
@@ -93,19 +89,15 @@ export default function ServicesPreview() {
                       alt={service.imageAlt}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-102"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute top-3 left-3 bg-white/95 px-2.5 py-0.5 rounded border border-[#D5D4D0] text-[10px] font-bold text-[#18324A] uppercase tracking-wider">
+                    <div className="absolute top-3 left-3 bg-white/95 px-2.5 py-0.5 rounded-none border border-[#D5D4D0] text-[10px] font-bold text-[#18324A] uppercase tracking-wider">
                       {service.badge}
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="p-6">
-                    <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-[#D96B27] block mb-1">
-                      {service.number}
-                    </span>
-
                     <h3 className="text-lg font-extrabold text-[#18324A] group-hover:text-[#D96B27] transition-colors mb-3 leading-snug">
                       <Link href={`/services/${service.slug}`}>
                         {service.title}

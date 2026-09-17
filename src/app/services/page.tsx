@@ -96,7 +96,7 @@ export default function ServicesPage() {
 
       {/* 2. Flagship Feature: Residential & Commercial Building */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-white border border-[#D5D4D0] rounded-xl overflow-hidden shadow-xs">
+        <div className="bg-white border border-[#D5D4D0] rounded-none overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 relative min-h-[360px] lg:min-h-[460px] bg-[#E8E6E1]">
               <Image
@@ -110,7 +110,7 @@ export default function ServicesPage() {
               <div className="absolute top-4 left-4 z-10">
                 <Badge variant="orange">CORE BUILDING WORK</Badge>
               </div>
-              <div className="absolute bottom-4 left-4 z-10 text-xs font-bold text-[#18324A] bg-white/95 px-3 py-1.5 border border-[#D5D4D0] rounded-md shadow-xs">
+              <div className="absolute bottom-4 left-4 z-10 text-xs font-bold text-[#18324A] bg-white/95 px-3 py-1.5 border border-[#D5D4D0] rounded-none">
                 UP TO 4–5 FLOORS &bull; HONEST SUPERVISION
               </div>
             </div>
@@ -175,13 +175,13 @@ export default function ServicesPage() {
                 A building&apos;s durability comes from proper concrete compaction, sufficient water curing, clean rebar placement, and good damp-proofing. We focus on getting these fundamentals right on every project.
               </p>
               <div className="space-y-3 pt-2">
-                <div className="p-3.5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl flex items-start gap-3 text-xs">
+                <div className="p-3.5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none flex items-start gap-3 text-xs">
                   <ShieldCheck className="w-4 h-4 text-[#D96B27] flex-shrink-0 mt-0.5" />
                   <p className="text-[#20272D]">
                     <strong className="text-[#18324A]">Dedicated Curing Timelines:</strong> Ensuring mandatory continuous water curing for slabs and columns to achieve complete design strength.
                   </p>
                 </div>
-                <div className="p-3.5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl flex items-start gap-3 text-xs">
+                <div className="p-3.5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none flex items-start gap-3 text-xs">
                   <HardHat className="w-4 h-4 text-[#D96B27] flex-shrink-0 mt-0.5" />
                   <p className="text-[#20272D]">
                     <strong className="text-[#18324A]">Damp-Proofing Protection:</strong> Plinth-level DPC barriers and terrace waterproofing to prevent moisture seepage.
@@ -190,7 +190,7 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-6 bg-[#F4F2EE] border border-[#D5D4D0] p-7 sm:p-9 rounded-2xl sm:rounded-[22px] space-y-5">
+            <div className="lg:col-span-6 bg-[#F4F2EE] border border-[#D5D4D0] p-7 sm:p-9 rounded-none space-y-5">
               <h3 className="text-xs uppercase tracking-[0.18em] font-extrabold text-[#18324A] pb-3 border-b border-[#D5D4D0]">
                 Core Site Checkpoints
               </h3>
@@ -198,19 +198,19 @@ export default function ServicesPage() {
                 Practical checks conducted by our on-site supervisors during each construction stage:
               </p>
               <div className="grid grid-cols-2 gap-3.5 text-xs">
-                <div className="p-3 bg-white border border-[#D5D4D0] rounded-xl shadow-xs">
+                <div className="p-3 bg-white border border-[#D5D4D0] rounded-none">
                   <span className="text-[#18324A] block font-bold mb-1">CONCRETE MIXING</span>
                   <span className="text-[#66717A] text-[11px]">Strict water-cement ratio and mechanical vibration</span>
                 </div>
-                <div className="p-3 bg-white border border-[#D5D4D0] rounded-xl shadow-xs">
+                <div className="p-3 bg-white border border-[#D5D4D0] rounded-none">
                   <span className="text-[#18324A] block font-bold mb-1">STEEL PLACEMENT</span>
                   <span className="text-[#66717A] text-[11px]">Ensuring proper concrete cover and rebar spacing</span>
                 </div>
-                <div className="p-3 bg-white border border-[#D5D4D0] rounded-xl shadow-xs">
+                <div className="p-3 bg-white border border-[#D5D4D0] rounded-none">
                   <span className="text-[#18324A] block font-bold mb-1">BRICKWORK PLUMB</span>
                   <span className="text-[#66717A] text-[11px]">True vertical alignment and uniform mortar joints</span>
                 </div>
-                <div className="p-3 bg-white border border-[#D5D4D0] rounded-xl shadow-xs">
+                <div className="p-3 bg-white border border-[#D5D4D0] rounded-none">
                   <span className="text-[#18324A] block font-bold mb-1">TERRACE WATERPROOF</span>
                   <span className="text-[#66717A] text-[11px]">Ponding water test for 72 hours before tiling</span>
                 </div>
@@ -223,8 +223,7 @@ export default function ServicesPage() {
       {/* 4. Complete Services Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <SectionHeading
-          sectionNumber="02"
-          eyebrow="SERVICES"
+          eyebrow="OUR SERVICES"
           title="Our Construction Services"
           description="Specialized services for residential homes, builder floors, commercial shops, small offices, renovations, and structural improvement."
         />
@@ -240,7 +239,6 @@ export default function ServicesPage() {
       <section className="py-16 bg-white border-y border-[#D5D4D0] mb-20">
         <Container size="default">
           <SectionHeading
-            sectionNumber="03"
             eyebrow="WORKFLOW"
             title="Building Construction Steps"
             description="Our systematic approach ensuring quality workmanship and clear communication from ground-break to handover."
@@ -250,7 +248,7 @@ export default function ServicesPage() {
             {processSteps.map((step) => (
               <div
                 key={step.number}
-                className="p-6 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl flex flex-col justify-between"
+                className="p-6 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none flex flex-col justify-between"
               >
                 <div>
                   <span className="text-2xl font-extrabold text-[#18324A] block mb-2">
@@ -272,13 +270,12 @@ export default function ServicesPage() {
       {/* 6. Construction FAQs */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <SectionHeading
-          sectionNumber="04"
           eyebrow="FAQS"
           title="Building Construction FAQs"
           align="center"
         />
 
-        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-xl shadow-xs">
+        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-none">
           <Accordion>
             {constructionFaqs.map((faq, idx) => (
               <AccordionItem
@@ -296,7 +293,7 @@ export default function ServicesPage() {
 
       {/* 7. Final Conversion CTA */}
       <CTA
-        eyebrow="05 // CONTACT"
+        eyebrow="CONTACT US"
         title="Planning a Construction Project?"
         description="Tell us about your building requirement and we'll get in touch."
         primaryCtaText="GET A QUOTE"

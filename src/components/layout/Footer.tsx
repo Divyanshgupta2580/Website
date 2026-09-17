@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
           <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-white text-[#18324A] flex items-center justify-center font-extrabold text-base shadow-xs">
+              <div className="w-10 h-10 rounded-none bg-white text-[#18324A] flex items-center justify-center font-extrabold text-base">
                 GG
               </div>
               <div>
@@ -33,7 +33,7 @@ export default function Footer() {
             {/* Direct Contact Links */}
             <div className="pt-2 space-y-3">
               <div className="flex items-center gap-3 text-xs">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#D96B27] flex-shrink-0">
+                <div className="w-8 h-8 rounded-none bg-white/10 flex items-center justify-center text-[#D96B27] flex-shrink-0">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <div>
@@ -51,7 +51,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-3 text-xs">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-[#D96B27] flex-shrink-0">
+                <div className="w-8 h-8 rounded-none bg-white/10 flex items-center justify-center text-[#D96B27] flex-shrink-0">
                   <Mail className="w-3.5 h-3.5" />
                 </div>
                 <div>
@@ -170,7 +170,7 @@ export default function Footer() {
         {/* Bottom Legal, Standards & Operational Notice */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#A0AEC0]">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#D96B27]" aria-hidden="true" />
+            <span className="w-2 h-2 bg-[#D96B27]" aria-hidden="true" />
             <span>&copy; {currentYear} GG Construction Co. All rights reserved.</span>
           </div>
 

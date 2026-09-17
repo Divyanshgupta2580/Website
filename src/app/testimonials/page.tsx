@@ -41,11 +41,9 @@ export default function TestimonialsPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-              01 //
-            </span>
+            <div className="w-2 h-2 bg-[#D96B27]" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
-              FEEDBACK
+              CLIENT PERSPECTIVES
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-6">
@@ -59,7 +57,7 @@ export default function TestimonialsPage() {
 
       {/* Construction Standards Pillars */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-xl shadow-xs">
+        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-none">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#D5D4D0]">
             <div>
               <span className="text-xs uppercase font-bold tracking-widest text-[#D96B27] block mb-1">
@@ -76,7 +74,7 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">4–5 Floors</span>
                 <TrendingUp className="w-5 h-5 text-[#D96B27]" />
@@ -89,7 +87,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">Local Delhi</span>
                 <MapPin className="w-5 h-5 text-[#D96B27]" />
@@ -102,7 +100,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">RCC Frame</span>
                 <CheckCircle2 className="w-5 h-5 text-[#D96B27]" />
@@ -115,7 +113,7 @@ export default function TestimonialsPage() {
               </p>
             </div>
 
-            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl">
+            <div className="p-5 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xl font-bold text-[#18324A]">Direct Desk</span>
                 <ShieldCheck className="w-5 h-5 text-[#D96B27]" />
@@ -134,7 +132,7 @@ export default function TestimonialsPage() {
       {/* Featured Testimonial Banner */}
       {featuredTestimonial && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <div className="p-8 sm:p-12 bg-white border border-[#D5D4D0] rounded-xl shadow-xs relative overflow-hidden">
+          <div className="p-8 sm:p-12 bg-white border border-[#D5D4D0] rounded-none relative overflow-hidden">
             <Quote className="absolute right-6 bottom-4 w-32 h-32 text-[#D5D4D0]/40 pointer-events-none" />
             
             <div className="relative z-10 max-w-3xl">
@@ -180,7 +178,7 @@ export default function TestimonialsPage() {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 rounded-none text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                 activeCategory === cat
                   ? "bg-[#D96B27] text-white border-[#D96B27]"
                   : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
@@ -198,7 +196,7 @@ export default function TestimonialsPage() {
           {filteredTestimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-white border border-[#D5D4D0] p-8 rounded-2xl sm:rounded-[22px] flex flex-col justify-between shadow-sm hover:border-[#D96B27] transition-colors"
+              className="bg-white border border-[#D5D4D0] p-8 rounded-none flex flex-col justify-between hover:border-[#18324A] transition-colors"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
@@ -243,7 +241,7 @@ export default function TestimonialsPage() {
 
       {/* Bottom CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="p-10 border border-[#D5D4D0] bg-white rounded-xl shadow-xs">
+        <div className="p-10 border border-[#D5D4D0] bg-white rounded-none">
           <h2 className="text-2xl font-bold text-[#18324A] mb-3">
             Planning a Construction Project?
           </h2>

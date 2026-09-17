@@ -32,8 +32,7 @@ export default function ApproachSection() {
     <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="default">
         <SectionHeading
-          sectionNumber="01"
-          eyebrow="APPROACH"
+          eyebrow="OUR APPROACH"
           title="BUILT AROUND PRACTICAL CONSTRUCTION."
           description="GG Construction Co. focuses on practical building construction and direct project execution. We prioritize sound civil craftsmanship, disciplined jobsite management, and dependable timelines for low-rise residential and commercial structures."
         />
@@ -44,16 +43,13 @@ export default function ApproachSection() {
             const Icon = pt.icon;
             return (
               <div
-                key={pt.number}
-                className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-xl shadow-xs hover:border-[#18324A] transition-all flex flex-col justify-between"
+                key={pt.title}
+                className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-none hover:border-[#18324A] transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6 pb-3 border-b border-[#D5D4D0]">
-                    <span className="text-2xl font-mono font-extrabold text-[#D96B27]">
-                      {pt.number}
-                    </span>
-                    <div className="w-9 h-9 rounded-lg bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#18324A]">
-                      <Icon className="w-4 h-4" />
+                    <div className="w-10 h-10 rounded-none bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#D96B27]">
+                      <Icon className="w-5 h-5" />
                     </div>
                   </div>
 

@@ -13,16 +13,16 @@ export interface BlogCardProps {
 export default function BlogCard({ post, className = "" }: BlogCardProps) {
   return (
     <article
-      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-[22px] shadow-xs ${className}`}
+      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] transition-all duration-300 flex flex-col justify-between overflow-hidden rounded-none ${className}`}
     >
       <div>
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E8E6E1]">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E8E6E1] border-b border-[#D5D4D0]">
           <Image
             src={post.heroImage}
             alt={post.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-102"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
 
           <div className="absolute top-3 left-3 z-10">

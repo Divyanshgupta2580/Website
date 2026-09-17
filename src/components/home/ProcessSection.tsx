@@ -38,8 +38,7 @@ export default function ProcessSection() {
     <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="default">
         <SectionHeading
-          sectionNumber="05"
-          eyebrow="PROCESS"
+          eyebrow="HOW WE WORK"
           title="A SIMPLE WAY TO GET STARTED."
           description="A clear, structured workflow designed for low-rise building construction in Delhi NCR, ensuring predictable milestones and disciplined civil execution."
         />
@@ -58,16 +57,16 @@ export default function ProcessSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
             {steps.map((step, idx) => (
               <div
-                key={step.number}
-                className="bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-xl shadow-xs hover:border-[#18324A] transition-all flex flex-col justify-between relative"
+                key={step.title}
+                className="bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-none hover:border-[#18324A] transition-all flex flex-col justify-between relative"
               >
                 <div>
                   {/* Step Number Badge */}
                   <div className="flex items-center justify-between mb-5 pb-3 border-b border-[#D5D4D0]">
-                    <div className="w-10 h-10 rounded-lg bg-[#18324A] text-white flex items-center justify-center font-mono font-extrabold text-sm shadow-xs">
+                    <div className="w-10 h-10 rounded-none bg-[#18324A] text-white flex items-center justify-center font-mono font-extrabold text-sm">
                       {step.number}
                     </div>
-                    <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#D96B27] bg-[#F3D8C7] px-2.5 py-0.5 rounded">
+                    <span className="text-[10px] uppercase tracking-wider font-extrabold text-[#D96B27] bg-[#F3D8C7] px-2.5 py-0.5 rounded-none border border-[#D96B27]/30">
                       STAGE {step.number}
                     </span>
                   </div>
@@ -90,7 +89,7 @@ export default function ProcessSection() {
                   <span className="font-mono text-[10px] font-bold text-[#18324A]">
                     PHASE {idx + 1} OF 4
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D96B27]" />
+                  <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                 </div>
               </div>
             ))}

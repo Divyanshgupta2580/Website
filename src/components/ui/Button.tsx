@@ -20,7 +20,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D96B27] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F2EE] disabled:opacity-50 disabled:pointer-events-none uppercase tracking-wider text-xs rounded-xl";
+    "inline-flex items-center justify-center font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D96B27] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F2EE] disabled:opacity-50 disabled:pointer-events-none uppercase tracking-wider text-xs rounded-none";
 
   const sizeStyles = {
     sm: "px-3.5 py-2 text-xs",
@@ -30,11 +30,11 @@ export default function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#D96B27] text-white hover:bg-[#B9551D] border border-[#D96B27] active:bg-[#A34A17] shadow-sm",
+      "bg-[#D96B27] text-white hover:bg-[#B9551D] border border-[#D96B27] active:bg-[#A34A17]",
     navy:
-      "bg-[#18324A] text-white hover:bg-[#102232] border border-[#18324A] active:bg-[#0C1A27] shadow-sm",
+      "bg-[#18324A] text-white hover:bg-[#102232] border border-[#18324A] active:bg-[#0C1A27]",
     outline:
-      "bg-white text-[#18324A] border border-[#D5D4D0] hover:border-[#18324A] hover:bg-[#E8E6E1]/30 active:bg-[#E8E6E1] shadow-sm",
+      "bg-white text-[#18324A] border border-[#D5D4D0] hover:border-[#18324A] hover:bg-[#E8E6E1]/30 active:bg-[#E8E6E1]",
     ghost:
       "bg-transparent text-[#18324A] hover:text-[#D96B27] hover:bg-[#E8E6E1]/40 border border-transparent",
     tech:

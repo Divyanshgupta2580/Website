@@ -19,7 +19,7 @@ export default function HomeFaqSection() {
           align="center"
         />
 
-        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-xl shadow-xs mb-8">
+        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-none mb-8">
           <Accordion>
             {previewFaqs.map((faq, idx) => (
               <AccordionItem

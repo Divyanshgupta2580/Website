@@ -19,8 +19,7 @@ export default function FeaturedProjects() {
     <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="default">
         <SectionHeading
-          sectionNumber="03"
-          eyebrow="PROJECTS"
+          eyebrow="SELECTED PROJECTS"
           title="SELECTED CONSTRUCTION WORK"
           description="Construction experience across Rohini, Pitampura and nearby areas of Delhi. The visual records below represent our typical low-rise building construction scale for residential homes, independent floors, and commercial premises."
           action={
@@ -32,34 +31,34 @@ export default function FeaturedProjects() {
         />
 
         {/* 1. Large Featured Project Plate (Dominant Visual) */}
-        <div className="bg-white border border-[#D5D4D0] rounded-xl overflow-hidden mb-8 group hover:border-[#18324A] transition-all shadow-xs">
+        <div className="bg-white border border-[#D5D4D0] rounded-none overflow-hidden mb-8 group hover:border-[#18324A] transition-all">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* Large Project Image Column */}
-            <div className="lg:col-span-7 relative min-h-[340px] lg:min-h-[460px] bg-[#E8E6E1] overflow-hidden">
+            <div className="lg:col-span-7 relative min-h-[340px] lg:min-h-[460px] bg-[#E8E6E1] overflow-hidden border-b lg:border-b-0 lg:border-r border-[#D5D4D0]">
               <Image
                 src={leadProject.heroImage}
                 alt={`${leadProject.title} [Representative Example]`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 58vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-102"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
               {/* Technical Overlay Badges */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                <span className="px-3 py-1 bg-[#18324A] text-white text-[11px] font-bold uppercase tracking-wider rounded">
+                <span className="px-3 py-1 bg-[#18324A] text-white text-[11px] font-bold uppercase tracking-wider rounded-none">
                   {leadProject.sectorLabel}
                 </span>
-                <span className="px-2.5 py-1 text-[10px] uppercase font-bold tracking-wider bg-white/95 text-[#18324A] border border-[#D5D4D0] rounded">
+                <span className="px-2.5 py-1 text-[10px] uppercase font-bold tracking-wider bg-white/95 text-[#18324A] border border-[#D5D4D0] rounded-none">
                   {leadProject.floors}
                 </span>
               </div>
 
               <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-1.5 bg-white/95 px-3 py-1 border border-[#D5D4D0] rounded text-[#18324A] font-bold">
+                <div className="flex items-center gap-1.5 bg-white/95 px-3 py-1 border border-[#D5D4D0] rounded-none text-[#18324A] font-bold">
                   <MapPin className="w-3.5 h-3.5 text-[#D96B27]" />
                   <span>Rohini / Delhi Area</span>
                 </div>
-                <span className="text-[10px] font-bold text-[#66717A] bg-white/95 px-2 py-1 border border-[#D5D4D0] rounded">
+                <span className="text-[10px] font-bold text-[#66717A] bg-white/95 px-2 py-1 border border-[#D5D4D0] rounded-none">
                   Representative Visual Record
                 </span>
               </div>
@@ -72,7 +71,7 @@ export default function FeaturedProjects() {
                   <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-[#D96B27]">
                     RESIDENTIAL CONSTRUCTION
                   </span>
-                  <span className="text-[10px] font-bold uppercase text-[#66717A] bg-[#E8E6E1] px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-bold uppercase text-[#66717A] bg-[#E8E6E1] px-2 py-0.5 rounded-none">
                     ROHINI
                   </span>
                 </div>
@@ -93,15 +92,15 @@ export default function FeaturedProjects() {
 
                 <div className="space-y-2 pt-4 border-t border-[#D5D4D0] mb-6 text-xs text-[#20272D]">
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D96B27]" />
+                    <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                     <span>Framed RCC Structure for G+3 Floors</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D96B27]" />
+                    <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                     <span>Red Brick Masonry &amp; Internal Plaster</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#D96B27]" />
+                    <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                     <span>Disciplined 14–21 Day Concrete Curing</span>
                   </div>
                 </div>
@@ -127,7 +126,7 @@ export default function FeaturedProjects() {
         {/* 2. Supporting Project Images (2-Column Grid) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Supporting Project 1: Commercial */}
-          <div className="bg-white border border-[#D5D4D0] rounded-xl overflow-hidden group hover:border-[#18324A] transition-all flex flex-col justify-between shadow-xs">
+          <div className="bg-white border border-[#D5D4D0] rounded-none overflow-hidden group hover:border-[#18324A] transition-all flex flex-col justify-between">
             <div>
               <div className="relative aspect-[16/10] bg-[#E8E6E1] overflow-hidden border-b border-[#D5D4D0]">
                 <Image
@@ -135,20 +134,20 @@ export default function FeaturedProjects() {
                   alt={`${commercialProject.title} [Representative Example]`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-102"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                  <span className="px-2.5 py-0.5 bg-[#18324A] text-white text-[10px] font-bold uppercase tracking-wider rounded">
+                  <span className="px-2.5 py-0.5 bg-[#18324A] text-white text-[10px] font-bold uppercase tracking-wider rounded-none">
                     COMMERCIAL
                   </span>
-                  <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded">
+                  <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded-none">
                     ROHINI / DELHI
                   </span>
                 </div>
 
                 <div className="absolute bottom-3 left-3 z-10">
-                  <span className="text-[10px] font-bold text-[#66717A] bg-white/95 px-2 py-0.5 border border-[#D5D4D0] rounded">
+                  <span className="text-[10px] font-bold text-[#66717A] bg-white/95 px-2 py-0.5 border border-[#D5D4D0] rounded-none">
                     Representative Visual Record
                   </span>
                 </div>
@@ -190,7 +189,7 @@ export default function FeaturedProjects() {
           </div>
 
           {/* Supporting Project 2: Family Residence */}
-          <div className="bg-white border border-[#D5D4D0] rounded-xl overflow-hidden group hover:border-[#18324A] transition-all flex flex-col justify-between shadow-xs">
+          <div className="bg-white border border-[#D5D4D0] rounded-none overflow-hidden group hover:border-[#18324A] transition-all flex flex-col justify-between">
             <div>
               <div className="relative aspect-[16/10] bg-[#E8E6E1] overflow-hidden border-b border-[#D5D4D0]">
                 <Image
@@ -198,20 +197,20 @@ export default function FeaturedProjects() {
                   alt={`${familyResidence.title} [Representative Example]`}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-102"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                  <span className="px-2.5 py-0.5 bg-[#D96B27] text-white text-[10px] font-bold uppercase tracking-wider rounded">
+                  <span className="px-2.5 py-0.5 bg-[#D96B27] text-white text-[10px] font-bold uppercase tracking-wider rounded-none">
                     RESIDENTIAL
                   </span>
-                  <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded">
+                  <span className="px-2 py-0.5 text-[10px] uppercase font-bold bg-white text-[#18324A] border border-[#D5D4D0] rounded-none">
                     PITAMPURA / DELHI
                   </span>
                 </div>
 
                 <div className="absolute bottom-3 left-3 z-10">
-                  <span className="text-[10px] font-bold text-[#66717A] bg-white/95 px-2 py-0.5 border border-[#D5D4D0] rounded">
+                  <span className="text-[10px] font-bold text-[#66717A] bg-white/95 px-2 py-0.5 border border-[#D5D4D0] rounded-none">
                     Representative Visual Record
                   </span>
                 </div>

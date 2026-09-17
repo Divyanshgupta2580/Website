@@ -33,7 +33,7 @@ export default function GetAQuotePage() {
       {/* Assurance Ribbon */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="p-5 bg-white border border-[#D5D4D0] rounded-xl shadow-xs flex items-center gap-3">
+          <div className="p-5 bg-white border border-[#D5D4D0] rounded-none flex items-center gap-3">
             <ShieldCheck className="w-5 h-5 text-[#D96B27] flex-shrink-0" />
             <div className="text-xs">
               <span className="text-[#18324A] font-bold block">Transparent Quotations</span>
@@ -41,7 +41,7 @@ export default function GetAQuotePage() {
             </div>
           </div>
 
-          <div className="p-5 bg-white border border-[#D5D4D0] rounded-xl shadow-xs flex items-center gap-3">
+          <div className="p-5 bg-white border border-[#D5D4D0] rounded-none flex items-center gap-3">
             <Building2 className="w-5 h-5 text-[#D96B27] flex-shrink-0" />
             <div className="text-xs">
               <span className="text-[#18324A] font-bold block">Low-Rise Expertise</span>
@@ -49,7 +49,7 @@ export default function GetAQuotePage() {
             </div>
           </div>
 
-          <div className="p-5 bg-white border border-[#D5D4D0] rounded-xl shadow-xs flex items-center gap-3">
+          <div className="p-5 bg-white border border-[#D5D4D0] rounded-none flex items-center gap-3">
             <MapPin className="w-5 h-5 text-[#D96B27] flex-shrink-0" />
             <div className="text-xs">
               <span className="text-[#18324A] font-bold block">Local Delhi Knowledge</span>
@@ -61,7 +61,7 @@ export default function GetAQuotePage() {
 
       {/* Construction Quotation Form */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Suspense fallback={<div className="p-8 bg-white border border-[#D5D4D0] rounded-xl text-xs text-[#66717A]">Loading quotation form...</div>}>
+        <Suspense fallback={<div className="p-8 bg-white border border-[#D5D4D0] rounded-none text-xs text-[#66717A]">Loading quotation form...</div>}>
           <QuoteForm />
         </Suspense>
       </section>

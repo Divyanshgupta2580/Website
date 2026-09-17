@@ -51,9 +51,7 @@ export default function GalleryPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-              01 //
-            </span>
+            <span className="w-2 h-2 bg-[#D96B27]" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
               GALLERY
             </span>
@@ -64,8 +62,8 @@ export default function GalleryPage() {
           <p className="text-base sm:text-lg text-[#66717A] leading-relaxed mb-4">
             Representative photographic records of low-rise building construction, reinforced concrete frame execution, brick masonry, and finished spaces across Delhi localities.
           </p>
-          <div className="p-4 bg-white border border-[#D5D4D0] rounded-xl shadow-xs text-xs text-[#66717A] flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-[#D96B27] flex-shrink-0" />
+          <div className="p-4 bg-white border border-[#D5D4D0] rounded-none text-xs text-[#66717A] flex items-center gap-2.5">
+            <span className="w-2 h-2 bg-[#D96B27] flex-shrink-0" />
             <span>
               <strong className="text-[#18324A]">Note:</strong> Visual archives depict representative structural methods, masonry works, and low-rise building typologies up to 4–5 floors.
             </span>
@@ -82,7 +80,7 @@ export default function GalleryPage() {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 rounded-none text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                 activeCategory === cat
                   ? "bg-[#D96B27] text-white border-[#D96B27]"
                   : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
@@ -101,7 +99,7 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
-              className="group relative aspect-[16/11] bg-white border border-[#D5D4D0] hover:border-[#D96B27] rounded-xl shadow-xs transition-all cursor-pointer overflow-hidden"
+              className="group relative aspect-[16/11] bg-white border border-[#D5D4D0] hover:border-[#D96B27] rounded-none transition-all cursor-pointer overflow-hidden"
             >
               <Image
                 src={item.image}
@@ -113,7 +111,7 @@ export default function GalleryPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#18324A]/90 via-[#18324A]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-5">
                 <div className="flex justify-between items-center">
                   <Badge variant="orange">{item.category}</Badge>
-                  <span className="w-8 h-8 rounded-lg bg-[#18324A]/80 border border-white/20 flex items-center justify-center text-white">
+                  <span className="w-8 h-8 rounded-none bg-[#18324A]/80 border border-white/20 flex items-center justify-center text-white">
                     <Maximize2 className="w-4 h-4 text-[#D96B27]" />
                   </span>
                 </div>
@@ -142,14 +140,14 @@ export default function GalleryPage() {
           onClick={() => setSelectedItem(null)}
         >
           <div
-            className="relative max-w-5xl w-full bg-white border border-[#D5D4D0] rounded-3xl overflow-hidden shadow-2xl"
+            className="relative max-w-5xl w-full bg-white border border-[#D5D4D0] rounded-none overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               type="button"
               onClick={() => setSelectedItem(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-xl bg-white/90 border border-[#D5D4D0] text-[#18324A] hover:text-[#D96B27] flex items-center justify-center focus:outline-none shadow-sm"
+              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-none bg-white/90 border border-[#D5D4D0] text-[#18324A] hover:text-[#D96B27] flex items-center justify-center focus:outline-none"
               aria-label="Close Lightbox"
             >
               <X className="w-5 h-5" />

@@ -27,35 +27,27 @@ export default function CTA({
   showContacts = true,
   className = "",
 }: CTAProps) {
-  let parsedNumber: string | undefined;
-  let parsedLabel = eyebrow;
-  if (eyebrow && eyebrow.includes("//")) {
-    const parts = eyebrow.split("//").map((s) => s.trim());
-    if (parts.length >= 2) {
-      parsedNumber = parts[0];
-      parsedLabel = parts.slice(1).join(" // ");
-    }
-  }
+  // Strip any legacy number or slashes
+  const cleanEyebrow = eyebrow
+    ? eyebrow
+        .replace(/^(\d+\s*\/\/\s*)+/, "")
+        .replace(/\/\//g, "")
+        .trim()
+    : undefined;
 
   return (
     <section className={`py-16 md:py-24 bg-[#F4F2EE] border-t border-[#D5D4D0] relative ${className}`}>
       <Container size="default">
-        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-xl shadow-xs relative overflow-hidden border border-[#102232]">
+        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-none relative overflow-hidden border border-[#102232]">
           {/* Subtle Orange Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 
           <div className="max-w-3xl">
-            {parsedLabel && (
+            {cleanEyebrow && (
               <div className="inline-flex items-center gap-2 mb-3">
-                {parsedNumber ? (
-                  <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-                    {parsedNumber} <span className="text-[#D96B27]">{"//"}</span>
-                  </span>
-                ) : (
-                  <span className="w-5 h-[2px] bg-[#D96B27]" />
-                )}
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#F3D8C7]">
-                  {parsedLabel}
+                <span className="w-4 h-[2px] bg-[#D96B27]" />
+                <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#F3D8C7]">
+                  {cleanEyebrow}
                 </span>
               </div>
             )}
@@ -73,7 +65,7 @@ export default function CTA({
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
               {primaryCtaText && (
-                <Button href={primaryCtaHref} variant="primary" size="lg" className="group">
+                <Button href={primaryCtaHref} variant="primary" size="lg" className="group rounded-none">
                   <span>{primaryCtaText}</span>
                   <ArrowUpRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Button>
@@ -84,7 +76,7 @@ export default function CTA({
                   href={secondaryCtaHref}
                   variant="outline"
                   size="lg"
-                  className="bg-transparent text-white border-white/30 hover:border-white hover:bg-white/10"
+                  className="bg-transparent text-white border-white/30 hover:border-white hover:bg-white/10 rounded-none"
                 >
                   {secondaryCtaText}
                 </Button>

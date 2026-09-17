@@ -51,11 +51,9 @@ export default function FaqsPage() {
       {/* Header */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="inline-flex items-center gap-2 mb-3">
-          <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-            01 //
-          </span>
+          <div className="w-2 h-2 bg-[#D96B27]" />
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
-            FAQS
+            FREQUENTLY ASKED QUESTIONS
           </span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-4">
@@ -75,7 +73,7 @@ export default function FaqsPage() {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 rounded-none text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                 activeCategory === cat
                   ? "bg-[#D96B27] text-white border-[#D96B27]"
                   : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
@@ -102,11 +100,11 @@ export default function FaqsPage() {
               <div
                 key={catKey}
                 id={catKey.toLowerCase().replace(/\s+/g, "-")}
-                className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-xl shadow-xs"
+                className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-none"
               >
                 {/* Section Group Header */}
                 <div className="flex items-center gap-3 pb-6 mb-6 border-b border-[#D5D4D0]">
-                  <div className="w-9 h-9 bg-[#F3D8C7]/50 border border-[#D96B27]/30 flex items-center justify-center flex-shrink-0 rounded-lg">
+                  <div className="w-9 h-9 bg-[#F3D8C7]/50 border border-[#D96B27]/30 flex items-center justify-center flex-shrink-0 rounded-none">
                     <Icon className="w-4 h-4 text-[#D96B27]" />
                   </div>
                   <div>
@@ -141,7 +139,7 @@ export default function FaqsPage() {
 
       {/* Direct Contact Box */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="p-8 sm:p-10 border border-[#D5D4D0] bg-white rounded-xl shadow-xs">
+        <div className="p-8 sm:p-10 border border-[#D5D4D0] bg-white rounded-none">
           <HelpCircle className="w-8 h-8 text-[#D96B27] mx-auto mb-3" />
           <h2 className="text-xl font-bold text-[#18324A] mb-2">
             Have a Specific Construction Question Not Listed Here?

@@ -8,7 +8,7 @@ export default function ConversionCTA() {
   return (
     <section className="py-16 md:py-24 bg-[#F4F2EE]">
       <Container size="default">
-        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-xl shadow-sm relative overflow-hidden border border-[#102232]">
+        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-none relative overflow-hidden border border-[#102232]">
           {/* Subtle Top Orange Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 
@@ -16,11 +16,9 @@ export default function ConversionCTA() {
             <div className="lg:col-span-8">
               {/* Eyebrow */}
               <div className="inline-flex items-center gap-2 mb-3">
-                <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-                  06 //
-                </span>
+                <span className="w-2 h-2 bg-[#D96B27]" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#F3D8C7]">
-                  CONTACT
+                  CONTACT US
                 </span>
               </div>
 
@@ -38,7 +36,7 @@ export default function ConversionCTA() {
                   href="/get-a-quote"
                   variant="primary"
                   size="lg"
-                  className="group bg-[#D96B27] hover:bg-[#B9551D] text-white border-0 shadow-xs"
+                  className="group bg-[#D96B27] hover:bg-[#B9551D] text-white border-0"
                 >
                   <span>GET A QUOTE</span>
                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
@@ -46,7 +44,7 @@ export default function ConversionCTA() {
 
                 <a
                   href={`tel:${companyData.contact.phone}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border-2 border-white/30 hover:border-white hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-none border-2 border-white/30 hover:border-white hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider transition-colors"
                 >
                   <Phone className="w-4 h-4 text-[#D96B27]" />
                   <span>CALL +91 98110 34825</span>
@@ -73,7 +71,7 @@ export default function ConversionCTA() {
             </div>
 
             {/* Right Feature Card */}
-            <div className="lg:col-span-4 bg-white/5 border border-white/15 p-6 rounded-xl">
+            <div className="lg:col-span-4 bg-white/5 border border-white/15 p-6 rounded-none">
               <span className="text-xs font-mono uppercase tracking-wider font-extrabold text-[#D96B27] block mb-2">
                 DIRECT CONSULTATION
               </span>
@@ -82,15 +80,15 @@ export default function ConversionCTA() {
               </p>
               <div className="text-xs text-white/80 font-medium space-y-2 border-t border-white/10 pt-3">
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D96B27]" />
+                  <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                   <span>Low-rise structures up to 4–5 floors</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D96B27]" />
+                  <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                   <span>Rohini, Pitampura &amp; Delhi NCR</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D96B27]" />
+                  <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                   <span>Daily on-site supervision</span>
                 </div>
               </div>

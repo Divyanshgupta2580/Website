@@ -118,7 +118,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* 3. Key Service Statistics Ribbon */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-8">
+        <div className="bg-white border border-[#D5D4D0] rounded-none p-6 sm:p-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs divide-y sm:divide-y-0 sm:divide-x divide-[#D5D4D0]">
             <div className="pt-2 sm:pt-0 sm:pr-4">
               <span className="text-xs uppercase font-bold text-[#66717A] block mb-1">
@@ -170,7 +170,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
               {service.overview}
             </p>
 
-            <div className="p-4 bg-white border border-[#D5D4D0] rounded-xl shadow-xs flex items-start gap-3 text-xs">
+            <div className="p-4 bg-white border border-[#D5D4D0] rounded-none flex items-start gap-3 text-xs">
               <ShieldCheck className="w-5 h-5 text-[#D96B27] flex-shrink-0 mt-0.5" />
               <p className="text-[#66717A] leading-snug">
                 All structural work, reinforcement placement, and concrete casting adheres to IS 456 concrete standards and NBC building safety guidelines.
@@ -178,7 +178,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-8">
+          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] rounded-none p-6 sm:p-8">
             <h3 className="text-xs uppercase tracking-widest font-bold text-[#18324A] mb-6 pb-2 border-b border-[#D5D4D0]">
               Core Capabilities
             </h3>
@@ -207,12 +207,10 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             {service.benefits.map((b, idx) => (
               <div
                 key={idx}
-                className="bg-[#F4F2EE] border border-[#D5D4D0] p-6 rounded-xl flex flex-col justify-between"
+                className="bg-[#F4F2EE] border border-[#D5D4D0] p-6 rounded-none flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-xs font-bold text-[#D96B27] block mb-2">
-                    BENEFIT // 0{idx + 1}
-                  </span>
+                  <div className="w-2 h-2 bg-[#D96B27] mb-3" />
                   <h3 className="text-base font-bold text-[#18324A] mb-2">
                     {b.title}
                   </h3>
@@ -238,7 +236,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           {service.process.map((step) => (
             <div
               key={step.stepNumber}
-              className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 flex flex-col justify-between"
+              className="bg-white border border-[#D5D4D0] rounded-none p-6 flex flex-col justify-between"
             >
               <div>
                 <span className="text-3xl font-extrabold text-[#D96B27] block mb-3">
@@ -259,7 +257,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 <ul className="space-y-1.5 text-xs text-[#66717A]">
                   {step.deliverables.map((deliv, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-[#D96B27] rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-[#D96B27]" />
                       <span>{deliv}</span>
                     </li>
                   ))}
@@ -306,7 +304,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             align="center"
           />
 
-          <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-10">
+          <div className="bg-white border border-[#D5D4D0] rounded-none p-6 sm:p-10">
             <Accordion>
               {service.faqs.map((faq, idx) => (
                 <AccordionItem

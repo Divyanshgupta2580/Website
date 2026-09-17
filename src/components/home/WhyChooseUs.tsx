@@ -89,16 +89,13 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={p.number}
-                className="lg:col-span-6 bg-white border border-[#D5D4D0] p-7 sm:p-9 rounded-2xl sm:rounded-[22px] shadow-xs flex flex-col justify-between hover:border-[#18324A] hover:shadow-md transition-all"
+                className="lg:col-span-6 bg-white border border-[#D5D4D0] p-7 sm:p-9 rounded-none flex flex-col justify-between hover:border-[#18324A] transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl flex items-center justify-center text-[#18324A]">
+                    <div className="w-11 h-11 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none flex items-center justify-center text-[#18324A]">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-bold text-[#66717A] uppercase tracking-wider">
-                      PILLAR // {p.number}
-                    </span>
                   </div>
 
                   <h3 className="text-2xl font-extrabold text-[#18324A] mb-1">
@@ -133,16 +130,13 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={p.number}
-                className="lg:col-span-4 bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-2xl sm:rounded-[22px] shadow-xs flex flex-col justify-between hover:border-[#18324A] hover:shadow-md transition-all"
+                className="lg:col-span-4 bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-none flex flex-col justify-between hover:border-[#18324A] transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 bg-[#F4F2EE] border border-[#D5D4D0] rounded-xl flex items-center justify-center text-[#18324A]">
+                    <div className="w-10 h-10 bg-[#F4F2EE] border border-[#D5D4D0] rounded-none flex items-center justify-center text-[#18324A]">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-bold text-[#66717A] uppercase tracking-wider">
-                      PILLAR // {p.number}
-                    </span>
                   </div>
 
                   <h3 className="text-xl font-extrabold text-[#18324A] mb-1">

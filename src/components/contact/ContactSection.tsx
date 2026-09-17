@@ -62,16 +62,14 @@ export default function ContactSection({
     >
       <Container size="default">
         {/* Main Contact Card */}
-        <div className="bg-white border border-[#D5D4D0] p-8 sm:p-12 lg:p-14 rounded-xl shadow-xs mb-12">
+        <div className="bg-white border border-[#D5D4D0] p-8 sm:p-12 lg:p-14 rounded-none mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-                  06 //
-                </span>
+                <span className="w-2 h-2 bg-[#D96B27]" />
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
-                  CONTACT
+                  CONTACT US
                 </span>
               </div>
 
@@ -95,7 +93,7 @@ export default function ContactSection({
 
                 <a
                   href={`mailto:${companyData.contact.email}`}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-[#D5D4D0] hover:border-[#18324A] text-[#18324A] font-bold text-xs uppercase tracking-wider rounded-xl transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-[#D5D4D0] hover:border-[#18324A] text-[#18324A] font-bold text-xs uppercase tracking-wider rounded-none transition-colors"
                 >
                   <Mail className="w-4 h-4 text-[#D96B27]" />
                   <span>EMAIL US</span>
@@ -104,7 +102,7 @@ export default function ContactSection({
             </div>
 
             {/* Right Column: Direct Contact Details */}
-            <div className="lg:col-span-5 bg-[#F4F2EE] border border-[#D5D4D0] p-6 sm:p-8 rounded-2xl space-y-6">
+            <div className="lg:col-span-5 bg-[#F4F2EE] border border-[#D5D4D0] p-6 sm:p-8 rounded-none space-y-6">
               <div>
                 <span className="text-[11px] uppercase tracking-wider font-extrabold text-[#D96B27] block mb-1">
                   CALL US DIRECTLY
@@ -156,14 +154,14 @@ export default function ContactSection({
                 <Link
                   key={item.index}
                   href={item.href}
-                  className="group bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-2xl sm:rounded-[22px] flex flex-col justify-between hover:border-[#18324A] hover:shadow-sm transition-all"
+                  className="group bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-none flex flex-col justify-between hover:border-[#18324A] transition-all"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#18324A]">
+                      <div className="w-10 h-10 rounded-none bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#18324A]">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#D96B27] bg-[#F3D8C7] px-2 py-0.5 rounded-md">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#D96B27] bg-[#F3D8C7] px-2 py-0.5 rounded-none border border-[#D96B27]/20">
                         {item.badge}
                       </span>
                     </div>

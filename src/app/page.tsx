@@ -13,22 +13,22 @@ export default function HomePage() {
       {/* Hero: Building Construction & Dual CTAs */}
       <Hero />
 
-      {/* 01 // APPROACH: Built Around Practical Construction */}
+      {/* Approach: Built Around Practical Construction */}
       <ApproachSection />
 
-      {/* 02 // SERVICES: Construction, From Structure to Completion */}
+      {/* Services: Construction, From Structure to Completion */}
       <ServicesPreview />
 
-      {/* 03 // PROJECTS: Selected Construction Work */}
+      {/* Projects: Selected Construction Work */}
       <FeaturedProjects />
 
-      {/* 04 // LOCAL EXPERIENCE: Construction Experience in North-West Delhi */}
+      {/* Local Experience: Construction Experience in North-West Delhi */}
       <LocalExperienceSection />
 
-      {/* 05 // PROCESS: A Simple Way to Get Started */}
+      {/* Process: A Simple Way to Get Started */}
       <ProcessSection />
 
-      {/* 06 // CONTACT: Planning a Construction Project? */}
+      {/* Contact: Planning a Construction Project? */}
       <ConversionCTA />
     </>
   );

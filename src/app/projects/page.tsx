@@ -43,11 +43,9 @@ export default function ProjectsPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
-              01 //
-            </span>
+            <span className="w-2 h-2 bg-[#D96B27]" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
-              PROJECTS
+              SELECTED PROJECTS
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-6">
@@ -61,7 +59,7 @@ export default function ProjectsPage() {
 
       {/* 2. Flagship Project Feature */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-        <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs overflow-hidden">
+        <div className="bg-white border border-[#D5D4D0] rounded-none overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] bg-[#E8E6E1]">
               <Image
@@ -75,7 +73,7 @@ export default function ProjectsPage() {
               <div className="absolute top-4 left-4 z-10">
                 <Badge variant="orange">{flagshipProject.sectorLabel}</Badge>
               </div>
-              <div className="absolute bottom-4 left-4 z-10 text-xs font-bold text-[#18324A] bg-white/95 px-3 py-1.5 border border-[#D5D4D0] rounded">
+              <div className="absolute bottom-4 left-4 z-10 text-xs font-bold text-[#18324A] bg-white/95 px-3 py-1.5 border border-[#D5D4D0] rounded-none">
                 {flagshipProject.floors} &bull; {flagshipProject.location}
               </div>
             </div>
@@ -180,7 +178,7 @@ export default function ProjectsPage() {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveFilter(tab.id)}
-                className={`px-4 py-2 rounded-xl text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
+                className={`px-4 py-2 rounded-none text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                   activeFilter === tab.id
                     ? "bg-[#D96B27] text-white border-[#D96B27]"
                     : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
@@ -200,7 +198,7 @@ export default function ProjectsPage() {
       {/* 5. Projects Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         {filteredProjects.length === 0 ? (
-          <div className="p-12 text-center bg-white border border-[#D5D4D0] shadow-sm">
+          <div className="p-12 text-center bg-white border border-[#D5D4D0]">
             <p className="text-sm text-[#66717A]">No projects found for the selected filter.</p>
           </div>
         ) : (
@@ -219,13 +217,12 @@ export default function ProjectsPage() {
       {/* 6. Project Portfolio FAQs */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <SectionHeading
-          sectionNumber="02"
           eyebrow="FAQS"
           title="Building Construction FAQs"
           align="center"
         />
 
-        <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs p-6 sm:p-10">
+        <div className="bg-white border border-[#D5D4D0] rounded-none p-6 sm:p-10">
           <Accordion>
             {projectFaqs.map((faq, idx) => (
               <AccordionItem
@@ -243,7 +240,7 @@ export default function ProjectsPage() {
 
       {/* 7. Conversion CTA */}
       <CTA
-        eyebrow="03 // CONTACT"
+        eyebrow="CONTACT US"
         title="Planning a Construction Project?"
         description="Speak with our team regarding your plot size, building plan, or construction requirements in Rohini, Pitampura, and nearby Delhi areas. We provide honest estimates and dependable execution."
         primaryCtaText="GET A QUOTE"
