@@ -185,7 +185,7 @@ export default function QuoteForm() {
   };
 
   return (
-    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 lg:p-12 rounded-3xl sm:rounded-[28px] shadow-sm relative overflow-hidden">
+    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 lg:p-12 rounded-xl shadow-xs relative overflow-hidden">
       {/* Top Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 

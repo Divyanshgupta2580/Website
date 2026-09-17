@@ -2,6 +2,7 @@ import React from "react";
 
 export interface SectionHeadingProps {
   eyebrow?: string;
+  sectionNumber?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
@@ -11,6 +12,7 @@ export interface SectionHeadingProps {
 
 export default function SectionHeading({
   eyebrow,
+  sectionNumber,
   title,
   description,
   align = "left",
@@ -19,6 +21,18 @@ export default function SectionHeading({
 }: SectionHeadingProps) {
   const isCentered = align === "center";
 
+  // Parse section number and label if formatted as "01 // APPROACH"
+  let parsedNumber = sectionNumber;
+  let parsedLabel = eyebrow;
+
+  if (!parsedNumber && eyebrow && eyebrow.includes("//")) {
+    const parts = eyebrow.split("//").map((s) => s.trim());
+    if (parts.length >= 2) {
+      parsedNumber = parts[0];
+      parsedLabel = parts.slice(1).join(" // ");
+    }
+  }
+
   return (
     <div
       className={`mb-10 md:mb-14 ${
@@ -26,15 +40,21 @@ export default function SectionHeading({
       } ${className}`}
     >
       <div className={isCentered ? "" : "max-w-3xl"}>
-        {eyebrow && (
+        {parsedLabel && (
           <div
-            className={`inline-flex items-center gap-2.5 mb-2.5 ${
+            className={`inline-flex items-center gap-2 mb-2.5 ${
               isCentered ? "justify-center" : ""
             }`}
           >
-            <span className="w-5 h-[2px] bg-[#D96B27]" aria-hidden="true" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D96B27]">
-              {eyebrow}
+            {parsedNumber ? (
+              <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
+                {parsedNumber} <span className="text-[#D96B27]">{"//"}</span>
+              </span>
+            ) : (
+              <span className="w-5 h-[2px] bg-[#D96B27]" aria-hidden="true" />
+            )}
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
+              {parsedLabel}
             </span>
           </div>
         )}

@@ -51,9 +51,11 @@ export default function GalleryPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-6 h-[2px] bg-[#D96B27]" />
-            <span className="text-xs font-bold uppercase tracking-widest text-[#D96B27]">
-              Visual Records &amp; Documentation
+            <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
+              01 //
+            </span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
+              GALLERY
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-6">
@@ -99,7 +101,7 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
-              className="group relative aspect-[16/11] bg-white border border-[#D5D4D0] hover:border-[#D96B27] rounded-2xl sm:rounded-[22px] shadow-sm transition-all cursor-pointer overflow-hidden"
+              className="group relative aspect-[16/11] bg-white border border-[#D5D4D0] hover:border-[#D96B27] rounded-xl shadow-xs transition-all cursor-pointer overflow-hidden"
             >
               <Image
                 src={item.image}

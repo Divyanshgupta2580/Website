@@ -116,7 +116,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-3xl sm:rounded-[28px] shadow-sm" id="enquiry-form">
+    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-xl shadow-xs" id="enquiry-form">
       {/* Category Selector */}
       <div className="mb-8">
         <label className="block text-xs uppercase tracking-wider font-extrabold text-[#18324A] mb-3">

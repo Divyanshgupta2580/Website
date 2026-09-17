@@ -1,38 +1,34 @@
 import React from "react";
 import Hero from "@/components/home/Hero";
+import ApproachSection from "@/components/home/ApproachSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
+import LocalExperienceSection from "@/components/home/LocalExperienceSection";
 import ProcessSection from "@/components/home/ProcessSection";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
-import HomeFaqSection from "@/components/home/HomeFaqSection";
 import ConversionCTA from "@/components/home/ConversionCTA";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. Hero: Construction Positioning & Dual CTAs */}
+      {/* Hero: Building Construction & Dual CTAs */}
       <Hero />
 
-      {/* 2. Core Construction Services (Residential, Commercial, Shops/Offices, Renovation) */}
+      {/* 01 // APPROACH: Built Around Practical Construction */}
+      <ApproachSection />
+
+      {/* 02 // SERVICES: Construction, From Structure to Completion */}
       <ServicesPreview />
 
-      {/* 3. Selected Low-Rise Building Projects (Rohini & Pitampura Experience) */}
+      {/* 03 // PROJECTS: Selected Construction Work */}
       <FeaturedProjects />
 
-      {/* 4. Why Choose GG Construction Co. (5 Construction Pillars) */}
-      <WhyChooseUs />
+      {/* 04 // LOCAL EXPERIENCE: Construction Experience in North-West Delhi */}
+      <LocalExperienceSection />
 
-      {/* 5. How We Build (5-Stage Construction Process) */}
+      {/* 05 // PROCESS: A Simple Way to Get Started */}
       <ProcessSection />
 
-      {/* 6. Client Testimonials (Verified Sample Feedback) */}
-      <TestimonialsSection />
-
-      {/* 7. Frequently Asked Construction Questions */}
-      <HomeFaqSection />
-
-      {/* 8. Conversion Contact / Quote Consultation */}
+      {/* 06 // CONTACT: Planning a Construction Project? */}
       <ConversionCTA />
     </>
   );

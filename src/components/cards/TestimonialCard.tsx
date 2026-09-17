@@ -13,7 +13,7 @@ export default function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <div
-      className={`bg-white border border-[#D5D4D0] p-7 flex flex-col justify-between hover:border-[#18324A] transition-colors rounded-2xl sm:rounded-[22px] shadow-xs ${className}`}
+      className={`bg-white border border-[#D5D4D0] p-7 flex flex-col justify-between hover:border-[#18324A] transition-colors rounded-xl shadow-xs ${className}`}
     >
       <div>
         <div className="flex items-center justify-between mb-5">

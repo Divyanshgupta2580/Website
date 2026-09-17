@@ -90,7 +90,7 @@ export default function BlogPostDetailPage({ params }: BlogPostPageProps) {
         </div>
 
         {/* Hero Image */}
-        <div className="relative aspect-[16/9] w-full my-10 bg-white border border-[#D5D4D0] shadow-sm rounded-3xl overflow-hidden">
+        <div className="relative aspect-[16/9] w-full my-10 bg-white border border-[#D5D4D0] shadow-xs rounded-xl overflow-hidden">
           <Image
             src={post.heroImage}
             alt={post.title}

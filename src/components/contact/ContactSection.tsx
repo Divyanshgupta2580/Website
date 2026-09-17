@@ -62,14 +62,16 @@ export default function ContactSection({
     >
       <Container size="default">
         {/* Main Contact Card */}
-        <div className="bg-white border border-[#D5D4D0] p-8 sm:p-12 lg:p-14 rounded-3xl sm:rounded-[28px] shadow-sm mb-12">
+        <div className="bg-white border border-[#D5D4D0] p-8 sm:p-12 lg:p-14 rounded-xl shadow-xs mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2">
-                <span className="w-5 h-[2px] bg-[#D96B27]" aria-hidden="true" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D96B27]">
-                  GET IN TOUCH
+                <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
+                  06 //
+                </span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
+                  CONTACT
                 </span>
               </div>
 
@@ -77,7 +79,7 @@ export default function ContactSection({
                 id="contact-heading"
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#18324A] leading-tight"
               >
-                Planning a Construction Project?
+                PLANNING A CONSTRUCTION PROJECT?
               </HeadingTag>
 
               <p className="text-base sm:text-lg text-[#66717A] leading-relaxed max-w-xl">

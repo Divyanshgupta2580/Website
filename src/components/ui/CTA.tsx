@@ -27,19 +27,35 @@ export default function CTA({
   showContacts = true,
   className = "",
 }: CTAProps) {
+  let parsedNumber: string | undefined;
+  let parsedLabel = eyebrow;
+  if (eyebrow && eyebrow.includes("//")) {
+    const parts = eyebrow.split("//").map((s) => s.trim());
+    if (parts.length >= 2) {
+      parsedNumber = parts[0];
+      parsedLabel = parts.slice(1).join(" // ");
+    }
+  }
+
   return (
     <section className={`py-16 md:py-24 bg-[#F4F2EE] border-t border-[#D5D4D0] relative ${className}`}>
       <Container size="default">
-        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-3xl shadow-md relative overflow-hidden">
+        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-xl shadow-xs relative overflow-hidden border border-[#102232]">
           {/* Subtle Orange Accent Line */}
           <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 
           <div className="max-w-3xl">
-            {eyebrow && (
+            {parsedLabel && (
               <div className="inline-flex items-center gap-2 mb-3">
-                <span className="w-5 h-[2px] bg-[#D96B27]" />
+                {parsedNumber ? (
+                  <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
+                    {parsedNumber} <span className="text-[#D96B27]">{"//"}</span>
+                  </span>
+                ) : (
+                  <span className="w-5 h-[2px] bg-[#D96B27]" />
+                )}
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#F3D8C7]">
-                  {eyebrow}
+                  {parsedLabel}
                 </span>
               </div>
             )}

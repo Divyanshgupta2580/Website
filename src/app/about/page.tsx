@@ -2,19 +2,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
-import {
-  ShieldCheck,
-  HardHat,
-  CheckCircle2,
-  Target,
-  Eye,
-  Building2,
-  MapPin,
-  ArrowUpRight,
-} from "lucide-react";
+import { MapPin } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import CTA from "@/components/ui/CTA";
 import { companyData } from "@/data/company";
@@ -23,7 +13,7 @@ import { testimonialsData } from "@/data/testimonials";
 export const metadata: Metadata = {
   title: "About Us | GG Construction Co. — Building Construction",
   description:
-    "Learn about GG Construction Co., a trusted local building contractor specializing in low-rise residential and commercial construction up to 4–5 floors across Rohini, Pitampura, and Delhi.",
+    "GG Construction Co. focuses on practical building construction for residential and low-rise commercial projects across Rohini, Pitampura and nearby areas of Delhi.",
 };
 
 export default function AboutPage() {
@@ -32,44 +22,46 @@ export default function AboutPage() {
   return (
     <div className="pt-28 pb-20 bg-[#F4F2EE]">
       {/* 1. Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-5 h-[2px] bg-[#D96B27]" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D96B27]">
+            <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
+              01 //
+            </span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
               ABOUT GG CONSTRUCTION CO.
             </span>
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-5">
-            Reliable Low-Rise Building Construction.
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-4">
+            Practical Building Construction in North-West Delhi.
           </h1>
           <p className="text-base sm:text-lg text-[#66717A] leading-relaxed">
-            GG Construction Co. is a practical building construction contractor focused on low-rise residential homes, builder floors, shops, and commercial spaces up to 4–5 floors, with extensive project experience in Rohini, Pitampura, and surrounding Delhi localities.
+            GG Construction Co. focuses on practical building construction for residential and low-rise commercial projects. The company has construction experience across Rohini, Pitampura and nearby areas of Delhi.
           </p>
         </div>
       </section>
 
       {/* 2. Hero Image Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="relative aspect-[21/9] w-full overflow-hidden bg-white border border-[#D5D4D0] rounded-3xl shadow-xs">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div className="relative aspect-[21/9] w-full overflow-hidden bg-[#E8E6E1] border border-[#D5D4D0] rounded-xl shadow-xs">
           <Image
             src="https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=1800&q=80"
-            alt="GG Construction Co. building construction operations and site execution"
+            alt="GG Construction Co. on-site building execution in Delhi NCR [Representative Example]"
             fill
             priority
             sizes="100vw"
             className="object-cover"
           />
           <div className="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-            <div className="bg-white/95 backdrop-blur-sm border border-[#D5D4D0] p-3.5 max-w-md rounded-2xl shadow-xs">
-              <span className="text-[10px] uppercase font-bold tracking-wider text-[#D96B27] block">
-                CORE FOCUS
+            <div className="bg-white/95 backdrop-blur-xs border border-[#D5D4D0] p-3 max-w-md rounded-lg shadow-xs">
+              <span className="text-[10px] uppercase font-mono font-bold tracking-wider text-[#D96B27] block">
+                PRACTICAL SCOPE
               </span>
               <p className="text-xs text-[#18324A] font-bold mt-0.5">
-                Rigorous structural execution, transparent milestones, and attentive site supervision for low-rise structures.
+                Low-rise residential and commercial structures with attentive on-site supervision.
               </p>
             </div>
-            <div className="text-right text-xs font-bold text-[#18324A] bg-white/95 p-2 px-3 border border-[#D5D4D0] rounded-xl shadow-xs">
+            <div className="text-right text-xs font-bold text-[#18324A] bg-white/95 p-2 px-3 border border-[#D5D4D0] rounded-lg shadow-xs">
               Rohini &bull; Pitampura &bull; Delhi NCR
             </div>
           </div>
@@ -77,31 +69,31 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Company Overview */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 space-y-5">
-            <span className="text-xs uppercase tracking-[0.2em] font-extrabold text-[#D96B27] block">
-              Company Background
+          <div className="lg:col-span-6 space-y-4">
+            <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-[#D96B27] block">
+              LOCAL CONSTRUCTION PRESENCE
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#18324A] leading-tight">
-              A Practical Building Contractor with Genuine Local Experience
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#18324A] leading-tight">
+              A Direct, Practical Approach to Building
             </h2>
-            <p className="text-sm sm:text-base text-[#66717A] leading-relaxed">
-              GG Construction Co. has carried out construction work across Rohini, Pitampura, and nearby areas of Delhi. We operate with a straightforward, transparent approach centered on dependable craftsmanship and close jobsite oversight.
+            <p className="text-sm text-[#66717A] leading-relaxed">
+              GG Construction Co. focuses on practical building construction for residential and low-rise commercial projects. The company has construction experience across Rohini, Pitampura and nearby areas of Delhi.
             </p>
-            <p className="text-sm sm:text-base text-[#66717A] leading-relaxed">
-              We specialize in practical building construction projects—typically residential independent homes, builder floors, shopfronts, and small commercial office buildings up to approximately 4–5 floors. We avoid overextended promises and focus strictly on delivering durable, structurally sound buildings on agreed timelines.
+            <p className="text-sm text-[#66717A] leading-relaxed">
+              We concentrate on independent houses, builder floors, retail shops, and small commercial buildings up to 4–5 floors maximum. We manage structural framing, masonry, and finishing directly on site with dedicated daily supervision and transparent milestone accounting.
             </p>
           </div>
 
-          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] p-7 sm:p-9 rounded-2xl sm:rounded-[22px] shadow-xs space-y-6">
-            <h3 className="text-xs uppercase tracking-[0.18em] font-extrabold text-[#18324A] pb-3 border-b border-[#D5D4D0]">
-              Operational Profile &amp; Scope
+          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-xl shadow-xs space-y-5">
+            <h3 className="text-xs font-mono uppercase tracking-[0.18em] font-extrabold text-[#18324A] pb-3 border-b border-[#D5D4D0]">
+              CONFIRMED COMPANY SCOPE
             </h3>
-            <div className="grid grid-cols-2 gap-5 text-xs">
+            <div className="grid grid-cols-2 gap-4 text-xs">
               <div>
                 <span className="text-[#66717A] block text-[10px] uppercase font-bold tracking-wider mb-1">
-                  Primary Business
+                  Primary Focus
                 </span>
                 <span className="text-[#18324A] text-sm font-extrabold">
                   Building Construction
@@ -109,7 +101,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <span className="text-[#66717A] block text-[10px] uppercase font-bold tracking-wider mb-1">
-                  Maximum Scale
+                  Structure Scale
                 </span>
                 <span className="text-[#18324A] text-sm font-extrabold">
                   Up to 4–5 Floors
@@ -117,7 +109,7 @@ export default function AboutPage() {
               </div>
               <div>
                 <span className="text-[#66717A] block text-[10px] uppercase font-bold tracking-wider mb-1">
-                  Key Operating Areas
+                  Key Localities
                 </span>
                 <span className="text-[#18324A] text-sm font-extrabold">
                   Rohini &amp; Pitampura
@@ -140,94 +132,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 4. Mission & Vision */}
-      <section className="py-16 bg-white border-y border-[#D5D4D0] mb-20">
-        <Container size="default">
-          <SectionHeading
-            eyebrow="Purpose & Principles"
-            title="Mission, Vision & Principles"
-            description="The values guiding our day-to-day jobsite management, structural standards, and client relationships."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <div className="p-7 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl sm:rounded-[22px]">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-white border border-[#D5D4D0] rounded-xl flex items-center justify-center text-[#18324A]">
-                  <Target className="w-5 h-5" />
-                </div>
-                <span className="text-xs uppercase font-extrabold tracking-wider text-[#D96B27]">
-                  OUR MISSION
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-[#18324A] mb-2">
-                Reliable Construction &amp; Honest Execution
-              </h3>
-              <p className="text-xs sm:text-sm text-[#66717A] leading-relaxed">
-                {companyData.mission}
-              </p>
-            </div>
-
-            <div className="p-7 bg-[#F4F2EE] border border-[#D5D4D0] rounded-2xl sm:rounded-[22px]">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-white border border-[#D5D4D0] rounded-xl flex items-center justify-center text-[#18324A]">
-                  <Eye className="w-5 h-5" />
-                </div>
-                <span className="text-xs uppercase font-extrabold tracking-wider text-[#D96B27]">
-                  OUR VISION
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-[#18324A] mb-2">
-                A Respected Local Building Contractor
-              </h3>
-              <p className="text-xs sm:text-sm text-[#66717A] leading-relaxed">
-                {companyData.vision}
-              </p>
-            </div>
-          </div>
-
-          {/* Core Values */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {companyData.values.map((val, idx) => (
-              <div
-                key={idx}
-                className="p-6 bg-white border border-[#D5D4D0] rounded-2xl shadow-xs flex flex-col justify-between"
-              >
-                <div>
-                  <span className="text-xs font-bold text-[#D96B27] block mb-2">
-                    {`0${idx + 1} // VALUE`}
-                  </span>
-                  <h4 className="text-sm font-bold text-[#18324A] mb-2">
-                    {val.title}
-                  </h4>
-                  <p className="text-xs text-[#66717A] leading-relaxed">
-                    {val.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 5. Construction Principles */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+      {/* 4. Practical Principles */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <SectionHeading
-          eyebrow="Quality Standards"
-          title="Our Practical Construction Principles"
+          sectionNumber="02"
+          eyebrow="PRINCIPLES"
+          title="Practical Construction Principles"
           description="Every building project is handled with direct supervision, honest measurement, and structural discipline."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {companyData.practicalPrinciples.map((phil, idx) => (
             <div
               key={idx}
-              className="bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-2xl shadow-xs flex flex-col justify-between"
+              className="bg-white border border-[#D5D4D0] p-6 rounded-xl shadow-xs flex flex-col justify-between"
             >
               <div>
-                <span className="text-2xl font-extrabold text-[#18324A] block mb-2">
+                <span className="text-xl font-mono font-extrabold text-[#D96B27] block mb-2">
                   {`0${idx + 1}`}
                 </span>
-                <h3 className="text-base font-bold text-[#18324A] mb-2">
+                <h3 className="text-sm font-bold text-[#18324A] mb-2">
                   {phil.title}
                 </h3>
                 <p className="text-xs text-[#66717A] leading-relaxed">
@@ -239,11 +163,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. Client Testimonial */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+      {/* 5. Client Testimonial */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <SectionHeading
-          eyebrow="Client Perspective"
-          title="What Our Clients Say"
+          sectionNumber="03"
+          eyebrow="FEEDBACK"
+          title="Client Feedback"
         />
 
         <div className="max-w-3xl mx-auto">
@@ -251,10 +176,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 7. Final Conversion CTA */}
+      {/* 6. Final Conversion CTA */}
       <CTA
-        eyebrow="GET IN TOUCH"
-        title="Planning a Construction Project?"
+        eyebrow="06 // CONTACT"
+        title="PLANNING A CONSTRUCTION PROJECT?"
         description="Tell us about your building requirement and we'll get in touch."
         primaryCtaText="GET A QUOTE"
         primaryCtaHref="/get-a-quote"

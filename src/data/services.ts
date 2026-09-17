@@ -89,7 +89,7 @@ export const servicesData: ServiceItem[] = [
         stepNumber: "03",
         title: "Superstructure & Slab Casting",
         description:
-          "RCC columns, beam framing, formwork shuttering, and roof slab casting per floor with disciplined concrete curing.",
+          "RCC columns, beam framing, formwork staging, and roof slab casting per floor with disciplined concrete curing.",
         deliverables: ["Slab Curing Records", "Structural Frame Verification", "Lintel & Beam Check"],
       },
       {

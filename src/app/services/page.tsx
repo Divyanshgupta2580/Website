@@ -58,7 +58,7 @@ export default function ServicesPage() {
       number: "04",
       title: "RCC Frame & Slab Casting",
       description:
-        "Column and beam casting, formwork shuttering, and roof slab pouring with disciplined concrete vibration and curing.",
+        "Column and beam casting, formwork staging, and roof slab pouring with disciplined concrete vibration and curing.",
     },
     {
       number: "05",
@@ -96,7 +96,7 @@ export default function ServicesPage() {
 
       {/* 2. Flagship Feature: Residential & Commercial Building */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-white border border-[#D5D4D0] rounded-3xl overflow-hidden shadow-xs">
+        <div className="bg-white border border-[#D5D4D0] rounded-xl overflow-hidden shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 relative min-h-[360px] lg:min-h-[460px] bg-[#E8E6E1]">
               <Image
@@ -275,7 +275,7 @@ export default function ServicesPage() {
           align="center"
         />
 
-        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-3xl shadow-xs">
+        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-xl shadow-xs">
           <Accordion>
             {constructionFaqs.map((faq, idx) => (
               <AccordionItem

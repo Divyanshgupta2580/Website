@@ -43,9 +43,11 @@ export default function ProjectsPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-6 h-[2px] bg-[#D96B27]" />
-            <span className="text-xs font-bold uppercase tracking-widest text-[#D96B27]">
-              Building Construction Portfolio
+            <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
+              03 //
+            </span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
+              PROJECTS
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-6">
@@ -59,9 +61,9 @@ export default function ProjectsPage() {
 
       {/* 2. Flagship Project Feature */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-        <div className="bg-white border border-[#D5D4D0] rounded-3xl sm:rounded-[28px] shadow-sm overflow-hidden">
+        <div className="bg-white border border-[#D5D4D0] rounded-xl shadow-xs overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
-            <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] bg-[#18324A]">
+            <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] bg-[#E8E6E1]">
               <Image
                 src={flagshipProject.heroImage}
                 alt={flagshipProject.title}
@@ -70,11 +72,10 @@ export default function ProjectsPage() {
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#18324A]/70 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-white/10" />
               <div className="absolute top-4 left-4 z-10">
                 <Badge variant="orange">{flagshipProject.sectorLabel}</Badge>
               </div>
-              <div className="absolute bottom-4 left-4 z-10 text-xs font-semibold text-white bg-[#18324A]/90 px-3 py-1.5 border border-white/20 rounded-md">
+              <div className="absolute bottom-4 left-4 z-10 text-xs font-bold text-[#18324A] bg-white/95 px-3 py-1.5 border border-[#D5D4D0] rounded">
                 {flagshipProject.floors} &bull; {flagshipProject.location}
               </div>
             </div>

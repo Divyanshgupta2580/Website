@@ -1,94 +1,136 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2, Home, Building2, Store, Hammer, ClipboardCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
-import { servicesData } from "@/data/services";
 
-const serviceIcons: Record<string, React.ElementType> = {
-  "residential-construction": Home,
-  "commercial-construction": Building2,
-  "shop-office-construction": Store,
-  "renovation-remodeling": Hammer,
-  "construction-planning": ClipboardCheck,
-};
+const servicesList = [
+  {
+    number: "01",
+    title: "RESIDENTIAL CONSTRUCTION",
+    slug: "residential-construction",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Low-rise residential building and independent floors under construction [Representative Example]",
+    description:
+      "Complete construction of independent family houses, builder floors (G+3 and G+4 floors), and residential duplexes with durable RCC structural framing, solid brick masonry, and dedicated site supervision.",
+    badge: "Homes & Builder Floors",
+  },
+  {
+    number: "02",
+    title: "LOW-RISE COMMERCIAL CONSTRUCTION",
+    slug: "commercial-construction",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Low-rise commercial complex and office building construction [Representative Example]",
+    description:
+      "Construction of low-rise commercial complexes, shop rows, and office premises up to 4–5 floors with wide column spans, open floor layouts, and commercial-grade utility infrastructure.",
+    badge: "Up to 4–5 Floors",
+  },
+  {
+    number: "03",
+    title: "SHOP & OFFICE CONSTRUCTION",
+    slug: "shop-office-construction",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Retail shopfront and workplace commercial construction [Representative Example]",
+    description:
+      "Dedicated construction of neighborhood retail shops, showroom storefronts, and workplace office suites designed for durability, clear customer access, and dependable electrical and plumbing lines.",
+    badge: "Retail & Offices",
+  },
+  {
+    number: "04",
+    title: "RENOVATION & STRUCTURAL IMPROVEMENT",
+    slug: "renovation-remodeling",
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Residential structural renovation and floor addition construction [Representative Example]",
+    description:
+      "Vertical floor additions, RCC column and beam strengthening, lightweight AAC block masonry, and multi-layer terrace waterproofing to expand and modernize existing buildings safely.",
+    badge: "Floor Additions",
+  },
+  {
+    number: "05",
+    title: "CONSTRUCTION PLANNING & EXECUTION",
+    slug: "construction-planning",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d0fbb186156f?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Construction site planning, rebar supervision, and project coordination [Representative Example]",
+    description:
+      "End-to-end project coordination, trade sequencing, daily on-site supervision of steel rebar and concrete pours, and stage-wise milestone billing from foundation excavation to final handover.",
+    badge: "Site Supervision",
+  },
+];
 
 export default function ServicesPreview() {
   return (
     <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="default">
         <SectionHeading
-          eyebrow="Core Construction Services"
-          title="Practical Building Construction"
-          description="We construct low-rise buildings across Rohini, Pitampura, and nearby areas of Delhi: residential homes, builder floors, commercial shops, and small offices (up to approximately 4–5 floors maximum), backed by attentive on-site supervision and disciplined civil execution."
-          action={
-            <Button href="/services" variant="outline" size="sm">
-              <span>All Construction Services</span>
-              <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
-            </Button>
-          }
+          sectionNumber="02"
+          eyebrow="SERVICES"
+          title="CONSTRUCTION, FROM STRUCTURE TO COMPLETION."
+          description="We provide dependable civil construction for residential and low-rise commercial projects across Rohini, Pitampura, and nearby areas of Delhi. Each service is carried out with attentive on-site supervision and disciplined structural standards."
         />
 
-        {/* Clean, Simple Visual Cards Grid */}
+        {/* 5 Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {servicesData.map((service, idx) => {
-            const Icon = serviceIcons[service.slug] || Home;
-            const isFeatured = idx === 0;
-
+          {servicesList.map((service, idx) => {
+            const isWide = idx === 0 || idx === 1;
             return (
               <div
                 key={service.slug}
-                className={`bg-white border border-[#D5D4D0] p-6 sm:p-7 flex flex-col justify-between hover:border-[#18324A] hover:shadow-md transition-all rounded-2xl sm:rounded-[22px] shadow-xs ${
-                  isFeatured ? "md:col-span-2 lg:col-span-1 border-t-2 border-t-[#D96B27]" : ""
+                className={`bg-white border border-[#D5D4D0] rounded-xl overflow-hidden shadow-xs hover:border-[#18324A] transition-all flex flex-col justify-between group ${
+                  idx === 0 ? "lg:col-span-1" : ""
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#18324A]">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <Badge variant={isFeatured ? "orange" : "slate"}>
+                  {/* Contextual Construction Image */}
+                  <div className="relative aspect-[16/10] w-full bg-[#E8E6E1] overflow-hidden border-b border-[#D5D4D0]">
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-102"
+                    />
+                    <div className="absolute top-3 left-3 bg-white/95 px-2.5 py-0.5 rounded border border-[#D5D4D0] text-[10px] font-bold text-[#18324A] uppercase tracking-wider">
                       {service.badge}
-                    </Badge>
+                    </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#18324A] hover:text-[#D96B27] transition-colors mb-2.5">
-                    <Link href={`/services/${service.slug}`}>
-                      {service.title}
-                    </Link>
-                  </h3>
-
-                  <p className="text-sm text-[#66717A] leading-relaxed mb-6">
-                    {service.shortDescription}
-                  </p>
-
-                  <div className="pt-4 border-t border-[#D5D4D0] mb-6">
-                    <span className="text-[11px] uppercase tracking-wider font-bold text-[#18324A] block mb-2.5">
-                      Scope Highlights
+                  {/* Content */}
+                  <div className="p-6">
+                    <span className="text-xs font-mono font-extrabold uppercase tracking-wider text-[#D96B27] block mb-1">
+                      {service.number}
                     </span>
-                    <ul className="space-y-2 text-xs text-[#20272D]">
-                      {service.capabilities.slice(0, 3).map((cap, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#D96B27] flex-shrink-0 mt-0.5" />
-                          <span className="line-clamp-1">{cap}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    <h3 className="text-lg font-extrabold text-[#18324A] group-hover:text-[#D96B27] transition-colors mb-3 leading-snug">
+                      <Link href={`/services/${service.slug}`}>
+                        {service.title}
+                      </Link>
+                    </h3>
+
+                    <p className="text-sm text-[#66717A] leading-relaxed mb-4">
+                      {service.description}
+                    </p>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#D5D4D0] flex items-center justify-between">
+                {/* Arrow Link Action */}
+                <div className="px-6 pb-6 pt-3 border-t border-[#D5D4D0] flex items-center justify-between">
                   <Link
                     href={`/services/${service.slug}`}
-                    className="text-xs uppercase tracking-wider font-bold text-[#18324A] hover:text-[#D96B27] inline-flex items-center gap-1 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#18324A] group-hover:text-[#D96B27] uppercase tracking-wider transition-colors"
+                    aria-label={`View details for ${service.title}`}
                   >
-                    <span>View Scope Details</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <span>View Service</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>
-                  <span className="text-[10px] font-bold text-[#66717A] uppercase">
-                    Up to 4–5 Floors
+
+                  <span className="text-[10px] font-bold text-[#66717A] uppercase tracking-wider">
+                    Delhi NCR
                   </span>
                 </div>
               </div>

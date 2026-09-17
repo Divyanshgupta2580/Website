@@ -51,9 +51,11 @@ export default function FaqsPage() {
       {/* Header */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="inline-flex items-center gap-2 mb-3">
-          <span className="w-6 h-[2px] bg-[#D96B27]" />
-          <span className="text-xs font-bold uppercase tracking-widest text-[#D96B27]">
-            Construction Guidance &amp; FAQs
+          <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
+            01 //
+          </span>
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
+            FAQS
           </span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-4">
@@ -100,7 +102,7 @@ export default function FaqsPage() {
               <div
                 key={catKey}
                 id={catKey.toLowerCase().replace(/\s+/g, "-")}
-                className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-3xl shadow-sm"
+                className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-xl shadow-xs"
               >
                 {/* Section Group Header */}
                 <div className="flex items-center gap-3 pb-6 mb-6 border-b border-[#D5D4D0]">
@@ -139,7 +141,7 @@ export default function FaqsPage() {
 
       {/* Direct Contact Box */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="p-8 sm:p-10 border border-[#D5D4D0] bg-white rounded-3xl shadow-sm">
+        <div className="p-8 sm:p-10 border border-[#D5D4D0] bg-white rounded-xl shadow-xs">
           <HelpCircle className="w-8 h-8 text-[#D96B27] mx-auto mb-3" />
           <h2 className="text-xl font-bold text-[#18324A] mb-2">
             Have a Specific Construction Question Not Listed Here?

@@ -18,7 +18,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <article
-      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden rounded-2xl sm:rounded-[22px] shadow-xs ${className}`}
+      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col overflow-hidden rounded-xl shadow-xs ${className}`}
     >
       {/* Project Image Container */}
       <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#E8E6E1]">

@@ -41,9 +41,11 @@ export default function TestimonialsPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-6 h-[2px] bg-[#D96B27]" />
-            <span className="text-xs font-bold uppercase tracking-widest text-[#D96B27]">
-              Client Feedback
+            <span className="text-xs font-mono font-extrabold uppercase tracking-[0.2em] text-[#D96B27]">
+              01 //
+            </span>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#18324A]">
+              FEEDBACK
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-6">
@@ -57,7 +59,7 @@ export default function TestimonialsPage() {
 
       {/* Construction Standards Pillars */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-3xl shadow-sm">
+        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-xl shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#D5D4D0]">
             <div>
               <span className="text-xs uppercase font-bold tracking-widest text-[#D96B27] block mb-1">
