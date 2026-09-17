@@ -60,10 +60,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#0B0D0F]/95 backdrop-blur-md border-b border-[#2A3035] py-3.5"
-          : "bg-gradient-to-b from-[#0B0D0F]/90 to-transparent border-b border-[#2A3035]/30 py-5"
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-200 bg-white/95 backdrop-blur-md border-b border-[#D5D4D0] ${
+        isScrolled ? "py-3 shadow-sm" : "py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,18 +69,18 @@ export default function Navbar() {
           {/* Logo / Brand */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:ring-1 focus-visible:ring-[#B89A63]"
+            className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[#D96B27] rounded-sm"
             aria-label="GG Construction Co. Home"
           >
             {/* Monogram Brand Mark */}
-            <div className="w-9 h-9 border border-[#B89A63] bg-[#15191D] flex items-center justify-center text-[#B89A63] font-serif font-bold text-sm tracking-tighter group-hover:border-[#D0B47A] group-hover:text-[#D0B47A] transition-colors">
+            <div className="w-9 h-9 rounded-sm bg-[#18324A] flex items-center justify-center text-white font-extrabold text-sm tracking-tighter shadow-xs">
               GG
             </div>
             <div className="flex flex-col">
-              <span className="text-base font-medium tracking-tight text-[#F3F1EC] group-hover:text-white transition-colors">
+              <span className="text-base font-extrabold tracking-tight text-[#18324A] group-hover:text-[#D96B27] transition-colors leading-tight">
                 GG Construction Co.
               </span>
-              <span className="text-[9px] uppercase tracking-[0.25em] text-[#A7ADB3]">
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D96B27]">
                 Building Construction
               </span>
             </div>
@@ -102,15 +100,15 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-3.5 py-2 text-xs uppercase tracking-widest font-medium transition-colors relative ${
+                  className={`px-3 py-2 text-xs uppercase tracking-wider font-bold transition-colors relative rounded-sm ${
                     isActive
-                      ? "text-[#B89A63]"
-                      : "text-[#A7ADB3] hover:text-[#F3F1EC]"
+                      ? "text-[#D96B27]"
+                      : "text-[#20272D] hover:text-[#D96B27]"
                   }`}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-3.5 right-3.5 h-[1.5px] bg-[#B89A63]" />
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#D96B27]" />
                   )}
                 </Link>
               );
@@ -125,7 +123,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Trigger Button */}
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-2.5 lg:hidden">
             <Button
               href="/get-a-quote"
               size="sm"
@@ -141,10 +139,10 @@ export default function Navbar() {
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-nav"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-              className="w-10 h-10 border border-[#2A3035] bg-[#15191D] flex items-center justify-center text-[#F3F1EC] hover:border-[#B89A63] focus-visible:ring-1 focus-visible:ring-[#B89A63]"
+              className="w-9 h-9 border border-[#D5D4D0] bg-[#F4F2EE] rounded-sm flex items-center justify-center text-[#18324A] hover:border-[#18324A] focus-visible:ring-2 focus-visible:ring-[#D96B27]"
             >
               {isMobileMenuOpen ? (
-                <X className="w-5 h-5 text-[#B89A63]" />
+                <X className="w-5 h-5 text-[#D96B27]" />
               ) : (
                 <Menu className="w-5 h-5" />
               )}
@@ -156,12 +154,12 @@ export default function Navbar() {
       {/* Mobile Navigation Drawer Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 top-[65px] bg-[#0B0D0F]/95 backdrop-blur-xl border-t border-[#2A3035] z-50 lg:hidden flex flex-col justify-between p-6 overflow-y-auto"
+          className="fixed inset-0 top-[65px] bg-white/98 backdrop-blur-xl border-t border-[#D5D4D0] z-50 lg:hidden flex flex-col justify-between p-6 overflow-y-auto"
           id="mobile-nav"
         >
           <div className="space-y-1">
-            <div className="text-[10px] uppercase tracking-[0.25em] text-[#A7ADB3] mb-4 pb-2 border-b border-[#2A3035]">
-              Navigation
+            <div className="text-[11px] uppercase tracking-[0.2em] font-bold text-[#66717A] mb-3 pb-2 border-b border-[#D5D4D0]">
+              Menu
             </div>
             {navLinks.map((link) => {
               const isActive =
@@ -172,34 +170,34 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#2A3035]/50 ${
+                  className={`flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#D5D4D0]/60 font-bold ${
                     isActive
-                      ? "text-[#B89A63] font-medium"
-                      : "text-[#F3F1EC] hover:text-[#B89A63]"
+                      ? "text-[#D96B27]"
+                      : "text-[#18324A] hover:text-[#D96B27]"
                   }`}
                 >
                   <span>{link.label}</span>
-                  <ArrowUpRight className="w-4 h-4 opacity-50" />
+                  <ArrowUpRight className="w-4 h-4 opacity-40" />
                 </Link>
               );
             })}
             <Link
               href="/faqs"
-              className="flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#2A3035]/50 text-[#A7ADB3]"
+              className="flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#D5D4D0]/60 font-bold text-[#66717A] hover:text-[#18324A]"
             >
               <span>FAQs</span>
-              <ArrowUpRight className="w-4 h-4 opacity-50" />
+              <ArrowUpRight className="w-4 h-4 opacity-40" />
             </Link>
             <Link
               href="/blog"
-              className="flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#2A3035]/50 text-[#A7ADB3]"
+              className="flex items-center justify-between py-3 px-2 text-base tracking-wider uppercase border-b border-[#D5D4D0]/60 font-bold text-[#66717A] hover:text-[#18324A]"
             >
               <span>Construction Guidance</span>
-              <ArrowUpRight className="w-4 h-4 opacity-50" />
+              <ArrowUpRight className="w-4 h-4 opacity-40" />
             </Link>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-[#2A3035] space-y-4">
+          <div className="mt-8 pt-6 border-t border-[#D5D4D0] space-y-4">
             <Button
               href="/get-a-quote"
               variant="primary"
@@ -212,18 +210,18 @@ export default function Navbar() {
             <div className="grid grid-cols-2 gap-3">
               <a
                 href={`tel:${companyData.contact.phone}`}
-                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#F3F1EC] border border-[#2A3035] bg-[#15191D] hover:border-[#B89A63]/60 transition-colors"
+                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#18324A] font-bold border border-[#D5D4D0] bg-[#F4F2EE] hover:border-[#18324A] rounded-sm transition-colors"
                 aria-label={`Call GG Construction Co. at ${companyData.contact.phoneFormatted}`}
               >
-                <Phone className="w-3.5 h-3.5 text-[#B89A63]" />
+                <Phone className="w-3.5 h-3.5 text-[#D96B27]" />
                 <span>Call Us</span>
               </a>
               <a
                 href={`mailto:${companyData.contact.email}`}
-                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#F3F1EC] border border-[#2A3035] bg-[#15191D] hover:border-[#B89A63]/60 transition-colors"
+                className="flex items-center justify-center gap-2 py-3 px-3 text-xs uppercase tracking-wider text-[#18324A] font-bold border border-[#D5D4D0] bg-[#F4F2EE] hover:border-[#18324A] rounded-sm transition-colors"
                 aria-label={`Email GG Construction Co. at ${companyData.contact.email}`}
               >
-                <Mail className="w-3.5 h-3.5 text-[#B89A63]" />
+                <Mail className="w-3.5 h-3.5 text-[#D96B27]" />
                 <span>Email Us</span>
               </a>
             </div>

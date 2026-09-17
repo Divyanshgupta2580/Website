@@ -5,30 +5,30 @@ import Button from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center pt-24 pb-16 bg-[#0B0D0F] px-4">
-      <div className="max-w-md w-full text-center bg-[#15191D] border border-[#2A3035] p-8 sm:p-12">
-        <div className="w-14 h-14 mx-auto mb-6 bg-[#1D2227] border border-[#2A3035] flex items-center justify-center text-[#B89A63]">
+    <div className="min-h-[80vh] flex items-center justify-center pt-28 pb-16 bg-[#F4F2EE] px-4">
+      <div className="max-w-md w-full text-center bg-white border border-[#D5D4D0] p-8 sm:p-12 shadow-sm">
+        <div className="w-14 h-14 mx-auto mb-6 bg-[#F3D8C7]/50 border border-[#D96B27]/30 flex items-center justify-center text-[#D96B27]">
           <Compass className="w-7 h-7" />
         </div>
 
-        <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#B89A63] block mb-2">
-          ERROR // 404
+        <span className="text-xs font-bold uppercase tracking-widest text-[#D96B27] block mb-2">
+          Page Not Found (404)
         </span>
 
-        <h1 className="text-2xl sm:text-3xl font-light text-[#F3F1EC] mb-3">
-          Blueprint Not Found
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#18324A] mb-3">
+          Page Not Located
         </h1>
 
-        <p className="text-xs sm:text-sm text-[#A7ADB3] leading-relaxed mb-8">
-          The project coordinate, service specification, or page you requested does not exist or has been relocated to another division.
+        <p className="text-sm text-[#66717A] leading-relaxed mb-8">
+          The page or project details you requested could not be found. You can return to our homepage or view our construction services.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button href="/" variant="primary" size="sm" className="w-full sm:w-auto">
-            <span>Return to Home</span>
+            <span>Return to Homepage</span>
           </Button>
           <Button href="/services" variant="outline" size="sm" className="w-full sm:w-auto">
-            <span>Explore Services</span>
+            <span>View Services</span>
           </Button>
         </div>
       </div>

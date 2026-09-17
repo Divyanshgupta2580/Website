@@ -7,20 +7,19 @@ import Button from "@/components/ui/Button";
 import { faqsData } from "@/data/faqs";
 
 export default function HomeFaqSection() {
-  // Show 5 most critical high-intent questions
   const previewFaqs = faqsData.slice(0, 5);
 
   return (
-    <section className="py-20 md:py-28 bg-[#15191D]/30 border-t border-[#2A3035]">
+    <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="narrow">
         <SectionHeading
-          eyebrow="Questions & Technical Clarity"
+          eyebrow="Common Questions"
           title="Frequently Asked Questions"
           description="Straightforward answers regarding our low-rise building construction work, project scope, estimates, and construction process."
           align="center"
         />
 
-        <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-10 mb-8">
+        <div className="bg-white border border-[#D5D4D0] p-6 sm:p-8 rounded-sm shadow-xs mb-8">
           <Accordion>
             {previewFaqs.map((faq, idx) => (
               <AccordionItem
@@ -37,8 +36,8 @@ export default function HomeFaqSection() {
 
         <div className="text-center">
           <Button href="/faqs" variant="outline" size="sm">
-            <span>View All Categorized FAQs</span>
-            <ArrowUpRight className="w-3.5 h-3.5 ml-2" />
+            <span>View All FAQs</span>
+            <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
           </Button>
         </div>
       </Container>

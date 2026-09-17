@@ -13,42 +13,42 @@ export default function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <div
-      className={`bg-[#15191D] border border-[#2A3035] p-8 flex flex-col justify-between hover:border-[#B89A63]/60 transition-colors ${className}`}
+      className={`bg-white border border-[#D5D4D0] p-7 flex flex-col justify-between hover:border-[#18324A] transition-colors rounded-sm shadow-xs ${className}`}
     >
       <div>
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-5">
           <div className="flex gap-1" aria-label={`Rating: ${testimonial.rating} out of 5 stars`}>
             {[...Array(testimonial.rating)].map((_, i) => (
               <Star
                 key={i}
-                className="w-3.5 h-3.5 fill-[#B89A63] text-[#B89A63]"
+                className="w-3.5 h-3.5 fill-[#D96B27] text-[#D96B27]"
                 aria-hidden="true"
               />
             ))}
           </div>
-          <span className="text-[10px] uppercase font-mono tracking-wider text-[#667582] bg-[#0B0D0F] px-2 py-0.5 border border-[#2A3035]">
+          <span className="text-[10px] uppercase font-bold tracking-wider text-[#18324A] bg-[#F4F2EE] px-2 py-0.5 border border-[#D5D4D0] rounded-xs">
             {testimonial.category}
           </span>
         </div>
 
-        <Quote className="w-8 h-8 text-[#2A3035] mb-4" aria-hidden="true" />
+        <Quote className="w-7 h-7 text-[#D5D4D0] mb-3" aria-hidden="true" />
 
-        <p className="text-sm text-[#F3F1EC] leading-relaxed mb-6 font-light">
+        <p className="text-sm text-[#20272D] leading-relaxed mb-6">
           &ldquo;{testimonial.quote}&rdquo;
         </p>
       </div>
 
-      <div className="pt-6 border-t border-[#2A3035]/60">
-        <div className="text-xs font-mono text-[#B89A63] mb-1">
+      <div className="pt-5 border-t border-[#D5D4D0]">
+        <div className="text-xs font-bold text-[#18324A] mb-0.5">
           {testimonial.clientNamePlaceholder}
         </div>
-        <div className="text-xs text-[#F3F1EC] font-medium">
+        <div className="text-xs text-[#66717A] font-medium">
           {testimonial.designation}
         </div>
-        <div className="text-[11px] text-[#A7ADB3]">
+        <div className="text-[11px] text-[#66717A]">
           {testimonial.organizationPlaceholder}
         </div>
-        <div className="text-[10px] text-[#667582] font-mono mt-2">
+        <div className="text-[10px] text-[#66717A] font-medium mt-2 pt-2 border-t border-[#D5D4D0]/60">
           SCOPE: {testimonial.projectContext} &bull; {testimonial.year}
         </div>
       </div>

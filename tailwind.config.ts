@@ -10,32 +10,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0B0D0F",
+        background: "#F4F2EE",
         surface: {
-          DEFAULT: "#15191D",
-          secondary: "#15191D",
-          concrete: "#1D2227",
-          hover: "#22282E",
+          DEFAULT: "#FFFFFF",
+          white: "#FFFFFF",
+          secondary: "#E8E6E1",
+          navy: "#18324A",
+          dark: "#20272D",
         },
         primary: {
-          DEFAULT: "#F3F1EC",
-          muted: "#A7ADB3",
+          DEFAULT: "#20272D",
+          navy: "#18324A",
+          muted: "#66717A",
+        },
+        navy: {
+          DEFAULT: "#18324A",
+          dark: "#102232",
+          light: "#234768",
+        },
+        orange: {
+          DEFAULT: "#D96B27",
+          hover: "#B9551D",
+          soft: "#F3D8C7",
         },
         border: {
-          DEFAULT: "#2A3035",
-          subtle: "#2A3035",
-          strong: "#3F474E",
-        },
-        accent: {
-          bronze: "#B89A63",
-          hover: "#D0B47A",
-          tech: "#667582",
-          subtle: "rgba(184, 154, 99, 0.12)",
+          DEFAULT: "#D5D4D0",
+          subtle: "#D5D4D0",
+          strong: "#18324A",
+          orange: "#D96B27",
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "var(--font-sans)", "sans-serif"],
+        sans: ["var(--font-manrope)", "Manrope", "system-ui", "sans-serif"],
+        display: ["var(--font-manrope)", "Manrope", "sans-serif"],
       },
     },
   },

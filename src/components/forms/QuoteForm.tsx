@@ -98,19 +98,19 @@ export default function QuoteForm() {
     if (!formData.name.trim() || formData.name.trim().length < 2) {
       errs.name = "Full name must be at least 2 characters.";
     }
-    if (!formData.phone.trim() || formData.phone.trim().length < 8) {
-      errs.phone = "Valid phone number is required.";
+    if (!formData.phone.trim()) {
+      errs.phone = "Phone number is required.";
+    } else if (formData.phone.trim().length < 8) {
+      errs.phone = "Please enter a valid phone number.";
     }
-    if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errs.email = "Valid email address is required.";
+    if (!formData.email.trim()) {
+      errs.email = "Email address is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errs.email = "Please enter a valid email address.";
     }
     if (!formData.location.trim() || formData.location.trim().length < 2) {
-      errs.location = "Project location (e.g. Rohini, Pitampura, Delhi) is required.";
+      errs.location = "Plot location / neighborhood is required.";
     }
-    if (!formData.projectType.trim()) {
-      errs.projectType = "Please select a construction project type.";
-    }
-
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -133,27 +133,27 @@ export default function QuoteForm() {
           email: formData.email.trim(),
           company: formData.company.trim(),
           location: formData.location.trim(),
-          projectType: formData.projectType.trim(),
-          floors: formData.floors.trim(),
+          projectType: formData.projectType,
+          floors: formData.floors,
           approximateArea: formData.approximateArea.trim(),
-          stage: formData.stage.trim(),
-          budgetRange: formData.budgetRange.trim(),
-          timeline: formData.timeline.trim(),
+          stage: formData.stage,
+          budgetRange: formData.budgetRange,
+          timeline: formData.timeline,
           requirements: formData.requirements,
           message: formData.message.trim(),
           bot_field: formData.bot_field,
         }),
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (response.ok && data.success) {
+      if (response.ok && result.success) {
         setSubmitStatus("success");
-        setReferenceId(data.referenceId || "");
         setFeedbackMessage(
-          data.message || "Your construction quote request has been received. Our team will review your specifications promptly."
+          result.message ||
+            "Thank you. Your construction quote request has been received. Our team will review your specifications."
         );
-        // Reset form
+        setReferenceId(result.referenceId || "");
         setFormData({
           name: "",
           phone: "",
@@ -170,11 +170,10 @@ export default function QuoteForm() {
           message: "",
           bot_field: "",
         });
-        setErrors({});
       } else {
         setSubmitStatus("error");
         setFeedbackMessage(
-          data.error || "Unable to submit your quotation request. Please check the fields or contact us directly."
+          result.error || "Unable to submit quote request. Please call +91 98110 34825."
         );
       }
     } catch {
@@ -186,42 +185,42 @@ export default function QuoteForm() {
   };
 
   return (
-    <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-10 lg:p-12 relative overflow-hidden">
-      {/* Decorative top accent */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89A63] to-transparent" />
+    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 lg:p-12 rounded-sm shadow-sm relative overflow-hidden">
+      {/* Top Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 
       {/* Form Header */}
-      <div className="mb-10 pb-6 border-b border-[#2A3035]">
+      <div className="mb-10 pb-6 border-b border-[#D5D4D0]">
         <div className="flex items-center gap-2 mb-2">
-          <HardHat className="w-4 h-4 text-[#B89A63]" />
-          <span className="text-[11px] uppercase tracking-[0.25em] font-mono text-[#B89A63]">
+          <HardHat className="w-4 h-4 text-[#D96B27]" />
+          <span className="text-xs uppercase tracking-[0.2em] font-extrabold text-[#D96B27]">
             BUILDING CONSTRUCTION ESTIMATION
           </span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-light text-[#F3F1EC] tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-[#18324A] tracking-tight">
           Request a Construction Quote
         </h2>
-        <p className="text-xs sm:text-sm text-[#A7ADB3] mt-2 leading-relaxed">
+        <p className="text-xs sm:text-sm text-[#66717A] mt-2 leading-relaxed">
           Provide your plot location, building scale, and intended scope. We review every enquiry personally and prepare realistic, itemized civil construction estimates.
         </p>
       </div>
 
       {/* Success Notification */}
       {submitStatus === "success" && (
-        <div className="mb-8 p-6 bg-[#0B0D0F] border border-[#B89A63] text-left">
+        <div className="mb-8 p-6 bg-[#F4F2EE] border-2 border-[#D96B27] rounded-sm text-left">
           <div className="flex items-start gap-4">
-            <CheckCircle className="w-6 h-6 text-[#B89A63] flex-shrink-0 mt-0.5" />
+            <CheckCircle className="w-6 h-6 text-[#D96B27] flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="text-base font-medium text-[#F3F1EC] mb-1">
+              <h3 className="text-base font-bold text-[#18324A] mb-1">
                 Construction Quote Request Received
               </h3>
-              <p className="text-xs text-[#A7ADB3] leading-relaxed mb-4">
+              <p className="text-xs sm:text-sm text-[#20272D] leading-relaxed mb-4">
                 {feedbackMessage}
               </p>
               {referenceId && (
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#15191D] border border-[#2A3035] text-xs font-mono text-[#B89A63]">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-[#D5D4D0] rounded-xs text-xs font-bold text-[#18324A]">
                   <span>Reference ID:</span>
-                  <span className="font-bold text-[#F3F1EC]">{referenceId}</span>
+                  <span className="text-[#D96B27]">{referenceId}</span>
                 </div>
               )}
             </div>
@@ -231,9 +230,9 @@ export default function QuoteForm() {
 
       {/* Error Notification */}
       {submitStatus === "error" && (
-        <div className="mb-8 p-5 bg-red-950/40 border border-red-800 text-left flex items-start gap-3">
-          <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-          <div className="text-xs text-red-200 leading-relaxed">
+        <div className="mb-8 p-5 bg-red-50 border border-red-300 rounded-sm text-left flex items-start gap-3">
+          <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+          <div className="text-xs text-red-800 leading-relaxed font-medium">
             {feedbackMessage}
           </div>
         </div>
@@ -256,13 +255,13 @@ export default function QuoteForm() {
 
         {/* SECTION 1: Client & Contact Information */}
         <div>
-          <h3 className="text-xs uppercase tracking-[0.2em] font-mono text-[#B89A63] mb-4 pb-2 border-b border-[#2A3035]">
+          <h3 className="text-xs uppercase tracking-[0.18em] font-extrabold text-[#18324A] mb-4 pb-2 border-b border-[#D5D4D0]">
             1. Client &amp; Contact Information
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="name" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-                Full Name <span className="text-[#B89A63]">*</span>
+              <label htmlFor="name" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+                Full Name <span className="text-[#D96B27]">*</span>
               </label>
               <input
                 type="text"
@@ -272,16 +271,16 @@ export default function QuoteForm() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Rajesh Sharma"
-                className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-                  errors.name ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+                className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                  errors.name ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
                 }`}
               />
-              {errors.name && <p className="text-[11px] text-red-400 mt-1">{errors.name}</p>}
+              {errors.name && <p className="text-[11px] text-red-600 mt-1">{errors.name}</p>}
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-                Phone Number <span className="text-[#B89A63]">*</span>
+              <label htmlFor="phone" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+                Phone Number <span className="text-[#D96B27]">*</span>
               </label>
               <input
                 type="tel"
@@ -291,16 +290,16 @@ export default function QuoteForm() {
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 placeholder="e.g. +91 98110 00000"
-                className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-                  errors.phone ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+                className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                  errors.phone ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
                 }`}
               />
-              {errors.phone && <p className="text-[11px] text-red-400 mt-1">{errors.phone}</p>}
+              {errors.phone && <p className="text-[11px] text-red-600 mt-1">{errors.phone}</p>}
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-                Email Address <span className="text-[#B89A63]">*</span>
+              <label htmlFor="email" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+                Email Address <span className="text-[#D96B27]">*</span>
               </label>
               <input
                 type="email"
@@ -310,16 +309,16 @@ export default function QuoteForm() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 placeholder="e.g. client@example.com"
-                className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-                  errors.email ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+                className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                  errors.email ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
                 }`}
               />
-              {errors.email && <p className="text-[11px] text-red-400 mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-[11px] text-red-600 mt-1">{errors.email}</p>}
             </div>
 
             <div>
-              <label htmlFor="location" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-                Plot Location / Area <span className="text-[#B89A63]">*</span>
+              <label htmlFor="location" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+                Plot Location / Area <span className="text-[#D96B27]">*</span>
               </label>
               <input
                 type="text"
@@ -329,15 +328,15 @@ export default function QuoteForm() {
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                 placeholder="e.g. Rohini Sector 8, Pitampura, Delhi"
-                className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-                  errors.location ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+                className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                  errors.location ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
                 }`}
               />
-              {errors.location && <p className="text-[11px] text-red-400 mt-1">{errors.location}</p>}
+              {errors.location && <p className="text-[11px] text-red-600 mt-1">{errors.location}</p>}
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="company" className="block text-xs font-mono text-[#A7ADB3] mb-1.5 uppercase tracking-wider">
+              <label htmlFor="company" className="block text-xs font-bold text-[#66717A] mb-1.5 uppercase tracking-wider">
                 Company / Individual Owner (Optional)
               </label>
               <input
@@ -347,7 +346,7 @@ export default function QuoteForm() {
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                 placeholder="e.g. Individual Homebuilder / Local Enterprise"
-                className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none focus:border-[#B89A63] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
               />
             </div>
           </div>
@@ -355,23 +354,23 @@ export default function QuoteForm() {
 
         {/* SECTION 2: Construction Specifications */}
         <div>
-          <h3 className="text-xs uppercase tracking-[0.2em] font-mono text-[#B89A63] mb-4 pb-2 border-b border-[#2A3035]">
+          <h3 className="text-xs uppercase tracking-[0.18em] font-extrabold text-[#18324A] mb-4 pb-2 border-b border-[#D5D4D0]">
             2. Project Specifications
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label htmlFor="projectType" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-                Project Type <span className="text-[#B89A63]">*</span>
+              <label htmlFor="projectType" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+                Project Type <span className="text-[#D96B27]">*</span>
               </label>
               <select
                 id="projectType"
                 name="projectType"
                 value={formData.projectType}
                 onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] focus:outline-none focus:border-[#B89A63] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionProjectTypes.map((type) => (
-                  <option key={type} value={type} className="bg-[#15191D] text-[#F3F1EC]">
+                  <option key={type} value={type}>
                     {type}
                   </option>
                 ))}
@@ -379,7 +378,7 @@ export default function QuoteForm() {
             </div>
 
             <div>
-              <label htmlFor="floors" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
+              <label htmlFor="floors" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
                 Proposed Scale / Number of Floors
               </label>
               <select
@@ -387,10 +386,10 @@ export default function QuoteForm() {
                 name="floors"
                 value={formData.floors}
                 onChange={(e) => setFormData({ ...formData, floors: e.target.value })}
-                className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] focus:outline-none focus:border-[#B89A63] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionFloorOptions.map((opt) => (
-                  <option key={opt} value={opt} className="bg-[#15191D] text-[#F3F1EC]">
+                  <option key={opt} value={opt}>
                     {opt}
                   </option>
                 ))}
@@ -398,7 +397,7 @@ export default function QuoteForm() {
             </div>
 
             <div>
-              <label htmlFor="approximateArea" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
+              <label htmlFor="approximateArea" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
                 Approximate Built-Up Area (Sq. Ft.)
               </label>
               <input
@@ -408,12 +407,12 @@ export default function QuoteForm() {
                 value={formData.approximateArea}
                 onChange={(e) => setFormData({ ...formData, approximateArea: e.target.value })}
                 placeholder="e.g. 4,500 Sq. Ft. or 200 Sq. Yards Plot"
-                className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none focus:border-[#B89A63] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
               />
             </div>
 
             <div>
-              <label htmlFor="stage" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
+              <label htmlFor="stage" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
                 Current Planning Stage
               </label>
               <select
@@ -421,10 +420,10 @@ export default function QuoteForm() {
                 name="stage"
                 value={formData.stage}
                 onChange={(e) => setFormData({ ...formData, stage: e.target.value })}
-                className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] focus:outline-none focus:border-[#B89A63] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionStages.map((st) => (
-                  <option key={st} value={st} className="bg-[#15191D] text-[#F3F1EC]">
+                  <option key={st} value={st}>
                     {st}
                   </option>
                 ))}
@@ -432,7 +431,7 @@ export default function QuoteForm() {
             </div>
 
             <div>
-              <label htmlFor="budgetRange" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
+              <label htmlFor="budgetRange" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
                 Expected Budget Range
               </label>
               <select
@@ -440,10 +439,10 @@ export default function QuoteForm() {
                 name="budgetRange"
                 value={formData.budgetRange}
                 onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] focus:outline-none focus:border-[#B89A63] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionBudgetRanges.map((b) => (
-                  <option key={b} value={b} className="bg-[#15191D] text-[#F3F1EC]">
+                  <option key={b} value={b}>
                     {b}
                   </option>
                 ))}
@@ -451,7 +450,7 @@ export default function QuoteForm() {
             </div>
 
             <div>
-              <label htmlFor="timeline" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
+              <label htmlFor="timeline" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
                 Target Start Timeline
               </label>
               <select
@@ -459,10 +458,10 @@ export default function QuoteForm() {
                 name="timeline"
                 value={formData.timeline}
                 onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] focus:outline-none focus:border-[#B89A63] transition-colors"
+                className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] focus:outline-none focus:border-[#D96B27] transition-colors"
               >
                 {constructionTimelines.map((tl) => (
-                  <option key={tl} value={tl} className="bg-[#15191D] text-[#F3F1EC]">
+                  <option key={tl} value={tl}>
                     {tl}
                   </option>
                 ))}
@@ -473,7 +472,7 @@ export default function QuoteForm() {
 
         {/* SECTION 3: Scope Checklist */}
         <div>
-          <h3 className="text-xs uppercase tracking-[0.2em] font-mono text-[#B89A63] mb-4 pb-2 border-b border-[#2A3035]">
+          <h3 className="text-xs uppercase tracking-[0.18em] font-extrabold text-[#18324A] mb-4 pb-2 border-b border-[#D5D4D0]">
             3. Scope Components Required (Select all that apply)
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -482,15 +481,15 @@ export default function QuoteForm() {
               return (
                 <label
                   key={scope}
-                  className={`flex items-start gap-3 p-3 border cursor-pointer transition-colors ${
+                  className={`flex items-start gap-3 p-3 border rounded-sm cursor-pointer transition-colors ${
                     isChecked
-                      ? "bg-[#1D2227] border-[#B89A63] text-[#F3F1EC]"
-                      : "bg-[#0B0D0F] border-[#2A3035] text-[#A7ADB3] hover:border-[#667582]"
+                      ? "bg-[#F3D8C7]/30 border-[#D96B27] text-[#18324A] font-bold"
+                      : "bg-white border-[#D5D4D0] text-[#20272D] hover:border-[#18324A]"
                   }`}
                 >
                   <input
                     type="checkbox"
-                    className="mt-0.5 accent-[#B89A63]"
+                    className="mt-0.5 accent-[#D96B27]"
                     checked={isChecked}
                     onChange={() => handleRequirementToggle(scope)}
                   />
@@ -503,7 +502,7 @@ export default function QuoteForm() {
 
         {/* SECTION 4: Additional Notes / Message */}
         <div>
-          <label htmlFor="message" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
+          <label htmlFor="message" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
             Additional Notes / Project Requirements
           </label>
           <textarea
@@ -513,12 +512,12 @@ export default function QuoteForm() {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Describe specific plot considerations, drawing readiness, or details you would like us to know..."
-            className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none focus:border-[#B89A63] transition-colors"
+            className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
           />
         </div>
 
         {/* Submit Button */}
-        <div className="pt-4 border-t border-[#2A3035] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-5 border-t border-[#D5D4D0] flex flex-col sm:flex-row items-center justify-between gap-4">
           <Button
             type="submit"
             variant="primary"
@@ -539,8 +538,8 @@ export default function QuoteForm() {
             )}
           </Button>
 
-          <p className="text-[11px] font-mono text-[#667582] text-center sm:text-right">
-            All enquiries are forwarded directly to gunjan29gupta@gmail.com
+          <p className="text-xs text-[#66717A] text-center sm:text-right font-medium">
+            Enquiries are forwarded directly to gunjan29gupta@gmail.com
           </p>
         </div>
       </form>

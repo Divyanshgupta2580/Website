@@ -50,12 +50,12 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
     testimonialsData[0];
 
   return (
-    <div className="pt-24 pb-20 bg-[#0B0D0F]">
+    <div className="pt-24 pb-20 bg-[#F4F2EE]">
       {/* 1. Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-8">
         <Link
           href="/services"
-          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#A7ADB3] hover:text-[#B89A63] transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#66717A] hover:text-[#D96B27] transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to Construction Services</span>
@@ -64,30 +64,30 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* 2. Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="relative min-h-[420px] lg:min-h-[500px] w-full overflow-hidden bg-[#15191D] border border-[#2A3035] flex items-end p-6 sm:p-12">
+        <div className="relative min-h-[420px] lg:min-h-[500px] w-full overflow-hidden bg-[#18324A] border border-[#D5D4D0] shadow-sm flex items-end p-6 sm:p-12">
           <Image
             src={service.heroImage}
             alt={service.title}
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-35"
+            className="object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0F] via-[#0B0D0F]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#18324A] via-[#18324A]/70 to-transparent" />
 
           <div className="relative z-10 max-w-3xl">
             <div className="flex items-center gap-3 mb-4">
-              <Badge variant="bronze">{service.badge}</Badge>
-              <span className="text-[11px] font-mono text-[#667582] uppercase tracking-wider">
+              <Badge variant="orange">{service.badge}</Badge>
+              <span className="text-xs font-bold text-white/80 uppercase tracking-widest">
                 BUILDING CONSTRUCTION
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-4">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-4">
               {service.title}
             </h1>
 
-            <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed mb-8">
               {service.shortDescription}
             </p>
 
@@ -107,6 +107,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
                 )}`}
                 variant="outline"
                 size="md"
+                className="bg-white/10 text-white border-white/30 hover:bg-white/20 hover:text-white"
               >
                 Discuss Construction Scope
               </Button>
@@ -117,37 +118,37 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* 3. Key Service Statistics Ribbon */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs divide-y sm:divide-y-0 sm:divide-x divide-[#2A3035]">
+        <div className="bg-white border border-[#D5D4D0] shadow-sm p-6 sm:p-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs divide-y sm:divide-y-0 sm:divide-x divide-[#D5D4D0]">
             <div className="pt-2 sm:pt-0 sm:pr-4">
-              <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
+              <span className="text-xs uppercase font-bold text-[#66717A] block mb-1">
                 STANDARDS COMPLIANCE
               </span>
-              <span className="text-[#F3F1EC] font-medium text-sm block">
+              <span className="text-[#18324A] font-bold text-sm block">
                 IS 456 &bull; NBC Guidelines
               </span>
             </div>
             <div className="pt-2 sm:pt-0 sm:px-4">
-              <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
+              <span className="text-xs uppercase font-bold text-[#66717A] block mb-1">
                 STRUCTURAL SCALE
               </span>
-              <span className="text-[#B89A63] font-mono text-sm block">
+              <span className="text-[#D96B27] font-bold text-sm block">
                 Low-Rise (Up to 4–5 Floors)
               </span>
             </div>
             <div className="pt-2 sm:pt-0 sm:px-4">
-              <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
+              <span className="text-xs uppercase font-bold text-[#66717A] block mb-1">
                 QUALITY SUPERVISION
               </span>
-              <span className="text-[#F3F1EC] text-sm block">
+              <span className="text-[#18324A] font-bold text-sm block">
                 Direct Site Oversight
               </span>
             </div>
             <div className="pt-2 sm:pt-0 sm:pl-4">
-              <span className="text-[10px] font-mono uppercase text-[#667582] block mb-1">
+              <span className="text-xs uppercase font-bold text-[#66717A] block mb-1">
                 CLIENT ASSURANCE
               </span>
-              <span className="text-[#B89A63] text-sm block">
+              <span className="text-[#D96B27] font-bold text-sm block">
                 Direct Project Accessibility
               </span>
             </div>
@@ -159,33 +160,33 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#B89A63] block">
+            <span className="text-xs uppercase tracking-widest font-bold text-[#D96B27] block">
               Service Scope
             </span>
-            <h2 className="text-2xl sm:text-3xl font-light text-[#F3F1EC]">
-              Overview & Execution Standards
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#18324A]">
+              Overview &amp; Execution Standards
             </h2>
-            <p className="text-sm sm:text-base text-[#A7ADB3] leading-relaxed">
+            <p className="text-base text-[#66717A] leading-relaxed">
               {service.overview}
             </p>
 
-            <div className="p-4 bg-[#15191D] border border-[#2A3035] flex items-start gap-3 text-xs">
-              <ShieldCheck className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
-              <p className="text-[#A7ADB3] leading-snug">
+            <div className="p-4 bg-white border border-[#D5D4D0] shadow-sm flex items-start gap-3 text-xs">
+              <ShieldCheck className="w-5 h-5 text-[#D96B27] flex-shrink-0 mt-0.5" />
+              <p className="text-[#66717A] leading-snug">
                 All structural work, reinforcement placement, and concrete casting adheres to IS 456 concrete standards and NBC building safety guidelines.
               </p>
             </div>
           </div>
 
-          <div className="lg:col-span-6 bg-[#15191D] border border-[#2A3035] p-6 sm:p-8">
-            <h3 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#F3F1EC] mb-6 pb-2 border-b border-[#2A3035]">
+          <div className="lg:col-span-6 bg-white border border-[#D5D4D0] shadow-sm p-6 sm:p-8">
+            <h3 className="text-xs uppercase tracking-widest font-bold text-[#18324A] mb-6 pb-2 border-b border-[#D5D4D0]">
               Core Capabilities
             </h3>
             <ul className="space-y-4">
               {service.capabilities.map((cap, i) => (
-                <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-[#A7ADB3]">
-                  <CheckCircle2 className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#F3F1EC] font-light leading-relaxed">{cap}</span>
+                <li key={i} className="flex items-start gap-3 text-sm text-[#66717A]">
+                  <CheckCircle2 className="w-5 h-5 text-[#D96B27] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#20272D] font-medium leading-relaxed">{cap}</span>
                 </li>
               ))}
             </ul>
@@ -194,7 +195,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       </section>
 
       {/* 5. Benefits Matrix */}
-      <section className="py-16 bg-[#15191D]/30 border-y border-[#2A3035] mb-24">
+      <section className="py-16 bg-white border-y border-[#D5D4D0] mb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Service Benefits"
@@ -206,16 +207,16 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             {service.benefits.map((b, idx) => (
               <div
                 key={idx}
-                className="bg-[#15191D] border border-[#2A3035] p-6 flex flex-col justify-between"
+                className="bg-[#F4F2EE] border border-[#D5D4D0] p-6 flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-[10px] font-mono text-[#B89A63] block mb-2">
+                  <span className="text-xs font-bold text-[#D96B27] block mb-2">
                     BENEFIT // 0{idx + 1}
                   </span>
-                  <h3 className="text-base font-medium text-[#F3F1EC] mb-2">
+                  <h3 className="text-base font-bold text-[#18324A] mb-2">
                     {b.title}
                   </h3>
-                  <p className="text-xs text-[#A7ADB3] leading-relaxed">
+                  <p className="text-xs text-[#66717A] leading-relaxed">
                     {b.description}
                   </p>
                 </div>
@@ -237,28 +238,28 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
           {service.process.map((step) => (
             <div
               key={step.stepNumber}
-              className="bg-[#15191D] border border-[#2A3035] p-6 flex flex-col justify-between"
+              className="bg-white border border-[#D5D4D0] shadow-sm p-6 flex flex-col justify-between"
             >
               <div>
-                <span className="text-2xl font-light font-mono text-[#B89A63] block mb-4">
+                <span className="text-3xl font-extrabold text-[#D96B27] block mb-3">
                   {step.stepNumber}
                 </span>
-                <h3 className="text-base font-light text-[#F3F1EC] mb-2">
+                <h3 className="text-base font-bold text-[#18324A] mb-2">
                   {step.title}
                 </h3>
-                <p className="text-xs text-[#A7ADB3] leading-relaxed mb-6">
+                <p className="text-xs text-[#66717A] leading-relaxed mb-6">
                   {step.description}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#2A3035]/60">
-                <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-2 font-semibold">
+              <div className="pt-4 border-t border-[#D5D4D0]">
+                <span className="text-xs uppercase tracking-wider text-[#66717A] block mb-2 font-bold">
                   Deliverables
                 </span>
-                <ul className="space-y-1 text-[11px] text-[#A7ADB3]">
+                <ul className="space-y-1.5 text-xs text-[#66717A]">
                   {step.deliverables.map((deliv, i) => (
-                    <li key={i} className="flex items-center gap-1.5">
-                      <span className="w-1 h-1 bg-[#B89A63] rounded-full" />
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-[#D96B27] rounded-full" />
                       <span>{deliv}</span>
                     </li>
                   ))}
@@ -289,7 +290,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
       {/* 8. Contextual Testimonial */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         <div className="max-w-3xl mx-auto">
-          <span className="text-[10px] uppercase font-mono tracking-widest text-[#B89A63] block mb-3 text-center">
+          <span className="text-xs uppercase font-bold tracking-widest text-[#D96B27] block mb-3 text-center">
             REPRESENTATIVE CLIENT FEEDBACK
           </span>
           <TestimonialCard testimonial={contextualTestimonial} />
@@ -305,7 +306,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             align="center"
           />
 
-          <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-10">
+          <div className="bg-white border border-[#D5D4D0] shadow-sm p-6 sm:p-10">
             <Accordion>
               {service.faqs.map((faq, idx) => (
                 <AccordionItem

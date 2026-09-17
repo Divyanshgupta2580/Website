@@ -12,34 +12,34 @@ export interface ServiceCardProps {
 export default function ServiceCard({ service, className = "" }: ServiceCardProps) {
   return (
     <article
-      className={`group bg-[#15191D] border border-[#2A3035] hover:border-[#B89A63]/70 transition-all duration-300 flex flex-col justify-between p-6 sm:p-8 ${className}`}
+      className={`group bg-white border border-[#D5D4D0] hover:border-[#18324A] hover:shadow-md transition-all duration-300 flex flex-col justify-between p-6 sm:p-7 rounded-sm shadow-xs ${className}`}
     >
       <div>
-        <div className="flex items-center justify-between mb-5">
-          <Badge variant="bronze">{service.badge}</Badge>
-          <span className="text-[11px] font-mono text-[#667582] uppercase tracking-wider">
+        <div className="flex items-center justify-between mb-4">
+          <Badge variant="orange">{service.badge}</Badge>
+          <span className="text-[11px] font-bold text-[#66717A] uppercase tracking-wider">
             BUILDING // CONST
           </span>
         </div>
 
-        <h3 className="text-xl sm:text-2xl font-light text-[#F3F1EC] group-hover:text-[#B89A63] transition-colors mb-3">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#18324A] group-hover:text-[#D96B27] transition-colors mb-2.5">
           <Link href={`/services/${service.slug}`} className="focus:outline-none">
             {service.title}
           </Link>
         </h3>
 
-        <p className="text-[#A7ADB3] text-sm leading-relaxed mb-6">
+        <p className="text-[#66717A] text-sm leading-relaxed mb-6">
           {service.shortDescription}
         </p>
 
-        <div className="pt-4 border-t border-[#2A3035]/60 mb-6">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#667582] block mb-3">
+        <div className="pt-4 border-t border-[#D5D4D0] mb-6">
+          <span className="text-[11px] uppercase tracking-wider font-bold text-[#18324A] block mb-2.5">
             Core Scope
           </span>
           <ul className="space-y-2">
             {service.capabilities.slice(0, 3).map((cap, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-[#A7ADB3]">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#B89A63] flex-shrink-0 mt-0.5" />
+              <li key={i} className="flex items-start gap-2 text-xs text-[#20272D]">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#D96B27] flex-shrink-0 mt-0.5" />
                 <span className="line-clamp-1">{cap}</span>
               </li>
             ))}
@@ -47,16 +47,16 @@ export default function ServiceCard({ service, className = "" }: ServiceCardProp
         </div>
       </div>
 
-      <div className="pt-4 border-t border-[#2A3035] flex items-center justify-between">
+      <div className="pt-4 border-t border-[#D5D4D0] flex items-center justify-between">
         <Link
           href={`/services/${service.slug}`}
-          className="text-xs uppercase tracking-widest font-semibold text-[#F3F1EC] group-hover:text-[#B89A63] inline-flex items-center gap-2 transition-colors focus-visible:ring-1 focus-visible:ring-[#B89A63]"
+          className="text-xs uppercase tracking-wider font-bold text-[#18324A] group-hover:text-[#D96B27] inline-flex items-center gap-1 transition-colors"
         >
           <span>Detailed Capabilities</span>
-          <ArrowUpRight className="w-3.5 h-3.5 text-[#B89A63] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight className="w-3.5 h-3.5" />
         </Link>
-        <span className="text-[10px] text-[#667582] font-mono">
-          LOW-RISE // CIVIL
+        <span className="text-[10px] font-bold text-[#66717A] uppercase">
+          Low-Rise Civil
         </span>
       </div>
     </article>

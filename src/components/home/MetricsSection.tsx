@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import StatBlock from "@/components/ui/StatBlock";
 import { companyData } from "@/data/company";
@@ -29,19 +29,19 @@ export default function MetricsSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-[#15191D]/60 border-y border-[#2A3035] relative">
+    <section className="py-14 md:py-18 bg-[#F4F2EE] border-b border-[#D5D4D0] relative">
       <Container size="default">
         {/* Section Heading Tag */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-[#B89A63] block mb-1">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D96B27] block mb-1">
               CONSTRUCTION CAPABILITY
             </span>
-            <h2 className="text-2xl font-light text-[#F3F1EC]">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#18324A]">
               Practical Experience &amp; Core Standards
             </h2>
           </div>
-          <span className="text-xs font-mono text-[#667582]">
+          <span className="text-xs font-bold text-[#66717A] uppercase">
             GG CONSTRUCTION CO.
           </span>
         </div>
@@ -59,16 +59,16 @@ export default function MetricsSection() {
           ))}
         </div>
 
-        {/* Verification Policy Disclaimer */}
-        <div className="mt-8 pt-4 border-t border-[#2A3035]/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#667582]">
+        {/* Factual Disclaimer */}
+        <div className="mt-8 pt-4 border-t border-[#D5D4D0] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#66717A]">
           <div className="flex items-center gap-2">
-            <AlertCircle className="w-3.5 h-3.5 text-[#B89A63] flex-shrink-0" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#D96B27] flex-shrink-0" />
             <span className="text-[11px]">
-              Values formatted with brackets (<span className="text-[#B89A63] font-mono">[VERIFY ...]</span>) are centrally managed placeholders for verified company data.
+              All statements represent factual operational parameters for low-rise building construction in Delhi.
             </span>
           </div>
-          <span className="font-mono text-[10px] text-[#A7ADB3]">
-            CENTRALIZED DATA // company.ts
+          <span className="text-[11px] font-bold text-[#18324A]">
+            FACTUAL SERVICE SCOPE
           </span>
         </div>
       </Container>

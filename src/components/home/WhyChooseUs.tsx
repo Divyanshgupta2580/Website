@@ -1,5 +1,5 @@
 import React from "react";
-import { Compass, ShieldCheck, HardHat, Scale, HeartHandshake, CheckCircle2, MapPin } from "lucide-react";
+import { ShieldCheck, HardHat, Scale, HeartHandshake, CheckCircle2, MapPin } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
 
@@ -14,7 +14,7 @@ export default function WhyChooseUs() {
         "Specialized in small-to-medium building construction up to 4–5 floors maximum. We maintain rigorous standards for concrete mixing ratios, reinforcement tie placement, and proper 14–21 day curing cycles.",
       highlights: [
         "Sound RCC column and beam structural frame casting",
-        "First-class red clay brick & lightweight AAC masonry",
+        "First-class red clay brick & lightweight AAC block masonry",
         "Disciplined 14–21 day water curing protocols",
       ],
     },
@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035] relative">
+    <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="default">
         <SectionHeading
           eyebrow="Practical Advantages"
@@ -81,43 +81,43 @@ export default function WhyChooseUs() {
           description="A dedicated building construction contractor focused on durable low-rise residential and commercial buildings across Rohini, Pitampura, and nearby areas of Delhi."
         />
 
-        {/* 5-Pillar Asymmetric Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+        {/* 5-Pillar Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Top 2 Primary Pillars (Large 6-span each) */}
           {pillars.slice(0, 2).map((p) => {
             const Icon = p.icon;
             return (
               <div
                 key={p.number}
-                className="lg:col-span-6 bg-[#15191D] border border-[#2A3035] p-8 sm:p-10 flex flex-col justify-between hover:border-[#B89A63]/60 transition-colors group"
+                className="lg:col-span-6 bg-white border border-[#D5D4D0] p-7 sm:p-9 rounded-sm shadow-xs flex flex-col justify-between hover:border-[#18324A] transition-all"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 bg-[#1D2227] border border-[#2A3035] flex items-center justify-center text-[#B89A63] group-hover:border-[#B89A63] transition-colors">
-                      <Icon className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-11 h-11 bg-[#F4F2EE] border border-[#D5D4D0] rounded-sm flex items-center justify-center text-[#18324A]">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-xl font-mono text-[#667582]">
+                    <span className="text-xs font-bold text-[#66717A] uppercase tracking-wider">
                       PILLAR // {p.number}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-light text-[#F3F1EC] mb-1 group-hover:text-[#B89A63] transition-colors">
+                  <h3 className="text-2xl font-extrabold text-[#18324A] mb-1">
                     {p.title}
                   </h3>
-                  <span className="text-xs font-mono uppercase tracking-wider text-[#B89A63] block mb-4">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#D96B27] block mb-4">
                     {p.subtitle}
                   </span>
 
-                  <p className="text-xs sm:text-sm text-[#A7ADB3] leading-relaxed mb-6">
+                  <p className="text-sm text-[#66717A] leading-relaxed mb-6">
                     {p.description}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[#2A3035]/60">
-                  <ul className="space-y-2 text-xs text-[#A7ADB3]">
+                <div className="pt-5 border-t border-[#D5D4D0]">
+                  <ul className="space-y-2 text-xs text-[#20272D] font-medium">
                     {p.highlights.map((h, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89A63] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#D96B27] flex-shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </li>
                     ))}
@@ -133,35 +133,35 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={p.number}
-                className="lg:col-span-4 bg-[#15191D] border border-[#2A3035] p-6 sm:p-8 flex flex-col justify-between hover:border-[#B89A63]/60 transition-colors group"
+                className="lg:col-span-4 bg-white border border-[#D5D4D0] p-6 sm:p-7 rounded-sm shadow-xs flex flex-col justify-between hover:border-[#18324A] transition-all"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 bg-[#1D2227] border border-[#2A3035] flex items-center justify-center text-[#B89A63] group-hover:border-[#B89A63] transition-colors">
+                    <div className="w-10 h-10 bg-[#F4F2EE] border border-[#D5D4D0] rounded-sm flex items-center justify-center text-[#18324A]">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-sm font-mono text-[#667582]">
+                    <span className="text-xs font-bold text-[#66717A] uppercase tracking-wider">
                       PILLAR // {p.number}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-light text-[#F3F1EC] mb-1 group-hover:text-[#B89A63] transition-colors">
+                  <h3 className="text-xl font-extrabold text-[#18324A] mb-1">
                     {p.title}
                   </h3>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-[#B89A63] block mb-3">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#D96B27] block mb-3">
                     {p.subtitle}
                   </span>
 
-                  <p className="text-xs text-[#A7ADB3] leading-relaxed mb-6">
+                  <p className="text-xs text-[#66717A] leading-relaxed mb-6">
                     {p.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#2A3035]/60">
-                  <ul className="space-y-1.5 text-xs text-[#A7ADB3]">
+                <div className="pt-4 border-t border-[#D5D4D0]">
+                  <ul className="space-y-2 text-xs text-[#20272D] font-medium">
                     {p.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-1.5">
-                        <span className="w-1.5 h-1.5 bg-[#B89A63] flex-shrink-0 mt-1.5" />
+                      <li key={i} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#D96B27] flex-shrink-0 mt-0.5" />
                         <span className="line-clamp-2">{h}</span>
                       </li>
                     ))}

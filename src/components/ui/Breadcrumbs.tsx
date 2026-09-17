@@ -16,15 +16,15 @@ export default function Breadcrumbs({ items, className = "" }: BreadcrumbsProps)
   return (
     <nav
       aria-label="Breadcrumb"
-      className={`flex items-center text-xs font-mono uppercase tracking-wider text-[#A7ADB3] py-4 ${className}`}
+      className={`flex items-center text-xs uppercase tracking-wider text-[#66717A] py-3 ${className}`}
     >
       <ol className="flex items-center space-x-2">
         <li>
           <Link
             href="/"
-            className="flex items-center gap-1.5 hover:text-[#B89A63] transition-colors focus-visible:ring-1 focus-visible:ring-[#B89A63]"
+            className="flex items-center gap-1.5 hover:text-[#D96B27] transition-colors focus-visible:ring-2 focus-visible:ring-[#D96B27]"
           >
-            <Home className="w-3.5 h-3.5 text-[#B89A63]" />
+            <Home className="w-3.5 h-3.5 text-[#18324A]" />
             <span className="sr-only">Home</span>
           </Link>
         </li>
@@ -33,15 +33,15 @@ export default function Breadcrumbs({ items, className = "" }: BreadcrumbsProps)
           const isLast = index === items.length - 1;
           return (
             <li key={index} className="flex items-center space-x-2">
-              <ChevronRight className="w-3.5 h-3.5 text-[#667582]" aria-hidden="true" />
+              <ChevronRight className="w-3.5 h-3.5 text-[#D5D4D0]" aria-hidden="true" />
               {isLast || !item.href ? (
-                <span className="text-[#F3F1EC] font-medium" aria-current="page">
+                <span className="text-[#18324A] font-bold" aria-current="page">
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className="hover:text-[#B89A63] transition-colors focus-visible:ring-1 focus-visible:ring-[#B89A63]"
+                  className="hover:text-[#D96B27] transition-colors focus-visible:ring-2 focus-visible:ring-[#D96B27]"
                 >
                   {item.label}
                 </Link>

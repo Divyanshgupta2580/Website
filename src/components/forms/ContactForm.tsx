@@ -41,20 +41,20 @@ export default function ContactForm() {
       errs.name = "Full name must be at least 2 characters.";
     }
     if (!formData.phone.trim()) {
-      errs.phone = "Phone number is required";
+      errs.phone = "Phone number is required.";
     } else if (formData.phone.trim().length < 8) {
-      errs.phone = "Please enter a valid phone number";
+      errs.phone = "Please enter a valid phone number.";
     }
     if (!formData.email.trim()) {
-      errs.email = "Email address is required";
+      errs.email = "Email address is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errs.email = "Please enter a valid email address";
+      errs.email = "Please enter a valid email address.";
     }
     if (!formData.subject.trim() || formData.subject.trim().length < 3) {
-      errs.subject = "Subject is required (minimum 3 characters)";
+      errs.subject = "Subject is required (minimum 3 characters).";
     }
     if (!formData.message.trim() || formData.message.trim().length < 10) {
-      errs.message = "Message must be at least 10 characters";
+      errs.message = "Message must be at least 10 characters.";
     }
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -99,88 +99,91 @@ export default function ContactForm() {
           message: "",
           bot_field: "",
         });
-        setErrors({});
       } else {
         setSubmitStatus("error");
-        setFeedbackMessage(result.error || "Submission failed. Please verify details.");
+        setFeedbackMessage(
+          result.error || "Unable to send enquiry. Please contact us directly at +91 98110 34825."
+        );
       }
     } catch {
       setSubmitStatus("error");
-      setFeedbackMessage("Network connection error. Please try again or call our direct helpline.");
+      setFeedbackMessage(
+        "A network or server error occurred. Please call +91 98110 34825 directly."
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8 lg:p-10">
-      {/* Dedicated Construction Enquiry Paths */}
+    <div className="bg-white border border-[#D5D4D0] p-6 sm:p-10 rounded-sm shadow-sm" id="enquiry-form">
+      {/* Category Selector */}
       <div className="mb-8">
-        <label className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#A7ADB3] block mb-3">
-          Select Construction Enquiry Type
+        <label className="block text-xs uppercase tracking-wider font-extrabold text-[#18324A] mb-3">
+          Select Project Category
         </label>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
           <button
             type="button"
             onClick={() => setEnquiryType("residential")}
-            className={`flex items-center gap-2.5 p-3 text-left border transition-all ${
+            className={`flex items-center gap-2.5 p-3 text-left border rounded-sm transition-all ${
               enquiryType === "residential"
-                ? "bg-[#0B0D0F] border-[#B89A63] text-[#F3F1EC]"
-                : "bg-[#1D2227] border-[#2A3035] text-[#A7ADB3] hover:text-[#F3F1EC] hover:border-[#667582]"
+                ? "bg-[#F3D8C7]/40 border-2 border-[#D96B27] text-[#18324A]"
+                : "bg-white border-[#D5D4D0] text-[#66717A] hover:border-[#18324A] hover:text-[#18324A]"
             }`}
           >
-            <HardHat className={`w-4 h-4 flex-shrink-0 ${enquiryType === "residential" ? "text-[#B89A63]" : "text-[#667582]"}`} />
+            <HardHat className={`w-4 h-4 flex-shrink-0 ${enquiryType === "residential" ? "text-[#D96B27]" : "text-[#66717A]"}`} />
             <div>
-              <span className="text-xs font-semibold block">Residential</span>
-              <span className="text-[10px] text-[#A7ADB3] block">Homes &amp; Builder Floors</span>
+              <span className="text-xs font-bold block">Residential</span>
+              <span className="text-[10px] text-[#66717A] block">Homes &amp; Floors</span>
             </div>
           </button>
 
           <button
             type="button"
             onClick={() => setEnquiryType("commercial")}
-            className={`flex items-center gap-2.5 p-3 text-left border transition-all ${
+            className={`flex items-center gap-2.5 p-3 text-left border rounded-sm transition-all ${
               enquiryType === "commercial"
-                ? "bg-[#0B0D0F] border-[#B89A63] text-[#F3F1EC]"
-                : "bg-[#1D2227] border-[#2A3035] text-[#A7ADB3] hover:text-[#F3F1EC] hover:border-[#667582]"
+                ? "bg-[#F3D8C7]/40 border-2 border-[#D96B27] text-[#18324A]"
+                : "bg-white border-[#D5D4D0] text-[#66717A] hover:border-[#18324A] hover:text-[#18324A]"
             }`}
           >
-            <Building2 className={`w-4 h-4 flex-shrink-0 ${enquiryType === "commercial" ? "text-[#B89A63]" : "text-[#667582]"}`} />
+            <Building2 className={`w-4 h-4 flex-shrink-0 ${enquiryType === "commercial" ? "text-[#D96B27]" : "text-[#66717A]"}`} />
             <div>
-              <span className="text-xs font-semibold block">Commercial</span>
-              <span className="text-[10px] text-[#A7ADB3] block">Shops &amp; Offices</span>
+              <span className="text-xs font-bold block">Commercial</span>
+              <span className="text-[10px] text-[#66717A] block">Shops &amp; Offices</span>
             </div>
           </button>
 
           <button
             type="button"
             onClick={() => setEnquiryType("renovation")}
-            className={`flex items-center gap-2.5 p-3 text-left border transition-all ${
+            className={`flex items-center gap-2.5 p-3 text-left border rounded-sm transition-all ${
               enquiryType === "renovation"
-                ? "bg-[#0B0D0F] border-[#B89A63] text-[#F3F1EC]"
-                : "bg-[#1D2227] border-[#2A3035] text-[#A7ADB3] hover:text-[#F3F1EC] hover:border-[#667582]"
+                ? "bg-[#F3D8C7]/40 border-2 border-[#D96B27] text-[#18324A]"
+                : "bg-white border-[#D5D4D0] text-[#66717A] hover:border-[#18324A] hover:text-[#18324A]"
             }`}
           >
-            <Hammer className={`w-4 h-4 flex-shrink-0 ${enquiryType === "renovation" ? "text-[#B89A63]" : "text-[#667582]"}`} />
+            <Hammer className={`w-4 h-4 flex-shrink-0 ${enquiryType === "renovation" ? "text-[#D96B27]" : "text-[#66717A]"}`} />
             <div>
-              <span className="text-xs font-semibold block">Renovation</span>
-              <span className="text-[10px] text-[#A7ADB3] block">Additions &amp; Repairs</span>
+              <span className="text-xs font-bold block">Renovation</span>
+              <span className="text-[10px] text-[#66717A] block">Additions &amp; Repairs</span>
             </div>
           </button>
 
           <button
             type="button"
             onClick={() => setEnquiryType("general")}
-            className={`flex items-center gap-2.5 p-3 text-left border transition-all ${
+            className={`flex items-center gap-2.5 p-3 text-left border rounded-sm transition-all ${
               enquiryType === "general"
-                ? "bg-[#0B0D0F] border-[#B89A63] text-[#F3F1EC]"
-                : "bg-[#1D2227] border-[#2A3035] text-[#A7ADB3] hover:text-[#F3F1EC] hover:border-[#667582]"
+                ? "bg-[#F3D8C7]/40 border-2 border-[#D96B27] text-[#18324A]"
+                : "bg-white border-[#D5D4D0] text-[#66717A] hover:border-[#18324A] hover:text-[#18324A]"
             }`}
           >
-            <HelpCircle className={`w-4 h-4 flex-shrink-0 ${enquiryType === "general" ? "text-[#B89A63]" : "text-[#667582]"}`} />
+            <HelpCircle className={`w-4 h-4 flex-shrink-0 ${enquiryType === "general" ? "text-[#D96B27]" : "text-[#66717A]"}`} />
             <div>
-              <span className="text-xs font-semibold block">General</span>
-              <span className="text-[10px] text-[#A7ADB3] block">Consultation &amp; Info</span>
+              <span className="text-xs font-bold block">General</span>
+              <span className="text-[10px] text-[#66717A] block">Consultation</span>
             </div>
           </button>
         </div>
@@ -188,20 +191,20 @@ export default function ContactForm() {
 
       {/* Success Notification */}
       {submitStatus === "success" && (
-        <div className="mb-6 p-5 bg-[#0B0D0F] border border-[#B89A63] text-left">
+        <div className="mb-6 p-5 bg-[#F4F2EE] border-2 border-[#D96B27] rounded-sm text-left">
           <div className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-[#B89A63] flex-shrink-0 mt-0.5" />
+            <CheckCircle className="w-5 h-5 text-[#D96B27] flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="text-sm font-medium text-[#F3F1EC]">
+              <h3 className="text-sm font-bold text-[#18324A]">
                 Enquiry Transmitted Successfully
               </h3>
-              <p className="text-xs text-[#A7ADB3] mt-1 leading-relaxed">
+              <p className="text-xs text-[#20272D] mt-1 leading-relaxed">
                 {feedbackMessage}
               </p>
               {referenceId && (
-                <div className="mt-3 inline-flex items-center gap-2 px-2.5 py-1 bg-[#15191D] border border-[#2A3035] text-[11px] font-mono text-[#B89A63]">
+                <div className="mt-3 inline-flex items-center gap-2 px-2.5 py-1 bg-white border border-[#D5D4D0] rounded-xs text-[11px] font-bold text-[#18324A]">
                   <span>Reference ID:</span>
-                  <span className="font-semibold text-[#F3F1EC]">{referenceId}</span>
+                  <span className="text-[#D96B27]">{referenceId}</span>
                 </div>
               )}
             </div>
@@ -211,9 +214,9 @@ export default function ContactForm() {
 
       {/* Error Notification */}
       {submitStatus === "error" && (
-        <div className="mb-6 p-4 bg-red-950/40 border border-red-800 text-left flex items-start gap-3">
-          <AlertTriangle className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-          <p className="text-xs text-red-200">{feedbackMessage}</p>
+        <div className="mb-6 p-4 bg-red-50 border border-red-300 rounded-sm text-left flex items-start gap-3">
+          <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+          <p className="text-xs text-red-800 font-medium">{feedbackMessage}</p>
         </div>
       )}
 
@@ -235,8 +238,8 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {/* Full Name */}
           <div>
-            <label htmlFor="c_name" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-              Full Name <span className="text-[#B89A63]">*</span>
+            <label htmlFor="c_name" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+              Full Name <span className="text-[#D96B27]">*</span>
             </label>
             <input
               type="text"
@@ -246,17 +249,17 @@ export default function ContactForm() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="e.g. Rajesh Sharma"
-              className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-                errors.name ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+              className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                errors.name ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
               }`}
             />
-            {errors.name && <p className="text-[11px] text-red-400 mt-1">{errors.name}</p>}
+            {errors.name && <p className="text-[11px] text-red-600 mt-1">{errors.name}</p>}
           </div>
 
           {/* Phone Number */}
           <div>
-            <label htmlFor="c_phone" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-              Phone Number <span className="text-[#B89A63]">*</span>
+            <label htmlFor="c_phone" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+              Phone Number <span className="text-[#D96B27]">*</span>
             </label>
             <input
               type="tel"
@@ -266,17 +269,17 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder="e.g. +91 98110 00000"
-              className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-                errors.phone ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+              className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                errors.phone ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
               }`}
             />
-            {errors.phone && <p className="text-[11px] text-red-400 mt-1">{errors.phone}</p>}
+            {errors.phone && <p className="text-[11px] text-red-600 mt-1">{errors.phone}</p>}
           </div>
 
           {/* Email Address */}
           <div>
-            <label htmlFor="c_email" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-              Email Address <span className="text-[#B89A63]">*</span>
+            <label htmlFor="c_email" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+              Email Address <span className="text-[#D96B27]">*</span>
             </label>
             <input
               type="email"
@@ -286,16 +289,16 @@ export default function ContactForm() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="e.g. client@example.com"
-              className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-                errors.email ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+              className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+                errors.email ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
               }`}
             />
-            {errors.email && <p className="text-[11px] text-red-400 mt-1">{errors.email}</p>}
+            {errors.email && <p className="text-[11px] text-red-600 mt-1">{errors.email}</p>}
           </div>
 
           {/* Company / Individual */}
           <div>
-            <label htmlFor="c_company" className="block text-xs font-mono text-[#A7ADB3] mb-1.5 uppercase tracking-wider">
+            <label htmlFor="c_company" className="block text-xs font-bold text-[#66717A] mb-1.5 uppercase tracking-wider">
               Company / Individual (Optional)
             </label>
             <input
@@ -305,15 +308,15 @@ export default function ContactForm() {
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               placeholder="e.g. Individual Homeowner"
-              className="w-full px-4 py-3 bg-[#0B0D0F] border border-[#2A3035] text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none focus:border-[#B89A63] transition-colors"
+              className="w-full px-4 py-3 bg-white border border-[#D5D4D0] rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none focus:border-[#D96B27] transition-colors"
             />
           </div>
         </div>
 
         {/* Subject */}
         <div>
-          <label htmlFor="c_subject" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-            Subject <span className="text-[#B89A63]">*</span>
+          <label htmlFor="c_subject" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+            Subject <span className="text-[#D96B27]">*</span>
           </label>
           <input
             type="text"
@@ -323,17 +326,17 @@ export default function ContactForm() {
             value={formData.subject}
             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
             placeholder="e.g. Construction Enquiry for 4-Storey Builder Floor in Rohini"
-            className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-              errors.subject ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+            className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+              errors.subject ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
             }`}
           />
-          {errors.subject && <p className="text-[11px] text-red-400 mt-1">{errors.subject}</p>}
+          {errors.subject && <p className="text-[11px] text-red-600 mt-1">{errors.subject}</p>}
         </div>
 
         {/* Message */}
         <div>
-          <label htmlFor="c_message" className="block text-xs font-mono text-[#F3F1EC] mb-1.5 uppercase tracking-wider">
-            Message <span className="text-[#B89A63]">*</span>
+          <label htmlFor="c_message" className="block text-xs font-bold text-[#18324A] mb-1.5 uppercase tracking-wider">
+            Message <span className="text-[#D96B27]">*</span>
           </label>
           <textarea
             id="c_message"
@@ -343,15 +346,15 @@ export default function ContactForm() {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Describe your construction requirement, plot dimensions, expected scope, or timeline..."
-            className={`w-full px-4 py-3 bg-[#0B0D0F] border text-xs text-[#F3F1EC] placeholder-[#667582] focus:outline-none transition-colors ${
-              errors.message ? "border-red-500 focus:border-red-500" : "border-[#2A3035] focus:border-[#B89A63]"
+            className={`w-full px-4 py-3 bg-white border rounded-sm text-xs text-[#20272D] placeholder-[#66717A] focus:outline-none transition-colors ${
+              errors.message ? "border-red-500 focus:border-red-500" : "border-[#D5D4D0] focus:border-[#D96B27]"
             }`}
           />
-          {errors.message && <p className="text-[11px] text-red-400 mt-1">{errors.message}</p>}
+          {errors.message && <p className="text-[11px] text-red-600 mt-1">{errors.message}</p>}
         </div>
 
         {/* Submit Action */}
-        <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-3 border-t border-[#D5D4D0] flex flex-col sm:flex-row items-center justify-between gap-4">
           <Button
             type="submit"
             variant="primary"
@@ -372,7 +375,7 @@ export default function ContactForm() {
             )}
           </Button>
 
-          <p className="text-[11px] font-mono text-[#667582] text-center sm:text-right">
+          <p className="text-xs text-[#66717A] text-center sm:text-right font-medium">
             Enquiries are forwarded securely to gunjan29gupta@gmail.com
           </p>
         </div>

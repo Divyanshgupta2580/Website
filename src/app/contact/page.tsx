@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="pt-24 pb-20 bg-[#0B0D0F]">
+    <div className="pt-24 pb-20 bg-[#F4F2EE]">
       {/* 1. Main Architectural Editorial Contact Section */}
       <ContactSection isPageHeader={true} />
 
@@ -20,32 +20,32 @@ export default function ContactPage() {
       <section
         id="enquiry-form"
         aria-labelledby="enquiry-form-heading"
-        className="pt-8 pb-16 bg-[#0B0D0F] relative"
+        className="pt-8 pb-16 bg-[#F4F2EE] relative"
       >
         <Container size="default">
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">
               <div className="inline-flex items-center gap-2 mb-2">
-                <span className="text-[11px] font-mono text-[#B89A63]">02</span>
-                <span className="text-[#667582]">/</span>
-                <span className="text-[11px] uppercase tracking-[0.25em] font-mono text-[#A7ADB3]">
-                  DIRECT ENQUIRY DESK
+                <span className="text-xs font-bold text-[#D96B27]">02</span>
+                <span className="text-[#D5D4D0]">/</span>
+                <span className="text-xs uppercase tracking-widest font-semibold text-[#66717A]">
+                  Direct Enquiry Desk
                 </span>
               </div>
               <h2
                 id="enquiry-form-heading"
-                className="text-2xl sm:text-3xl font-light text-[#F3F1EC] tracking-tight"
+                className="text-2xl sm:text-3xl font-bold text-[#18324A] tracking-tight"
               >
                 Send a Construction Enquiry
               </h2>
-              <p className="text-xs sm:text-sm text-[#A7ADB3] mt-1.5 leading-relaxed">
+              <p className="text-sm text-[#66717A] mt-1.5 leading-relaxed">
                 Submit your construction requirements, residential build plans, or renovation scope directly to our team. Reviewed promptly with practical advice and pricing guidance.
               </p>
             </div>
 
             <Suspense
               fallback={
-                <div className="p-8 bg-[#15191D] border border-[#2A3035] text-xs font-mono text-[#A7ADB3]">
+                <div className="p-8 bg-white border border-[#D5D4D0] text-xs text-[#66717A]">
                   Loading enquiry form...
                 </div>
               }

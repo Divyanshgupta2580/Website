@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "outline" | "ghost" | "tech";
+  variant?: "primary" | "navy" | "outline" | "ghost" | "tech";
   size?: "sm" | "md" | "lg";
   href?: string;
   isExternal?: boolean;
@@ -20,23 +20,25 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B89A63] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B0D0F] disabled:opacity-50 disabled:pointer-events-none uppercase tracking-wider text-xs";
+    "inline-flex items-center justify-center font-bold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D96B27] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F4F2EE] disabled:opacity-50 disabled:pointer-events-none uppercase tracking-wider text-xs rounded-sm";
 
   const sizeStyles = {
-    sm: "px-3 py-2 text-xs",
-    md: "px-5 py-2.5 text-xs font-semibold",
-    lg: "px-7 py-3.5 text-sm font-semibold",
+    sm: "px-3.5 py-2 text-xs",
+    md: "px-5 py-2.5 text-xs",
+    lg: "px-7 py-3.5 text-sm",
   };
 
   const variantStyles = {
     primary:
-      "bg-[#B89A63] text-[#0B0D0F] hover:bg-[#D0B47A] border border-[#B89A63] active:bg-[#a68853]",
+      "bg-[#D96B27] text-white hover:bg-[#B9551D] border border-[#D96B27] active:bg-[#A34A17] shadow-sm",
+    navy:
+      "bg-[#18324A] text-white hover:bg-[#102232] border border-[#18324A] active:bg-[#0C1A27] shadow-sm",
     outline:
-      "bg-transparent text-[#F3F1EC] border border-[#2A3035] hover:border-[#B89A63] hover:text-[#B89A63] active:bg-[#15191D]",
+      "bg-white text-[#18324A] border border-[#D5D4D0] hover:border-[#18324A] hover:bg-[#E8E6E1]/30 active:bg-[#E8E6E1] shadow-sm",
     ghost:
-      "bg-transparent text-[#A7ADB3] hover:text-[#F3F1EC] hover:bg-[#15191D] border border-transparent",
+      "bg-transparent text-[#18324A] hover:text-[#D96B27] hover:bg-[#E8E6E1]/40 border border-transparent",
     tech:
-      "bg-[#1D2227] text-[#F3F1EC] border border-[#2A3035] hover:border-[#667582] hover:bg-[#22282E]",
+      "bg-[#E8E6E1] text-[#20272D] border border-[#D5D4D0] hover:border-[#18324A] hover:bg-[#D5D4D0]/50",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

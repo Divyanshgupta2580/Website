@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
@@ -138,8 +139,8 @@ export async function POST(request: Request) {
       message: data.message.trim(),
     };
 
-    // Unpredictable reference identifier
-    const randomSuffix = Math.floor(100000 + Math.random() * 900000);
+    // Cryptographically secure, unpredictable reference identifier
+    const randomSuffix = crypto.randomInt(100000, 1000000);
     const referenceId = `GGE-${randomSuffix}`;
     const timestamp = new Date().toUTCString();
 
@@ -204,11 +205,11 @@ export async function POST(request: Request) {
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0B0D0F; color: #F3F1EC; padding: 24px;">
-  <div style="max-width: 600px; margin: 0 auto; background-color: #14181D; border: 1px solid #28303A; border-radius: 8px; padding: 28px;">
-    <div style="border-bottom: 2px solid #D97706; padding-bottom: 16px; margin-bottom: 20px;">
-      <h2 style="color: #D97706; margin: 0; font-size: 20px;">GG Construction Co. — New Construction Quote Request</h2>
-      <p style="color: #9CA3AF; margin: 4px 0 0 0; font-size: 13px;">Ref: <strong>${referenceId}</strong> | ${timestamp}</p>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #F4F2EE; color: #20272D; padding: 24px;">
+  <div style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; border: 1px solid #D5D4D0; border-radius: 8px; padding: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <div style="border-bottom: 2px solid #D96B27; padding-bottom: 16px; margin-bottom: 20px;">
+      <h2 style="color: #18324A; margin: 0; font-size: 20px; font-weight: 700;">GG Construction Co. — New Construction Quote Request</h2>
+      <p style="color: #66717A; margin: 4px 0 0 0; font-size: 13px;">Ref: <strong>${referenceId}</strong> | ${timestamp}</p>
     </div>
 
     <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
@@ -218,9 +219,9 @@ export async function POST(request: Request) {
     ${
       sanitizedData.requirements.length > 0
         ? `
-    <div style="background-color: #0B0D0F; border: 1px solid #1F2937; border-radius: 6px; padding: 12px 16px; margin-bottom: 16px;">
-      <p style="margin: 0 0 6px 0; color: #9CA3AF; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Scope Components Selected:</p>
-      <ul style="margin: 0; padding-left: 18px; color: #E5E7EB; font-size: 13px;">
+    <div style="background-color: #F4F2EE; border: 1px solid #D5D4D0; border-radius: 6px; padding: 12px 16px; margin-bottom: 16px;">
+      <p style="margin: 0 0 6px 0; color: #66717A; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Scope Components Selected:</p>
+      <ul style="margin: 0; padding-left: 18px; color: #20272D; font-size: 13px;">
         ${sanitizedData.requirements.map((r) => `<li style="margin-bottom: 4px;">${escapeHtml(r)}</li>`).join("")}
       </ul>
     </div>`
@@ -230,9 +231,9 @@ export async function POST(request: Request) {
     ${
       sanitizedData.message
         ? `
-    <div style="background-color: #0B0D0F; border: 1px solid #1F2937; border-radius: 6px; padding: 16px;">
-      <p style="margin: 0 0 8px 0; color: #9CA3AF; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Project Notes:</p>
-      <p style="margin: 0; color: #E5E7EB; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">${escapeHtml(sanitizedData.message)}</p>
+    <div style="background-color: #F4F2EE; border: 1px solid #D5D4D0; border-radius: 6px; padding: 16px;">
+      <p style="margin: 0 0 8px 0; color: #66717A; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Project Notes:</p>
+      <p style="margin: 0; color: #20272D; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">${escapeHtml(sanitizedData.message)}</p>
     </div>`
         : ""
     }

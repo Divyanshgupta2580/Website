@@ -46,26 +46,26 @@ export default function GalleryPage() {
       : galleryData.filter((item) => item.category === activeCategory);
 
   return (
-    <div className="pt-28 pb-20 bg-[#0B0D0F]">
+    <div className="pt-28 pb-20 bg-[#F4F2EE]">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-6 h-[1px] bg-[#B89A63]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
-              Visual Records & Documentation
+            <span className="w-6 h-[2px] bg-[#D96B27]" />
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D96B27]">
+              Visual Records &amp; Documentation
             </span>
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-6">
             Construction Work Gallery
           </h1>
-          <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed mb-4">
+          <p className="text-base sm:text-lg text-[#66717A] leading-relaxed mb-4">
             Representative photographic records of low-rise building construction, reinforced concrete frame execution, brick masonry, and finished spaces across Delhi localities.
           </p>
-          <div className="p-3.5 bg-[#15191D] border border-[#2A3035] text-xs text-[#A7ADB3] flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#B89A63] flex-shrink-0" />
+          <div className="p-4 bg-white border border-[#D5D4D0] shadow-sm text-xs text-[#66717A] flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#D96B27] flex-shrink-0" />
             <span>
-              <strong className="text-[#F3F1EC]">Note:</strong> Visual archives depict representative structural methods, masonry works, and low-rise building typologies up to 4–5 floors.
+              <strong className="text-[#18324A]">Note:</strong> Visual archives depict representative structural methods, masonry works, and low-rise building typologies up to 4–5 floors.
             </span>
           </div>
         </div>
@@ -73,17 +73,17 @@ export default function GalleryPage() {
 
       {/* Category Filter */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 border-b border-[#2A3035] scrollbar-none">
-          <Filter className="w-4 h-4 text-[#B89A63] flex-shrink-0 mr-2" />
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 border-b border-[#D5D4D0] scrollbar-none">
+          <Filter className="w-4 h-4 text-[#D96B27] flex-shrink-0 mr-2" />
           {categories.map((cat) => (
             <button
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 text-xs uppercase tracking-wider font-medium whitespace-nowrap transition-all border ${
+              className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                 activeCategory === cat
-                  ? "bg-[#B89A63] text-[#0B0D0F] border-[#B89A63] font-semibold"
-                  : "bg-[#15191D] text-[#A7ADB3] border-[#2A3035] hover:text-[#F3F1EC] hover:border-[#667582]"
+                  ? "bg-[#D96B27] text-white border-[#D96B27]"
+                  : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
               }`}
             >
               {cat}
@@ -99,7 +99,7 @@ export default function GalleryPage() {
             <div
               key={item.id}
               onClick={() => setSelectedItem(item)}
-              className="group relative aspect-[16/11] bg-[#15191D] border border-[#2A3035] hover:border-[#B89A63]/60 transition-all cursor-pointer overflow-hidden"
+              className="group relative aspect-[16/11] bg-white border border-[#D5D4D0] hover:border-[#D96B27] shadow-sm transition-all cursor-pointer overflow-hidden"
             >
               <Image
                 src={item.image}
@@ -108,19 +108,19 @@ export default function GalleryPage() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0F]/90 via-[#0B0D0F]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-5">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#18324A]/90 via-[#18324A]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-5">
                 <div className="flex justify-between items-center">
-                  <Badge variant="bronze">{item.category}</Badge>
-                  <span className="w-8 h-8 rounded-none bg-[#0B0D0F]/80 border border-[#2A3035] flex items-center justify-center text-[#F3F1EC]">
-                    <Maximize2 className="w-4 h-4 text-[#B89A63]" />
+                  <Badge variant="orange">{item.category}</Badge>
+                  <span className="w-8 h-8 rounded-none bg-[#18324A]/80 border border-white/20 flex items-center justify-center text-white">
+                    <Maximize2 className="w-4 h-4 text-[#D96B27]" />
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-medium text-[#F3F1EC] mb-1">
+                  <h3 className="text-base font-bold text-white mb-1">
                     {item.title}
                   </h3>
-                  <span className="text-[11px] text-[#A7ADB3] block">
+                  <span className="text-xs text-white/80 block">
                     {item.location}
                   </span>
                 </div>
@@ -136,25 +136,25 @@ export default function GalleryPage() {
           role="dialog"
           aria-modal="true"
           aria-label={selectedItem.title}
-          className="fixed inset-0 z-50 bg-[#0B0D0F]/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8 animate-fade-in"
+          className="fixed inset-0 z-50 bg-[#18324A]/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fade-in"
           onClick={() => setSelectedItem(null)}
         >
           <div
-            className="relative max-w-5xl w-full bg-[#15191D] border border-[#2A3035] overflow-hidden"
+            className="relative max-w-5xl w-full bg-white border border-[#D5D4D0] overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               type="button"
               onClick={() => setSelectedItem(null)}
-              className="absolute top-4 right-4 z-20 w-10 h-10 bg-[#0B0D0F]/80 border border-[#2A3035] text-[#F3F1EC] hover:text-[#B89A63] flex items-center justify-center focus:outline-none"
+              className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 border border-[#D5D4D0] text-[#18324A] hover:text-[#D96B27] flex items-center justify-center focus:outline-none shadow-sm"
               aria-label="Close Lightbox"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Image */}
-            <div className="relative aspect-[16/10] w-full bg-[#0B0D0F]">
+            <div className="relative aspect-[16/10] w-full bg-[#18324A]">
               <Image
                 src={selectedItem.image}
                 alt={selectedItem.title}
@@ -165,18 +165,18 @@ export default function GalleryPage() {
             </div>
 
             {/* Details Footer */}
-            <div className="p-6 bg-[#15191D] border-t border-[#2A3035] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="p-6 bg-white border-t border-[#D5D4D0] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Badge variant="bronze">{selectedItem.category}</Badge>
-                  <span className="text-xs font-mono text-[#667582]">
-                    LOC: {selectedItem.location}
+                  <Badge variant="orange">{selectedItem.category}</Badge>
+                  <span className="text-xs text-[#66717A]">
+                    Location: {selectedItem.location}
                   </span>
                 </div>
-                <h3 className="text-lg font-medium text-[#F3F1EC]">
+                <h3 className="text-lg font-bold text-[#18324A]">
                   {selectedItem.title}
                 </h3>
-                <p className="text-xs text-[#A7ADB3] mt-1">
+                <p className="text-xs text-[#66717A] mt-1">
                   {selectedItem.description}
                 </p>
               </div>

@@ -3,21 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #0b0d0f;
-  --surface-secondary: #15191d;
-  --concrete-dark: #1d2227;
-  --text-primary: #f3f1ec;
-  --text-secondary: #a7adb3;
-  --border-subtle: #2a3035;
-  --accent-bronze: #b89a63;
-  --accent-hover: #d0b47a;
-  --accent-tech: #667582;
+  --bg-primary: #F4F2EE;
+  --surface-white: #FFFFFF;
+  --surface-secondary: #E8E6E1;
+  --text-primary: #20272D;
+  --text-navy: #18324A;
+  --text-muted: #66717A;
+  --border-subtle: #D5D4D0;
+  --accent-orange: #D96B27;
+  --accent-orange-hover: #B9551D;
+  --accent-orange-soft: #F3D8C7;
 }
 
 /* Base Body Configuration */
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
   background-color: var(--bg-primary);
 }
 
@@ -32,54 +33,33 @@ body {
 
 /* Accessibility: Focus visible outline */
 :focus-visible {
-  outline: 2px solid var(--accent-bronze);
-  outline-offset: 3px;
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 2px;
 }
 
 /* Custom Text Selection */
 ::selection {
-  background-color: var(--accent-bronze);
-  color: #0b0d0f;
+  background-color: var(--accent-orange);
+  color: #FFFFFF;
 }
 
-/* Sleek Dark Scrollbar */
+/* Clean Professional Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0d0f;
+  background: #F4F2EE;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a3035;
-  border-radius: 2px;
+  background: #D5D4D0;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b89a63;
-}
-
-/* Architectural Grid Pattern Utility */
-.bg-architectural-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(42, 48, 53, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(42, 48, 53, 0.4) 1px, transparent 1px);
-}
-
-.bg-dot-pattern {
-  background-image: radial-gradient(rgba(184, 154, 99, 0.15) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-/* Editorial Glass Overlay */
-.glass-panel {
-  background: rgba(21, 25, 29, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(42, 48, 53, 0.8);
+  background: #B9551D;
 }
 
 /* Reduced Motion Support */

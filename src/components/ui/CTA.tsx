@@ -6,7 +6,7 @@ import { companyData } from "@/data/company";
 
 export interface CTAProps {
   eyebrow?: string;
-  title: string;
+  title?: string;
   description?: string;
   primaryCtaText?: string;
   primaryCtaHref?: string;
@@ -17,48 +17,45 @@ export interface CTAProps {
 }
 
 export default function CTA({
-  eyebrow = "Start Your Project",
-  title = "Planning a Building Project?",
-  description = "Connect directly with our construction team to discuss plot dimensions, building feasibility, and stage-wise construction estimates across Rohini, Pitampura, and Delhi.",
-  primaryCtaText = "Get a Construction Quote",
+  eyebrow = "GET IN TOUCH",
+  title = "Planning a Construction Project?",
+  description = "Tell us about your building requirement and we'll get in touch.",
+  primaryCtaText = "GET A QUOTE",
   primaryCtaHref = "/get-a-quote",
-  secondaryCtaText = "Contact Construction Team",
+  secondaryCtaText = "CONTACT US",
   secondaryCtaHref = "/contact",
   showContacts = true,
   className = "",
 }: CTAProps) {
   return (
-    <section className={`py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035] relative overflow-hidden ${className}`}>
-      {/* Background Architectural Grid Pattern */}
-      <div className="absolute inset-0 bg-architectural-grid opacity-25" />
-
-      <Container size="default" className="relative z-10">
-        <div className="bg-[#15191D] border border-[#2A3035] p-8 sm:p-12 lg:p-16 relative">
-          {/* Subtle Top Gold Accent Line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B89A63] to-transparent" />
+    <section className={`py-16 md:py-24 bg-[#F4F2EE] border-t border-[#D5D4D0] relative ${className}`}>
+      <Container size="default">
+        <div className="bg-[#18324A] text-white p-8 sm:p-12 lg:p-16 rounded-sm shadow-md relative overflow-hidden">
+          {/* Subtle Orange Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#D96B27]" />
 
           <div className="max-w-3xl">
             {eyebrow && (
               <div className="inline-flex items-center gap-2 mb-3">
-                <span className="w-6 h-[1px] bg-[#B89A63]" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
+                <span className="w-5 h-[2px] bg-[#D96B27]" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#F3D8C7]">
                   {eyebrow}
                 </span>
               </div>
             )}
 
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light text-[#F3F1EC] leading-tight mb-5">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight mb-4">
               {title}
             </h2>
 
             {description && (
-              <p className="text-sm sm:text-base text-[#A7ADB3] leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-[#E8E6E1] leading-relaxed mb-8">
                 {description}
               </p>
             )}
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
               {primaryCtaText && (
                 <Button href={primaryCtaHref} variant="primary" size="lg" className="group">
                   <span>{primaryCtaText}</span>
@@ -67,33 +64,38 @@ export default function CTA({
               )}
 
               {secondaryCtaText && (
-                <Button href={secondaryCtaHref} variant="outline" size="lg">
+                <Button
+                  href={secondaryCtaHref}
+                  variant="outline"
+                  size="lg"
+                  className="bg-transparent text-white border-white/30 hover:border-white hover:bg-white/10"
+                >
                   {secondaryCtaText}
                 </Button>
               )}
             </div>
 
-            {/* Direct Contact Bar */}
+            {/* Direct Contact Links */}
             {showContacts && (
-              <div className="pt-8 border-t border-[#2A3035] flex flex-wrap items-center gap-6 text-xs text-[#A7ADB3]">
+              <div className="pt-6 border-t border-white/15 flex flex-wrap items-center gap-6 text-sm text-[#E8E6E1]">
                 <a
                   href={`tel:${companyData.contact.phone}`}
-                  className="flex items-center gap-2 hover:text-[#F3F1EC] transition-colors"
+                  className="flex items-center gap-2 hover:text-white transition-colors font-medium"
                   aria-label={`Call ${companyData.contact.phoneFormatted}`}
                 >
-                  <Phone className="w-4 h-4 text-[#B89A63]" />
-                  <span>Call: {companyData.contact.phoneFormatted}</span>
+                  <Phone className="w-4 h-4 text-[#D96B27]" />
+                  <span>{companyData.contact.phoneFormatted}</span>
                 </a>
 
-                <span className="text-[#2A3035] hidden sm:inline">&bull;</span>
+                <span className="text-white/30 hidden sm:inline">&bull;</span>
 
                 <a
                   href={`mailto:${companyData.contact.email}`}
-                  className="flex items-center gap-2 hover:text-[#F3F1EC] transition-colors"
+                  className="flex items-center gap-2 hover:text-white transition-colors font-medium"
                   aria-label={`Email ${companyData.contact.email}`}
                 >
-                  <Mail className="w-4 h-4 text-[#B89A63]" />
-                  <span>Email: {companyData.contact.email}</span>
+                  <Mail className="w-4 h-4 text-[#D96B27]" />
+                  <span>{companyData.contact.email}</span>
                 </a>
               </div>
             )}

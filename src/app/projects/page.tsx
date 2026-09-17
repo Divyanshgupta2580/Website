@@ -38,20 +38,20 @@ export default function ProjectsPage() {
   const projectFaqs = faqsData.filter((f) => f.category === "Construction");
 
   return (
-    <div className="pt-28 pb-20 bg-[#0B0D0F]">
+    <div className="pt-28 pb-20 bg-[#F4F2EE]">
       {/* 1. Page Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-3">
-            <span className="w-6 h-[1px] bg-[#B89A63]" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#B89A63]">
+            <span className="w-6 h-[2px] bg-[#D96B27]" />
+            <span className="text-xs font-bold uppercase tracking-widest text-[#D96B27]">
               Building Construction Portfolio
             </span>
           </div>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-light tracking-tight text-[#F3F1EC] leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#18324A] leading-tight mb-6">
             Low-Rise Building Projects (Up to 4–5 Floors)
           </h1>
-          <p className="text-base sm:text-lg text-[#A7ADB3] leading-relaxed">
+          <p className="text-base sm:text-lg text-[#66717A] leading-relaxed">
             Representative project examples illustrating our construction work across Rohini, Pitampura, and nearby areas of Delhi for residential homes, builder floors, shops, and small offices.
           </p>
         </div>
@@ -59,9 +59,9 @@ export default function ProjectsPage() {
 
       {/* 2. Flagship Project Feature */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
-        <div className="bg-[#15191D] border border-[#2A3035] overflow-hidden">
+        <div className="bg-white border border-[#D5D4D0] shadow-sm overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
-            <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] bg-[#1D2227]">
+            <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[480px] bg-[#18324A]">
               <Image
                 src={flagshipProject.heroImage}
                 alt={flagshipProject.title}
@@ -70,50 +70,50 @@ export default function ProjectsPage() {
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#15191D] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#15191D]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#18324A]/70 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-white/10" />
               <div className="absolute top-4 left-4 z-10">
-                <Badge variant="bronze">{flagshipProject.sectorLabel}</Badge>
+                <Badge variant="orange">{flagshipProject.sectorLabel}</Badge>
               </div>
-              <div className="absolute bottom-4 left-4 z-10 font-mono text-xs text-[#F3F1EC] bg-[#0B0D0F]/85 px-3 py-1 border border-[#2A3035]">
+              <div className="absolute bottom-4 left-4 z-10 text-xs font-semibold text-white bg-[#18324A]/90 px-3 py-1.5 border border-white/20">
                 {flagshipProject.floors} &bull; {flagshipProject.location}
               </div>
             </div>
 
             <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[#B89A63] block mb-2">
-                  REPRESENTATIVE PROJECT EXAMPLE
+                <span className="text-xs font-bold uppercase tracking-widest text-[#D96B27] block mb-2">
+                  Representative Project Example
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-light text-[#F3F1EC] mb-2">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#18324A] mb-2 hover:text-[#D96B27] transition-colors">
                   <Link href={`/projects/${flagshipProject.slug}`}>
                     {flagshipProject.title}
                   </Link>
                 </h2>
-                <p className="text-xs text-[#A7ADB3] mb-6 leading-relaxed">
+                <p className="text-sm text-[#66717A] mb-6 leading-relaxed">
                   {flagshipProject.subtitle}
                 </p>
 
-                <div className="space-y-4 pt-4 border-t border-[#2A3035]/60 mb-6">
+                <div className="space-y-4 pt-4 border-t border-[#D5D4D0] mb-6">
                   <div>
-                    <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1 font-semibold">
+                    <span className="text-xs uppercase tracking-wider text-[#66717A] block mb-1 font-bold">
                       Construction Feature
                     </span>
-                    <p className="text-xs text-[#F3F1EC] leading-relaxed">
+                    <p className="text-xs text-[#20272D] leading-relaxed">
                       {flagshipProject.engineeringHighlights[0]?.description}
                     </p>
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-1 font-semibold">
-                      Scope & Timeline
+                    <span className="text-xs uppercase tracking-wider text-[#66717A] block mb-1 font-bold">
+                      Scope &amp; Timeline
                     </span>
-                    <span className="text-xs font-mono text-[#A7ADB3]">
-                      Built in {flagshipProject.timeline} &bull; Concrete Frame & Brick Masonry
+                    <span className="text-xs font-semibold text-[#66717A]">
+                      Built in {flagshipProject.timeline} &bull; Concrete Frame &amp; Brick Masonry
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-[#2A3035] flex items-center justify-between">
+              <div className="pt-6 border-t border-[#D5D4D0] flex items-center justify-between">
                 <Button
                   href={`/projects/${flagshipProject.slug}`}
                   variant="primary"
@@ -123,7 +123,7 @@ export default function ProjectsPage() {
                   <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
                 </Button>
 
-                <span className="text-xs font-mono text-[#B89A63]">
+                <span className="text-xs font-bold text-[#D96B27]">
                   {flagshipProject.year} &bull; COMPLETED
                 </span>
               </div>
@@ -133,7 +133,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* 3. Neutral Capability Blocks */}
-      <section className="py-16 bg-[#15191D]/40 border-y border-[#2A3035] mb-24">
+      <section className="py-16 bg-white border-y border-[#D5D4D0] mb-24">
         <Container size="default">
           <SectionHeading
             eyebrow="Construction Scale"
@@ -171,18 +171,18 @@ export default function ProjectsPage() {
 
       {/* 4. Interactive Sector Filter Tabs */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#2A3035]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#D5D4D0]">
           <div className="flex items-center gap-2 overflow-x-auto scrollbar-none">
-            <Filter className="w-4 h-4 text-[#B89A63] flex-shrink-0 mr-2" />
+            <Filter className="w-4 h-4 text-[#D96B27] flex-shrink-0 mr-2" />
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveFilter(tab.id)}
-                className={`px-4 py-2 text-xs uppercase tracking-wider font-medium whitespace-nowrap transition-all border ${
+                className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold whitespace-nowrap transition-all border ${
                   activeFilter === tab.id
-                    ? "bg-[#B89A63] text-[#0B0D0F] border-[#B89A63] font-semibold"
-                    : "bg-[#15191D] text-[#A7ADB3] border-[#2A3035] hover:text-[#F3F1EC] hover:border-[#667582]"
+                    ? "bg-[#D96B27] text-white border-[#D96B27]"
+                    : "bg-white text-[#66717A] border-[#D5D4D0] hover:text-[#18324A] hover:border-[#66717A]"
                 }`}
               >
                 {tab.label}
@@ -190,8 +190,8 @@ export default function ProjectsPage() {
             ))}
           </div>
 
-          <span className="text-xs font-mono text-[#667582]">
-            SHOWING {filteredProjects.length} OF {projectsData.length} PROJECTS
+          <span className="text-xs font-semibold text-[#66717A]">
+            Showing {filteredProjects.length} of {projectsData.length} projects
           </span>
         </div>
       </section>
@@ -199,8 +199,8 @@ export default function ProjectsPage() {
       {/* 5. Projects Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
         {filteredProjects.length === 0 ? (
-          <div className="p-12 text-center bg-[#15191D] border border-[#2A3035]">
-            <p className="text-sm text-[#A7ADB3]">No projects found for the selected filter.</p>
+          <div className="p-12 text-center bg-white border border-[#D5D4D0] shadow-sm">
+            <p className="text-sm text-[#66717A]">No projects found for the selected filter.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -223,7 +223,7 @@ export default function ProjectsPage() {
           align="center"
         />
 
-        <div className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-10">
+        <div className="bg-white border border-[#D5D4D0] shadow-sm p-6 sm:p-10">
           <Accordion>
             {projectFaqs.map((faq, idx) => (
               <AccordionItem
@@ -242,9 +242,9 @@ export default function ProjectsPage() {
       {/* 7. Conversion CTA */}
       <CTA
         eyebrow="Construction Planning"
-        title="Planning a Building Project?"
+        title="Planning a Construction Project?"
         description="Speak with our team regarding your plot size, building plan, or construction requirements in Rohini, Pitampura, and nearby Delhi areas. We provide honest estimates and dependable execution."
-        primaryCtaText="Get a Construction Quote"
+        primaryCtaText="GET A QUOTE"
         primaryCtaHref="/get-a-quote"
         secondaryCtaText="Call +91 98110 34825"
         secondaryCtaHref="tel:+919811034825"

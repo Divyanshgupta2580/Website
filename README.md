@@ -20,7 +20,7 @@ GG Construction Co. is a practical, dedicated building contractor with confirmed
 
 The platform provides a comprehensive suite of verified components and workflows:
 
-- **Responsive Dark Architectural UI**: Monolithic, editorial dark visual identity built with high-contrast typography and subtle grid borders.
+- **Clean Local Construction UI**: Practical, solid, approachable, and professional visual identity with high-contrast sans-serif typography, generous whitespace, and prominent construction photography.
 - **Construction Services**: Realistic low-rise construction capabilities (`/services`) focusing on residential, small commercial, and renovation work.
 - **Dynamic Service Pages**: Detailed service pages (`/services/[slug]`) outlining execution steps, quality checks, and customer enquiry paths.
 - **Project Portfolio**: Representative showcase of low-rise projects (`/projects`) categorized by residential, commercial, mixed-use, and renovation builds up to 4–5 floors.
@@ -36,7 +36,7 @@ The platform provides a comprehensive suite of verified components and workflows
 - **SEO Metadata**: Static and dynamic OpenGraph tags, Twitter cards, and structured JSON-LD schemas with XSS escaping.
 - **Sitemap**: Programmatically generated XML sitemap (`/sitemap.xml`) indexing all valid construction URLs.
 - **Robots.txt**: Dynamically generated crawler directive file (`/robots.txt`).
-- **404 Page**: Custom architectural error page (`src/app/not-found.tsx`) with clear recovery navigation.
+- **404 Page**: Custom error page (`src/app/not-found.tsx`) with clear recovery navigation.
 - **Security Headers**: Production-grade HTTP security headers configured at the Next.js framework level.
 - **Server-Side Validation**: Robust schema validation via Zod on all incoming API payloads.
 - **Rate Limiting**: Sliding-window IP rate limiter on all public API endpoints (5 requests/minute).
@@ -50,21 +50,23 @@ The platform provides a comprehensive suite of verified components and workflows
 The application is built with modern, battle-tested web standards verified directly against [`package.json`](file:///Users/apple/Desktop/Website/package.json):
 
 ### Core Runtime & Framework
-- **Framework**: [Next.js](https://nextjs.org/) `14.2.18` (App Router architecture)
+- **Framework**: [Next.js](https://nextjs.org/) `14.2.35` (App Router architecture)
 - **Language**: [TypeScript](https://www.typescriptlang.org/) `5.4.5`
 - **UI Library**: [React](https://react.dev/) `18.3.1` / [React DOM](https://react.dev/) `18.3.1`
 
 ### Styling & Design
 - **CSS Framework**: [Tailwind CSS](https://tailwindcss.com/) `3.4.4`
-- **PostCSS**: [PostCSS](https://postcss.org/) `8.4.38`
+- **PostCSS**: [PostCSS](https://postcss.org/) `^8.5.28` (security override)
+- **Glob**: [Glob](https://github.com/isaacs/node-glob) `^10.4.6` (security override)
 - **Autoprefixer**: [Autoprefixer](https://github.com/postcss/autoprefixer) `10.4.19`
 - **Icons**: [Lucide React](https://lucide.dev/) `0.460.0`
+- **Typography**: [Manrope](https://fonts.google.com/specimen/Manrope) Google Font
 
 ### Validation & Schema
 - **Schema Validation**: [Zod](https://zod.dev/) `3.23.8`
 
 ### Development & Linting
-- **Linter**: [ESLint](https://eslint.org/) `8.57.0` with `eslint-config-next` `14.2.18`
+- **Linter**: [ESLint](https://eslint.org/) `8.57.0` with `eslint-config-next` `14.2.35`
 - **Type Definitions**: `@types/node` `20.14.0`, `@types/react` `18.3.3`, `@types/react-dom` `18.3.0`
 
 ---
@@ -141,27 +143,28 @@ All routes are implemented under `src/app`:
 | :--- | :--- | :--- |
 | `/sitemap.xml` | `src/app/sitemap.ts` | Programmatic XML sitemap containing only valid construction routes |
 | `/robots.txt` | `src/app/robots.ts` | Crawler directive indexing sitemap and protecting API endpoints |
-| Custom 404 | `src/app/not-found.tsx` | Monolithic dark error page rendered for nonexistent URLs |
+| Custom 404 | `src/app/not-found.tsx` | Clean error page rendered for nonexistent URLs |
 | Global Error | `src/app/error.tsx` | Client error boundary catching unexpected client-side exceptions |
 
 ---
 
 ## Design System
 
-The visual design system embodies a minimalist, dark architectural aesthetic tailored for high-trust building clients.
+The visual design system embodies a solid, trustworthy, local construction aesthetic built on clean contrast, modern sans-serif typography, and practical whitespace.
 
 ### Core Color Palette
 | Token Value | CSS Name / Token Role | Usage Description |
 | :--- | :--- | :--- |
-| `#0B0D0F` | Deep Charcoal Black | Primary page background; absorbs light to frame high-contrast photography |
-| `#15191D` | Elevated Architectural Surface | Surface fill for cards, modal dialogs, and navigation drawers |
-| `#1D2227` | Dark Concrete | Subtle fill for alternating sections and segmented control backdrops |
-| `#F3F1EC` | Warm Off-White | Primary typography and headings; high readability without harsh glare |
-| `#A7ADB3` | Muted Technical Slate | Secondary text, body copy, and form field descriptions |
-| `#2A3035` | Subtle Grid Line | Monolithic 1px structural grid lines and card borders |
-| `#B89A63` | Architectural Bronze | Primary brand accent; used for eyebrows, key CTAs, and active states |
-| `#D0B47A` | Luminous Bronze Hover | Hover state for primary buttons and interactive highlights |
-| `#667582` | Steel Engineering Accent | Low-contrast technical metadata, timestamps, and subtle borders |
+| `#F4F2EE` | Primary Background (60%) | Light neutral background across pages and layouts |
+| `#FFFFFF` | White Surface | Clean card containers, interactive panels, and input surfaces |
+| `#E8E6E1` | Secondary Surface | Section separation and subtle background contrasts |
+| `#20272D` | Primary Text | High-contrast, readable body copy and technical specifications |
+| `#18324A` | Deep Navy (25%) | Authoritative brand titles, section headings, and footer |
+| `#66717A` | Muted Text (10%) | Secondary labels, timestamps, and architectural metadata |
+| `#D5D4D0` | Subtle Border | Clean dividing lines framing cards and form inputs |
+| `#D96B27` | Construction Orange (5%) | Primary CTAs ("GET A QUOTE"), active filter tabs, and accent bars |
+| `#B9551D` | Orange Hover | Button hover and active feedback states |
+| `#F3D8C7` | Soft Orange | Badge backgrounds and icon container highlights |
 
 ---
 

@@ -17,27 +17,27 @@ export default function StatBlock({
 }: StatBlockProps) {
   return (
     <div
-      className={`bg-[#15191D] border border-[#2A3035] p-6 sm:p-8 flex flex-col justify-between hover:border-[#B89A63]/50 transition-colors ${className}`}
+      className={`bg-white border border-[#D5D4D0] p-6 sm:p-7 flex flex-col justify-between hover:border-[#18324A] transition-colors rounded-sm shadow-xs ${className}`}
     >
       <div>
         <div className="flex items-center justify-between mb-3">
-          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#667582]">
-            {index !== undefined ? `RECORD // 0${index + 1}` : "COMPANY METRIC"}
+          <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#66717A]">
+            {index !== undefined ? `STANDARDS // 0${index + 1}` : "CONSTRUCTION FACT"}
           </span>
-          <span className="w-1.5 h-1.5 bg-[#B89A63]" aria-hidden="true" />
+          <span className="w-2 h-2 rounded-full bg-[#D96B27]" aria-hidden="true" />
         </div>
 
-        <div className="text-xl sm:text-2xl lg:text-3xl font-light text-[#B89A63] font-mono tracking-tight mb-2 break-words">
+        <div className="text-xl sm:text-2xl font-bold text-[#18324A] tracking-tight mb-1.5 break-words">
           {value}
         </div>
 
-        <h3 className="text-sm font-medium text-[#F3F1EC] tracking-normal">
+        <h3 className="text-sm font-semibold text-[#20272D]">
           {label}
         </h3>
       </div>
 
       {helper && (
-        <p className="text-xs text-[#A7ADB3] mt-3 pt-3 border-t border-[#2A3035]/60 leading-relaxed">
+        <p className="text-xs text-[#66717A] mt-3 pt-3 border-t border-[#D5D4D0] leading-relaxed">
           {helper}
         </p>
       )}

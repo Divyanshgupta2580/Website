@@ -1,166 +1,99 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Home, Building2, Store, Hammer, ClipboardCheck } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import { servicesData } from "@/data/services";
 
-export default function ServicesPreview() {
-  const residentialService =
-    servicesData.find((s) => s.slug === "residential-construction") || servicesData[0];
-  const supportingServices = [
-    servicesData.find((s) => s.slug === "commercial-construction"),
-    servicesData.find((s) => s.slug === "shop-office-construction"),
-    servicesData.find((s) => s.slug === "renovation-remodeling"),
-  ].filter((s): s is (typeof servicesData)[0] => Boolean(s));
+const serviceIcons: Record<string, React.ElementType> = {
+  "residential-construction": Home,
+  "commercial-construction": Building2,
+  "shop-office-construction": Store,
+  "renovation-remodeling": Hammer,
+  "construction-planning": ClipboardCheck,
+};
 
+export default function ServicesPreview() {
   return (
-    <section className="py-20 md:py-28 bg-[#0B0D0F] border-t border-[#2A3035]">
+    <section className="py-16 md:py-24 bg-[#F4F2EE] border-b border-[#D5D4D0]">
       <Container size="default">
         <SectionHeading
           eyebrow="Core Construction Services"
-          title="Practical Building Construction Services"
+          title="Practical Building Construction"
           description="We construct low-rise buildings across Rohini, Pitampura, and nearby areas of Delhi: residential homes, builder floors, commercial shops, and small offices (up to approximately 4–5 floors maximum), backed by attentive on-site supervision and disciplined civil execution."
           action={
             <Button href="/services" variant="outline" size="sm">
               <span>All Construction Services</span>
-              <ArrowUpRight className="w-3.5 h-3.5 ml-2" />
+              <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
             </Button>
           }
         />
 
-        {/* Asymmetric Editorial Hero Service Card */}
-        <div className="bg-[#15191D] border border-[#2A3035] overflow-hidden mb-8 group hover:border-[#B89A63]/60 transition-colors">
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            {/* Image Column */}
-            <div className="lg:col-span-6 relative min-h-[320px] lg:min-h-[440px] bg-[#1D2227] overflow-hidden">
-              <Image
-                src={residentialService.heroImage}
-                alt={residentialService.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#15191D] via-[#15191D]/30 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#15191D]" />
+        {/* Clean, Simple Visual Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {servicesData.map((service, idx) => {
+            const Icon = serviceIcons[service.slug] || Home;
+            const isFeatured = idx === 0;
 
-              <div className="absolute top-4 left-4 z-10">
-                <Badge variant="bronze">{residentialService.badge}</Badge>
-              </div>
+            return (
+              <div
+                key={service.slug}
+                className={`bg-white border border-[#D5D4D0] p-6 sm:p-7 flex flex-col justify-between hover:border-[#18324A] transition-all rounded-sm shadow-xs ${
+                  isFeatured ? "md:col-span-2 lg:col-span-1 border-t-2 border-t-[#D96B27]" : ""
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-sm bg-[#F4F2EE] border border-[#D5D4D0] flex items-center justify-center text-[#18324A]">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <Badge variant={isFeatured ? "orange" : "slate"}>
+                      {service.badge}
+                    </Badge>
+                  </div>
 
-              <div className="absolute bottom-4 left-4 z-10 font-mono text-[10px] text-[#A7ADB3] bg-[#0B0D0F]/80 px-2 py-1 border border-[#2A3035]">
-                UP TO 4–5 FLOORS &bull; SOUND RCC FRAMING
-              </div>
-            </div>
+                  <h3 className="text-xl font-bold text-[#18324A] hover:text-[#D96B27] transition-colors mb-2.5">
+                    <Link href={`/services/${service.slug}`}>
+                      {service.title}
+                    </Link>
+                  </h3>
 
-            {/* Content Column */}
-            <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] uppercase font-mono tracking-widest text-[#B89A63] block mb-2">
-                  RESIDENTIAL &bull; UP TO 4–5 FLOORS
-                </span>
+                  <p className="text-sm text-[#66717A] leading-relaxed mb-6">
+                    {service.shortDescription}
+                  </p>
 
-                <h3 className="text-2xl sm:text-3xl font-light text-[#F3F1EC] mb-3 group-hover:text-[#B89A63] transition-colors">
-                  <Link href={`/services/${residentialService.slug}`}>
-                    {residentialService.title}
-                  </Link>
-                </h3>
-
-                <p className="text-xs sm:text-sm text-[#A7ADB3] leading-relaxed mb-6">
-                  {residentialService.overview}
-                </p>
-
-                <div className="pt-4 border-t border-[#2A3035]/60 mb-6">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#667582] block mb-3">
-                    Construction Scope
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#A7ADB3]">
-                    {residentialService.capabilities.slice(0, 4).map((cap, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#B89A63] flex-shrink-0 mt-0.5" />
-                        <span className="line-clamp-1">{cap}</span>
-                      </div>
-                    ))}
+                  <div className="pt-4 border-t border-[#D5D4D0] mb-6">
+                    <span className="text-[11px] uppercase tracking-wider font-bold text-[#18324A] block mb-2.5">
+                      Scope Highlights
+                    </span>
+                    <ul className="space-y-2 text-xs text-[#20272D]">
+                      {service.capabilities.slice(0, 3).map((cap, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#D96B27] flex-shrink-0 mt-0.5" />
+                          <span className="line-clamp-1">{cap}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              </div>
 
-              <div className="pt-6 border-t border-[#2A3035] flex items-center justify-between gap-4">
-                <Button
-                  href={`/services/${residentialService.slug}`}
-                  variant="primary"
-                  size="sm"
-                >
-                  <span>Explore Scope</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 ml-1.5" />
-                </Button>
-
-                <Button
-                  href="/contact"
-                  variant="outline"
-                  size="sm"
-                >
-                  Discuss Your Build
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Supporting Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {supportingServices.map((service, idx) => (
-            <div
-              key={service.slug}
-              className="bg-[#15191D] border border-[#2A3035] p-6 sm:p-8 flex flex-col justify-between hover:border-[#B89A63]/60 transition-colors group"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <Badge variant="slate">{service.badge}</Badge>
-                  <span className="text-[10px] font-mono text-[#667582]">
-                    SERVICE // 0{idx + 2}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-light text-[#F3F1EC] mb-2 group-hover:text-[#B89A63] transition-colors">
-                  <Link href={`/services/${service.slug}`}>
-                    {service.title}
+                <div className="pt-4 border-t border-[#D5D4D0] flex items-center justify-between">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="text-xs uppercase tracking-wider font-bold text-[#18324A] hover:text-[#D96B27] inline-flex items-center gap-1 transition-colors"
+                  >
+                    <span>View Scope Details</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
-                </h3>
-
-                <p className="text-xs text-[#A7ADB3] leading-relaxed mb-6 line-clamp-3">
-                  {service.shortDescription}
-                </p>
-
-                <div className="pt-4 border-t border-[#2A3035]/60 mb-6">
-                  <span className="text-[10px] uppercase tracking-wider text-[#667582] block mb-2 font-semibold">
-                    Scope Snapshot
+                  <span className="text-[10px] font-bold text-[#66717A] uppercase">
+                    Up to 4–5 Floors
                   </span>
-                  <ul className="space-y-1.5 text-xs text-[#A7ADB3]">
-                    {service.capabilities.slice(0, 3).map((cap, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-[#B89A63]" />
-                        <span className="line-clamp-1">{cap}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
-
-              <div className="pt-4 border-t border-[#2A3035] flex items-center justify-between">
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="text-xs uppercase tracking-widest font-semibold text-[#F3F1EC] group-hover:text-[#B89A63] inline-flex items-center gap-1.5 transition-colors"
-                >
-                  <span>Scope Details</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#B89A63]" />
-                </Link>
-                <span className="text-[10px] font-mono text-[#667582]">GG CON CO.</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
